@@ -41,7 +41,7 @@ jobs:
           persist-credentials: false
       - name: Install native reLATTE verifier and LocalReceiver dependencies
         working-directory: external/reLATTE
-        run: npm ci --ignore-scripts --no-audit --no-fund
+        run: npm install --ignore-scripts --no-audit --no-fund
       - name: Verify the separately pinned Git source and genuine native receiver R3 HOLD
         env:
           CANNON002_SOURCE_ROOT: ${{ github.workspace }}/external/static-os
