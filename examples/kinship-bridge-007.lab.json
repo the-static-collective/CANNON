@@ -1,0 +1,66 @@
+{
+  "schema": "cannon.kinship-bridge-007/v0",
+  "label": "SYNTHETIC DEVELOPER FIXTURE — NO KINSHIP DATA",
+  "mode": "LAB_SYNTHETIC",
+  "as_of_month": "2026-10",
+  "cash_snapshot": {
+    "recurring_unrestricted_income_cents": 1200000,
+    "recurring_cash_expenses_cents": 1400000,
+    "opening_unrestricted_cash_cents": 8400000
+  },
+  "territories": [
+    {
+      "country": "GH",
+      "checks": {
+        "android_store": "UNKNOWN",
+        "ios_store": "UNKNOWN",
+        "stream_playback": "UNKNOWN",
+        "data_affordability": "UNKNOWN",
+        "locally_reviewed_material": "UNKNOWN",
+        "local_partner_opt_in": "UNKNOWN",
+        "stream_rights": "UNKNOWN",
+        "station_editorial_review": "UNKNOWN",
+        "aggregate_privacy_review": "UNKNOWN"
+      },
+      "weekly_sessions": null,
+      "sessions_source": "NONE"
+    },
+    {
+      "country": "KE",
+      "checks": {
+        "android_store": "UNKNOWN",
+        "ios_store": "UNKNOWN",
+        "stream_playback": "UNKNOWN",
+        "data_affordability": "UNKNOWN",
+        "locally_reviewed_material": "UNKNOWN",
+        "local_partner_opt_in": "UNKNOWN",
+        "stream_rights": "UNKNOWN",
+        "station_editorial_review": "UNKNOWN",
+        "aggregate_privacy_review": "UNKNOWN"
+      },
+      "weekly_sessions": null,
+      "sessions_source": "NONE"
+    },
+    {
+      "country": "UG",
+      "checks": {
+        "android_store": "UNKNOWN",
+        "ios_store": "UNKNOWN",
+        "stream_playback": "UNKNOWN",
+        "data_affordability": "UNKNOWN",
+        "locally_reviewed_material": "UNKNOWN",
+        "local_partner_opt_in": "UNKNOWN",
+        "stream_rights": "UNKNOWN",
+        "station_editorial_review": "UNKNOWN",
+        "aggregate_privacy_review": "UNKNOWN"
+      },
+      "weekly_sessions": null,
+      "sessions_source": "NONE"
+    }
+  ],
+  "authorization": {
+    "status": "NONE",
+    "key_id": null,
+    "signature_base64": null
+  }
+}
