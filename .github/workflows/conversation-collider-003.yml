@@ -1,0 +1,116 @@
+name: Conversation Collider 003 — GHoT work without equipment grants
+on:
+  push:
+    branches:
+      - experiment/conversation-collider-work-003
+  pull_request:
+    paths:
+      - scripts/conversation-collider-work.mjs
+      - examples/conversation-collider-003.sources.json
+      - test/conversation-collider-work.test.mjs
+      - docs/CONVERSATION-COLLIDER-003.md
+      - .github/workflows/conversation-collider-003.yml
+permissions:
+  contents: read
+jobs:
+  read-only-three-repositories:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Thirteen adverse source and authority tests
+        run: node --test test/conversation-collider-work.test.mjs
+      - name: Pin GHoT at exact original revision
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/GHoT
+          ref: e35dd470384d864b7b0b629a68dad570875a7df0
+          path: external/GHoT
+          persist-credentials: false
+      - name: Pin Static Live at exact original revision
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/static-live
+          ref: 38e67b2930cea09c3e01a05447a6e92a67c2468f
+          path: external/static-live
+          persist-credentials: false
+      - name: Pin STATIC OS printer source at exact original revision
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/static-os
+          ref: 7bc551610421bd60a8dbf624d93d7a6682ce3987
+          path: external/static-os
+          persist-credentials: false
+      - name: Bind local filesystem source roots; no live equipment
+        run: |
+          mkdir -p work
+          node --input-type=module - <<'JS'
+          import {writeFileSync} from 'node:fs';
+          import {join} from 'node:path';
+          const root=process.env.GITHUB_WORKSPACE;
+          writeFileSync('work/roots-003.json',JSON.stringify({
+            'the-static-collective/GHoT':join(root,'external/GHoT'),
+            'the-static-collective/static-live':join(root,'external/static-live'),
+            'the-static-collective/static-os':join(root,'external/static-os')
+          }));
+          JS
+      - name: Read and commit source-grounded proposal to local receipt
+        run: |
+          node scripts/conversation-collider-work.mjs scan \
+            --plan examples/conversation-collider-003.sources.json \
+            --roots work/roots-003.json --out work/collider-003.json > /dev/null
+      - name: Independently cold replay and verify non-authority invariants
+        run: |
+          node scripts/conversation-collider-work.mjs verify \
+            --plan examples/conversation-collider-003.sources.json \
+            --roots work/roots-003.json --out work/collider-003.json > work/collider-003-proof.json
+          node --input-type=module - <<'JS'
+          import {readFileSync} from 'node:fs';
+          const r=JSON.parse(readFileSync('work/collider-003.json'));
+          const v=JSON.parse(readFileSync('work/collider-003-proof.json'));
+          const roles=r.sources.map(s=>s.role);
+          if(r.sources.length!==4 ||
+            roles.length!==new Set(roles).size ||
+            r.sources.some(s=>s.status!=='GIT_OBJECT_VERIFIED') ||
+            r.missing_source_roles.length!==0 ||
+            r.ghot_offers_status!=='SOURCE_DECLARED_ONLY_NOT_PROBED_NOW' ||
+            !r.ghot_declared_capabilities.includes('media.probe') ||
+            !r.ghot_declared_capabilities.includes('system.hash') ||
+            r.conditional_media_inspections.length!==1 ||
+            r.conditional_media_inspections[0].disposition!=='HOLD_FILE_EXISTENCE_EXECUTOR_POWER_RIGHTS' ||
+            !r.conditional_media_inspections[0].candidate_assets.includes('stems/drums.wav') ||
+            r.static_live_required_stage_capabilities.length!==4 ||
+            !r.static_live_required_stage_capabilities.every(x=>x.status==='NO_MATCH_HUMAN_STAGE_CAPABILITY' && !x.ghot_is_live_performer) ||
+            r.printer_technology_field.length!==10 ||
+            r.printer_technology_field.some(f=>f.status!=='HOLD_PHYSICAL_PROFILE_AND_OPERATOR_PERMISSION') ||
+            r.physical_printer_count_verified!==0 ||
+            r.physical_printer_execution_authorized!==false ||
+            r.executions!==0 || r.physical_parts_created!==0 || r.git_mutations!==0 ||
+            r.actual_executor_presence_tested!==false ||
+            r.actual_media_bytes_tested!==false ||
+            r.decision!=='DISCOVERY_ONLY_NO_MACHINE_OR_PERFORMANCE_AUTHORITY' ||
+            v.status!=='WORK_COLLIDER_003_COLD_SOURCE_REPLAY_VERIFIED' ||
+            v.receipt_sha256!==r.receipt_sha256) throw Error('FALSE_GHOT_CAPABILITY_OR_PRINT_AUTHORITY');
+          console.log(JSON.stringify({
+            ghot_declared_capabilities:r.ghot_declared_capabilities.length,
+            media_proposals:r.conditional_media_inspections.length,
+            unmatched_human_stage_capabilities:r.static_live_required_stage_capabilities.length,
+            printer_family_holds:r.printer_technology_field.length,
+            cold_replay:v.status,
+            receipt:r.receipt_sha256
+          }));
+          JS
+      - name: Archive nonsecret exact-source proposal and replay
+        uses: actions/upload-artifact@v4
+        with:
+          name: cannon-collider-003-source-proposal
+          path: |
+            work/collider-003.json
+            work/collider-003-proof.json
+          retention-days: 14
+          if-no-files-found: error
