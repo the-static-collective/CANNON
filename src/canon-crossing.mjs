@@ -8,7 +8,7 @@
 import {execFileSync} from "node:child_process";
 import {createHash} from "node:crypto";
 import {readFile,writeFile,mkdir,stat} from "node:fs/promises";
-import {join,resolve} from "node:path";
+import {dirname,join,resolve} from "node:path";
 import {pathToFileURL} from "node:url";
 import {canonical,digest,project} from "./canon-field.mjs";
 
@@ -171,6 +171,7 @@ export async function carry(plan,relatteRoot) {
     "PLAN_ID_INVALID");
   const root=resolve(join(plan.request.result_path,".."));
   check(!(await exists(root)),"REVIEW_OCCURRENCE_EXISTS_NO_AUTORETRY");
+  await mkdir(dirname(root),{recursive:true,mode:0o700});
   await mkdir(root,{recursive:false,mode:0o700});
   const api=await native(relatteRoot);
   const result=await api.runOpaqueOrganRoundTrip(plan.request);
