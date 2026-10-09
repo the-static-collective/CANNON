@@ -1,0 +1,36 @@
+{
+  "schema": "cannon.adapter-forge-plan/v0",
+  "goal": "Externalize STATIC OS byte_length without claiming its signed crossing still verifies; propose reLATTE-native reissue",
+  "sources": [
+    {
+      "id": "static-os-crossing",
+      "repository": "the-static-collective/static-os",
+      "commit": "7bc551610421bd60a8dbf624d93d7a6682ce3987",
+      "path": "fixtures/bardo-boot-witness-001/crossing.json",
+      "media_type": "application/json"
+    },
+    {
+      "id": "relatte-contract",
+      "repository": "the-static-collective/reLATTE",
+      "commit": "dcc8cdca84c440aa4294134f020fb7095bf87f24",
+      "path": "schemas/crossing-envelope-v0.schema.json",
+      "media_type": "application/json"
+    }
+  ],
+  "adapter": {
+    "id": "static-os-relatte-envelope-adapter-v0",
+    "instance": "static-os-crossing",
+    "contract": "relatte-contract",
+    "mode": "PROPOSAL_ONLY",
+    "rules": [
+      {
+        "id": "externalize-byte-length",
+        "op": "EXTERNALIZE_FIELD",
+        "pointer": "/payload_refs/*/byte_length",
+        "accepted_type": "safe_nonnegative_integer",
+        "disposition": "PRESERVE_IN_SIDECAR",
+        "rationale": "Retain exact source byte-length witness while preparing a new unsigned receiver-compatible data projection."
+      }
+    ]
+  }
+}

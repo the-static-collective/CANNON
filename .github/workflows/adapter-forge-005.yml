@@ -1,0 +1,104 @@
+name: ADAPTER FORGE 005 — loss-accounted unsigned proposal
+on:
+  push:
+    branches:
+      - experiment/adapter-forge-005
+  pull_request:
+    paths:
+      - src/adapter-forge.mjs
+      - scripts/cannon-adapt.mjs
+      - test/adapter-forge.test.mjs
+      - examples/real-crossrepo-adapter.plan.json
+      - docs/ADAPTER-FORGE-005.md
+      - .github/workflows/adapter-forge-005.yml
+permissions:
+  contents: read
+jobs:
+  loss-accounted-adapter:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Run 12 hostile and cold replay checks
+        run: node --test test/adapter-forge.test.mjs
+      - name: Checkout exact original Static OS signed fixture commit
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/static-os
+          ref: 7bc551610421bd60a8dbf624d93d7a6682ce3987
+          path: external/static-os
+          persist-credentials: false
+      - name: Checkout exact original reLATTE schema commit
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/reLATTE
+          ref: dcc8cdca84c440aa4294134f020fb7095bf87f24
+          path: external/reLATTE
+          persist-credentials: false
+      - name: Declare path-only roots, not trust pins
+        run: |
+          mkdir -p work
+          node --input-type=module - <<'JS'
+          import {writeFileSync} from 'node:fs';
+          import {join} from 'node:path';
+          const root=process.env.GITHUB_WORKSPACE;
+          writeFileSync('work/roots-005.json',JSON.stringify({
+            'the-static-collective/static-os':join(root,'external/static-os'),
+            'the-static-collective/reLATTE':join(root,'external/reLATTE')
+          }));
+          JS
+      - name: Forge exact real-source candidate and preserve all omitted values
+        run: |
+          node scripts/cannon-adapt.mjs build \
+            --plan examples/real-crossrepo-adapter.plan.json \
+            --roots work/roots-005.json \
+            --out work/adapter-forge-005
+      - name: Independent cold replay and signature non-laundering assertions
+        run: |
+          node scripts/cannon-adapt.mjs verify \
+            --plan examples/real-crossrepo-adapter.plan.json \
+            --roots work/roots-005.json \
+            --out work/adapter-forge-005 > work/adapter-005-cold.json
+          node --input-type=module - <<'JS'
+          import {readFileSync} from 'node:fs';
+          const p=JSON.parse(readFileSync('work/adapter-forge-005/proposal.json'));
+          const s=JSON.parse(readFileSync('work/adapter-forge-005/sidecar.json'));
+          const r=JSON.parse(readFileSync('work/adapter-forge-005/receipt.json'));
+          const c=JSON.parse(readFileSync('work/adapter-005-cold.json'));
+          if(p.status!=='HOLD_REISSUE_REQUIRED' ||
+             p.original_compatibility?.status!=='INCOMPATIBLE' ||
+             p.transformed_compatibility?.status!=='INCOMPATIBLE' ||
+             p.transformed_compatibility.violations.length!==2 ||
+             !p.transformed_compatibility.violations.every(v=>
+                 v.keyword==='required'&&['/signing','/crossing_id'].includes(v.path))||
+             p.preview?.crossing_id!==undefined||p.preview?.signing!==undefined||
+             p.preview?.payload_refs?.[0]?.byte_length!==undefined||
+             s.entries?.length!==1||
+             s.entries[0].pointer!=='/payload_refs/0/byte_length' ||
+             s.entries[0].value!==670478 ||
+             p.signature_inherited!==false||p.reLATTE_crossing_created!==false||
+             p.permission_granted!==false||p.executions!==0||p.git_mutations!==0||
+             r.execution_authority!=='NONE'||r.crossing_created!==false||
+             c.status!=='ADAPTER_PROPOSAL_COLD_REPLAY_VERIFIED')
+             throw Error('FALSE_ADAPTER_OR_AUTHORITY_CLAIM');
+          console.log(JSON.stringify({
+            verified:c.status,disposition:p.status,externalized:s.entries[0],
+            signing:'REMOVED_NOT_REUSED',crossings_issued:0,source_mutations:0
+          }));
+          JS
+      - name: Archive public nonsecret candidate and receipts
+        uses: actions/upload-artifact@v4
+        with:
+          name: cannon-005-loss-accounted-adapter-proposal
+          path: |
+            work/adapter-forge-005/proposal.json
+            work/adapter-forge-005/sidecar.json
+            work/adapter-forge-005/receipt.json
+            work/adapter-005-cold.json
+          retention-days: 14
+          if-no-files-found: error
