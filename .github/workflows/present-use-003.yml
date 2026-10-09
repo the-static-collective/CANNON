@@ -1,0 +1,80 @@
+name: PRESENT USE 003 — exact cross-repo source composition
+on:
+  push:
+    branches:
+      - experiment/present-use-003
+  pull_request:
+    paths:
+      - src/present-use.mjs
+      - scripts/cannon-now.mjs
+      - test/present-use.test.mjs
+      - examples/real-two-repo.plan.json
+      - docs/PRESENT-USE-003.md
+      - .github/workflows/present-use-003.yml
+permissions:
+  contents: read
+jobs:
+  verified-present-use:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Test hostile inputs in two independent local Git repos
+        run: node --test test/present-use.test.mjs
+      - name: Exact STATIC OS source commit
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/static-os
+          ref: 7bc551610421bd60a8dbf624d93d7a6682ce3987
+          path: external/static-os
+          persist-credentials: false
+      - name: Exact reLATTE source commit
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/reLATTE
+          ref: dcc8cdca84c440aa4294134f020fb7095bf87f24
+          path: external/reLATTE
+          persist-credentials: false
+      - name: Produce explicit local roots (not authority)
+        run: |
+          mkdir -p work
+          node --input-type=module - <<'JS'
+          import {writeFileSync} from 'node:fs';
+          import {join} from 'node:path';
+          const root=process.env.GITHUB_WORKSPACE;
+          writeFileSync('work/roots-003.json',JSON.stringify({
+            'the-static-collective/static-os':join(root,'external/static-os'),
+            'the-static-collective/reLATTE':join(root,'external/reLATTE')
+          }));
+          JS
+      - name: Run bounded availability and real-document composition
+        run: |
+          node scripts/cannon-now.mjs now --plan examples/real-two-repo.plan.json --roots work/roots-003.json --goal 'design documentation' > work/now-003.json
+          node scripts/cannon-now.mjs build --plan examples/real-two-repo.plan.json --roots work/roots-003.json --out work/real-present-use-003
+          node scripts/cannon-now.mjs verify --plan examples/real-two-repo.plan.json --roots work/roots-003.json --out work/real-present-use-003 > work/cold-verified-003.json
+          node --input-type=module - <<'JS'
+          import {readFileSync} from 'node:fs';
+          const view=JSON.parse(readFileSync('work/now-003.json'));
+          const proof=JSON.parse(readFileSync('work/cold-verified-003.json'));
+          if(!view.composition_available || !view.candidates.every(c=>c.status==='VERIFIED_DOCUMENT_SOURCE') ||
+             proof.status!=='COLD_REPLAY_VERIFIED'||proof.source_count!==2 ||
+             proof.canon_required!==false||proof.git_mutations!==0||proof.hardware_actions!==0)
+            throw Error('FALSE_COMPOSITION_OR_AUTHORITY_CLAIM');
+          console.log(JSON.stringify(proof));
+          JS
+      - name: Retain public cold-verifiable nonsecret artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: cannon-003-real-two-repo-document-capsule
+          path: |
+            work/now-003.json
+            work/real-present-use-003/composition.md
+            work/real-present-use-003/receipt.json
+            work/cold-verified-003.json
+          retention-days: 14
+          if-no-files-found: error

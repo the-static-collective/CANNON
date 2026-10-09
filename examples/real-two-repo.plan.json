@@ -1,0 +1,23 @@
+{
+  "schema": "cannon.present-use-plan/v0",
+  "goal": "Compose a source-grounded STATIC OS and reLATTE design dossier without merging or canon selection",
+  "assembly": "markdown-capsule-v0",
+  "sources": [
+    {
+      "id": "static-os-design",
+      "repository": "the-static-collective/static-os",
+      "commit": "7bc551610421bd60a8dbf624d93d7a6682ce3987",
+      "path": "README.md",
+      "media_type": "text/markdown",
+      "tags": ["static-os", "habitat", "design", "documentation"]
+    },
+    {
+      "id": "relatte-protocol",
+      "repository": "the-static-collective/reLATTE",
+      "commit": "dcc8cdca84c440aa4294134f020fb7095bf87f24",
+      "path": "README.md",
+      "media_type": "text/markdown",
+      "tags": ["relatte", "protocol", "design", "documentation"]
+    }
+  ]
+}
