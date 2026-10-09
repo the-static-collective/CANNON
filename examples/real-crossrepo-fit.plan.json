@@ -1,0 +1,39 @@
+{
+  "schema": "cannon.typed-compatibility-plan/v0",
+  "goal": "Check the actual STATIC OS crossing fixture against the pinned reLATTE envelope contract without rewriting or re-signing either source",
+  "sources": [
+    {
+      "id": "static-os-crossing",
+      "repository": "the-static-collective/static-os",
+      "commit": "7bc551610421bd60a8dbf624d93d7a6682ce3987",
+      "path": "fixtures/bardo-boot-witness-001/crossing.json",
+      "media_type": "application/json"
+    },
+    {
+      "id": "relatte-contract",
+      "repository": "the-static-collective/reLATTE",
+      "commit": "dcc8cdca84c440aa4294134f020fb7095bf87f24",
+      "path": "schemas/crossing-envelope-v0.schema.json",
+      "media_type": "application/json"
+    },
+    {
+      "id": "relatte-reference-crossing",
+      "repository": "the-static-collective/reLATTE",
+      "commit": "dcc8cdca84c440aa4294134f020fb7095bf87f24",
+      "path": "fixtures/genesis-signed-crossing.json",
+      "media_type": "application/json"
+    }
+  ],
+  "checks": [
+    {
+      "id": "static-os-against-relatte",
+      "instance": "static-os-crossing",
+      "contract": "relatte-contract"
+    },
+    {
+      "id": "relatte-reference-against-relatte",
+      "instance": "relatte-reference-crossing",
+      "contract": "relatte-contract"
+    }
+  ]
+}
