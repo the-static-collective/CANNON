@@ -1,0 +1,7 @@
+# Never commit generated private keys, signing material, or lab traces.
+work/
+.keys/
+**/private-key.pem
+*.key
+.env
+node_modules/
