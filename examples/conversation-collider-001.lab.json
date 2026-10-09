@@ -1,0 +1,90 @@
+{
+  "schema": "cannon.conversation-collider.inventory/v1",
+  "artifacts": [
+    {
+      "id": "kettle-thermal",
+      "title": "Kettle thermal routing hypothesis",
+      "source": {
+        "kind": "LAB_FIXTURE",
+        "label": "lab-kettle"
+      },
+      "offers": [
+        {
+          "contract": "heat.flow",
+          "version": "v1"
+        }
+      ],
+      "needs": [
+        {
+          "contract": "route.policy",
+          "version": "v1"
+        }
+      ],
+      "tags": [
+        "routing",
+        "water"
+      ]
+    },
+    {
+      "id": "ghot-router",
+      "title": "GHoT hypothetical routing organ",
+      "source": {
+        "kind": "LAB_FIXTURE",
+        "label": "lab-ghot"
+      },
+      "offers": [
+        {
+          "contract": "route.policy",
+          "version": "v1"
+        }
+      ],
+      "needs": [
+        {
+          "contract": "proof.receipt",
+          "version": "v1"
+        }
+      ],
+      "tags": [
+        "routing",
+        "memory"
+      ]
+    },
+    {
+      "id": "relatte-receipts",
+      "title": "reLATTE hypothetical receipt organ",
+      "source": {
+        "kind": "LAB_FIXTURE",
+        "label": "lab-relatte"
+      },
+      "offers": [
+        {
+          "contract": "proof.receipt",
+          "version": "v1"
+        }
+      ],
+      "needs": [
+        {
+          "contract": "heat.flow",
+          "version": "v2"
+        }
+      ],
+      "tags": [
+        "memory",
+        "crossing"
+      ]
+    },
+    {
+      "id": "photobooth",
+      "title": "Unrelated camera fixture sharing a word",
+      "source": {
+        "kind": "LAB_FIXTURE",
+        "label": "lab-camera"
+      },
+      "offers": [],
+      "needs": [],
+      "tags": [
+        "routing"
+      ]
+    }
+  ]
+}
