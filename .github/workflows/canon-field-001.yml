@@ -1,0 +1,61 @@
+name: CANON FIELD 001 — main is not canon
+on:
+  push:
+    branches:
+      - experiment/canon-field-001
+  pull_request:
+    paths:
+      - src/**
+      - scripts/**
+      - test/**
+      - package.json
+      - docs/**
+      - .github/workflows/canon-field-001.yml
+permissions:
+  contents: read
+jobs:
+  canon-field:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Signed owner histories, stale-head denial, fork/rollback and authority tests
+        run: npm test
+      - name: Produce independent cold-verifiable lab view
+        run: |
+          node scripts/cannon.mjs demo work/proof
+          node scripts/cannon.mjs verify work/proof/bundle.json work/proof/lab-generated-pins.json > work/independent-view.json
+          node scripts/cannon.mjs checkpoint work/proof/bundle.json work/proof/lab-generated-pins.json work/checkpoint.json
+          node scripts/cannon.mjs verify work/proof/bundle.json work/proof/lab-generated-pins.json work/checkpoint.json > work/checkpoint-replayed-view.json
+      - name: No main authority, no fabricated permissions, retained signed histories
+        run: |
+          node --input-type=module - <<'JS'
+          import { readFileSync } from 'node:fs';
+          const v=JSON.parse(readFileSync('work/independent-view.json','utf8'));
+          if(v.frontiers.length!==3||v.historical_events.length!==7||
+             v.active.length!==4||v.main_privilege!==0||
+             v.automatic_merges!==0||v.deployment_grants!==0||
+             v.physical_execution_grants!==0)throw Error('INVALID_CANON_FIELD_CLAIMS');
+          if(v.active.some(x=>x.git_object_verified||x.test_results_verified||
+             x.physical_or_deployment_permission||x.authority!=='CANON_SELECTION_ONLY'))
+             throw Error('UNAUTHORIZED_CANON_LAUNDERING');
+          console.log(JSON.stringify({status:v.status,frontiers:v.frontiers.length,
+            retained_events:v.historical_events.length,active:v.active.length,
+            main_required:false,merged_branches:0,machine_grants:0}));
+          JS
+      - name: Public example evidence (NO signing private keys)
+        uses: actions/upload-artifact@v4
+        with:
+          name: cannon-canon-field-001-signed-lab-evidence
+          path: |
+            work/proof/bundle.json
+            work/proof/lab-generated-pins.json
+            work/proof/view.json
+            work/independent-view.json
+            work/checkpoint-replayed-view.json
+            work/checkpoint.json
+          if-no-files-found: error
+          retention-days: 14
