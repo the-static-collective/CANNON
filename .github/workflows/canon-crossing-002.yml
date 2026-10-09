@@ -1,0 +1,97 @@
+name: CANON CROSSING 002 — native reLATTE source and receiver
+on:
+  push:
+    branches:
+      - experiment/canon-crossing-002
+  pull_request:
+    paths:
+      - src/canon-crossing.mjs
+      - scripts/canon-crossing.mjs
+      - test/canon-crossing.test.mjs
+      - docs/CANON-CROSSING-002.md
+      - .github/workflows/canon-crossing-002.yml
+      - package.json
+permissions:
+  contents: read
+jobs:
+  native-canon-crossing:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Checkout exact original Static OS Git commit, without touching main
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/static-os
+          ref: 7bc551610421bd60a8dbf624d93d7a6682ce3987
+          path: external/static-os
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Checkout exact native reLATTE R14 donor main snapshot
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/reLATTE
+          ref: dcc8cdca84c440aa4294134f020fb7095bf87f24
+          path: external/reLATTE
+          persist-credentials: false
+      - name: Install native reLATTE verifier and LocalReceiver dependencies
+        working-directory: external/reLATTE
+        run: npm install --ignore-scripts --no-audit --no-fund
+      - name: Verify the separately pinned Git source and genuine native receiver R3 HOLD
+        env:
+          CANNON002_SOURCE_ROOT: ${{ github.workspace }}/external/static-os
+          CANNON002_RELATTE_ROOT: ${{ github.workspace }}/external/reLATTE
+        run: |
+          node --experimental-strip-types --test test/canon-field.test.mjs test/canon-crossing.test.mjs
+      - name: Native reLATTE signed file-transport crossing from owner-signed canon
+        run: |
+          node --experimental-strip-types scripts/canon-crossing.mjs run \
+            --source "${{ github.workspace }}/external/static-os" \
+            --relatte "${{ github.workspace }}/external/reLATTE" \
+            --out "${{ github.workspace }}/work/native-canon-002" \
+            --at 2026-10-08T22:14:00.000Z
+      - name: 'Different process: source-Git cold verification, reLATTE crossing and receiver journal replay'
+        run: |
+          node --experimental-strip-types scripts/canon-crossing.mjs verify \
+            --source "${{ github.workspace }}/external/static-os" \
+            --relatte "${{ github.workspace }}/external/reLATTE" \
+            --out "${{ github.workspace }}/work/native-canon-002" \
+            --at 2026-10-08T22:14:00.000Z \
+            --bundle "${{ github.workspace }}/work/native-canon-002/lab-owner-bundle.json" \
+            --pins "${{ github.workspace }}/work/native-canon-002/lab-owner-pins.json" \
+            --native-pins "${{ github.workspace }}/work/native-canon-002/lab-native-signer-pins.json" \
+            > "${{ github.workspace }}/work/cold-verified-native-canon.json"
+          node --input-type=module - <<'JS'
+          import {readFileSync} from 'node:fs';
+          const proof=JSON.parse(readFileSync('work/cold-verified-native-canon.json','utf8'));
+          if(!proof.status.endsWith('_HOLD')||proof.owner_streams_verified!==3||
+             proof.remote_transport_performed!==false||proof.main_changed!==false||
+             proof.merges!==0||proof.physical_actions!==0||proof.deployment_grants!==0)
+            throw Error('UNAUTHORIZED_CANON_CROSSING_CLAIM');
+          console.log(JSON.stringify({status:proof.status,
+            source_sha:proof.source_git_commit,
+            verified_owner_streams:proof.owner_streams_verified,
+            signed_crossing:proof.native_crossing_id,
+            signed_receiver_hold:proof.local_disposition_receipt_id,
+            main_unchanged:true,hardware_grants:0}));
+          JS
+      - name: Retain signed public evidence without owner or receiver private keys
+        uses: actions/upload-artifact@v4
+        with:
+          name: cannon-002-original-sha-native-relatte-held
+          path: |
+            work/native-canon-002/cannon-plan.json
+            work/native-canon-002/cannon-bridge-record.json
+            work/native-canon-002/relatte-native-result.json
+            work/native-canon-002/relatte-transport.json
+            work/native-canon-002/lab-owner-bundle.json
+            work/native-canon-002/lab-owner-pins.json
+            work/native-canon-002/lab-native-signer-pins.json
+            work/cold-verified-native-canon.json
+          retention-days: 14
+          if-no-files-found: error
