@@ -1,0 +1,104 @@
+name: KINSHIP BRIDGE 007 — owner-local economies and Africa HOLD
+on:
+  push:
+    branches:
+      - experiment/kinship-bridge-africa-007
+  pull_request:
+    paths:
+      - src/kinship-bridge.mjs
+      - scripts/cannon-bridge.mjs
+      - test/kinship-bridge.test.mjs
+      - examples/kinship-bridge-007.lab.json
+      - docs/KINSHIP-BRIDGE-007.md
+      - .github/workflows/kinship-bridge-007.yml
+permissions:
+  contents: read
+jobs:
+  local-bridge-proof:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Full inherited tests and 007 forgery/authority gates
+        run: npm test
+      - name: Exact Kinship room-source document checkout
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/static-live
+          ref: 66fed5728d6ba60f3ebf86abeb5c7b8c25ae1ff7
+          path: external/static-live
+          persist-credentials: false
+      - name: Exact Treasury source
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/Jubilee-treasury
+          ref: 922639ef84fcf773dbf179d8d9966b0db1247424
+          path: external/Jubilee-treasury
+          persist-credentials: false
+      - name: Exact reLATTE source
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/reLATTE
+          ref: dcc8cdca84c440aa4294134f020fb7095bf87f24
+          path: external/reLATTE
+          persist-credentials: false
+      - name: Prepare disposable local source roots
+        run: |
+          mkdir -p work
+          node --input-type=module - <<'JS'
+          import {writeFileSync} from 'node:fs';
+          import {join} from 'node:path';
+          const w=process.env.GITHUB_WORKSPACE;
+          writeFileSync('work/roots-007.json',JSON.stringify({
+            'the-static-collective/static-live':join(w,'external/static-live'),
+            'the-static-collective/Jubilee-treasury':join(w,'external/Jubilee-treasury'),
+            'the-static-collective/reLATTE':join(w,'external/reLATTE')
+          }));
+          JS
+      - name: Build LAB ONLY three-country evidence-first listening readiness
+        run: |
+          node scripts/cannon-bridge.mjs build \
+            --plan examples/kinship-surplus-006.plan.json \
+            --scenario examples/kinship-surplus-006.station.json \
+            --input examples/kinship-bridge-007.lab.json \
+            --roots work/roots-007.json \
+            --out work/kinship-bridge-007
+      - name: Cold verify exact original source and refuse false campaign or profit claims
+        run: |
+          node scripts/cannon-bridge.mjs verify \
+            --plan examples/kinship-surplus-006.plan.json \
+            --scenario examples/kinship-surplus-006.station.json \
+            --input examples/kinship-bridge-007.lab.json \
+            --roots work/roots-007.json \
+            --out work/kinship-bridge-007 > work/bridge-007-cold.json
+          node --input-type=module - <<'JS'
+          import {readFileSync} from 'node:fs';
+          const x=JSON.parse(readFileSync('work/kinship-bridge-007/report.json','utf8'));
+          const r=JSON.parse(readFileSync('work/kinship-bridge-007/receipt.json','utf8'));
+          const cold=JSON.parse(readFileSync('work/bridge-007-cold.json','utf8'));
+          if(cold.status!=='KINSHIP_BRIDGE_007_COLD_REPLAY_VERIFIED' ||
+             x.mode!=='LAB_SYNTHETIC' ||
+             x.territories.length!==3 ||
+             !x.territories.every(t=>t.status==='HOLD_EVIDENCE_GAPS'&&!t.market_selected) ||
+             x.market_ranking!=='NONE' || x.station_deployment!=='NONE' ||
+             x.actual_listener_reach!=='NOT_ESTABLISHED' ||
+             r.actual_outreach!==0 || r.station_authority!=='NONE' ||
+             r.actual_financial_transactions!==0 || r.actual_reLATTE_crossings!==0)
+             throw Error('FALSE_AUTHORITY_OR_LISTENER_CLAIM');
+          console.log(JSON.stringify({cold:cold.status,territories:cold.countries,
+            status:'HOLD',actual_station_actions:0},null,2));
+          JS
+      - name: Archive LAB-ONLY reports and receipts
+        uses: actions/upload-artifact@v4
+        with:
+          name: cannon-kinship-bridge-007-lab
+          path: |
+            work/kinship-bridge-007/report.json
+            work/kinship-bridge-007/receipt.json
+            work/kinship-bridge-007/source-capsule.md
+            work/bridge-007-cold.json
