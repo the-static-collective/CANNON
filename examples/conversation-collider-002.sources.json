@@ -1,0 +1,26 @@
+{
+  "schema": "cannon.conversation-collider-source-map/v1",
+  "sources": [
+    {
+      "id": "static-os-crossing",
+      "role": "INSTANCE",
+      "repository": "the-static-collective/static-os",
+      "commit": "7bc551610421bd60a8dbf624d93d7a6682ce3987",
+      "path": "fixtures/bardo-boot-witness-001/crossing.json"
+    },
+    {
+      "id": "relatte-crossing-schema",
+      "role": "JSON_SCHEMA_CONTRACT",
+      "repository": "the-static-collective/reLATTE",
+      "commit": "dcc8cdca84c440aa4294134f020fb7095bf87f24",
+      "path": "schemas/crossing-envelope-v0.schema.json"
+    },
+    {
+      "id": "relatte-genesis-reference",
+      "role": "INSTANCE",
+      "repository": "the-static-collective/reLATTE",
+      "commit": "dcc8cdca84c440aa4294134f020fb7095bf87f24",
+      "path": "fixtures/genesis-signed-crossing.json"
+    }
+  ]
+}

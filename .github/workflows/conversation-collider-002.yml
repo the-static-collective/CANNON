@@ -1,0 +1,103 @@
+name: Conversation Collider 002 — real source-grounded discovery
+on:
+  push:
+    branches:
+      - experiment/conversation-collider-source-002
+  pull_request:
+    paths:
+      - scripts/conversation-collider-source.mjs
+      - examples/conversation-collider-002.sources.json
+      - test/conversation-collider-source.test.mjs
+      - docs/CONVERSATION-COLLIDER-002.md
+      - .github/workflows/conversation-collider-002.yml
+permissions:
+  contents: read
+jobs:
+  real-source-discovery:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Adversarial source-collider test suite
+        run: node --test test/conversation-collider-source.test.mjs
+      - name: Checkout exact original STATIC OS commit
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/static-os
+          ref: 7bc551610421bd60a8dbf624d93d7a6682ce3987
+          path: external/static-os
+          persist-credentials: false
+      - name: Checkout exact original reLATTE commit
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/reLATTE
+          ref: dcc8cdca84c440aa4294134f020fb7095bf87f24
+          path: external/reLATTE
+          persist-credentials: false
+      - name: Record local checkout locations only (not external trust)
+        run: |
+          mkdir -p work
+          node --input-type=module - <<'JS'
+          import {writeFileSync} from 'node:fs';
+          import {join} from 'node:path';
+          const root=process.env.GITHUB_WORKSPACE;
+          writeFileSync('work/roots-002.json',JSON.stringify({
+            'the-static-collective/static-os':join(root,'external/static-os'),
+            'the-static-collective/reLATTE':join(root,'external/reLATTE')
+          }));
+          JS
+      - name: Discover real interface edges from original Git objects
+        run: |
+          node scripts/conversation-collider-source.mjs scan \
+            --plan examples/conversation-collider-002.sources.json \
+            --roots work/roots-002.json \
+            --out work/collider-002.json > /dev/null
+      - name: Independent process cold source replay and invariant checks
+        run: |
+          node scripts/conversation-collider-source.mjs verify \
+            --plan examples/conversation-collider-002.sources.json \
+            --roots work/roots-002.json \
+            --out work/collider-002.json > work/collider-002-proof.json
+          node --input-type=module - <<'JS'
+          import {readFileSync} from 'node:fs';
+          const r=JSON.parse(readFileSync('work/collider-002.json','utf8'));
+          const proof=JSON.parse(readFileSync('work/collider-002-proof.json','utf8'));
+          const c=r.candidates.find(x=>x.instance==='static-os-crossing'&&x.contract==='relatte-crossing-schema');
+          const b=r.candidates.find(x=>x.instance==='relatte-genesis-reference'&&x.contract==='relatte-crossing-schema');
+          if(r.sources.length!==3||r.candidates.length!==2||
+             r.sources.some(x=>x.status!=='GIT_OBJECT_VERIFIED')||
+             c?.structural_status!=='INCOMPATIBLE'||
+             c?.source_relationship!=='CROSS_REPOSITORY'||
+             !c.violations.some(x=>x.path==='/payload_refs/0/byte_length'&&x.keyword==='additionalProperties')||
+             b?.structural_status!=='STRUCTURALLY_COMPATIBLE'||
+             b?.source_relationship!=='SAME_REPOSITORY_BASELINE'||
+             r.authority!=='PROPOSAL_ONLY_NO_EXECUTION'||
+             r.remote_owner_authenticated===true||
+             r.signatures_verified===true||
+             r.receiver_admitted!==false||r.git_mutations!==0||r.executions!==0||
+             proof.status!=='PINNED_SOURCE_COLLIDER_COLD_REPLAY_VERIFIED'||
+             proof.receipt_sha256!==r.receipt_sha256)throw Error('COLLIDER_002_FALSE_FIT_OR_AUTHORITY');
+          console.log(JSON.stringify({
+            source_count:r.sources.length,
+            matched_pairs:r.candidates.length,
+            cross_repo:c.structural_status,
+            violation:c.violations[0].path,
+            baseline:b.structural_status,
+            cold_replay:proof.status,
+            receipt_sha256:r.receipt_sha256
+          }));
+          JS
+      - name: Preserve nonsecret source witness and replay
+        uses: actions/upload-artifact@v4
+        with:
+          name: cannon-collider-002-pinned-source-evidence
+          path: |
+            work/collider-002.json
+            work/collider-002-proof.json
+          retention-days: 14
+          if-no-files-found: error
