@@ -1,0 +1,110 @@
+name: KINSHIP SURPLUS 006 — exact sources and synthetic station worlds
+on:
+  push:
+    branches:
+      - experiment/kinship-surplus-006
+  pull_request:
+    paths:
+      - src/kinship-surplus.mjs
+      - scripts/cannon-surplus.mjs
+      - test/kinship-surplus.test.mjs
+      - examples/kinship-surplus-006.plan.json
+      - examples/kinship-surplus-006.station.json
+      - docs/KINSHIP-SURPLUS-006.md
+      - .github/workflows/kinship-surplus-006.yml
+permissions:
+  contents: read
+jobs:
+  source-pinned-station-simulation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Run full inherited CANNON suite with new hostile checks
+        run: npm test
+      - name: Checkout exact Kinship Living Gifts source candidate
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/static-live
+          ref: 66fed5728d6ba60f3ebf86abeb5c7b8c25ae1ff7
+          path: external/static-live
+          persist-credentials: false
+      - name: Checkout exact Jubilee Treasury source
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/Jubilee-treasury
+          ref: 922639ef84fcf773dbf179d8d9966b0db1247424
+          path: external/Jubilee-treasury
+          persist-credentials: false
+      - name: Checkout exact reLATTE source
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/reLATTE
+          ref: dcc8cdca84c440aa4294134f020fb7095bf87f24
+          path: external/reLATTE
+          persist-credentials: false
+      - name: Declare local checkout paths, not owner attestation
+        run: |
+          mkdir -p work
+          node --input-type=module - <<'JS'
+          import {writeFileSync} from 'node:fs';
+          import {join} from 'node:path';
+          const p=process.env.GITHUB_WORKSPACE;
+          writeFileSync('work/roots-006.json',JSON.stringify({
+            'the-static-collective/static-live':join(p,'external/static-live'),
+            'the-static-collective/Jubilee-treasury':join(p,'external/Jubilee-treasury'),
+            'the-static-collective/reLATTE':join(p,'external/reLATTE')
+          }));
+          JS
+      - name: Build a public, synthetic source-verifiable economic simulation
+        run: |
+          node scripts/cannon-surplus.mjs build \
+            --plan examples/kinship-surplus-006.plan.json \
+            --station examples/kinship-surplus-006.station.json \
+            --roots work/roots-006.json \
+            --out work/kinship-surplus-006
+      - name: Independently cold-replay exact original Git objects and simulation output
+        run: |
+          node scripts/cannon-surplus.mjs verify \
+            --plan examples/kinship-surplus-006.plan.json \
+            --station examples/kinship-surplus-006.station.json \
+            --roots work/roots-006.json \
+            --out work/kinship-surplus-006 > work/cold-006.json
+          node --input-type=module - <<'JS'
+          import {readFileSync} from 'node:fs';
+          const report=JSON.parse(readFileSync('work/kinship-surplus-006/report.json','utf8'));
+          const receipt=JSON.parse(readFileSync('work/kinship-surplus-006/receipt.json','utf8'));
+          const cold=JSON.parse(readFileSync('work/cold-006.json','utf8'));
+          const worlds=Object.fromEntries(report.worlds.map(w=>[w.id,w]));
+          if(cold.status!=='KINSHIP_006_COLD_REPLAY_VERIFIED' ||
+             receipt.source_witnesses.length!==3 ||
+             receipt.reLATTE_crossings!==0 || receipt.financial_transactions!==0 ||
+             receipt.station_authorization!=='NOT_OBTAINED' ||
+             receipt.cross_repo_compatibility!=='NOT_CLAIMED_OR_EXECUTED' ||
+             report.classification!=='SYNTHETIC_ASSUMPTIONS_NOT_STATION_FINANCIALS' ||
+             worlds.baseline.june_2027_recurring_margin_cents!==-200000 ||
+             worlds.sustainers.june_2027_recurring_margin_cents!==-20000 ||
+             worlds.surplus.june_2027_recurring_margin_cents!==70000 ||
+             worlds.surplus.june_surplus_conditions_met_in_simulation!==true ||
+             report.actual_donations!==0 || report.actual_station_actions!==0)
+             throw Error('FALSE_SURPLUS_OR_AUTHORITY_CLAIM');
+          console.log(JSON.stringify({
+            cold_status:cold.status,worlds:report.worlds.map(w=>({
+              name:w.id,june_margin_cents:w.june_2027_recurring_margin_cents
+            })),simulation_only:true,actual_transactions:0
+          }));
+          JS
+      - name: Preserve public synthetic report and cold receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: cannon-kinship-surplus-006-public-simulation
+          path: |
+            work/kinship-surplus-006/report.json
+            work/kinship-surplus-006/receipt.json
+            work/kinship-surplus-006/source-capsule.md
+            work/cold-006.json

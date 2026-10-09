@@ -1,0 +1,108 @@
+{
+  "schema": "cannon.kinship-station-simulation/v0",
+  "label": "SYNTHETIC — NOT KINSHIP RADIO BUDGET",
+  "periods": [
+    "2026-10",
+    "2026-11",
+    "2026-12",
+    "2027-01",
+    "2027-02",
+    "2027-03",
+    "2027-04",
+    "2027-05",
+    "2027-06"
+  ],
+  "base": {
+    "recurring_unrestricted_income_cents": 1200000,
+    "recurring_cash_expenses_cents": 1400000,
+    "opening_unrestricted_cash_cents": 8400000
+  },
+  "scenarios": [
+    {
+      "id": "baseline",
+      "events": []
+    },
+    {
+      "id": "sustainers",
+      "events": [
+        {
+          "id": "monthly_sustainers",
+          "kind": "RECURRING_CASH",
+          "status": "SIMULATED_RECEIVED",
+          "amount_cents": 180000,
+          "starts": "2027-01",
+          "through": "2027-06",
+          "expense_line": null
+        },
+        {
+          "id": "unsettled_sponsorship",
+          "kind": "PLEDGE",
+          "status": "PROPOSED",
+          "amount_cents": 500000,
+          "starts": "2027-01",
+          "through": "2027-06",
+          "expense_line": null
+        }
+      ]
+    },
+    {
+      "id": "surplus",
+      "events": [
+        {
+          "id": "monthly_sustainers",
+          "kind": "RECURRING_CASH",
+          "status": "SIMULATED_RECEIVED",
+          "amount_cents": 180000,
+          "starts": "2027-01",
+          "through": "2027-06",
+          "expense_line": null
+        },
+        {
+          "id": "unsettled_sponsorship",
+          "kind": "PLEDGE",
+          "status": "PROPOSED",
+          "amount_cents": 500000,
+          "starts": "2027-01",
+          "through": "2027-06",
+          "expense_line": null
+        },
+        {
+          "id": "one_time_gift",
+          "kind": "ONE_TIME_CASH",
+          "status": "SIMULATED_RECEIVED",
+          "amount_cents": 500000,
+          "starts": "2027-02",
+          "through": "2027-02",
+          "expense_line": null
+        },
+        {
+          "id": "living_story",
+          "kind": "LIVING_GIFT",
+          "status": "REVIEW_ONLY",
+          "amount_cents": 0,
+          "starts": "2027-02",
+          "through": "2027-06",
+          "expense_line": null
+        },
+        {
+          "id": "volunteer_editing",
+          "kind": "IN_KIND",
+          "status": "SIMULATED_OFFERED",
+          "amount_cents": 90000,
+          "starts": "2027-04",
+          "through": "2027-06",
+          "expense_line": null
+        },
+        {
+          "id": "cancelled_external_editing",
+          "kind": "COST_AVOIDANCE",
+          "status": "SIMULATED_CONFIRMED",
+          "amount_cents": 90000,
+          "starts": "2027-04",
+          "through": "2027-06",
+          "expense_line": "contract_editing"
+        }
+      ]
+    }
+  ]
+}

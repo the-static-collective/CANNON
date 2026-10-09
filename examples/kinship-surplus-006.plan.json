@@ -1,0 +1,43 @@
+{
+  "schema": "cannon.present-use-plan/v0",
+  "goal": "Source-grounded synthetic station economy: recurring unrestricted surplus by June 2027 without station action",
+  "assembly": "markdown-capsule-v0",
+  "sources": [
+    {
+      "id": "kinship-room",
+      "repository": "the-static-collective/static-live",
+      "commit": "66fed5728d6ba60f3ebf86abeb5c7b8c25ae1ff7",
+      "path": "README.md",
+      "media_type": "text/markdown",
+      "tags": [
+        "kinship",
+        "radio",
+        "review"
+      ]
+    },
+    {
+      "id": "portable-needs",
+      "repository": "the-static-collective/Jubilee-treasury",
+      "commit": "922639ef84fcf773dbf179d8d9966b0db1247424",
+      "path": "README.md",
+      "media_type": "text/markdown",
+      "tags": [
+        "treasury",
+        "needs",
+        "provenance"
+      ]
+    },
+    {
+      "id": "crossing-boundary",
+      "repository": "the-static-collective/reLATTE",
+      "commit": "dcc8cdca84c440aa4294134f020fb7095bf87f24",
+      "path": "README.md",
+      "media_type": "text/markdown",
+      "tags": [
+        "relatte",
+        "crossing",
+        "receipts"
+      ]
+    }
+  ]
+}
