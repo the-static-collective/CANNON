@@ -1,0 +1,29 @@
+name: Conversation Collider 001
+on:
+  push:
+    branches:
+      - experiment/conversation-collider-001
+  pull_request:
+    paths:
+      - scripts/conversation-collider.mjs
+      - examples/conversation-collider-001.lab.json
+      - test/conversation-collider.test.mjs
+      - docs/CONVERSATION-COLLIDER-001.md
+      - .github/workflows/conversation-collider-001.yml
+jobs:
+  synthetic-offline-proof:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Run hostile lab tests
+        run: node --test test/conversation-collider.test.mjs
+      - name: Build and independently replay synthetic receipt
+        run: |
+          mkdir -p work
+          node scripts/conversation-collider.mjs scan examples/conversation-collider-001.lab.json work/collider-report.json > /dev/null
+          node scripts/conversation-collider.mjs verify examples/conversation-collider-001.lab.json work/collider-report.json
