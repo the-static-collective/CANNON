@@ -1,0 +1,29 @@
+{
+  "schema": "cannon.conversation-collider-work-plan/v1",
+  "sources": [
+    {
+      "role": "GHOT_PANTRY",
+      "repository": "the-static-collective/GHoT",
+      "commit": "e35dd470384d864b7b0b629a68dad570875a7df0",
+      "path": "ghot/executor_pantry.py"
+    },
+    {
+      "role": "GHOT_BUILTINS",
+      "repository": "the-static-collective/GHoT",
+      "commit": "e35dd470384d864b7b0b629a68dad570875a7df0",
+      "path": "ghot/reference_node.py"
+    },
+    {
+      "role": "LIVE_PACKET",
+      "repository": "the-static-collective/static-live",
+      "commit": "38e67b2930cea09c3e01a05447a6e92a67c2468f",
+      "path": "fixtures/live-001/song.json"
+    },
+    {
+      "role": "PRINTER_TECH_REGISTRY",
+      "repository": "the-static-collective/static-os",
+      "commit": "7bc551610421bd60a8dbf624d93d7a6682ce3987",
+      "path": "fixtures/printer-field-012/technology-registry.json"
+    }
+  ]
+}
