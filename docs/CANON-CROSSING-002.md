@@ -42,7 +42,7 @@ The independently supplied CANNON owner public-key pins must be established outs
 
 ### Run in a pinned workspace
 
-Requires Node 24, `git`, a preexisting full Git checkout of `the-static-collective/static-os` at or containing `7bc551610421bd60a8dbf624d93d7a6682ce3987` and the independently pinned reLATTE donor checkout with `npm ci` already installed.
+Requires Node 24, `git`, a preexisting full Git checkout of `the-static-collective/static-os` at or containing `7bc551610421bd60a8dbf624d93d7a6682ce3987` and the independently pinned reLATTE donor checkout with its dependencies installed via `npm install --ignore-scripts` (that donor snapshot has no lockfile).
 
 ```sh
 CANNON002_SOURCE_ROOT="$PWD/external/static-os" \
