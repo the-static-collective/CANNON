@@ -1,0 +1,92 @@
+name: TYPED COMPATIBILITY 004 — real STATIC OS/reLATTE check
+on:
+  push:
+    branches:
+      - experiment/typed-compatibility-004
+  pull_request:
+    paths:
+      - src/typed-compatibility.mjs
+      - scripts/cannon-fit.mjs
+      - examples/real-crossrepo-fit.plan.json
+      - test/typed-compatibility.test.mjs
+      - docs/TYPED-COMPATIBILITY-004.md
+      - .github/workflows/typed-compatibility-004.yml
+permissions:
+  contents: read
+jobs:
+  real-crossrepo-compatibility:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Nine adversarial compatibility tests
+        run: node --test test/typed-compatibility.test.mjs
+      - name: Fetch exact Static OS commit
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/static-os
+          ref: 7bc551610421bd60a8dbf624d93d7a6682ce3987
+          path: external/static-os
+          persist-credentials: false
+      - name: Fetch exact reLATTE commit
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/reLATTE
+          ref: dcc8cdca84c440aa4294134f020fb7095bf87f24
+          path: external/reLATTE
+          persist-credentials: false
+      - name: Declare local source roots (not trust roots)
+        run: |
+          mkdir -p work
+          node --input-type=module - <<'JS'
+          import {writeFileSync} from 'node:fs';
+          import {join} from 'node:path';
+          const root=process.env.GITHUB_WORKSPACE;
+          writeFileSync('work/roots-004.json',JSON.stringify({
+            'the-static-collective/static-os':join(root,'external/static-os'),
+            'the-static-collective/reLATTE':join(root,'external/reLATTE')
+          }));
+          JS
+      - name: Evaluate original Git JSON source and emit typed compatibility report
+        run: |
+          node scripts/cannon-fit.mjs build \
+            --plan examples/real-crossrepo-fit.plan.json \
+            --roots work/roots-004.json \
+            --out work/typed-compatibility-004
+      - name: Cold replay in a different process; incompatible source MUST NOT become compatible
+        run: |
+          node scripts/cannon-fit.mjs verify \
+            --plan examples/real-crossrepo-fit.plan.json \
+            --roots work/roots-004.json \
+            --out work/typed-compatibility-004 > work/typed-004-cold-proof.json
+          node --input-type=module - <<'JS'
+          import {readFileSync} from 'node:fs';
+          const report=JSON.parse(readFileSync('work/typed-compatibility-004/compatibility.json'));
+          const proof=JSON.parse(readFileSync('work/typed-004-cold-proof.json'));
+          const byId=id=>report.checks.find(c=>c.id===id);
+          const a=byId('static-os-against-relatte'),b=byId('relatte-reference-against-relatte');
+          if(a?.status!=='INCOMPATIBLE'||
+             !a.violations.some(v=>v.path==='/payload_refs/0/byte_length'&&v.keyword==='additionalProperties')||
+             b?.status!=='STRUCTURALLY_COMPATIBLE'||
+             proof.status!=='COMPATIBILITY_COLD_REPLAY_VERIFIED'||
+             report.signatures_verified!==false||report.permission_granted!==false||
+             report.git_mutations!==0||report.executions!==0||
+             report.canon_selection_required!==false||
+             Object.values(report.sources).some(s=>s.status!=='GIT_OBJECT_VERIFIED'))
+             throw Error('CANNON_004_FALSE_COMPATIBILITY_OR_AUTHORITY_CLAIM');
+          console.log(JSON.stringify({incompatible:a.violations,reference:b.status,receipt_id:report.receipt_id,cold_replay:proof.status}));
+          JS
+      - name: Archive non-secret structural proof
+        uses: actions/upload-artifact@v4
+        with:
+          name: cannon-004-real-crossrepo-fit
+          path: |
+            work/typed-compatibility-004/compatibility.json
+            work/typed-004-cold-proof.json
+          retention-days: 14
+          if-no-files-found: error
