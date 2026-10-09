@@ -55,7 +55,7 @@ jobs:
             --relatte "${{ github.workspace }}/external/reLATTE" \
             --out "${{ github.workspace }}/work/native-canon-002" \
             --at 2026-10-08T22:14:00.000Z
-      - name: Different process: source-git cold verification, reLATTE crossing and receiver journal replay
+      - name: 'Different process: source-Git cold verification, reLATTE crossing and receiver journal replay'
         run: |
           node --experimental-strip-types scripts/canon-crossing.mjs verify \
             --source "${{ github.workspace }}/external/static-os" \
