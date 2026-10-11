@@ -1,0 +1,96 @@
+name: CANNON 013 — original Project0 meaning floor + authority refusal to reLATTE HOLD
+on:
+  push:
+    branches:
+      - experiment/project0-semantic-floor-013
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  project0-original-semantic-floor:
+    runs-on: ubuntu-latest
+    steps:
+      - name: CANNON 013
+        uses: actions/checkout@v4
+        with:
+          path: cannon
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Original Project0 floor
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/project0
+          ref: 08f892eb379ef538cce5b3ca081ecf683b448a4b
+          path: project0
+          persist-credentials: false
+      - name: Original Founder Node
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/founder-node
+          ref: fa6240ce5c9dfea154dcc714301ab4c0e0d548e5
+          path: founder
+          persist-credentials: false
+      - name: Original Jubilee Authority Kit
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/jubilee-authority-kit
+          ref: b99dd1bf3e9af4c30a4f0e365237357086b7fdf6
+          path: registry
+          persist-credentials: false
+      - name: Original Toaster Lab branch
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/toaster-lab
+          ref: ec923f3e36874309ec5f16b6480576ed5c55f5e2
+          path: toaster-lab
+          persist-credentials: false
+      - name: Original Haunted Toaster branch
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/the-haunted-toaster
+          ref: c227036ee47c1445b06db52c1d55e702490a0da0
+          path: haunted-toaster
+          persist-credentials: false
+      - name: Native reLATTE R14
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/reLATTE
+          ref: dcc8cdca84c440aa4294134f020fb7095bf87f24
+          path: relatte
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Build original Project0 canonical and authority kernel (no scripts)
+        run: |
+          cd project0
+          npm ci --ignore-scripts --no-audit --no-fund
+          npm run build
+      - name: Run Project0 original conformance proofs
+        run: |
+          cd project0
+          node .build/scripts/conformance.js
+          node --test .build/tests/canonical-addressing.test.js
+      - name: Install reLATTE dependencies without lifecycle scripts
+        run: cd relatte && npm install --ignore-scripts --no-audit --no-fund
+      - name: Project0 native identities + missing-lease refusal + signed reLATTE HOLD
+        run: |
+          echo '{"the-static-collective/project0":"'$(pwd)'/project0","the-static-collective/founder-node":"'$(pwd)'/founder","the-static-collective/jubilee-authority-kit":"'$(pwd)'/registry","the-static-collective/toaster-lab":"'$(pwd)'/toaster-lab","the-static-collective/the-haunted-toaster":"'$(pwd)'/haunted-toaster","the-static-collective/reLATTE":"'$(pwd)'/relatte"}' > /tmp/project0-013-roots.json
+          cd cannon
+          node scripts/project0-floor-013.mjs run /tmp/project0-013-roots.json /tmp/project0-013
+      - name: Independent cold replay plus bad-address and authority-escalation tests
+        env:
+          CANNON_013_ROOTS: /tmp/project0-013-roots.json
+          CANNON_013_OUTPUT: /tmp/project0-013
+        run: |
+          cd cannon
+          node --test test/project0-floor-013.test.mjs
+          node scripts/project0-floor-013.mjs verify /tmp/project0-013-roots.json /tmp/project0-013
+      - name: Export nonsecret semantic witness
+        uses: actions/upload-artifact@v4
+        with:
+          name: project0-013-native-floor-and-refused-lease-hold
+          if-no-files-found: error
+          path: |
+            /tmp/project0-013/public-inspection.json
+            /tmp/project0-013/project0-semantic-witness.json
