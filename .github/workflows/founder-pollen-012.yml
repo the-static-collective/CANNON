@@ -1,0 +1,80 @@
+name: CANNON 012 — real Founder Pollen to reviewed branch loadout and reLATTE HOLD
+on:
+  push:
+    branches:
+      - experiment/founder-pollen-loadout-012
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  actual-founder-pollen:
+    runs-on: ubuntu-latest
+    steps:
+      - name: CANNON 012 branch
+        uses: actions/checkout@v4
+        with:
+          path: cannon
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Original Founder Node evidenced-neighbor implementation
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/founder-node
+          ref: fa6240ce5c9dfea154dcc714301ab4c0e0d548e5
+          path: founder
+          persist-credentials: false
+      - name: Original Jubilee Authority Kit registry
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/jubilee-authority-kit
+          ref: b99dd1bf3e9af4c30a4f0e365237357086b7fdf6
+          path: registry
+          persist-credentials: false
+      - name: Actual reviewed Toaster Lab source branch
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/toaster-lab
+          ref: ec923f3e36874309ec5f16b6480576ed5c55f5e2
+          path: toaster-lab
+          persist-credentials: false
+      - name: Actual reviewed Haunted Toaster recipient branch
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/the-haunted-toaster
+          ref: c227036ee47c1445b06db52c1d55e702490a0da0
+          path: haunted-toaster
+          persist-credentials: false
+      - name: Native reLATTE receiver
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/reLATTE
+          ref: dcc8cdca84c440aa4294134f020fb7095bf87f24
+          path: relatte
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Install native reLATTE dependencies without lifecycle scripts
+        run: cd relatte && npm install --ignore-scripts --no-audit --no-fund
+      - name: Run original Founder Node discovery + original CANNON 008 inspection + reLATTE HOLD
+        run: |
+          echo '{"the-static-collective/founder-node":"'$(pwd)'/founder","the-static-collective/jubilee-authority-kit":"'$(pwd)'/registry","the-static-collective/toaster-lab":"'$(pwd)'/toaster-lab","the-static-collective/the-haunted-toaster":"'$(pwd)'/haunted-toaster","the-static-collective/reLATTE":"'$(pwd)'/relatte"}' > /tmp/founder-pollen-012-roots.json
+          cd cannon
+          node scripts/founder-pollen-012.mjs run /tmp/founder-pollen-012-roots.json /tmp/founder-pollen-012
+      - name: Cold replay and malicious candidate/authority refusal tests
+        env:
+          CANNON_012_ROOTS: /tmp/founder-pollen-012-roots.json
+          CANNON_012_OUTPUT: /tmp/founder-pollen-012
+        run: |
+          cd cannon
+          node --test test/founder-pollen-012.test.mjs
+          node scripts/founder-pollen-012.mjs verify /tmp/founder-pollen-012-roots.json /tmp/founder-pollen-012
+      - name: Publish review dossier (no keys, corpus, or executable artifacts)
+        uses: actions/upload-artifact@v4
+        with:
+          name: founder-node-pollen-to-cannon-012-review
+          if-no-files-found: error
+          path: |
+            /tmp/founder-pollen-012/public-inspection.json
+            /tmp/founder-pollen-012/founder-pollen-dossier.json
+            /tmp/founder-pollen-012/candidate-loadout-plan.json
