@@ -1,0 +1,113 @@
+name: CANNON 015 — legacy TranchNode to immutable private custody + Project0 and R14
+on:
+  push:
+    branches:
+      - experiment/tranchnode-dual-lineage-015
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  private-local-pilot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: CANNON 015
+        uses: actions/checkout@v4
+        with:
+          path: cannon
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Original historical Autodiscography TranchNode (read source only)
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/tranchNode-v1
+          ref: c1ab651e55f85d9f13551c89c1de39097d6b16a4
+          path: legacy
+          persist-credentials: false
+      - name: Original newer TranchNode native immutable artifact store
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/tranchnode
+          ref: 7fbb0c868befd5f6a7478bdd0447477a0e8e075e
+          path: tranchnode
+          persist-credentials: false
+      - name: Original Project0 native meaning and continuity
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/project0
+          ref: 08f892eb379ef538cce5b3ca081ecf683b448a4b
+          path: project0
+          persist-credentials: false
+      - name: Original Founder Node
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/founder-node
+          ref: fa6240ce5c9dfea154dcc714301ab4c0e0d548e5
+          path: founder
+          persist-credentials: false
+      - name: Original Jubilee Authority Kit
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/jubilee-authority-kit
+          ref: b99dd1bf3e9af4c30a4f0e365237357086b7fdf6
+          path: authority
+          persist-credentials: false
+      - name: Original reviewed Toaster Lab branch
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/toaster-lab
+          ref: ec923f3e36874309ec5f16b6480576ed5c55f5e2
+          path: toaster-lab
+          persist-credentials: false
+      - name: Original reviewed Haunted Toaster branch
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/the-haunted-toaster
+          ref: c227036ee47c1445b06db52c1d55e702490a0da0
+          path: haunted-toaster
+          persist-credentials: false
+      - name: Original native GHoT branch (prior 014 lineage source check only)
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/GHoT
+          ref: b01758bee55d66d699160715ec377b45f7589707
+          path: ghot
+          persist-credentials: false
+      - name: Native reLATTE R14 local sovereign receiver
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/reLATTE
+          ref: dcc8cdca84c440aa4294134f020fb7095bf87f24
+          path: relatte
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Build original Project0 floor and conformance
+        run: |
+          cd project0
+          npm ci --ignore-scripts --no-audit --no-fund
+          npm run build
+          node .build/scripts/conformance.js
+      - name: Install original newer TranchNode artifact-store dependencies
+        run: cd tranchnode && npm install --ignore-scripts --no-audit --no-fund
+      - name: Install native reLATTE dependencies
+        run: cd relatte && npm install --ignore-scripts --no-audit --no-fund
+      - name: Create disposable local private synthetic specimen and signed local HOLD
+        run: |
+          echo '{"the-static-collective/tranchNode-v1":"'$(pwd)'/legacy","the-static-collective/tranchnode":"'$(pwd)'/tranchnode","the-static-collective/project0":"'$(pwd)'/project0","the-static-collective/GHoT":"'$(pwd)'/ghot","the-static-collective/founder-node":"'$(pwd)'/founder","the-static-collective/jubilee-authority-kit":"'$(pwd)'/authority","the-static-collective/toaster-lab":"'$(pwd)'/toaster-lab","the-static-collective/the-haunted-toaster":"'$(pwd)'/haunted-toaster","the-static-collective/reLATTE":"'$(pwd)'/relatte"}' > /tmp/tranch015-roots.json
+          cd cannon
+          node scripts/tranchnode-dual-015.mjs run /tmp/tranch015-roots.json fixtures/synthetic-legacy-autodisco-015.json /tmp/tranch015
+      - name: Refusal cases, cold replay and no-leak public boundary
+        env:
+          CANNON_015_ROOTS: /tmp/tranch015-roots.json
+          CANNON_015_OUTPUT: /tmp/tranch015
+        run: |
+          cd cannon
+          node --test test/tranchnode-dual-015.test.mjs
+          node scripts/tranchnode-dual-015.mjs verify /tmp/tranch015-roots.json fixtures/synthetic-legacy-autodisco-015.json /tmp/tranch015
+      - name: Publish ONLY generic public-code capability index
+        uses: actions/upload-artifact@v4
+        with:
+          name: dual-tranchnode-public-source-index-015
+          if-no-files-found: error
+          path: /tmp/tranch015/public-code-index.json
