@@ -1,0 +1,39 @@
+{
+  "schema": "cannon.branch-loadout-plan/v0",
+  "purpose": "Verify two exact existing branch programs as reviewable code; do not execute either.",
+  "entries": [
+    {
+      "id": "planz-sense-001",
+      "repository": "the-static-collective/planZ",
+      "branchHint": "experiment/fatherhand-grant-chain-residue-001",
+      "commit": "e8111fdb64c5587b33aece0fed639ed3d03375ac",
+      "path": "002/bin/sense-global.mjs",
+      "runtime": "NODE_22",
+      "argv": [
+        "registry/seed-plan-records.jsonl",
+        "registry/provisional-global-pass-001.jsonl"
+      ],
+      "evidenceUrl": "https://github.com/the-static-collective/planZ/actions/runs/37479487787",
+      "gates": [
+        "Human must choose the actual inputs and local execution policy",
+        "This loadout does not install or run Node"
+      ]
+    },
+    {
+      "id": "cannon-collider-003",
+      "repository": "the-static-collective/CANNON",
+      "branchHint": "experiment/conversation-collider-work-003",
+      "commit": "aabd276e4edb2ae4229ccf94eed8a7f561b17a0a",
+      "path": "scripts/conversation-collider-work.mjs",
+      "runtime": "NODE_24",
+      "argv": [
+        "scan"
+      ],
+      "evidenceUrl": "https://github.com/the-static-collective/CANNON/actions/runs/37978331923",
+      "gates": [
+        "Local source checkout paths and real resource existence need inspection",
+        "No executor, printer, customer or receiver has authorized external work"
+      ]
+    }
+  ]
+}
