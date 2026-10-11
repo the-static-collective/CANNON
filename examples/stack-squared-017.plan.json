@@ -1,0 +1,28 @@
+{
+  "schema": "cannon.stack-squared-plan/v0",
+  "goal": "Verify two independent existing branch sources and pass one invented input through two bounded CANNON-owned adapters, without executing donor programs.",
+  "mode": "LOCAL_FIXTURE_ONLY",
+  "cards": [
+    {
+      "source_id": "planz-sense-001",
+      "local_operator": "WRAP_SYNTHETIC",
+      "consumes": "cannon.stack2.synthetic/v0",
+      "produces": "cannon.stack2.wrapped/v0"
+    },
+    {
+      "source_id": "cannon-collider-003",
+      "local_operator": "ADDRESS_WRAPPED",
+      "consumes": "cannon.stack2.wrapped/v0",
+      "produces": "cannon.stack2.addressed/v0"
+    }
+  ],
+  "link": {
+    "from": "planz-sense-001:out",
+    "to": "cannon-collider-003:in"
+  },
+  "input": {
+    "schema": "cannon.stack2.synthetic/v0",
+    "text": "The Lego floor comes alive.",
+    "iteration": 17
+  }
+}
