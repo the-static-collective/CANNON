@@ -1,0 +1,33 @@
+name: Branch Loadout 008 — exact Git object readiness
+on:
+  push:
+    branches:
+      - experiment/branch-loadout-008
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  loadout:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout CANNON source and ancestry
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          path: cannon
+      - name: Checkout exact planZ source
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/planZ
+          ref: e8111fdb64c5587b33aece0fed639ed3d03375ac
+          path: planz
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Run hostile tests and original source cold replay
+        run: |
+          echo '{"the-static-collective/planZ":"'$(pwd)'/planz","the-static-collective/CANNON":"'$(pwd)'/cannon"}' > /tmp/branch-roots-008.json
+          cd cannon
+          BRANCH_LOADOUT_ROOTS=/tmp/branch-roots-008.json node --test test/branch-loadout.test.mjs
+          node scripts/branch-loadout.mjs inspect examples/branch-loadout-008.plan.json /tmp/branch-roots-008.json /tmp/branch-loadout-008.json
+          node scripts/branch-loadout.mjs verify examples/branch-loadout-008.plan.json /tmp/branch-roots-008.json /tmp/branch-loadout-008.json
