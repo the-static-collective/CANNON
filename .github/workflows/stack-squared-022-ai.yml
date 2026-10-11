@@ -1,0 +1,45 @@
+name: STACK-squared-022 Thinking Workbench
+on:
+  push:
+    branches:
+      - experiment/stack-squared-022-thinking-workbench
+  pull_request:
+    paths:
+      - scripts/stack-squared-022-ai.mjs
+      - examples/stack-squared-022-ai.plan.json
+      - test/stack-squared-022.test.mjs
+      - .github/workflows/stack-squared-022-ai.yml
+jobs:
+  native-ghot-cannon-crossing:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - name: Checkout exact independent GHoT source commit
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/GHoT
+          ref: 6194d91ba83bad63606f6f6741723007227518f2
+          path: ghot-source
+          persist-credentials: false
+      - name: Native GHoT signed Instrument Rack execution
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo 'Rosemary grows. Rosemary remembers. Sky is blue today.' > "$RUNNER_TEMP/input.txt"
+          export GHOT_HOME="$RUNNER_TEMP/ghot-private"
+          export GHOT_ADAPTER_MANIFESTS="$GITHUB_WORKSPACE/ghot-source/integrations/ai-recomposition-001/adapter-manifest.json"
+          export PYTHONDONTWRITEBYTECODE=1
+          python3 ghot-source/ghot/ai_recomposition.py plan --mode profile --text-file "$RUNNER_TEMP/input.txt" --out "$RUNNER_TEMP/plan.json"
+          python3 ghot-source/ghot/ai_recomposition.py run --text-file "$RUNNER_TEMP/input.txt" --plan-file "$RUNNER_TEMP/plan.json" --approve-exact-plan --dispatch-source ci-explicit-fixture --out "$RUNNER_TEMP/report.json"
+          python3 ghot-source/ghot/ai_recomposition.py verify --report-file "$RUNNER_TEMP/report.json"
+      - name: Native CANNON source-pinned inspection and cold replay
+        shell: bash
+        run: |
+          set -euo pipefail
+          export GHOT_ROOT="$GITHUB_WORKSPACE/ghot-source"
+          export GHOT_REPORT="$RUNNER_TEMP/report.json"
+          node scripts/stack-squared-022-ai.mjs inspect examples/stack-squared-022-ai.plan.json "$GHOT_ROOT" "$GHOT_REPORT" "$RUNNER_TEMP/witness.json"
+          node scripts/stack-squared-022-ai.mjs verify examples/stack-squared-022-ai.plan.json "$GHOT_ROOT" "$GHOT_REPORT" "$RUNNER_TEMP/witness.json"
+          node --test test/stack-squared-022.test.mjs
