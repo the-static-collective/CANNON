@@ -7,6 +7,7 @@ const fail=(ok,why)=>{if(!ok)throw Error(why);};
 const obj=x=>x!==null&&typeof x==='object'&&!Array.isArray(x)&&Object.getPrototypeOf(x)===Object.prototype;
 const exact=(x,keys)=>obj(x)&&Object.keys(x).sort().join(',')===keys.slice().sort().join(',');
 const canonical=x=>{if(x===null||typeof x==='string'||typeof x==='boolean')return JSON.stringify(x);
+if(typeof x==='number'){fail(Number.isSafeInteger(x),'UNSAFE_INTEGER');return JSON.stringify(x);}
 if(Array.isArray(x))return '['+x.map(canonical).join(',')+']';
 fail(obj(x),'NOT_CANONICAL_JSON');return '{'+Object.keys(x).sort().map(k=>JSON.stringify(k)+':'+canonical(x[k])).join(',')+'}';};
 const digest=x=>createHash('sha256').update(canonical(x)).digest('hex');
