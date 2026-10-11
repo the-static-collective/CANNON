@@ -68,11 +68,11 @@ test('receiver durable journal, public report and cold verify refuse tampering',
   const journal=join(out,'receiver','journal.jsonl');
   const original=readFileSync(journal);
   try {
-    const lines=original.toString('utf8').trimEnd().split('\\n');
+    const lines=original.toString('utf8').trimEnd().split('\n');
     const event=JSON.parse(lines[0]);
     event.crossing_id='forged';
     lines[0]=JSON.stringify(event);
-    writeFileSync(journal,lines.join('\\n')+'\\n');
+    writeFileSync(journal,lines.join('\n')+'\n');
     await assert.rejects(cold());
   }finally{writeFileSync(journal,original);}
   await altered(join(out,'public-inspection.json'),x=>{x.receiver_admitted=true;},/PUBLIC_RECEIPT_OVERCLAIM/);
