@@ -10,7 +10,7 @@ export const FILENAMES=['sb001-static-os-particular.json','sb001-signed-crossing
 const assert=(x,s)=>{if(!x)throw Error(s)};
 const json=x=>JSON.stringify(x,null,2)+'\n',read=p=>JSON.parse(readFileSync(p,'utf8')),write=(p,x)=>writeFileSync(p,json(x),{flag:'wx',mode:0o600}),hash=x=>createHash('sha256').update(x).digest('hex'),same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
 function pinned(roots,repo,sha){assert(typeof roots?.[repo]==='string','MISSING_PINNED_ROOT '+repo);const r=realpathSync(resolve(roots[repo]));assert(execFileSync('git',['-C',r,'rev-parse','HEAD'],{encoding:'utf8',timeout:12000}).trim()===sha,'SOURCE_PIN_CHANGED '+repo);return r}
-function original(roots,repo,sha,path,id){pinned(roots,repo,sha);return readSource({id,repository:repo,commit:sha,path,media_type:'text/plain',tags:[]},roots)}
+function original(roots,repo,sha,path,id){pinned(roots,repo,sha);const actual=repo==='the-static-collective/reLATTE-supabardo'?'the-static-collective/reLATTE':repo;const mapped=actual===repo?roots:{...roots,[actual]:roots[repo]};return readSource({id,repository:actual,commit:sha,path,media_type:'text/plain',tags:[]},mapped)}
 export function sourceWitnesses(roots){const rows=[
  original(roots,'the-static-collective/Human-Witness',HUMAN,'docs/superpowers/specs/2026-08-25-supabardo-crossing-field-design.md','sb-original-architectural-owner'),
  original(roots,'the-static-collective/reLATTE-supabardo',SB,'scripts/supabardo-independent-verify.py','sb-original-independent-verifier'),
