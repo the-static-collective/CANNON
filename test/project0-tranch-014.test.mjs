@@ -29,7 +29,7 @@ test('Project0 native 3-branch laws, TranchNode source pin, and no authority pro
  const world=req(join(p0,'.build/src/world-encounter/index.js'));
  assert(continuity.verifyContinuityClaim(d.native_project0_continuity.ref,d.native_project0_continuity.claim));
  assert.throws(()=>world.evaluateEncounter(
-  d.native_project0_world_encounter.envelope,
+  {...d.native_project0_world_encounter.envelope,sourceAuthorityRefs:['claimed-shared-source-grant']},
   {destinationNodeRef:'ghot:isolated-local-hash',destinationFrameRef:'ghot:synthetic-review-room-014',
    manifest:{nodeRef:'ghot:isolated-local-hash',protocolVersion:'p0.exchange/0.1',
     accepts:['proposal'],emits:[],capabilities:['inspect_public_address'],
