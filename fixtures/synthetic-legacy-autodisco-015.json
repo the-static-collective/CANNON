@@ -1,0 +1,95 @@
+{
+  "schema": "cannon.tranchnode-v1-local-export/v0",
+  "privacy": "PRIVATE",
+  "format": "manual-owner-supplied",
+  "codex": {
+    "albums": [
+      {
+        "id": 1,
+        "title": "Synthetic test album",
+        "notes": "Synthetic record, not an actual user album."
+      }
+    ],
+    "branching_ideas": [
+      {
+        "id": "branch-synthetic-1",
+        "title": "Synthetic alternative",
+        "notes": "Fixture only.",
+        "createdAt": "2026-07-15T10:00:00Z"
+      }
+    ],
+    "porch_nodes": [
+      {
+        "id": "porch-synthetic-1",
+        "noticing": "A test envelope stayed on the bench.",
+        "timestamp": "2026-07-15T10:00:00Z",
+        "stage": "sprout"
+      }
+    ]
+  },
+  "songs": [
+    {
+      "id": "song-synthetic-1",
+      "title": "Synthetic lantern",
+      "lyrics": "The lantern lights a test bench. No real song is present.",
+      "provider": "MANUAL",
+      "review_state": "UNREAD",
+      "privacy": "PRIVATE",
+      "created_at": "2026-07-15T11:00:00Z",
+      "tags": [
+        "synthetic",
+        "fixture"
+      ]
+    }
+  ],
+  "annotations": [
+    {
+      "id": "annotation-1",
+      "song_id": "song-synthetic-1",
+      "mode": "OBSERVED",
+      "text": "A fixture exists.",
+      "tags": [
+        "fixture"
+      ]
+    },
+    {
+      "id": "annotation-2",
+      "song_id": "song-synthetic-1",
+      "mode": "DERIVED",
+      "text": "This is an analytical test statement.",
+      "tags": [
+        "fixture"
+      ]
+    },
+    {
+      "id": "annotation-3",
+      "song_id": "song-synthetic-1",
+      "mode": "METAPHOR",
+      "text": "The envelope is a paper lantern.",
+      "tags": [
+        "fixture"
+      ]
+    },
+    {
+      "id": "annotation-4",
+      "song_id": "song-synthetic-1",
+      "mode": "INTERPRETATION",
+      "text": "One synthetic reading.",
+      "tags": [
+        "fixture"
+      ]
+    }
+  ],
+  "foreign_seeds": [
+    {
+      "id": "foreign-synthetic-1",
+      "sourceNode": "synthetic-node",
+      "traceId": "test-trace",
+      "payload": {
+        "observed": "Only a synthetic test signal.",
+        "taoMode": "OBSERVED"
+      },
+      "hop": 1
+    }
+  ]
+}
