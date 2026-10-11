@@ -1,0 +1,87 @@
+name: "STACK² 023 — native GHoT AI packet to reLATTE R14 signed HOLD"
+on:
+  push:
+    branches:
+      - experiment/stack-squared-023-ai-relatte-hold
+  pull_request:
+    paths:
+      - scripts/stack-squared-023-ai.mjs
+      - examples/stack-squared-023-ai.plan.json
+      - test/stack-squared-023-ai.test.mjs
+      - .github/workflows/stack-squared-023-ai.yml
+permissions:
+  contents: read
+jobs:
+  native-three-organ-hold:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Current CANNON branch
+        uses: actions/checkout@v4
+        with:
+          path: cannon
+          persist-credentials: false
+      - name: Original exact GHoT Thinking Workbench
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/GHoT
+          ref: 6194d91ba83bad63606f6f6741723007227518f2
+          path: ghot-source
+          persist-credentials: false
+      - name: Original exact reLATTE R14
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/reLATTE
+          ref: dcc8cdca84c440aa4294134f020fb7095bf87f24
+          path: relatte-source
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install exact reLATTE dependencies without scripts
+        run: cd relatte-source && npm install --ignore-scripts --no-audit --no-fund
+      - name: Execute original GHoT Instrument Rack signed local deterministic task
+        shell: bash
+        run: |
+          set -euo pipefail
+          export GHOT_HOME="$RUNNER_TEMP/ghot-private"
+          export GHOT_ADAPTER_MANIFESTS="$GITHUB_WORKSPACE/ghot-source/integrations/ai-recomposition-001/adapter-manifest.json"
+          export PYTHONDONTWRITEBYTECODE=1
+          printf '%s\n' 'Rosemary grows. Rosemary remembers. Sky is blue today.' > "$RUNNER_TEMP/input.txt"
+          python3 ghot-source/ghot/ai_recomposition.py plan --mode profile --text-file "$RUNNER_TEMP/input.txt" --out "$RUNNER_TEMP/ghot-plan.json"
+          python3 ghot-source/ghot/ai_recomposition.py run --text-file "$RUNNER_TEMP/input.txt" --plan-file "$RUNNER_TEMP/ghot-plan.json" --approve-exact-plan --dispatch-source explicit-ci-fixture --out "$RUNNER_TEMP/ghot-report.json"
+          python3 ghot-source/ghot/ai_recomposition.py verify --report-file "$RUNNER_TEMP/ghot-report.json"
+      - name: Original CANNON 022 verifies source and GHoT native signed packet
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd cannon
+          node scripts/stack-squared-022-ai.mjs inspect examples/stack-squared-022-ai.plan.json "$GITHUB_WORKSPACE/ghot-source" "$RUNNER_TEMP/ghot-report.json" "$RUNNER_TEMP/022-witness.json"
+          node scripts/stack-squared-022-ai.mjs verify examples/stack-squared-022-ai.plan.json "$GITHUB_WORKSPACE/ghot-source" "$RUNNER_TEMP/ghot-report.json" "$RUNNER_TEMP/022-witness.json"
+      - name: Execute actual original reLATTE R14 crossing and local sovereign RECEIVED plus R3_HOLD
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd cannon
+          node --experimental-strip-types scripts/stack-squared-023-ai.mjs run examples/stack-squared-023-ai.plan.json "$GITHUB_WORKSPACE/ghot-source" "$GITHUB_WORKSPACE/relatte-source" "$RUNNER_TEMP/ghot-report.json" "$RUNNER_TEMP/023-private" --approve-local-hold
+      - name: Independently cold-verify signed three-organ chain and reject hostile mutations
+        shell: bash
+        env:
+          STACK23_GHOT_ROOT: ${{ github.workspace }}/ghot-source
+          STACK23_RELATTE_ROOT: ${{ github.workspace }}/relatte-source
+          STACK23_GHOT_REPORT: ${{ runner.temp }}/ghot-report.json
+          STACK23_OUTPUT: ${{ runner.temp }}/023-private
+        run: |
+          set -euo pipefail
+          cd cannon
+          node --experimental-strip-types scripts/stack-squared-023-ai.mjs verify examples/stack-squared-023-ai.plan.json "$STACK23_GHOT_ROOT" "$STACK23_RELATTE_ROOT" "$STACK23_GHOT_REPORT" "$STACK23_OUTPUT"
+          node --experimental-strip-types --test test/stack-squared-023-ai.test.mjs
+      - name: Publish redacted public witness only (never private song/model report)
+        uses: actions/upload-artifact@v4
+        with:
+          name: stack-squared-023-public-receipts-only
+          if-no-files-found: error
+          path: ${{ runner.temp }}/023-private/public-inspection.json
+          retention-days: 7
