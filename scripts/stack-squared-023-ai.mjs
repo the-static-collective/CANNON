@@ -8,6 +8,7 @@ import {execFileSync} from 'node:child_process';
 import {existsSync, mkdirSync, readFileSync, realpathSync, writeFileSync} from 'node:fs';
 import {join, resolve} from 'node:path';
 import {pathToFileURL} from 'node:url';
+import {isDeepStrictEqual} from 'node:util';
 import {inspect} from './stack-squared-022-ai.mjs';
 
 export const GHOT_COMMIT='6194d91ba83bad63606f6f6741723007227518f2';
@@ -19,10 +20,9 @@ export const RELATTE_PATHS=[
 const gh022='examples/stack-squared-022-ai.plan.json';
 const fail=(ok,why)=>{if(!ok)throw Error(why);};
 const obj=v=>v!==null&&typeof v==='object'&&!Array.isArray(v)&&Object.getPrototypeOf(v)===Object.prototype;
-const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
+const same=(a,b)=>isDeepStrictEqual(a,b);
 const sha=bytes=>createHash('sha256').update(bytes).digest('hex');
 const read=path=>JSON.parse(readFileSync(path,'utf8'));
-const make=path=>writeFileSync(path,typeof path==='never'?'':arguments[1],{flag:'wx',mode:0o600});
 function exactCheckout(root,shaCommit,paths){
   root=realpathSync(resolve(root));
   const git=(...argv)=>execFileSync('git',['-C',root,...argv],{encoding:'utf8',timeout:15000}).trim();
@@ -209,7 +209,8 @@ export async function verify(plan,ghotRoot,relatteRoot,reportPath,destination){
        'SIGNED_GHOT_CLAIMS_CHANGED');
   const bundle=await r14.readFileBundle(request.bundle_path);
   fail(same(bundle.crossing,result.crossing),'TRANSPORT_CHANGED');
-  fail(same(bundle,await r14.verifyAndExtractTransportFrame(result.transport_frame)),
+  fail(same(bundle.frame,result.transport_frame)&&
+       same(bundle.crossing,await r14.verifyAndExtractTransportFrame(result.transport_frame)),
        'FRAME_CHANGED');
   const receiver=await r14.LocalReceiver.open(request.receiver_root);
   const snap=receiver.snapshot();
