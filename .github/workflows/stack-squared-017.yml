@@ -1,0 +1,47 @@
+name: STACK² 017 — source-pinned fixture composition
+on:
+  push:
+    branches:
+      - experiment/stack-squared-017
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  stack-squared:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout actual CANNON ancestry, not main-only
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          path: cannon
+          persist-credentials: false
+      - name: Checkout original planZ source commit
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/planZ
+          ref: e8111fdb64c5587b33aece0fed639ed3d03375ac
+          path: planz
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Verify hostile fixtures and exact source owners
+        run: |
+          set -eu
+          printf '{"the-static-collective/planZ":"%s/planz","the-static-collective/CANNON":"%s/cannon"}\n' "$PWD" "$PWD" > /tmp/stack2-roots-017.json
+          cd cannon
+          STACK2_017_ROOTS=/tmp/stack2-roots-017.json node --test test/stack-squared-017.test.mjs
+          BRANCH_LOADOUT_ROOTS=/tmp/stack2-roots-017.json node --test test/branch-loadout.test.mjs
+      - name: Compose a local synthetic specimen and independently replay
+        run: |
+          set -eu
+          cd cannon
+          node scripts/stack-squared-017.mjs run examples/stack-squared-017.plan.json examples/branch-loadout-008.plan.json /tmp/stack2-roots-017.json /tmp/stack2-run-017
+          node scripts/stack-squared-017.mjs verify examples/stack-squared-017.plan.json examples/branch-loadout-008.plan.json /tmp/stack2-roots-017.json /tmp/stack2-run-017
+      - name: Retain only the public synthetic receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: stack-squared-017-synthetic-receipt
+          if-no-files-found: error
+          path: /tmp/stack2-run-017/stack-squared-receipt.json
