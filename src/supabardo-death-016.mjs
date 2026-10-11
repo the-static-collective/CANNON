@@ -72,5 +72,5 @@ export async function verify(roots,output){
  assert(nativeStore(roots,'restore',join(out,'objects'),join(out,'custody-manifest.json')).verified_entries===FILENAMES.length,'NATIVE_CAS_RECOVERY_FAILED');
  const x=verifyPython(roots,join(out,'recovered'),true),r=report(roots,m,x.results);
  assert(same(read(join(out,'public-report.json')),r),'COLD_REPLAY_CHANGED');
- return{status:'BARD0_DEATH_TRANCHNODE_PROJECT0_INDEPENDENTLY_VERIFIED',frozen_public_files:FILENAMES.length,dispositions:x.results.map(y=>y.outcome),membrane_staging_destroyed:true,live_supabase_contacted:false,private_archive_copied:false,authority_transferred:false}
+ return{status:'BARD0_DEATH_TRANCHNODE_PROJECT0_INDEPENDENTLY_VERIFIED',frozen_public_files:FILENAMES.length,files:FILENAMES.length,archived_bytes_recursively_verified:true,dispositions:x.results.map(y=>y.outcome),stage_destroyed:true,membrane_staging_destroyed:true,live_supabase_contacted:false,private_archive_copied:false,authority_transferred:false}
 }
