@@ -1,4 +1,4 @@
-name: STACK² 018 — native Lego floor: planZ + GHoT + reLATTE
+name: "STACK² 018 — native Lego floor: planZ + GHoT + reLATTE"
 on:
   push:
     branches:
