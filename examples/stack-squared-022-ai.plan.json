@@ -1,0 +1,18 @@
+{
+  "schema": "cannon.stack-squared-ai-witness-plan/v0",
+  "mode": "NATIVE_GHOT_EVIDENCE_ONLY",
+  "ghot_commit": "6194d91ba83bad63606f6f6741723007227518f2",
+  "native_verify_entrypoint": "ghot/ai_recomposition.py",
+  "source_files": [
+    "ghot/ai_recomposition.py",
+    "ghot/instrument_rack.py",
+    "ghot/reference_node.py",
+    "ghot/relatte_identity.py",
+    "ghot/executor_pantry.py",
+    "ghot/external_adapters.py",
+    "integrations/ai-recomposition-001/adapter-manifest.json"
+  ],
+  "receiver_disposition": "NO_R3_RECEIVER_HOLD",
+  "auto_execution": false,
+  "owner_act": false
+}
