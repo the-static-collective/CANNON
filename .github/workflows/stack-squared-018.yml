@@ -1,0 +1,74 @@
+name: "STACK² 018 — native Lego floor: planZ + GHoT + reLATTE"
+on:
+  push:
+    branches:
+      - experiment/stack-squared-018-native-floor
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  native-floor:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Current CANNON experimental ancestry
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          path: cannon
+          persist-credentials: false
+      - name: Exact original PlanZ SENSE implementation
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/planZ
+          ref: e8111fdb64c5587b33aece0fed639ed3d03375ac
+          path: planz
+          persist-credentials: false
+      - name: Exact original GHoT local reference node
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/GHoT
+          ref: e35dd470384d864b7b0b629a68dad570875a7df0
+          path: ghot
+          persist-credentials: false
+      - name: Exact original reLATTE R14
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/reLATTE
+          ref: dcc8cdca84c440aa4294134f020fb7095bf87f24
+          path: relatte
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install original reLATTE dependencies without install scripts
+        run: cd relatte && npm install --ignore-scripts --no-audit --no-fund
+      - name: Construct bounded source root manifest
+        run: |
+          set -eu
+          printf '{"the-static-collective/planZ":"%s/planz","the-static-collective/CANNON":"%s/cannon","the-static-collective/GHoT":"%s/ghot","the-static-collective/reLATTE":"%s/relatte"}\n' "$PWD" "$PWD" "$PWD" "$PWD" >/tmp/stack2-roots-018.json
+      - name: Original PlanZ native unit tests and STACK² hostile contract tests
+        run: |
+          cd planz && node --test 002/tests/senses-engine.test.mjs
+          cd ../cannon
+          node --test test/branch-loadout.test.mjs test/stack-squared-017.test.mjs test/stack-squared-018.test.mjs
+      - name: Execute native PlanZ, original GHoT and native reLATTE signed HOLD
+        run: |
+          cd cannon
+          node --experimental-strip-types scripts/stack-squared-018.mjs run examples/stack-squared-018.plan.json examples/branch-loadout-008.plan.json /tmp/stack2-roots-018.json /tmp/stack2-native-018
+      - name: Cold replay original code and refuse five tampering attempts
+        env:
+          STACK2_018_ROOTS: /tmp/stack2-roots-018.json
+          STACK2_018_OUTPUT: /tmp/stack2-native-018
+        run: |
+          cd cannon
+          node --experimental-strip-types scripts/stack-squared-018.mjs verify examples/stack-squared-018.plan.json examples/branch-loadout-008.plan.json /tmp/stack2-roots-018.json /tmp/stack2-native-018
+          node --experimental-strip-types --test test/stack-squared-018.test.mjs
+      - name: Publish redacted signed receipt references only
+        uses: actions/upload-artifact@v4
+        with:
+          name: stack2-018-native-public-inspection
+          if-no-files-found: error
+          path: /tmp/stack2-native-018/public-inspection.json
