@@ -1,0 +1,62 @@
+name: BRANCH WORK 009 — real local GHoT hash to reLATTE HOLD
+on:
+  push:
+    branches:
+      - experiment/branch-ghot-relatte-crossing-009
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  bounded-work:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact CANNON experiment, with ancestor Git objects
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          path: cannon
+          persist-credentials: false
+      - name: Checkout exact planZ source
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/planZ
+          ref: e8111fdb64c5587b33aece0fed639ed3d03375ac
+          path: planz
+          persist-credentials: false
+      - name: Checkout exact GHoT source
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/GHoT
+          ref: e35dd470384d864b7b0b629a68dad570875a7df0
+          path: ghot
+          persist-credentials: false
+      - name: Checkout exact reLATTE substrate
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/reLATTE
+          ref: dcc8cdca84c440aa4294134f020fb7095bf87f24
+          path: relatte
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned reLATTE dependencies without scripts
+        run: cd relatte && npm install --ignore-scripts --no-audit --no-fund
+      - name: Hostile protocol tests
+        run: cd cannon && node --experimental-strip-types --test test/branch-loadout.test.mjs test/branch-crossing.test.mjs
+      - name: One real bounded local GHoT job and native reLATTE signed return
+        run: |
+          echo '{"the-static-collective/planZ":"'$(pwd)'/planz","the-static-collective/CANNON":"'$(pwd)'/cannon","the-static-collective/GHoT":"'$(pwd)'/ghot","the-static-collective/reLATTE":"'$(pwd)'/relatte"}' > /tmp/branch-work-roots-009.json
+          cd cannon
+          node --experimental-strip-types scripts/branch-crossing.mjs run examples/branch-loadout-008.plan.json /tmp/branch-work-roots-009.json /tmp/branch-work-009
+          node --experimental-strip-types scripts/branch-crossing.mjs verify examples/branch-loadout-008.plan.json /tmp/branch-work-roots-009.json /tmp/branch-work-009
+          node --input-type=module -e "import fs from 'node:fs';const a=JSON.parse(fs.readFileSync('/tmp/branch-work-009/public-inspection.json'));if(a.disposition!=='HOLD'||a.remote_effects!==0||!a.receipt_signatures_cold_verified)process.exit(1);console.log(JSON.stringify({schema:a.schema,source_count:a.source_count,ghot_operation:a.ghot_operation,disposition:a.disposition,local_work:a.actual_local_hash_executed,remote_effects:a.remote_effects}))"
+      - name: Upload only redacted public inspection
+        uses: actions/upload-artifact@v4
+        with:
+          name: branch-work-009-public-inspection
+          path: /tmp/branch-work-009/public-inspection.json
+          if-no-files-found: error
