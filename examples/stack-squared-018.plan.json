@@ -1,0 +1,12 @@
+{
+  "schema": "cannon.stack-squared-native-plan/v0",
+  "mode": "READ_ONLY_PLANZ_AND_LOCAL_GHOT_HASH",
+  "plan_ids": [
+    "PLZ-TRANCH-ROOM-001",
+    "PLZ-HUMAN-SUPABARDO-001"
+  ],
+  "allowed_capabilities": [
+    "planZ.SENSE_GLOBAL",
+    "GHoT.system.hash"
+  ]
+}
