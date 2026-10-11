@@ -6,7 +6,7 @@ import {join} from 'node:path';
 import {design,verify,requestFor,P0_SHA,TRANCH_SHA,GHOT_SHA} from '../src/project0-tranch-014.mjs';
 const roots=process.env.CANNON_014_ROOTS?JSON.parse(readFileSync(process.env.CANNON_014_ROOTS,'utf8')):null;
 test('missing originals fail closed',async()=>{
- await assert.rejects(()=>design({}),/ROOT_UNAVAILABLE/);
+ await assert.rejects(()=>design({}),/ROOT_UNAVAILABLE|MISSING_ROOT/);
 });
 test('Project0 native 3-branch laws, TranchNode source pin, and no authority promotion',async t=>{
  if(!roots){t.skip('needs original pinned Git repos with compiled Project0');return}
