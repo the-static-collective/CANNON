@@ -1,0 +1,70 @@
+name: CANNON 010 — signed GHoT 030 activation to native reLATTE HOLD
+on:
+  push:
+    branches:
+      - experiment/signed-ghot-receipt-crossing-010
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  signed-owner-local-lab:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout CANNON experiment ancestry
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          path: cannon
+          persist-credentials: false
+      - name: Checkout exact planZ SENSE branch source
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/planZ
+          ref: e8111fdb64c5587b33aece0fed639ed3d03375ac
+          path: planz
+          persist-credentials: false
+      - name: Checkout GHoT 030 independently at tested branch commit
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/GHoT
+          ref: b01758bee55d66d699160715ec377b45f7589707
+          path: ghot
+          persist-credentials: false
+      - name: Checkout native reLATTE R14 independently at tested commit
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/reLATTE
+          ref: dcc8cdca84c440aa4294134f020fb7095bf87f24
+          path: relatte
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned substrate dependencies with scripts disabled
+        run: cd relatte && npm install --ignore-scripts --no-audit --no-fund
+      - name: CI-only synthetic ACT to real signed GHoT source hashing
+        env:
+          CANNON_010_TEST_ACT: DISPOSABLE_CI_SANDBOX_ONLY
+        run: |
+          echo '{"the-static-collective/planZ":"'$(pwd)'/planz","the-static-collective/CANNON":"'$(pwd)'/cannon","the-static-collective/GHoT":"'$(pwd)'/ghot","the-static-collective/reLATTE":"'$(pwd)'/relatte"}' > /tmp/signed-branch-roots-010.json
+          cd cannon
+          node scripts/branch-signed-lab-010.mjs examples/branch-loadout-008.plan.json /tmp/signed-branch-roots-010.json /tmp/signed-ghot-crossing-010
+      - name: Independently cold verify without another ACT, and reject forged evidence
+        env:
+          CANNON_010_EVIDENCE_DIR: /tmp/signed-ghot-crossing-010
+          CANNON_010_ROOTS: /tmp/signed-branch-roots-010.json
+        run: |
+          cd cannon
+          node --test test/signed-crossing-010.test.mjs
+          node scripts/branch-signed-crossing-010.mjs verify examples/branch-loadout-008.plan.json /tmp/signed-branch-roots-010.json /tmp/signed-ghot-crossing-010
+      - name: Export only portable public signature evidence and exact receipts
+        uses: actions/upload-artifact@v4
+        with:
+          name: cannon-010-signed-ghot-and-relatte-held-evidence
+          if-no-files-found: error
+          path: |
+            /tmp/signed-ghot-crossing-010/public-inspection.json
+            /tmp/signed-ghot-crossing-010/portable-signed-evidence.json
