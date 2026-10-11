@@ -52,12 +52,13 @@ function bodyOf(value,fields,domain){
   return body;
 }
 async function verifySigned(value,{fields,bodyFields,domain,idDomain,signatureDomain,idPrefix,idKey}){
-  requireExact(value,fields,'SIGNED_'+idKey.toUpperCase()+'_FIELDS_CHANGED');
+  const kind=idKey==='ticket_id'?'TICKET':'RECEIPT';
+  requireExact(value,fields,'SIGNED_'+kind+'_FIELDS_CHANGED');
   const pub=keyOf(value.signing,domain);
   assert(value.issuer_particular==='ghot-p256:'+sha(Buffer.from(jcs(pub))),'BODY_PARTICULAR_MISMATCH');
   const body=bodyOf(value,bodyFields,domain);
   const id=idPrefix+domainHash(idDomain,body);
-  assert(value[idKey]===id,'SIGNED_'+idKey.toUpperCase()+'_IDENTITY_MISMATCH');
+  assert(value[idKey]===id,'SIGNED_'+kind+'_IDENTITY_MISMATCH');
   assert(await verifySignature(pub,Buffer.from(signatureDomain+jcs({[idKey]:id,...body})),value.signing.signature),'GHOT_SIGNATURE_INVALID');
   return pub;
 }
