@@ -1,0 +1,111 @@
+name: CANNON 014 — native Project0 three branches + TranchNode + GHoT + reLATTE
+on:
+  push:
+    branches:
+      - experiment/project0-tranchnode-encounter-014
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  native-branches:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout CANNON 014
+        uses: actions/checkout@v4
+        with:
+          path: cannon
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Original Project0 three protocol implementations
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/project0
+          ref: 08f892eb379ef538cce5b3ca081ecf683b448a4b
+          path: project0
+          persist-credentials: false
+      - name: Original TranchNode immutable artifact store branch
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/tranchnode
+          ref: 7fbb0c868befd5f6a7478bdd0447477a0e8e075e
+          path: tranchnode
+          persist-credentials: false
+      - name: Original GHoT native local hash and worker implementation
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/GHoT
+          ref: b01758bee55d66d699160715ec377b45f7589707
+          path: ghot
+          persist-credentials: false
+      - name: Original Founder Node
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/founder-node
+          ref: fa6240ce5c9dfea154dcc714301ab4c0e0d548e5
+          path: founder
+          persist-credentials: false
+      - name: Original Jubilee Authority Kit
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/jubilee-authority-kit
+          ref: b99dd1bf3e9af4c30a4f0e365237357086b7fdf6
+          path: authority
+          persist-credentials: false
+      - name: Original reviewed Toaster Lab branch
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/toaster-lab
+          ref: ec923f3e36874309ec5f16b6480576ed5c55f5e2
+          path: toaster-lab
+          persist-credentials: false
+      - name: Original reviewed Haunted Toaster branch
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/the-haunted-toaster
+          ref: c227036ee47c1445b06db52c1d55e702490a0da0
+          path: haunted-toaster
+          persist-credentials: false
+      - name: Native reLATTE R14
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/reLATTE
+          ref: dcc8cdca84c440aa4294134f020fb7095bf87f24
+          path: relatte
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Native Project0 build and conformance
+        run: |
+          cd project0
+          npm ci --ignore-scripts --no-audit --no-fund
+          npm run build
+          node .build/scripts/conformance.js
+      - name: Native TranchNode source dependencies
+        run: cd tranchnode && npm install --ignore-scripts --no-audit --no-fund
+      - name: Native GHoT Python crypto for local hash body identity
+        run: python3 -m pip install --user cryptography
+      - name: Native reLATTE R14 dependencies
+        run: cd relatte && npm install --ignore-scripts --no-audit --no-fund
+      - name: Construct real World Encounter, L-Branch and Continuity specimen plus custody / hash / signed HOLD
+        run: |
+          echo '{"the-static-collective/project0":"'$(pwd)'/project0","the-static-collective/tranchnode":"'$(pwd)'/tranchnode","the-static-collective/GHoT":"'$(pwd)'/ghot","the-static-collective/founder-node":"'$(pwd)'/founder","the-static-collective/jubilee-authority-kit":"'$(pwd)'/authority","the-static-collective/toaster-lab":"'$(pwd)'/toaster-lab","the-static-collective/the-haunted-toaster":"'$(pwd)'/haunted-toaster","the-static-collective/reLATTE":"'$(pwd)'/relatte"}' > /tmp/project0-tranch014-roots.json
+          cd cannon
+          node scripts/project0-tranch-014.mjs run /tmp/project0-tranch014-roots.json /tmp/project0-tranch014
+      - name: Cold replay and authority refusal tests
+        env:
+          CANNON_014_ROOTS: /tmp/project0-tranch014-roots.json
+          CANNON_014_OUTPUT: /tmp/project0-tranch014
+        run: |
+          cd cannon
+          node --test test/project0-tranch-014.test.mjs
+          node scripts/project0-tranch-014.mjs verify /tmp/project0-tranch014-roots.json /tmp/project0-tranch014
+      - name: Publish redacted proof only
+        uses: actions/upload-artifact@v4
+        with:
+          name: project0-tranchnode-ghot-relatte-014-proof
+          if-no-files-found: error
+          path: |
+            /tmp/project0-tranch014/public-inspection.json
+            /tmp/project0-tranch014/four-branch-dossier.json
+            /tmp/project0-tranch014/tranch-custody-receipt.json
