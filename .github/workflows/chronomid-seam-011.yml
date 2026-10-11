@@ -1,0 +1,65 @@
+name: CANNON 011 — chronological middle seam to sovereign HOLD
+on:
+  push:
+    branches:
+      - experiment/chronomid-seam-011
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  original-middle-slice:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout CANNON branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          path: cannon
+          persist-credentials: false
+      - name: Checkout exact SEAMforge median snapshot
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/SEAMforge
+          ref: 2188ffef41db27307083ea9c27751facf173ea07
+          path: seamforge
+          persist-credentials: false
+      - name: Checkout exact toaster-oracle median snapshot
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/toaster-oracle
+          ref: 5997d1aacab0c913c7b0fb110369dc17b821db01
+          path: oracle
+          persist-credentials: false
+      - name: Checkout original reLATTE R14
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/reLATTE
+          ref: dcc8cdca84c440aa4294134f020fb7095bf87f24
+          path: relatte
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Install only reLATTE substrate dependencies
+        run: cd relatte && npm install --ignore-scripts --no-audit --no-fund
+      - name: Independently verify exact Git source and create native HOLD
+        run: |
+          echo '{"the-static-collective/SEAMforge":"'$(pwd)'/seamforge","the-static-collective/toaster-oracle":"'$(pwd)'/oracle","the-static-collective/reLATTE":"'$(pwd)'/relatte"}' > /tmp/chronomid-011-roots.json
+          cd cannon
+          node scripts/chronomid-seam-011.mjs run /tmp/chronomid-011-roots.json /tmp/chronomid-011
+      - name: Independent cold replay and refusal boundary tests
+        env:
+          CANNON_011_ROOTS: /tmp/chronomid-011-roots.json
+          CANNON_011_OUTPUT: /tmp/chronomid-011
+        run: |
+          cd cannon
+          node --test test/chronomid-seam-011.test.mjs
+          node scripts/chronomid-seam-011.mjs verify /tmp/chronomid-011-roots.json /tmp/chronomid-011
+      - name: Publish source-pinned proposal and non-authoritative inspection
+        uses: actions/upload-artifact@v4
+        with:
+          name: chronomid-011-seamforge-oracle-held-proposal
+          if-no-files-found: error
+          path: |
+            /tmp/chronomid-011/dossier.json
+            /tmp/chronomid-011/public-inspection.json
