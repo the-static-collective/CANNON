@@ -20,16 +20,19 @@ test('only explicitly private manually supplied structures are received',()=>{
  const bonus=clone();bonus.owner_email='user@example.com';
  assert.throws(()=>validatePrivateExport(bonus),/PRIVATE_EXPORT_FIELDS/);
 });
-test('public WebZ capability index contains no private content identity or data',()=>{
+test('public WebZ capability index exposes public code only, no private collection facts',()=>{
  const pub=publicCodeIndex();
  assert.equal(pub.schema,'webz.tranchnode-lineage-source-index/v0');
- assert.equal(pub.publicReleaseAuthorized,undefined);
- assert.equal(pub.publicReleaseAuthorized??pub.publicReleaseAuthorized,false===true?true:undefined);
- assert.equal(pub.publicReleaseAuthorized??pub.public_release_authorized??pub.publicReleaseAuthorized,undefined);
- assert.equal(pub.publicReleaseAuthorized??pub.publicReleaseAuthorized,undefined);
- assert.equal(pub.public_release_authorized,undefined);
  assert.equal(pub.publicReleaseAuthorized,false);
-}); 
+ assert.equal(pub.privateBytesIncluded,false);
+ assert.equal(pub.privateContentHashesIncluded,false);
+ assert.equal(pub.personalArchiveAccess,false);
+ assert.equal(pub.actualCollectionSize,'withheld');
+ assert.equal(pub.sources.length,3);
+ const encoded=JSON.stringify(pub);
+ assert.equal(encoded.includes(base.songs[0].lyrics),false);
+ assert.equal(encoded.includes(base.foreign_seeds[0].payload.observed),false);
+});
 test('source contracts are read from two original TranchNodes, not guessed',async t=>{
  if(!roots){t.skip('requires source-pinned checkout, original Project0 build');return}
  const src=readFileSync(new URL('../fixtures/synthetic-legacy-autodisco-015.json',import.meta.url));
@@ -52,8 +55,7 @@ test('source contracts are read from two original TranchNodes, not guessed',asyn
 });
 test('native TranchNode immutable store, idempotency, Project0 continuity, private R14 HOLD and public non-leak',async t=>{
  if(!roots||!process.env.CANNON_015_OUTPUT){t.skip('requires CI private sandbox');return}
- const x=await verify(roots,readFileSync(new URL('../fixtures/synthetic-legacy-autodisco-015.json',import.meta.url))&&
-   new URL('../fixtures/synthetic-legacy-autodisco-015.json',import.meta.url).pathname,process.env.CANNON_015_OUTPUT);
+ const x=await verify(roots,new URL('../fixtures/synthetic-legacy-autodisco-015.json',import.meta.url).pathname,process.env.CANNON_015_OUTPUT);
  assert.equal(x.status,'DUAL_TRANCHNODE_PRIVATE_SOURCE_CUSTODY_PROJECT0_CONTINUITY_R14_HOLD_VERIFIED');
  assert.equal(x.privacy,'PRIVATE');
  assert.equal(x.content_deduplicated,true);
