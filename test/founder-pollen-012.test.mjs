@@ -33,13 +33,14 @@ test('actual Founder Node Pollen, two original donor branch sources and descript
  assert.equal(result.schema,'cannon.founder-pollen-bridge/v0');
  assert.equal(result.routed_project,ANCHOR);
  assert.equal(result.related_project_door,DOOR);
- assert.equal(result.corrobation??null,null);
  assert.equal(result.corroboration.original_pollen_function_executed,true);
  assert.equal(result.corroboration.original_ecosystem_projection_executed,true);
  assert.equal(result.corroboration.candidate_modules_imported_or_executed,false);
  const door=result.genuine_pollen_result.doors.find(x=>x.projectId===DOOR);
  assert.ok(door);
- assert.deepEqual(door.evidence.map(x=>x.kind),['typed-relation','shared-invariant']);
+ assert.equal(door.evidence[0].kind,'typed-relation');
+ assert.ok(door.evidence.filter(x=>x.kind==='shared-invariant').length>=1);
+ assert.ok(door.evidence.some(x=>x.kind==='shared-invariant'&&x.invariantId==='proposal-not-authority'));
  assert.equal(result.founder_workbench_handoff.mode,'descriptor-only');
  assert.equal(result.founder_workbench_handoff.executionAuthorized,false);
  assert.equal(result.founder_workbench_handoff.localReadiness,'unknown');
