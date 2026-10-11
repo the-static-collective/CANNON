@@ -1,0 +1,77 @@
+name: CANNON 016 — SupaBardo evidence survives disposable stage through native TranchNode
+on:
+  push:
+    branches:
+      - experiment/supabardo-death-custody-016
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  supabardo-replay:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: cannon
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Human-Witness original SupaBardo spec
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/Human-Witness
+          ref: 6c30bae1896db52bdb387d25b9ee577e0542e055
+          path: human-witness
+          persist-credentials: false
+      - name: Original three signed SupaBardo histories and independent Python verifier
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/reLATTE
+          ref: 65294f135260ee48b38829f698598dfe3478b0e7
+          path: relatte-supabardo
+          persist-credentials: false
+      - name: Original TranchNode immutable store branch
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/tranchnode
+          ref: 7fbb0c868befd5f6a7478bdd0447477a0e8e075e
+          path: tranchnode
+          persist-credentials: false
+      - name: Original Project0 typed continuity
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/project0
+          ref: 08f892eb379ef538cce5b3ca081ecf683b448a4b
+          path: project0
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Build original Project0 reference kernel
+        run: |
+          cd project0
+          npm ci --ignore-scripts --no-audit --no-fund
+          npm run build
+          node .build/scripts/conformance.js
+      - name: Install local TranchNode TS runner (no lifecycle scripts)
+        run: cd tranchnode && npm install --ignore-scripts --no-audit --no-fund
+      - name: Verify public SB-001 / SB-002 / SB-003 original archives and survive staging death
+        run: |
+          echo '{"the-static-collective/Human-Witness":"'$(pwd)'/human-witness","the-static-collective/reLATTE-supabardo":"'$(pwd)'/relatte-supabardo","the-static-collective/tranchnode":"'$(pwd)'/tranchnode","the-static-collective/project0":"'$(pwd)'/project0"}' > /tmp/cannon016-roots.json
+          cd cannon
+          node scripts/supabardo-death-016.mjs run /tmp/cannon016-roots.json /tmp/cannon016
+      - name: Cold replay + fail-closed semantics, no live Supabase contact
+        env:
+          CANNON_016_ROOTS: /tmp/cannon016-roots.json
+          CANNON_016_OUTPUT: /tmp/cannon016
+        run: |
+          cd cannon
+          node --test test/supabardo-death-016.test.mjs
+          node scripts/supabardo-death-016.mjs verify /tmp/cannon016-roots.json /tmp/cannon016
+      - name: Upload ONLY public frozen-proof summary
+        uses: actions/upload-artifact@v4
+        with:
+          name: supabardo-016-tranchnode-post-death-verification
+          if-no-files-found: error
+          path: |
+            /tmp/cannon016/public-report.json
+            /tmp/cannon016/custody-manifest.json
