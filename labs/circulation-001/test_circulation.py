@@ -93,6 +93,10 @@ class CirculationTests(unittest.TestCase):
         new_seed["title"] = "FICTIONAL: person@example.org"
         with self.assertRaises(Exception):
             C.build(new_seed, N)
+        new_seed = copy.deepcopy(SEED)
+        new_seed["title"] = "FICTIONAL: call 555-123-4567"
+        with self.assertRaises(Exception):
+            C.build(new_seed, N)
 
     def test_real_owner_claim_and_foreign_return_blocked(self):
         injected = copy.deepcopy(self.graph)
