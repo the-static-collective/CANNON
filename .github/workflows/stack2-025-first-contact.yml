@@ -1,0 +1,84 @@
+name: STACK2 025 First Contact native crater
+
+on:
+  push:
+    branches:
+      - experiment/stack-squared-025-first-contact-crater
+    paths:
+      - 'labs/crater-025/**'
+      - 'docs/STACK-SQUARED-025-FIRST-CONTACT.md'
+      - '.github/workflows/stack2-025-first-contact.yml'
+  pull_request:
+    paths:
+      - 'labs/crater-025/**'
+      - 'docs/STACK-SQUARED-025-FIRST-CONTACT.md'
+      - '.github/workflows/stack2-025-first-contact.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  native-three-worlds:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Checkout original CANNON experiment
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Checkout pinned Static Field producer
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/static-field
+          ref: 80b08f7a45f6957239582091536ea9528df7a1b7
+          path: .test-support/static-field
+          persist-credentials: false
+      - name: Checkout pinned Full Measure receiver
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/full-measure-world-layer
+          ref: 60cf0fc697b8b83d89e364d7dbbfe6001f560f6d
+          path: .test-support/full-measure
+          persist-credentials: false
+      - name: Checkout pinned ROroomOM guest-room receiver
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/ROroomOM
+          ref: f7372b6b5dd18bbce8a850100742521495b0a814
+          path: .test-support/roroomom
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Run independent native donor contract tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          export STATIC_FIELD_DECK_DIR="$PWD/.test-support/static-field"
+          export FULL_MEASURE_QUEST_DIR="$PWD/.test-support/full-measure"
+          node --test "$STATIC_FIELD_DECK_DIR"/experiments/postemahhn-living-deck-001/tests/*.test.mjs
+          node --test "$FULL_MEASURE_QUEST_DIR"/experiments/living-deck-quest-001/tests/*.test.mjs
+          node --test "$PWD"/.test-support/roroomom/experiments/living-deck-room-001/tests/*.test.mjs
+      - name: Execute native 3-donor CANNON crater + adversarial replay
+        shell: bash
+        run: |
+          set -euo pipefail
+          export CRATER_STATIC_FIELD="$PWD/.test-support/static-field"
+          export CRATER_FULL_MEASURE="$PWD/.test-support/full-measure"
+          export CRATER_ROROOMOM="$PWD/.test-support/roroomom"
+          node --test labs/crater-025/native.test.mjs
+          temp="$(mktemp -d)"
+          trap 'rm -rf "$temp"' EXIT
+          printf '{"static-field":"%s","full-measure":"%s","roroomom":"%s"}\n' \
+            "$CRATER_STATIC_FIELD" "$CRATER_FULL_MEASURE" "$CRATER_ROROOMOM" > "$temp/roots.json"
+          node labs/crater-025/native.mjs run "$temp/roots.json" "$temp/receipt.json"
+          node labs/crater-025/native.mjs verify "$temp/roots.json" "$temp/receipt.json"
+      - name: Refuse accidental source modification
+        shell: bash
+        run: |
+          set -euo pipefail
+          for repo in static-field full-measure roroomom; do
+            git -C ".test-support/$repo" diff --exit-code HEAD
+          done
+          node --check labs/crater-025/native.mjs
+          node --check labs/crater-025/native.test.mjs
