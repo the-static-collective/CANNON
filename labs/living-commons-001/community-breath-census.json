@@ -1,0 +1,934 @@
+{
+  "schema": "cannon.community-breath-census/v0",
+  "observedDate": "2026-10-22",
+  "classification": "CANDIDATE_METADATA_NOT_ADOPTION_OR_RUNTIME",
+  "coverage": "CONNECTED_LIST_PAGE_PLUS_DIRECT_README_FETCHES_NON_EXHAUSTIVE",
+  "rules": [
+    "UNARCHIVED_IS_NOT_ALIVE",
+    "README_IS_NOT_FIELD_PROOF",
+    "BLOB_SHA_IS_NOT_COMMIT_SHA",
+    "DISCOVERED_IS_NOT_CONSENT",
+    "NAME_IS_NOT_FUNCTION",
+    "NO_AUTOMATIC_EXECUTION"
+  ],
+  "repositories": [
+    {
+      "repository": "the-static-collective/100pies",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/3rdi",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/ALEX.2",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "README_INSPECTED_ONLY",
+      "proposedLane": "research",
+      "readmeBlobSha": "0dcdcfcd191156eb460992b76a81ab515292ef4d"
+    },
+    {
+      "repository": "the-static-collective/appliance-prophet-king",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/autodisco-video-receipt",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/autodiscography-vault",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/BananaDash",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/BananaGram-Gram-to-Fork",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "README_INSPECTED_ONLY",
+      "proposedLane": "care",
+      "readmeBlobSha": "c3c01bb17d2ae6f22b8baa432a787ab17f1ebc5e"
+    },
+    {
+      "repository": "the-static-collective/BananaSpork",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "README_INSPECTED_ONLY",
+      "proposedLane": "care",
+      "readmeBlobSha": "504eed628ce8ad31b631a70583c1555a3a086439"
+    },
+    {
+      "repository": "the-static-collective/band-runtime",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/black-star",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/BnanaGram",
+      "branch": "master",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/CANNON",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "README_INSPECTED_ONLY",
+      "proposedLane": "provenance",
+      "readmeBlobSha": "f0e0f4d00ce40760e1ef2c965324d5665990f33b"
+    },
+    {
+      "repository": "the-static-collective/ChronoQuest",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/circle",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/cloudflare-control",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/convergent-codec",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/corpus-os",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/Corpus-OS-Local-Intake-Implementation",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/cUps",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/DerekDerrikDark",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/Dogram",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "README_INSPECTED_ONLY",
+      "proposedLane": "research",
+      "readmeBlobSha": "823445178c15ea42b392858946a83572c047ecdb"
+    },
+    {
+      "repository": "the-static-collective/DVOTE",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/fogGlass",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/fork-EXCLAIM",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/formation-trace",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/founder-node",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/free-graph",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "README_INSPECTED_ONLY",
+      "proposedLane": "provenance",
+      "readmeBlobSha": "b4ceb8185256bb9b4f92963bc5d4abd8446ee760"
+    },
+    {
+      "repository": "the-static-collective/freeport",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/full-measure-world-layer",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/garden-whisperer",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/GHoT",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "README_INSPECTED_ONLY",
+      "proposedLane": "compute",
+      "readmeBlobSha": "9ef8faf7d919ced20965dc7cee53ad1d4be9ddfd"
+    },
+    {
+      "repository": "the-static-collective/GOATnote",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "README_INSPECTED_ONLY",
+      "proposedLane": "door",
+      "readmeBlobSha": "201de4682f3b4b2592fffbcde8c66b9117f4b364"
+    },
+    {
+      "repository": "the-static-collective/gramfork",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/GrO",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "README_INSPECTED_ONLY",
+      "proposedLane": "door",
+      "readmeBlobSha": "35b084ea3e7da51b930d75db22fefa84ed06d785"
+    },
+    {
+      "repository": "the-static-collective/groove-rooms",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/Human-Witness",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/idea-grove",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/iron-lung",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/JAR-VIS",
+      "branch": null,
+      "archived": null,
+      "discovery": "DIRECT_README_FETCH",
+      "observation": "README_INSPECTED_ONLY",
+      "proposedLane": "stewardship",
+      "readmeBlobSha": "b26dae19fced8784f4b128e31723d8f7f016cf78"
+    },
+    {
+      "repository": "the-static-collective/jubilee-authority-kit",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/Jubilee-Campfire",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "README_INSPECTED_ONLY",
+      "proposedLane": "care",
+      "readmeBlobSha": "8e1d9ddb41fb73bae78cd1035f3541ce375ef916"
+    },
+    {
+      "repository": "the-static-collective/Jubilee-Engine-VM",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "README_INSPECTED_ONLY",
+      "proposedLane": "provenance",
+      "readmeBlobSha": "910c4cae226cdc8eacfcc3817321f4a05ebbf58f"
+    },
+    {
+      "repository": "the-static-collective/Jubilee-treasury",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "README_INSPECTED_ONLY",
+      "proposedLane": "care",
+      "readmeBlobSha": "ca15c126b22584c7e0edd72a3f8e63725d19598a"
+    },
+    {
+      "repository": "the-static-collective/jubilee-workspace",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/JubileeV.1",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/jublEchat",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/King-sCup",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/LampPost",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/lemonPRESS",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "README_INSPECTED_ONLY",
+      "proposedLane": "culture",
+      "readmeBlobSha": "6ec65b26ff97e3d917960770cffbea7595376b97"
+    },
+    {
+      "repository": "the-static-collective/LOADOUT",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/love",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/MEMENTO",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/mundaneWORMHOLE",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/national-treasure",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/Nourish-Kids",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "README_INSPECTED_ONLY",
+      "proposedLane": "care",
+      "readmeBlobSha": "5ecacc36164c2020cd8b495c81f04b65cc424152"
+    },
+    {
+      "repository": "the-static-collective/pies",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/planZ",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "README_INSPECTED_ONLY",
+      "proposedLane": "planning",
+      "readmeBlobSha": "75f5c03edf61838a355f2c5b0e4c13a45806f97a"
+    },
+    {
+      "repository": "the-static-collective/playdeck",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/project0",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/reCOreturn",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/reCURV",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/reCURVrePAIR",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/reLATTE",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "README_INSPECTED_ONLY",
+      "proposedLane": "provenance",
+      "readmeBlobSha": "13e8dcde8dd5d3d8c771871644682ef05c2d869d"
+    },
+    {
+      "repository": "the-static-collective/reMIX-reCURVrePAIR",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/revival",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/ROroomOM",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/RRS",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/RRS-1-",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/SEAMforge",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/seedforge",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/seedforge-v0",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/seedFORK",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/SIA",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "README_INSPECTED_ONLY",
+      "proposedLane": "culture",
+      "readmeBlobSha": "52b2a335e5b92d640cb15e139e87117de1adfc8b"
+    },
+    {
+      "repository": "the-static-collective/static-field",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/static-live",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "README_INSPECTED_ONLY",
+      "proposedLane": "culture",
+      "readmeBlobSha": "911a46d4ea365114153b3bc8217899d775bf7e23"
+    },
+    {
+      "repository": "the-static-collective/static-os",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "README_INSPECTED_ONLY",
+      "proposedLane": "compute",
+      "readmeBlobSha": "f9764ae41680a30ab070057806cb0d9af3c4e51b"
+    },
+    {
+      "repository": "the-static-collective/static-workbench",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/story-dna",
+      "branch": null,
+      "archived": null,
+      "discovery": "DIRECT_README_FETCH",
+      "observation": "README_INSPECTED_ONLY",
+      "proposedLane": "culture",
+      "readmeBlobSha": "5e857f7817089cb9433ca17e89585c4a9fb71ef0"
+    },
+    {
+      "repository": "the-static-collective/STORYSHIP",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/the-autodisco",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/The-AutodiscoV.20.-question-marks-",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/the-daily-slice",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/the-haunted-blender",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/the-haunted-phonography",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "README_INSPECTED_ONLY",
+      "proposedLane": "culture",
+      "readmeBlobSha": "964a743d18d5ae4a2084b9eacd7adb375a8b2dbc"
+    },
+    {
+      "repository": "the-static-collective/the-haunted-pol-ish-roids",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/the-haunted-toaster",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "README_INSPECTED_ONLY",
+      "proposedLane": "culture",
+      "readmeBlobSha": "335cd41bcff367ae3369f62e8c57d25c99ec9278"
+    },
+    {
+      "repository": "the-static-collective/the-static-collective",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/toaster-lab",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/toaster-lab2",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/toaster-oracle",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/tranchnode",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/tranchNode-v1",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/tranchNOSE",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/trust",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/unfolding-ledger",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/Upper-room",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "README_INSPECTED_ONLY",
+      "proposedLane": "scripture_optional",
+      "readmeBlobSha": "4d50f7139fd0d3dc5383f8881a7ed67bc2d34d82"
+    },
+    {
+      "repository": "the-static-collective/vidmage",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "README_INSPECTED_ONLY",
+      "proposedLane": "culture",
+      "readmeBlobSha": "9842918d9f9be1de010e4b0494bec62f3395166c"
+    },
+    {
+      "repository": "the-static-collective/webZ",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "README_INSPECTED_ONLY",
+      "proposedLane": "door",
+      "readmeBlobSha": "84d2866fcdfd4604fe8299bed81e4083561b7124"
+    },
+    {
+      "repository": "the-static-collective/What-is-the-static-collective-",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/WITNESS",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    },
+    {
+      "repository": "the-static-collective/WORLDSEED",
+      "branch": "main",
+      "archived": false,
+      "discovery": "CONNECTED_GITHUB_REPOSITORY_LIST",
+      "observation": "METADATA_ONLY",
+      "proposedLane": null,
+      "readmeBlobSha": null
+    }
+  ]
+}
