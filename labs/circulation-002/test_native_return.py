@@ -5,7 +5,7 @@ import os
 from pathlib import Path
 import unittest
 
-ROOT=Path(__file__).resolve().parents[1]
+ROOT=Path(__file__).resolve().parent
 SPEC=importlib.util.spec_from_file_location("return_002",ROOT/"return_from_bananaspork.py")
 R=importlib.util.module_from_spec(SPEC);SPEC.loader.exec_module(R)
 GRAPH=Path(os.environ["CIRCULATION002_GRAPH"])
