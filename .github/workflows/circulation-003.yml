@@ -1,0 +1,65 @@
+name: CIRCULATION-003 — human field question HOLD gate
+on:
+  pull_request:
+    paths:
+      - 'labs/circulation-003/**'
+      - 'docs/CIRCULATION-003.md'
+      - '.github/workflows/circulation-003.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  native-no-publication-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/webZ
+          ref: d69d3ccc08ca2ffc5ce79b522e27ce5650ccb104
+          path: deps/webZ
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Use source-owned webZ JavaScript packet producer (fictional specimen only)
+        run: |
+          mkdir -p .circulation-003
+          node --input-type=module <<'JS'
+          import { writeFileSync } from 'node:fs';
+          import { prepareFieldQuestion, verifyFieldQuestion } from './deps/webZ/circulation/003/packet.mjs';
+          const specimen = await prepareFieldQuestion({
+            kind: 'BUILD',
+            text: 'FICTIONAL: Could existing community kitchens and growers share a question about connecting?',
+            authorRole: 'AUTHOR',
+            permissionReviewed: true,
+            privacyReviewed: true
+          });
+          if (!await verifyFieldQuestion(specimen)) throw Error('LOCAL_WEBZ_SOURCE_INVALID');
+          writeFileSync('.circulation-003/fictional-question.json', JSON.stringify(specimen, null, 2)+'\n', {flag:'wx'});
+          console.log(JSON.stringify({id:specimen.id,state:specimen.state,human_verified:specimen.person_authenticated,publication:specimen.publication_authorized}));
+          JS
+      - name: Execute independent CANNON validator against the original JS artifact
+        run: |
+          python labs/circulation-003/field_gate.py validate .circulation-003/fictional-question.json
+          python labs/circulation-003/field_gate.py hold .circulation-003/fictional-question.json --output .circulation-003/source-hold.json
+          python labs/circulation-003/field_gate.py verify-hold .circulation-003/fictional-question.json --output .circulation-003/source-hold.json
+      - name: Exercise adverse and counterfeit input cases
+        run: python -m unittest discover -s labs/circulation-003 -p 'test_*.py' -v
+      - name: Gate never changes source nor receiver work
+        run: |
+          git diff --exit-code -- labs/circulation-001 labs/circulation-002
+          git -C deps/webZ diff --exit-code
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          source=json.loads(Path('.circulation-003/fictional-question.json').read_text())
+          gate=json.loads(Path('.circulation-003/source-hold.json').read_text())
+          assert gate['source_question_id']==source['id']
+          assert gate['disposition']=='HOLD_UNPUBLISHED'
+          assert not gate['source_person_authorized']
+          assert not gate['recipient_owner_admission']
+          assert not gate['publication_authorized']
+          assert not gate['network_transmission']
+          print('FIELD_003_SOURCE_AND_AUTHORITY_GATES_PASS')
+          PY
