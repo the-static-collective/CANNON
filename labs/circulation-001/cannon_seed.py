@@ -13,7 +13,7 @@ import sys
 
 SCHEMA = "cannon.circulation-seed/v0"
 REPO = re.compile(r"^the-static-collective/[a-zA-Z0-9._-]+$")
-BAD_PERSONAL = re.compile(r"@|\\b\\d{3}[-. ]\\d{3}[-. ]\\d{4}\\b|https?://", re.I)
+BAD_PERSONAL = re.compile(r"@|[0-9]{3}[-. ][0-9]{3}[-. ][0-9]{4}|https?://", re.I)
 
 class Refused(ValueError):
     pass
