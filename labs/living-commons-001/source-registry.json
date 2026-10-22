@@ -1,0 +1,70 @@
+{
+  "schema": "cannon.stack82-source-registry/v0",
+  "classification": "SOURCE_POINTERS_NOT_PERMISSION",
+  "organs": [
+    {
+      "organ": "notice",
+      "repository": "the-static-collective/webZ",
+      "commit": "5c8c105baa766c172a39e987e816414dfbe759b1",
+      "pr": 68,
+      "state": "EXPERIMENTAL_DRAFT",
+      "interface": "INSPECT_ONLY_UNVERIFIED"
+    },
+    {
+      "organ": "gather",
+      "repository": "the-static-collective/BananaSpork",
+      "commit": "e9c6adb3bda9f24be71c749dc973dc5809f69111",
+      "pr": 10,
+      "state": "MERGED_SOURCE_UNDEPLOYED",
+      "interface": "INSPECT_ONLY_UNVERIFIED"
+    },
+    {
+      "organ": "relate",
+      "repository": "the-static-collective/GOATnote",
+      "commit": "4374aed8cc15370a87dcd299b5d164bb15270160",
+      "pr": 15,
+      "state": "EXPERIMENTAL_DRAFT",
+      "interface": "INSPECT_ONLY_UNVERIFIED"
+    },
+    {
+      "organ": "offer",
+      "repository": "the-static-collective/Jubilee-treasury",
+      "commit": "efb6ce130bc793bbe8990a08907fa6ef9b7cd68b",
+      "pr": 4,
+      "state": "EXPERIMENTAL_DRAFT",
+      "interface": "INSPECT_ONLY_UNVERIFIED"
+    },
+    {
+      "organ": "create",
+      "repository": "the-static-collective/story-dna",
+      "commit": "b881a56398725f767530d1967019d7323a1212e3",
+      "pr": 4,
+      "state": "EXPERIMENTAL_DRAFT",
+      "interface": "INSPECT_ONLY_UNVERIFIED"
+    },
+    {
+      "organ": "act",
+      "repository": "the-static-collective/CANNON",
+      "commit": "2fab6e142f21f6213bbcf4e290030acfce756061",
+      "pr": 27,
+      "state": "EXPERIMENTAL_DRAFT",
+      "interface": "INSPECT_ONLY_UNVERIFIED"
+    },
+    {
+      "organ": "witness",
+      "repository": "the-static-collective/reLATTE",
+      "commit": "d3cea11f6d4941ee134daa4f7afa36ad377e1ce4",
+      "pr": 110,
+      "state": "EXPERIMENTAL_DRAFT",
+      "interface": "INSPECT_ONLY_UNVERIFIED"
+    },
+    {
+      "organ": "return",
+      "repository": "the-static-collective/webZ",
+      "commit": "31f80398c937e5da289d517f50e01cf6470c7c6a",
+      "pr": 67,
+      "state": "EXPERIMENTAL_DRAFT",
+      "interface": "INSPECT_ONLY_UNVERIFIED"
+    }
+  ]
+}
