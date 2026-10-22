@@ -75,7 +75,6 @@ class Field003Test(unittest.TestCase):
         with tempfile.TemporaryDirectory() as d:
             packet=Path(d)/"input.json";result=Path(d)/"hold.json"
             packet.write_text(json.dumps(specimen()),encoding="utf-8")
-            self.assertEqual(G.main(),0) if False else None
             with result.open("x",encoding="utf-8") as f:json.dump(G.hold(G.read(packet)),f)
             self.assertTrue(G.check_hold(G.read(result),G.read(packet)))
             with self.assertRaises(FileExistsError):result.open("x")
