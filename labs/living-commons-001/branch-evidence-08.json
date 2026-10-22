@@ -1,0 +1,1470 @@
+{
+  "schema": "cannon.branch-evidence-slice/v0",
+  "observedDate": "2026-10-22",
+  "classification": "REF_PRESENT_NOT_LIVENESS_OR_ADMISSION",
+  "source": "GitHub REST branches (up to 2 pages x 100)",
+  "slice": {
+    "offset": 80,
+    "limit": 10
+  },
+  "repositories": [
+    {
+      "repository": "the-static-collective/King-sCup",
+      "refs": [
+        {
+          "name": "main",
+          "sha": "5580541dc71d979241dc124b2c5d1a2c15fb2e4e"
+        },
+        {
+          "name": "paulaos/canon-loom-002",
+          "sha": "2495c94a97fb04c65b60f9a7f5e012924ba24392"
+        },
+        {
+          "name": "paulaos/final-print-proof-006",
+          "sha": "19984377b166e43c95473c1c26224946fe8314a2"
+        },
+        {
+          "name": "paulaos/full-cup-migration-001",
+          "sha": "9c4b979db21fb539487464cbb6319ae41ca4b3eb"
+        },
+        {
+          "name": "paulaos/genesis-001",
+          "sha": "e69ede7b49e084693271a1fbc47d3569a6716411"
+        },
+        {
+          "name": "paulaos/novelist-router-003-rebased",
+          "sha": "c6f11e5edb0ab9d6cdff7f117b1709d4503c8a96"
+        },
+        {
+          "name": "paulaos/novelist-router-003",
+          "sha": "754b6dbc56988cb1a49e685415c71ce7ac13adb7"
+        },
+        {
+          "name": "paulaos/redeeming-honor-005",
+          "sha": "bf4f3ec6ee76ed5025d03bf08f3abb54436d8195"
+        },
+        {
+          "name": "paulaos/sweeten-pot-001",
+          "sha": "454c7cb8c98d81f566da80e034fe2279d3821b51"
+        },
+        {
+          "name": "paulaos/work-call-001",
+          "sha": "9d19c2014275b6c2ed016b0554f6f2c92cc2fdfc"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/cUps",
+      "refs": [
+        {
+          "name": "main",
+          "sha": "ef798028ba1ed4aef0811974dd46cb047b758911"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/WITNESS",
+      "refs": [
+        {
+          "name": "genesis/community-audio-bible-001",
+          "sha": "9644f24628b705bc405a03bbd80cc26e8b5e01f0"
+        },
+        {
+          "name": "main",
+          "sha": "be17a5a51f03e1a75cd836829284838171418638"
+        },
+        {
+          "name": "navigation-aperture-2026-09-27",
+          "sha": "2d0911bccdb7fb88b2f80d073484e870a78ca3d7"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/the-static-collective",
+      "refs": [
+        {
+          "name": "main",
+          "sha": "69891357779d5487264bba36636030434c5bd91a"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/black-star",
+      "refs": [
+        {
+          "name": "archaeology-live-constraints-2023-2025",
+          "sha": "55ad016f4e7f825b48b1b7b56f5d3c55694fea6c"
+        },
+        {
+          "name": "archive/snapshot-46-live-constraints",
+          "sha": "54765003729176d6fd7932fc01b07004afeacdce"
+        },
+        {
+          "name": "build/child-first-protection",
+          "sha": "62d91630f40dc001253f3467b125896c8699e399"
+        },
+        {
+          "name": "build/real-deal-0.1.0",
+          "sha": "3c13999afd4f879684325e95ceaeb57e841188cd"
+        },
+        {
+          "name": "genesis/v45-machine-import",
+          "sha": "afcc2ca112d96c77bb4277b14a62f9805f738742"
+        },
+        {
+          "name": "main",
+          "sha": "235f584f825eced13e70934a98554c3d2d9a13ad"
+        },
+        {
+          "name": "media-contact-membrane-0.3",
+          "sha": "4847aa11ac52eed1b36586fcaaff34f01622e2e3"
+        },
+        {
+          "name": "snapshot-47-parental-consent-thread",
+          "sha": "daa5e11e92a921c4b0df430d01cdc3ce9fe06b9e"
+        },
+        {
+          "name": "snapshot-48-panic-distress-suicidality",
+          "sha": "67f7e7918eef951a052f986df3afdc3af0892b4e"
+        },
+        {
+          "name": "snapshot-49-nathan-nathanael-trace",
+          "sha": "acaacfd7010cb6f84f68fceecd9701250cbc5da7"
+        },
+        {
+          "name": "snapshot-50-january-fairmont-note-intake",
+          "sha": "3adc0f2ab88f5ccbdcc7d430856dba44408cc626"
+        },
+        {
+          "name": "snapshot-51-feb9-4pm-note",
+          "sha": "ab79bb2b5fd082d6ab0db87edfbbc9542d5cac8d"
+        },
+        {
+          "name": "snapshot-52-mar-apr-notecard-notebook-batch1",
+          "sha": "ea9424b0d845293e62b7463ec0e59c43db745701"
+        },
+        {
+          "name": "snapshot-53-mar-apr-notecard-notebook-batch2",
+          "sha": "66fa7a83e4e3b89dbbeb432db29b94b2bc57e50a"
+        },
+        {
+          "name": "snapshot-54-mar-apr-notecard-notebook-final",
+          "sha": "e4250d60aa4c4ceef616b5794ae6ecaaa904f300"
+        },
+        {
+          "name": "software-0.4.0-chat-archive-ingest",
+          "sha": "f1864e62e18a91fb325cea8fd6878b6c71e51121"
+        },
+        {
+          "name": "video-contact-july-2026-v2",
+          "sha": "1dc200fd83d64a5dbf0a4bf14796adee6ada5916"
+        },
+        {
+          "name": "video-contact-july-2026",
+          "sha": "0e408b74a00834b9fdf659eddd51e82f9d4fd1f6"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/trust",
+      "refs": [
+        {
+          "name": "build/genesis-native-0.1.0",
+          "sha": "cdb71ba748a85d460e5b9c39228942a817b3fa38"
+        },
+        {
+          "name": "main",
+          "sha": "4badf5218a526b857fa72cb33f9f258ff5e13bbd"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/reLATTE",
+      "refs": [
+        {
+          "name": "com5-capsule-001",
+          "sha": "693706265d45670f4ca884e69e203bf6155afd59"
+        },
+        {
+          "name": "composition-pulse-001",
+          "sha": "490c2011f5cdd87b19d85ab1f416890d0560e0f1"
+        },
+        {
+          "name": "crossing-parcel-001-grok-return",
+          "sha": "fe77ccf73f2f040ed8a367ba327aba70c48fb1d2"
+        },
+        {
+          "name": "crossing-parcel-002-meta-return",
+          "sha": "b729bb9d8e87d3dec8739c1cd574199f10c3faaa"
+        },
+        {
+          "name": "cultural-descendant-001",
+          "sha": "442bc190f2dc8817c79f5701f1445dd43cdbe188"
+        },
+        {
+          "name": "docs/webz-005-fatherhand-foundernode",
+          "sha": "b2b0bd1937ec93230b43dc36c3c0ca846f4820b3"
+        },
+        {
+          "name": "ecology-machine-001",
+          "sha": "8446ed84dfe197690f98dee991bb206d881dfef4"
+        },
+        {
+          "name": "experiment/alien-adapter-001",
+          "sha": "0ac02ec4bb3f7cb1b77a38e1bde8879d18d794ce"
+        },
+        {
+          "name": "experiment/alien-langton-003",
+          "sha": "3f61265db4f8d61bc32333a1c27a1d962ba831cc"
+        },
+        {
+          "name": "experiment/alien-midi-002",
+          "sha": "a17e030fda5af59265ce5d76b0f1861c9999ae8e"
+        },
+        {
+          "name": "experiment/alien-minecraft-004",
+          "sha": "03ef0a4844a99dbddf94645654728652a60f4772"
+        },
+        {
+          "name": "experiment/alien-minecraft-vanilla-005",
+          "sha": "686daa00acbb5a8feab879364596ce1a9c797120"
+        },
+        {
+          "name": "experiment/authenticated-pressure-authority-boundary-001",
+          "sha": "87e9eeb91f067aadda3d7440ec486dc4d7c7ae80"
+        },
+        {
+          "name": "experiment/briar-continuation-001-headless-door",
+          "sha": "f59f206308fab928a6e110b67b824730af4c84e1"
+        },
+        {
+          "name": "experiment/briar-continuation-002-source-bootstrap",
+          "sha": "a63c6be77e0de090dec0a648dee7c99a07f6c0f8"
+        },
+        {
+          "name": "experiment/composition-instance-001",
+          "sha": "f34772194e761585ee6d05a48be33f614f6d4c03"
+        },
+        {
+          "name": "experiment/composition-instance-002-parents",
+          "sha": "3da2740173cb82c6eefc1dea31471a1f1b498577"
+        },
+        {
+          "name": "experiment/composition-instance-002",
+          "sha": "21e7d7a7413507b3b9301354f51f7f98d89d2eee"
+        },
+        {
+          "name": "experiment/dynamic-interface-field-001",
+          "sha": "1bdb060130842df2f634831a80f4dc5bb57f630c"
+        },
+        {
+          "name": "experiment/fabrication-crossing-013",
+          "sha": "ded308b463df4eda2003000b4202d3c7aaa2dc84"
+        },
+        {
+          "name": "experiment/first-contact-001",
+          "sha": "ae3fd0f56860683245dfd27ff32edf64311046bf"
+        },
+        {
+          "name": "experiment/horizon-agent-commons-001",
+          "sha": "71edde9a671fd7f5717c2dcaa58b4a152c10703b"
+        },
+        {
+          "name": "experiment/horizon-mcp-readonly-002",
+          "sha": "ed39b597154647f9d4905b00e3dd3f1e0fc54d05"
+        },
+        {
+          "name": "experiment/hymnal-crossing-002",
+          "sha": "6b1bf6b7340bbe912d7e646f35a08862feeab4e5"
+        },
+        {
+          "name": "experiment/interface-superspace-001",
+          "sha": "4affa111c367e50dc3dfcce45e5334931f9b9ca6"
+        },
+        {
+          "name": "experiment/manga-parcel-001",
+          "sha": "d208d98bd88194cbd42c90379816b1167248595f"
+        },
+        {
+          "name": "experiment/paperchain-seed-vault-001",
+          "sha": "51372e57b6c1f5647621ea805f6f983b5ac28597"
+        },
+        {
+          "name": "experiment/particularity-crucible-001",
+          "sha": "f5cb7488bebc1a6e27fd458ad40af9b9b6f9e858"
+        },
+        {
+          "name": "experiment/perceived-affordance-field-001",
+          "sha": "203b836cd7a36e105d4f3798f366db744dee47db"
+        },
+        {
+          "name": "experiment/physical-custody-power-split-001",
+          "sha": "85a55dce41f440cedd3d84ef39371e8ebe02d248"
+        },
+        {
+          "name": "experiment/physical-custody-roundtrip-002",
+          "sha": "87006f3265103a8abe387d81597c58aeb39b0beb"
+        },
+        {
+          "name": "experiment/polyglot-crossing-001",
+          "sha": "b0d20852a44e5a80b124bc9690e1af547942221b"
+        },
+        {
+          "name": "experiment/psi-membrane-001",
+          "sha": "c2197d0b0b77b1ac731bb6045819a613010562f7"
+        },
+        {
+          "name": "experiment/relational-fission-001",
+          "sha": "d3cea11f6d4941ee134daa4f7afa36ad377e1ce4"
+        },
+        {
+          "name": "experiment/relatte-chatgpt-mcp-001",
+          "sha": "0dd287204265d1b8151806bbc675b4ffdf8332a4"
+        },
+        {
+          "name": "experiment/relatte-chatgpt-mcp-002",
+          "sha": "936f88605ce6034fbd00a5a18e43d32f65b5cccc"
+        },
+        {
+          "name": "experiment/relatte-chatgpt-mcp-003",
+          "sha": "1c1eba59ff93507f05b2d863cf2210b46e5d7811"
+        },
+        {
+          "name": "experiment/relatte-mcp-dependency-hardening-004",
+          "sha": "dcc8a1917028c8784c14ecef47e3df316761cf66"
+        },
+        {
+          "name": "experiment/relatte-mcp-edge-door-007",
+          "sha": "1861e6a56a86344981a05561614208a867b39e53"
+        },
+        {
+          "name": "experiment/relatte-mcp-oauth-trust-005",
+          "sha": "9db2a3fd54d60deedde16ebc6afd561b02514b25"
+        },
+        {
+          "name": "experiment/relatte-mcp-trust-gauntlet-006",
+          "sha": "7822dcabf9ba42ee1772af32f7633fc8612a4dcb"
+        },
+        {
+          "name": "experiment/relatte-vm-001-self-hosted-world",
+          "sha": "9d9638dc7cbfd9fcc33f806b7cc4316e950c96cd"
+        },
+        {
+          "name": "experiment/relatte-vm-002-isolated-wasm",
+          "sha": "283bc4afe63eef1df44f39ef4d45ad899e62ed15"
+        },
+        {
+          "name": "experiment/relatte-vm-003-witnessed-execution",
+          "sha": "477c68075919b09e51a5888133370dc9df0f0b9e"
+        },
+        {
+          "name": "experiment/relatte-vm-004-authenticated-leases",
+          "sha": "b2cf5b917d5fa93a70764ab4eb94a246e98c2ed4"
+        },
+        {
+          "name": "experiment/relay001-ghot-opaque-hold",
+          "sha": "69ddd67eb84049eec7ff8e040c465de078d98def"
+        },
+        {
+          "name": "experiment/riff-raft-minecraft-001-terraform-crossing",
+          "sha": "0f88423b61f2467447674dacc1b2e8a6132a985f"
+        },
+        {
+          "name": "experiment/riff-raft-minecraft-002-living-redstone",
+          "sha": "e5899ee9cc5299ba3027e622ab5c5c44981eb7a4"
+        },
+        {
+          "name": "experiment/riff-raft-minecraft-003-two-world-return",
+          "sha": "4943f14fd28d5b0bdb1b6d11bad035a009afe8b4"
+        },
+        {
+          "name": "experiment/riff-raft-minecraft-004-dynamic-quests",
+          "sha": "5275ca7a8af561e5c8f200d00f2952e1619aca13"
+        },
+        {
+          "name": "experiment/riff-raft-minecraft-005-counterfactual-return",
+          "sha": "e711541bf22e5889cda284b1d852c72d65fc82e8"
+        },
+        {
+          "name": "experiment/riff-raft-minecraft-006-black-star-mailbox",
+          "sha": "fa760b75c530575f2dfb25292d8826f6fb872e2e"
+        },
+        {
+          "name": "experiment/riff-raft-minecraft-007-two-custodians",
+          "sha": "5bec783505c1be62e7f68224284d0bb901be1ada"
+        },
+        {
+          "name": "experiment/roadworks-001-briar-transport-policy",
+          "sha": "6dd9b04f710c7c2d18318598b8a61582de4cd719"
+        },
+        {
+          "name": "experiment/skymirror-001-passive-optical-road",
+          "sha": "8236600cdf8d95246b65d6343bbd336bd925f5fc"
+        },
+        {
+          "name": "experiment/skymirror-002-two-phone-light-link",
+          "sha": "540da48104a8a76a87f2acefd60df00ffa76237c"
+        },
+        {
+          "name": "experiment/supabardo-independent-verifier-001",
+          "sha": "65294f135260ee48b38829f698598dfe3478b0e7"
+        },
+        {
+          "name": "experiment/supabardo-sb001-001",
+          "sha": "2b243e69230f9bccbf947fc827c664203e240550"
+        },
+        {
+          "name": "experiment/supabardo-sb002-001",
+          "sha": "5044bea9d30c9ee1c6c318c4a2c9113d2d2eb780"
+        },
+        {
+          "name": "experiment/supabardo-sb003-ark-outlived-world-001",
+          "sha": "e5b351ef0391fea53d7d3ff22ceadd47d5114b26"
+        },
+        {
+          "name": "experiment/translate-through-001",
+          "sha": "49041d906274308e1e6aba46807642a6e658fdfa"
+        },
+        {
+          "name": "experiment/transport-composition-001-many-roads",
+          "sha": "f7b51ec13ab084aa3c4d3880758f5f0f0562c5c8"
+        },
+        {
+          "name": "experiment/vanilla-worldbuilder-006",
+          "sha": "7af28e974cd82fe6bd1f6cfacf656c8c0d7b1cf1"
+        },
+        {
+          "name": "experiment/wab-native-receiver-002",
+          "sha": "c107087ccb65227be78e844a422b174b84cee06e"
+        },
+        {
+          "name": "external-checkpoint-001",
+          "sha": "c0e59dfa361e91ef6c886ae0bd9a25752c2aa293"
+        },
+        {
+          "name": "feat/automatic-failover-001",
+          "sha": "19f394883af29122e92658413110be47f5bc7eb9"
+        },
+        {
+          "name": "feat/browse-metabolism",
+          "sha": "7d7fc2b44f00717647804675185ac9f269a788ed"
+        },
+        {
+          "name": "feat/capability-kernel-two-worlds-001",
+          "sha": "08b45ed4b5a62714c197942438ec2c9fc4d62571"
+        },
+        {
+          "name": "feat/carry-card-hostile-001",
+          "sha": "5c6f1a5a9d6d557255fa11f247287324219571d0"
+        },
+        {
+          "name": "feat/cloudflare-sqlite-receiver-001",
+          "sha": "cc186eb7859144a0d61478a18519131cb8790e6b"
+        },
+        {
+          "name": "feat/com5-metabolism",
+          "sha": "3679e0ae66477e5c4118357c1f57f73d59c02f66"
+        },
+        {
+          "name": "feat/customs-house-001",
+          "sha": "c0da0629830b92baa4962fb7c3e2f690e623e838"
+        },
+        {
+          "name": "feat/did-binding-001",
+          "sha": "84403ecfc4acce37509d58de1a40ff0e4bee5987"
+        },
+        {
+          "name": "feat/did-dht-discovery-001",
+          "sha": "6ec2f058cddf867cbbc099f6b59958e7061db3af"
+        },
+        {
+          "name": "feat/door-post-001",
+          "sha": "f3eabed4df84bfda10753fa38e75cc3ae7826d63"
+        },
+        {
+          "name": "feat/dwn-road-001",
+          "sha": "b5c84abd4794b9aa90ee9a96ca5535a96391cf6d"
+        },
+        {
+          "name": "feat/enterable-particular",
+          "sha": "a2b57126d1aa1daf64c80c1c4d10ae042bc83896"
+        },
+        {
+          "name": "feat/live-dht-gateway-001",
+          "sha": "eb956dcae5a042947a45f588805eaa248bea0ee1"
+        },
+        {
+          "name": "feat/mail-slot-static-post-001",
+          "sha": "28b67acbae929c77877647b0cb67354edbcc211c"
+        },
+        {
+          "name": "feat/mortal-road-001",
+          "sha": "b88463aa13e29fe95563471464f53f4f76e94321"
+        },
+        {
+          "name": "feat/mw-two-world-edge-002",
+          "sha": "b7a1f95c4ce38944cbbede72c5c6bc3fa2774235"
+        },
+        {
+          "name": "feat/opaque-roundtrip-001",
+          "sha": "c0829671edf02c1e29e87fd1514410f04038682a"
+        },
+        {
+          "name": "feat/r1-r2-canonical-identity",
+          "sha": "dccf7a670c366c740d7cd27eef8c7adb337f6e3c"
+        },
+        {
+          "name": "feat/r3-sovereign-receiver",
+          "sha": "fe837e86e992ebb2e5367a4f0b3d7ac353bcc7b0"
+        },
+        {
+          "name": "feat/reentry-witness",
+          "sha": "86ffb59941b45ce7e650a45f1e65091104241c11"
+        },
+        {
+          "name": "feat/remote-dwn-delivery-001",
+          "sha": "d3b402742857caf5741387d09f41c88f6dc1871b"
+        },
+        {
+          "name": "feat/road-memory-circuit-breaker-001",
+          "sha": "62822edfd1975c5ce815aa486f4e4e9bf504be64"
+        },
+        {
+          "name": "feat/room-return-request",
+          "sha": "7fb7c2a7f8ebe51e29ebe6f5dcaed801e4e23a19"
+        },
+        {
+          "name": "feat/runtime-boot-black-flag-001",
+          "sha": "83bee6db9427f36892448401e2514fd99e4bf21f"
+        },
+        {
+          "name": "feat/three-world-post-office-001",
+          "sha": "ef6a8e6c7fa55f79cad8eeff13f71391709aeebd"
+        },
+        {
+          "name": "feat/two-host-webz-004-artifact-relay",
+          "sha": "aad3662edf04953e7c63cd66dccf40fd602e86fc"
+        },
+        {
+          "name": "feat/useful-work-field-test-001",
+          "sha": "e58d199b39b844d79e29699c620babeba6a33bad"
+        },
+        {
+          "name": "feat/useful-work-field-test-002",
+          "sha": "8d761b8fcf5d4ddac8451ceabe8589bcb521bc9c"
+        },
+        {
+          "name": "feat/useful-work-field-test-003",
+          "sha": "ad4804fa5690f692a704b5f5274e178c887d086a"
+        },
+        {
+          "name": "feat/useful-work-kernel-001",
+          "sha": "f8151a36e6aab8f6fb85bc5b68bffeeefbe2827d"
+        },
+        {
+          "name": "feat/useful-work-kernel-002",
+          "sha": "ecf0773bb9d0e04cdd4e7f49216a66159cc645b8"
+        },
+        {
+          "name": "feat/useful-work-kernel-003",
+          "sha": "b1e9f77477b99ba450c6e906a2b7975ae1441b5b"
+        },
+        {
+          "name": "feat/useful-work-kernel-004",
+          "sha": "702442f5264482d81daba377d113bb38d280e00d"
+        },
+        {
+          "name": "feat/useful-work-kernel-005",
+          "sha": "8bd5d357f5b7b675b26b13c6f1713ed79c5c550b"
+        },
+        {
+          "name": "feat/useful-work-kernel-006",
+          "sha": "7f785bf0e88bc25edcd9c4f9aecae257db414f69"
+        },
+        {
+          "name": "feat/useful-work-kernel-007",
+          "sha": "23a7c692d571636fdcf02ac08a11da8051c33916"
+        },
+        {
+          "name": "feat/useful-work-kernel-008",
+          "sha": "486da8bee84aed30658bdd5d1f58f69638c2c1f5"
+        },
+        {
+          "name": "feat/useful-work-kernel-009",
+          "sha": "d4bdb6193a4aa01c5d2072a4e2c778f8679993a8"
+        },
+        {
+          "name": "feat/useful-work-kernel-010",
+          "sha": "5273993509e23b312025dd4b7ef71a3640842c1f"
+        },
+        {
+          "name": "feat/walkable-provenance",
+          "sha": "9f8a6473a4bbdede3fba476edc9b19a9bde30a6c"
+        },
+        {
+          "name": "feat/web5-five-door-room",
+          "sha": "6e4b2c9c3a3acaf82989148cf07aa0b3999563d6"
+        },
+        {
+          "name": "feat/webz-003-receiver-material-custody",
+          "sha": "743e5705c1e397c40aff82960e361d0b36eb11a5"
+        },
+        {
+          "name": "field-consequence-001",
+          "sha": "5a8724d0624fb32b142d0901a3a378df26a5f9a9"
+        },
+        {
+          "name": "local-receiver-001",
+          "sha": "38739f2de9ea499e2734caf2a4b3b7ab81969eb8"
+        },
+        {
+          "name": "main",
+          "sha": "7016dadcafc335d7ad8dccc26f4d6e0769dcf28c"
+        },
+        {
+          "name": "mirror-store-serve-001",
+          "sha": "3908d1e052b54725245882c1825661ff4ef8bf57"
+        },
+        {
+          "name": "moment-perspective-001",
+          "sha": "37e1bf8eeedfbb1d6ae56a72d1c93caabbb80f64"
+        },
+        {
+          "name": "mortality-test-001",
+          "sha": "1979eb65a2ea86671690acbc0c79b4fb674da909"
+        },
+        {
+          "name": "national-coffee-day-relatte-smash",
+          "sha": "db8f3191615f8b8fc74e04bf245d6f4c6f88c3c1"
+        },
+        {
+          "name": "porch-customs-001",
+          "sha": "76d738de68b288de28f98f4f3878b54fb0cd0fc2"
+        },
+        {
+          "name": "release-rule-hostile-001",
+          "sha": "0e74b5c994d2d5ad3f71ed11330f61104f347084"
+        },
+        {
+          "name": "replaceable-transport-001",
+          "sha": "41b10240b39e0b48dc156fe5ca685641717fb80a"
+        },
+        {
+          "name": "research/groups-administration-cloud",
+          "sha": "eaef768b0176c1f3d286ca7f3c30565cbb029595"
+        },
+        {
+          "name": "sovereign-nodes-001",
+          "sha": "3701e1fdf02414c8e68cc38f7a39243081ad2ef1"
+        },
+        {
+          "name": "spec/r3-sovereign-receiver",
+          "sha": "fe837e86e992ebb2e5367a4f0b3d7ac353bcc7b0"
+        },
+        {
+          "name": "super-relatte-001",
+          "sha": "f39371f348a2a10b092cb46140edcac25366e0bb"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/lemonPRESS",
+      "refs": [
+        {
+          "name": "audio-composer-001",
+          "sha": "b32083a712e2f9020dea95d09c3ba24e12addb0f"
+        },
+        {
+          "name": "experiment/box-binding-001",
+          "sha": "6e3e55762af43904057123c7159fcacc9da86c58"
+        },
+        {
+          "name": "experiment/goatnote-marginalia-press-001",
+          "sha": "ed6f7844551e828399b4dfcf46b921174f9c15de"
+        },
+        {
+          "name": "experiment/house-takes-attendance-press-001",
+          "sha": "8d86d12d91f54b16038a03c8e8668d87e2a165c6"
+        },
+        {
+          "name": "experiment/keep-a-place-reader-002",
+          "sha": "a1fdc52d3e826123325d14a36cca5f46a8d53ae8"
+        },
+        {
+          "name": "experiment/letter-cycle-001",
+          "sha": "61901de57126dd00470561de0391ba4a51c4698a"
+        },
+        {
+          "name": "experiment/manga-index-001",
+          "sha": "66105ac2276414a5ebdb9baae048147880f50d52"
+        },
+        {
+          "name": "experiment/manga-parcel-001",
+          "sha": "8ef9b4f3adcb85504937f962a1c6f2dd2e5f6296"
+        },
+        {
+          "name": "experiment/manga-remix-001",
+          "sha": "8b0655a26399f9ca7a8e6671dc9cf02132d3c7b1"
+        },
+        {
+          "name": "experiment/marginalia-printproof-review-003",
+          "sha": "5635dadedf171eb2f5b81e24ba2299933a0da85b"
+        },
+        {
+          "name": "experiment/marginalia-three-doors-002",
+          "sha": "1b1265b73c51e0e7b07840609a693b5aac4ba920"
+        },
+        {
+          "name": "experiment/material-memory-001",
+          "sha": "3ea755da14db9ecdd3b3b6e45dcbc56f9cbc58cd"
+        },
+        {
+          "name": "experiment/page-intake-001",
+          "sha": "81dc84dfe9e6ebebb54c751e5c8c213ff9516d82"
+        },
+        {
+          "name": "experiment/reletter-001",
+          "sha": "2b9ef5c7039816d20a51a7411e276999874f78d3"
+        },
+        {
+          "name": "experiment/reletter-batch-mask-001",
+          "sha": "6fe2bfd13fba08bcc096e31109a038a56a63f7df"
+        },
+        {
+          "name": "experiment/remix-sequence-001",
+          "sha": "6387170a1d623c4e819db572e70d7a0df1ce1b70"
+        },
+        {
+          "name": "experiment/translation-relay-001",
+          "sha": "7c175dd08130dc519c325ac0bd70ea1b82a3366e"
+        },
+        {
+          "name": "feat/computer-book-001",
+          "sha": "0195be74caf8e396a2e574c61d00c4f7fb9df57e"
+        },
+        {
+          "name": "feat/computer-book-002-severance",
+          "sha": "b6ad673dd580b349d139af81b731f4dbfe8e4781"
+        },
+        {
+          "name": "feat/dissemination-001",
+          "sha": "c2735093d5fd9ecb8464b3e9a5e82bfc7d494692"
+        },
+        {
+          "name": "feat/manga-root-fork-001",
+          "sha": "a06904d43a88dd558e0ab371ed1e4cbb0a74b4fc"
+        },
+        {
+          "name": "feat/manga-style-profile-001",
+          "sha": "eba5b6f0b056330b63e82b95020b2656befc264a"
+        },
+        {
+          "name": "feat/renji-relay-001",
+          "sha": "70e8558f69f579261e73045787205d6af56509c6"
+        },
+        {
+          "name": "feat/skypaper-001",
+          "sha": "b93c5f65c94abd18271f672139e442eb7a857375"
+        },
+        {
+          "name": "feat/2day-crawler-001",
+          "sha": "f084eb35d76a10f46a9c50b9aed3667ed01e3451"
+        },
+        {
+          "name": "feat/2day-cycle-001",
+          "sha": "04f561e19e0955d5ae04af55ab3cea917ad46c76"
+        },
+        {
+          "name": "forage/letters-not-shared-memory-001",
+          "sha": "7eee545f43879f1f5d636cce4d9c402d6f58c3fc"
+        },
+        {
+          "name": "forage/the-book-is-a-route-001",
+          "sha": "05c0df3dc2ddabb8fbcc1e74d192bf742a44003c"
+        },
+        {
+          "name": "genesis/crawler-press-001",
+          "sha": "ad1117503436e1cdc01f5298bad885ff031b6141"
+        },
+        {
+          "name": "instrument/nunumath-playground-001",
+          "sha": "d78593f70f05b24bbbd8685453e9a0e962daf4f0"
+        },
+        {
+          "name": "library/little-free-library-001",
+          "sha": "96fac7d23d37f3f749d4156f1672b28a81eee947"
+        },
+        {
+          "name": "main",
+          "sha": "02feb4454240d482a5e0e03258f24f8b5cc0b9f5"
+        },
+        {
+          "name": "manga-press-001",
+          "sha": "88978ff88f9b07a72040976b426b04afc2abd835"
+        },
+        {
+          "name": "physical-composer-001",
+          "sha": "a5cea28e164366f92d25c686e8b9ea4f34fb027a"
+        },
+        {
+          "name": "physical-composer-road-grammar-001",
+          "sha": "514976f9836d101d39172af0c7c117f3addc5edb"
+        },
+        {
+          "name": "press/archive",
+          "sha": "34e93c395ef9bedaacc5ab36c04b98c02545407d"
+        },
+        {
+          "name": "press/crawler",
+          "sha": "f64357768cad5006985752ac57bcc02e9b6f80bc"
+        },
+        {
+          "name": "press/digital",
+          "sha": "f6f7dc1c82001dabdb5006d3741488d80973c35b"
+        },
+        {
+          "name": "press/physical",
+          "sha": "c07c7972e937b7ef443b412869c9cef4915eebf8"
+        },
+        {
+          "name": "press-gate-001",
+          "sha": "0b59f737d36fcaf11f74c6d1e849b411a291686f"
+        },
+        {
+          "name": "press-mouth-001-audio-parcel",
+          "sha": "2d3e731cdbaa5690c9d085eceffda5a13828a591"
+        },
+        {
+          "name": "press-run-001",
+          "sha": "363d0fd5d6a9ccdd186d97f7c5b6f60d8f1b68b6"
+        },
+        {
+          "name": "recipient-mailer-001",
+          "sha": "62a20ebf1e5b65ed8ff1ad3559e2b8779e4656be"
+        },
+        {
+          "name": "release/free-library-001-archive",
+          "sha": "c9f1c85a6fa1d5d46c939ed55261c60563784bcf"
+        },
+        {
+          "name": "release/free-library-001-crawler",
+          "sha": "ffc573e4cce2446560f3ff547957625c92e35c39"
+        },
+        {
+          "name": "release/free-library-001-digital",
+          "sha": "f94fc50071e077008e053da2a6f06808e1818e75"
+        },
+        {
+          "name": "release/free-library-001-main",
+          "sha": "4adb5ba467fd732bcec58880cfcebe8f4b241836"
+        },
+        {
+          "name": "release/free-library-001-physical",
+          "sha": "a329edf38d97e2327ab2d109395c49c2dbaf2706"
+        },
+        {
+          "name": "release/free-library-002-archive",
+          "sha": "2fc3b976e9beb4ff5701f4d98895532eaefb299d"
+        },
+        {
+          "name": "release/free-library-002-crawler",
+          "sha": "56bce38f8446ff92347a2d6ab6230486be943e56"
+        },
+        {
+          "name": "release/free-library-002-digital",
+          "sha": "15dd44bf0b75de837714d1afd97a951b5742df98"
+        },
+        {
+          "name": "release/free-library-002-main",
+          "sha": "fffffe9d5917c50bd993ae3b869972bbbe06e777"
+        },
+        {
+          "name": "release/free-library-002-physical",
+          "sha": "803fd8bd4eb14dea39581bf6f09795106afa1283"
+        },
+        {
+          "name": "story/unfinished-business-manga-001",
+          "sha": "7465597674b0f1561ad4e354ef9817a1d0d187b4"
+        },
+        {
+          "name": "suno-pantry-intake-001",
+          "sha": "6f97f8c6c79397a557ce66e3a6045ee689ad66af"
+        },
+        {
+          "name": "witness/dissemination-001-blind-traversal",
+          "sha": "237cf4f420f3e883933c5b1498741e23cd2a1c69"
+        },
+        {
+          "name": "witness/dissemination-002-foreign-reader",
+          "sha": "335ec24fed7544805f7da10ae952dfc9c077e583"
+        },
+        {
+          "name": "work/haunted-library-001-crawler",
+          "sha": "6d88fa77dd5edfd59dc41d34af3ef71205475125"
+        },
+        {
+          "name": "work/haunted-library-001-main",
+          "sha": "3dbc855c1a1c0abaca991429d6c7a6d916682a59"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/playdeck",
+      "refs": [
+        {
+          "name": "experiment/franken-smash-001",
+          "sha": "012186fd67f4c4ef1c6591fc5e29cb559b5a80d0"
+        },
+        {
+          "name": "experiment/lemonpress-sequence-handoff-001",
+          "sha": "e64f11f728137e8908e4f5bdbde9aab39e2d9bbd"
+        },
+        {
+          "name": "experiment/page-playlist-press-001",
+          "sha": "7f0fefaa6d69f8cd5c682dc92a641b7799e7dedc"
+        },
+        {
+          "name": "main",
+          "sha": "a7cf718421e767fd382a01894063c3eeba3d2930"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/GHoT",
+      "refs": [
+        {
+          "name": "activation-broker-029",
+          "sha": "727009bf4a7d5bd60db4da627f7ef98860d40bb2"
+        },
+        {
+          "name": "activation-tickets-028",
+          "sha": "fe0991ad1db3d4ee9e093ad69503461a79233145"
+        },
+        {
+          "name": "body-choice-001",
+          "sha": "6d7b3cf660ad03916a85b732c269d6052d0d3dd5"
+        },
+        {
+          "name": "body-choice-replay-002",
+          "sha": "5f0414912ed46db2287c5f211a36c9702d743427"
+        },
+        {
+          "name": "carried-intent-assignment-001",
+          "sha": "040094b2d1d36afa546347b254aba243905889de"
+        },
+        {
+          "name": "carried-intent-dispatch-001",
+          "sha": "6d544c8fd11f69de9f43378896fc4c347a94cc36"
+        },
+        {
+          "name": "composition-wants-024",
+          "sha": "1913513c70237bbb92d5d8e4b6b6f894dd5a1b32"
+        },
+        {
+          "name": "curious-door-navigation-026",
+          "sha": "294802d61ec93b078cf3ed607af165388709e9f2"
+        },
+        {
+          "name": "curious-doors-025",
+          "sha": "d02b231e13e66130175b9b3887b51cc941539671"
+        },
+        {
+          "name": "epistemic-capability-001",
+          "sha": "56f6c67c6e3f056e82dd319ed3f50dde0cecea72"
+        },
+        {
+          "name": "exp039",
+          "sha": "f85a99d1883443b177b9dbb38ed719d74edf628b"
+        },
+        {
+          "name": "exp040",
+          "sha": "0f722d1452aec1fae55454dae503ce7c628abd26"
+        },
+        {
+          "name": "exp041",
+          "sha": "858edbe479ce90e07bdf1b2f65a5f47dae70264e"
+        },
+        {
+          "name": "exp042",
+          "sha": "bb7e7d4261e4da14647948e9933831c9701ab5fc"
+        },
+        {
+          "name": "exp043",
+          "sha": "677eefeab96d47495145d74767390b1f14000de8"
+        },
+        {
+          "name": "exp044",
+          "sha": "48d3cace59a6adff17aef4303f4c8425976d7fa2"
+        },
+        {
+          "name": "exp045",
+          "sha": "c00ec4c02a9d88ec33eb393fff2e4dd32ebde037"
+        },
+        {
+          "name": "exp046",
+          "sha": "9b45d8110ec45999d9ac2b6a4e62edff1d617ba1"
+        },
+        {
+          "name": "exp047",
+          "sha": "bf20533471c5d602c7c68b0fda5a23b4f1dc420b"
+        },
+        {
+          "name": "exp048",
+          "sha": "d29fa79fde05de725d6d2a12e96fd05d11cf1a42"
+        },
+        {
+          "name": "exp049",
+          "sha": "b5a761a74ce9f099d3d4c5450fb01f6b21bb0546"
+        },
+        {
+          "name": "exp050",
+          "sha": "e75d6fa538d7e2134c4c84cfcff444eecb192033"
+        },
+        {
+          "name": "exp051",
+          "sha": "cb3e3ff62329b6483bdf47fe9d5f66d2a890a488"
+        },
+        {
+          "name": "exp052",
+          "sha": "cabb1d477a5fc26abc49548db54627ac13b88f54"
+        },
+        {
+          "name": "exp053",
+          "sha": "b40fdc30b7f098d93d669c50d45c6886fd4443e5"
+        },
+        {
+          "name": "exp054",
+          "sha": "176b5d28da19c2f77bf7757448eec4b3bd0ca1c8"
+        },
+        {
+          "name": "exp055",
+          "sha": "a37b12b91f595b40ad149200423fa61a320ff467"
+        },
+        {
+          "name": "exp056",
+          "sha": "9f5f0cbcd79a33006ed7b7a47720c861a5a9c4f3"
+        },
+        {
+          "name": "exp057",
+          "sha": "eb39b569ed3a26452da62850ef8a1399402cc60e"
+        },
+        {
+          "name": "exp058",
+          "sha": "e4769cbe299ac686230134ac0b2e500718296cda"
+        },
+        {
+          "name": "exp059",
+          "sha": "2b4fcef0069cbac46eefb095c2d3645ddf588bfd"
+        },
+        {
+          "name": "exp060",
+          "sha": "89259e0ae4eb131b1b2fd5e761ee9a81c7df6a49"
+        },
+        {
+          "name": "exp061",
+          "sha": "49e2b5d94916c03981a42f7c8912491f99547601"
+        },
+        {
+          "name": "exp062",
+          "sha": "b5e1ef475f0037595e9354075e6f0a8d42339be1"
+        },
+        {
+          "name": "exp063",
+          "sha": "777d87a1711977b1d56abb9ebe714aa9516471c1"
+        },
+        {
+          "name": "exp064",
+          "sha": "36e42606f317094144a787d407ffa7e0d3de8ff6"
+        },
+        {
+          "name": "exp065",
+          "sha": "117c3244bb38cbc8e3c72286da68d22f3bc0e619"
+        },
+        {
+          "name": "exp066",
+          "sha": "89401243b7b14b7818aa0ab2c0a1b358c7cf9bec"
+        },
+        {
+          "name": "exp067",
+          "sha": "6456828ca6d2ee2cd10db2017cbd9278c1e3c664"
+        },
+        {
+          "name": "experiment/ai-recomposition-001-thinking-workbench",
+          "sha": "6194d91ba83bad63606f6f6741723007227518f2"
+        },
+        {
+          "name": "experiment/branch-native-owner-worker-030",
+          "sha": "b01758bee55d66d699160715ec377b45f7589707"
+        },
+        {
+          "name": "experiment/commons-machine-tranchnose-001",
+          "sha": "6f0cc9e93e2544cd2fc67a0aa43a06198825a654"
+        },
+        {
+          "name": "experiment/ecology-router-001-heat-tree-wave",
+          "sha": "3d0ef810347fc6a8c63ee0aa407495a343c2732b"
+        },
+        {
+          "name": "experiment/fullmeasure-penny-print-world-005",
+          "sha": "6d30254e4b50c78768a7d8ae483fe21154db59a3"
+        },
+        {
+          "name": "experiment/fullmeasure-penny-witness-006",
+          "sha": "0b23062183f43735eda548fa3afcaebb2c7f4409"
+        },
+        {
+          "name": "experiment/listening-heap-001",
+          "sha": "f7a14f8a433fd72050f69e400010fb731a58dac3"
+        },
+        {
+          "name": "experiment/orshot-002-physical-receipt-router",
+          "sha": "d98ea401cdc85b8ff339c0322a8a17157add2019"
+        },
+        {
+          "name": "experiment/postal-corps-001-first-mile",
+          "sha": "b8f80f840b6054bbf37ca9c9be9f70187248d6e5"
+        },
+        {
+          "name": "experiment/postal-corps-002-carriers-pocket",
+          "sha": "7cf54a1c57bfddb970320cbedf8ccad9cf43c8a5"
+        },
+        {
+          "name": "experiment/postal-corps-003-two-phones-one-parcel",
+          "sha": "2a84276d3504bb4955b62e9ca56de110247e3eee"
+        },
+        {
+          "name": "experiment/postemahhn-001-addressed-local-print",
+          "sha": "5b3be498082d3faf9e45a9e552bc5bb58d14086d"
+        },
+        {
+          "name": "experiment/postemahhn-002-traveling-post-office",
+          "sha": "4912104167748556674f5c58a08867ae7fb7bc67"
+        },
+        {
+          "name": "experiment/postemahhn-003-wallet-doors",
+          "sha": "fb96d79a072aae986159c869ebe83df9e88b00da"
+        },
+        {
+          "name": "experiment/postemahhn-004-passkey-door",
+          "sha": "ff8d91568165ccb89db7231bde20f2b6bdf06362"
+        },
+        {
+          "name": "experiment/postemahhn-005-external-wallet-proofs",
+          "sha": "c16de87bc574e17205e86be3dde80ea6829ecb5d"
+        },
+        {
+          "name": "experiment/printer-organ-001",
+          "sha": "aefac61b8731de8a1f8c5cac1518a93879021b67"
+        },
+        {
+          "name": "experiment/public-print-venues-004",
+          "sha": "f62d8f2ae9a9077430bc1ef6fc4a17ea00f2affd"
+        },
+        {
+          "name": "experiment/radio-attention-003",
+          "sha": "6e4aab6aec3b28f8dd50d01c3d571ae754c653d1"
+        },
+        {
+          "name": "experiment/radio-ear-002",
+          "sha": "7bf02841de1d537b4de1203baf9f53abcb09f9d4"
+        },
+        {
+          "name": "experiment/radio-house-001",
+          "sha": "db1c84c7a7116ca9a91d4baaca37fc0963a3dd00"
+        },
+        {
+          "name": "experiment/radio-house-002-spare-compute",
+          "sha": "88be4205b65e54d568b50564bfaa0a9fd381f8ed"
+        },
+        {
+          "name": "experiment/radio-house-003-signed-work",
+          "sha": "96bb7e39d8e558ab07f3bdbf39e54dd3cdcb3aec"
+        },
+        {
+          "name": "experiment/radio-house-004-clicky-lan",
+          "sha": "91efe8441a567944dff27e1206d4967876485dbd"
+        },
+        {
+          "name": "experiment/relay001-loadout-media-probe",
+          "sha": "9aec1e00667994c7e0dc0e345c5d40d5012fdf8e"
+        },
+        {
+          "name": "experiment/riff-raft-001-distributed-commons",
+          "sha": "a7007fbf6a2661bf0a0fe5bb67fa4022f4b3898c"
+        },
+        {
+          "name": "experiment/riff-raft-002-rube-goldberg-terraformer",
+          "sha": "a63624f1be6a533f5ab927b1e4e8b1a629f1ba53"
+        },
+        {
+          "name": "experiment/riff-raft-003-minecraft-return-intake",
+          "sha": "494a6fc6ddf9c850ec2a9930af54196e2d5fd168"
+        },
+        {
+          "name": "experiment/riff-raft-004-dynamic-quest-offers",
+          "sha": "8e0e7efb2fc214e465652c7e5f7bdc6c2b4ff15c"
+        },
+        {
+          "name": "experiment/riff-raft-005-counterfactual-composer",
+          "sha": "4dc0e33484d998043e0955c016a3984d8f75e4ef"
+        },
+        {
+          "name": "experiment/riff-raft-007-peer-custody",
+          "sha": "18fdd928a126d0850e4760122227f7e06e2975fa"
+        },
+        {
+          "name": "experiment/sovereign-print-shop-002",
+          "sha": "bd05633274da9165d32a0e11392d618fd5340054"
+        },
+        {
+          "name": "experiment/unfinished-business-001",
+          "sha": "4adf74cf986846427ca33b543580182016a0a20c"
+        },
+        {
+          "name": "experiment/unheard-choir-001",
+          "sha": "6b4fc24158f44c8c49e669e3bbaf0d4b02bb0217"
+        },
+        {
+          "name": "experiment/unheard-choir-002",
+          "sha": "4dc6a9697724e1fca363852ba4e8b1edc5f53c68"
+        },
+        {
+          "name": "experiment/unheard-choir-003",
+          "sha": "d229dcb94aa502948c1357a3469d560dd046712b"
+        },
+        {
+          "name": "experiment/unheard-choir-004",
+          "sha": "4e4804931d502145e653ae19a402a495a5c9f2c5"
+        },
+        {
+          "name": "experiment/unheard-choir-005",
+          "sha": "5eab6118ef221490f1423560094d3055d9a560b0"
+        },
+        {
+          "name": "experiment/unheard-choir-006",
+          "sha": "335834bfe54b5b59591d9d314a5c568dfa509ff8"
+        },
+        {
+          "name": "experiment/unheard-choir-007",
+          "sha": "cde20407be7920abe98c8413907e24377857baa8"
+        },
+        {
+          "name": "experiment/unheard-choir-008",
+          "sha": "f9abab4fb674d382bb5ef995c95ff9f915a26814"
+        },
+        {
+          "name": "experiment/unheard-choir-009",
+          "sha": "3c6a65e4d1d8172ee4d03fffcbd33665ceec2974"
+        },
+        {
+          "name": "experiment/unheard-choir-010",
+          "sha": "eef2a9b5d24fe28a3e15a8fb72629981e8d03443"
+        },
+        {
+          "name": "experiment/unheard-choir-011",
+          "sha": "86780140ea579c30e4c8a44730efb2a5027a782d"
+        },
+        {
+          "name": "experiment/unheard-choir-012",
+          "sha": "6ce876bfea8ec45261c393d24c584385b7959743"
+        },
+        {
+          "name": "experiment/unheard-choir-013",
+          "sha": "4891627184d21030345380f2943c5052ba3ddc19"
+        },
+        {
+          "name": "experiment/unheard-choir-014",
+          "sha": "91ecd155b15961766ebb6e685ee212d5049fc28a"
+        },
+        {
+          "name": "experiment/unheard-choir-015",
+          "sha": "3f588495457231c24349755e355b935bc9c516ec"
+        },
+        {
+          "name": "experiment/unheard-choir-016",
+          "sha": "752c7e2ca2d5211c9f346ddea40691158fb44dde"
+        },
+        {
+          "name": "experiment/unheard-choir-017",
+          "sha": "122f4018a6bb77057cb6422b3476214e2ba5a740"
+        },
+        {
+          "name": "experiment/unheard-choir-018",
+          "sha": "9c75d7ad7e632eae967cb765c2e024073b193209"
+        },
+        {
+          "name": "experiment/unheard-choir-019",
+          "sha": "cfd93152c3f5cfbc765675edb40cc51c97ce76ce"
+        },
+        {
+          "name": "experiment/unheard-choir-020",
+          "sha": "24874213cad61d633076d24b00ce4fae4ca20ebf"
+        },
+        {
+          "name": "experiment/world-asks-back-001",
+          "sha": "fb70338c2e76a599977072f0c7b58b2d966f7005"
+        },
+        {
+          "name": "experiment/world-asks-back-002",
+          "sha": "86de6de0283881c5b11270299aa0c4d94a1ae1f5"
+        },
+        {
+          "name": "experiment/worship-stage-organ-001",
+          "sha": "d59dc91a0aa5893e4b9e4e88ee55450b45a80da9"
+        },
+        {
+          "name": "experiment/zebra-kodak-print-surfaces-003",
+          "sha": "1e5f82b154e1cd87f60f1174975a5caef2ab6ad6"
+        },
+        {
+          "name": "experiment-036",
+          "sha": "b61476f17c5d4b6e063255bf429bbb3dd49ad2e3"
+        },
+        {
+          "name": "experiment-037",
+          "sha": "c907d919f67c16448af88a8c3a4a332034e3970b"
+        },
+        {
+          "name": "experiment-038",
+          "sha": "27a627f8f7f0a8717245b3609db15a45227ec4ab"
+        },
+        {
+          "name": "external-adapter-manifest-001",
+          "sha": "e12ce3e62486feb1e5cd2324d1ae5a6a2be8b19b"
+        },
+        {
+          "name": "feat/compost-breeder-001",
+          "sha": "d898cc6a25d0c3569d5126ecab2754c9f82cfd02"
+        },
+        {
+          "name": "feat/compost-breeder-002-live-blender",
+          "sha": "f1b19e26b8051e6708b16bddefd537ff7472f79c"
+        },
+        {
+          "name": "feat/instrument-rack-001",
+          "sha": "3d64e5d486d9324ec6086da69889a81ab2e48cd8"
+        },
+        {
+          "name": "field-commons-001",
+          "sha": "6a734c834e0b4880f3de1e39465f73800f338a9d"
+        },
+        {
+          "name": "field-reseed-receiver-001",
+          "sha": "391f0edd5da5eae5d3f19d61f01d80de386837c5"
+        },
+        {
+          "name": "grammar-exchange-023",
+          "sha": "7729d5308679137c8038785fc7d0ad01906d1649"
+        },
+        {
+          "name": "gro-mineral-bridge-001",
+          "sha": "8868024cf8fee8599007cb82b76491776771255c"
+        },
+        {
+          "name": "ice-cube-030",
+          "sha": "30434a26fee82c0fc4e3bfa7dcb8a1425f19d5d8"
+        },
+        {
+          "name": "ice-cube-031",
+          "sha": "79884a50ecd25c3e8afe2f583e8be7f30629c713"
+        },
+        {
+          "name": "ice-cube-032",
+          "sha": "f57bdd4aff2583d59e8aa742ee68d755bc709689"
+        },
+        {
+          "name": "ice-field-033",
+          "sha": "43a83c3b6a63fc02d36c31f02df941a47844d8ca"
+        },
+        {
+          "name": "lightwalker-economy-032",
+          "sha": "a41da98d6eb482d3e2a1ec857f045d85ecae00b6"
+        },
+        {
+          "name": "lightwalker-heterogeneous-exchange-035",
+          "sha": "c43e2718b7f9bbe75844978feaf50e7481f423f5"
+        },
+        {
+          "name": "lightwalker-market-034",
+          "sha": "77bd25c4f3c710ccfd6a8397ffe64c5038bbad88"
+        },
+        {
+          "name": "lightwalker-time-assay-033",
+          "sha": "0620d760e5f249cd539857af06e594abc95b2ea5"
+        },
+        {
+          "name": "main",
+          "sha": "e35dd470384d864b7b0b629a68dad570875a7df0"
+        },
+        {
+          "name": "many-bodied-machine-001",
+          "sha": "15ca259dbcdaf1ec5b1d3dbcc7b92e71ae7158ef"
+        },
+        {
+          "name": "merge-contract-pantry-020",
+          "sha": "b2f953e01142398243c83868bd622de41dfec305"
+        },
+        {
+          "name": "merge-contract-plugins-021",
+          "sha": "57bb6196bfea8aef0e8ae0f2feda8ed2d02fb9d4"
+        },
+        {
+          "name": "mineral-field-001",
+          "sha": "59cdf9040ac4d2636cd24e6cda9f36f6e500addc"
+        },
+        {
+          "name": "portable-merge-plugins-022",
+          "sha": "cdef056a5791b0976b29b10ce54a9390cacbf0b2"
+        },
+        {
+          "name": "rsc-composer-001",
+          "sha": "0107364cac6d574b27e462c723b525b9e96b67e7"
+        },
+        {
+          "name": "sparse-ice-field-001",
+          "sha": "69be18bfc94223ac0ee7caf29c330c1732da5e6a"
+        },
+        {
+          "name": "state-merge-019",
+          "sha": "6f5737cfe3a38119abb5b0f21ede4a5ab7613320"
+        },
+        {
+          "name": "state-parcels-018",
+          "sha": "fa58ff7b9e7a545fd2f7bbecf58da7647e82afde"
+        },
+        {
+          "name": "tenetgram-040",
+          "sha": "1fd92d783c6d007eb60a28f2dd6eaf57ca91fd8a"
+        },
+        {
+          "name": "typed-launch-descriptors-027",
+          "sha": "864c7aceca27619a68d2f4c35c21744f6f99559c"
+        },
+        {
+          "name": "warm-thread-039",
+          "sha": "3c8be40cbaef2f9c786e5424abf15d4b138d2966"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    }
+  ]
+}
