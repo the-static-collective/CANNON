@@ -1,0 +1,1425 @@
+{
+  "schema": "cannon.branch-evidence-slice/v0",
+  "observedDate": "2026-10-22",
+  "classification": "REF_PRESENT_NOT_LIVENESS_OR_ADMISSION",
+  "source": "GitHub REST branches (up to 2 pages x 100)",
+  "slice": {
+    "offset": 20,
+    "limit": 10
+  },
+  "repositories": [
+    {
+      "repository": "the-static-collective/autodisco-video-receipt",
+      "refs": [],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/BananaSpork",
+      "refs": [
+        {
+          "name": "agent/repair-android-runtime",
+          "sha": "e49323ec8e4d7a812f43e570a0e2a5d5ed7fd49f"
+        },
+        {
+          "name": "crater/shared-conversation-gateway-001",
+          "sha": "4d12ea39a67ccac11b75ee1743f12b500acc3794"
+        },
+        {
+          "name": "design/help-slip-garden-adapter-001",
+          "sha": "ede5162e34f6eee8223cb5dfb6c82708e3b687b5"
+        },
+        {
+          "name": "experiment/banana-elf-time",
+          "sha": "53227ec7073204ea53672ec03e0f82b72757c0a2"
+        },
+        {
+          "name": "feat/banana-relay-001",
+          "sha": "36c3d3cc502b5d43bc9287b361d993b152837f6d"
+        },
+        {
+          "name": "feat/campfire-conversation-field-proof-001",
+          "sha": "e9c6adb3bda9f24be71c749dc973dc5809f69111"
+        },
+        {
+          "name": "feat/help-slip-garden-adapter-001",
+          "sha": "e16407f68b5fc7e4286dcfc540a0170dc13457f6"
+        },
+        {
+          "name": "feat/penny-box-help-slip-bridge-001",
+          "sha": "8a21fd9f864adb2f05143d96279eeb58c8445730"
+        },
+        {
+          "name": "feat/return-of-help-slip-001",
+          "sha": "fa759384ceaf13fbfdec11dc2f9de025c4bf2615"
+        },
+        {
+          "name": "feat/1201-door-001",
+          "sha": "22e283460d61bbb6a46fa657899affadaaa04484"
+        },
+        {
+          "name": "main",
+          "sha": "6738230a8557060dd59aabc19caf21826806d16f"
+        },
+        {
+          "name": "nourish-kids-book-packets",
+          "sha": "963bf6402e25c8c1dc08da9142cf746ed817f084"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/circle",
+      "refs": [
+        {
+          "name": "main",
+          "sha": "73e44834961c122cacd91b1e6974b7c4548d500b"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/tranchnode",
+      "refs": [
+        {
+          "name": "agent/body-surface-standard-v0",
+          "sha": "3d81ee0a47b791ec384142823bf1a782074511fd"
+        },
+        {
+          "name": "agent/boot-house-intent-stroke-port",
+          "sha": "6cd2f28501b25ff7def1fac22a7184b4229e51dd"
+        },
+        {
+          "name": "agent/complete-covenant-circuit-13",
+          "sha": "e5d28ad213ca891aedc59230a7cd21158c9f23a0"
+        },
+        {
+          "name": "agent/continuity-boundary-witness-v0",
+          "sha": "8ba6afdfd79154b5f12862791eee7211bae13d42"
+        },
+        {
+          "name": "agent/fulfillment-crossing-proof",
+          "sha": "64394236c67c6c8e9cb7102cd80de8356f089038"
+        },
+        {
+          "name": "agent/fulfillment-evidence-binding-proof",
+          "sha": "59897a82168d66d8e6c204d426fef445ef690abc"
+        },
+        {
+          "name": "agent/fulfillment-kernel-reconciliation",
+          "sha": "47d4bedf0b0b7c36c61abaf389dc2c4f023e6004"
+        },
+        {
+          "name": "agent/fulfillment-minimum-lawful-slice",
+          "sha": "711e025cff86a85745e851ecbf399f8ea96e8ba8"
+        },
+        {
+          "name": "agent/intent-stroke-bind-layout",
+          "sha": "d8722a217f8141dd5ecc61ff6c3c445daeb6afa7"
+        },
+        {
+          "name": "agent/intent-stroke-stdio",
+          "sha": "f8f0de2a7f175153f2cc02962bb3309d7392576f"
+        },
+        {
+          "name": "agent/issue-8-real-wav-pcm",
+          "sha": "3da0b47f468ecd0ba0ff977a15d6d049ac78a441"
+        },
+        {
+          "name": "agent/nanaspork-representative-carrier",
+          "sha": "ba1a5df02918c73fec6ea1cfe4cd99361704f168"
+        },
+        {
+          "name": "agent/projection-covenant-slice",
+          "sha": "c184c8f4ab21f75ab5274c1cad62d9f1d40f245c"
+        },
+        {
+          "name": "agent/readme-status-refresh-2026-08-17",
+          "sha": "612aebf068ba68c878bc4ded0aeb12ee3521ed9e"
+        },
+        {
+          "name": "coherence-substrate",
+          "sha": "b641593a90af00624e9f2b9a1039e6d290322671"
+        },
+        {
+          "name": "design/continuity-spine-v0.1",
+          "sha": "fafb4497540cc01939a61d4508eaf5d0a730b8bd"
+        },
+        {
+          "name": "design/fatherhand-purpose-witness",
+          "sha": "8f9bbc9ef35f82280a251a031300587a3ad7effc"
+        },
+        {
+          "name": "design/radio-propagation-relational-boundaries",
+          "sha": "91f7f96805d4e868e35b8d0c75dc5f0671cb494a"
+        },
+        {
+          "name": "design/static-node-001",
+          "sha": "5951900689e388e827f551c692f0ad0bc3f50b8b"
+        },
+        {
+          "name": "docs/add-readme",
+          "sha": "1bf6ca5556449872e18eb13f49d2ccd3bdce1cf3"
+        },
+        {
+          "name": "docs/continuity-constitution",
+          "sha": "2439aa7fef4b6b2064c7a952f172beaf2ade24ce"
+        },
+        {
+          "name": "docs/four-surface-capability-covenant-v0-1",
+          "sha": "d7e2254c98e734ad4e9755bbbbfa5f15d4370a63"
+        },
+        {
+          "name": "docs/future-coordinate-aqueous-mineral-lifecycle",
+          "sha": "c6f3261a73d3d7b68b970048a6ecda8c5ea83bea"
+        },
+        {
+          "name": "docs/future-coordinate-luminous-computational-terrain",
+          "sha": "508021e1b25ccebbcc40eb34badf6dfa682b3f8f"
+        },
+        {
+          "name": "docs/project-lego-floor-1-0",
+          "sha": "057d6652051c81508376352b29cb0f876e1f2bcc"
+        },
+        {
+          "name": "docs/reconcile-status-2026-08-19",
+          "sha": "39ff11b74d565e46ed79b88af4a072420385c8c4"
+        },
+        {
+          "name": "docs/tranchish-decompression-lab",
+          "sha": "3aeea72b1ec4c5623016a69b2d2bf58cb047aaf6"
+        },
+        {
+          "name": "docs/tranchish-v0-spike",
+          "sha": "4c772ad2b69a4eaa93ee85f086587482f84af1a5"
+        },
+        {
+          "name": "experiment/fatherhand-grant-chain-001",
+          "sha": "534e3dc5be763b7b11eb84bfab22f3efb25c254b"
+        },
+        {
+          "name": "feat/immutable-artifact-store-issue-6",
+          "sha": "7fbb0c868befd5f6a7478bdd0447477a0e8e075e"
+        },
+        {
+          "name": "feat/projection-root-closure-issue-7",
+          "sha": "aa7a15b6af46efc0e8d672a5669cfb209899444c"
+        },
+        {
+          "name": "feature/continuity-spine-v0.1",
+          "sha": "7a1b28aa7f2c7492d14653f65d729ec9fedd1a4b"
+        },
+        {
+          "name": "feature/inhabitable-room-contract-v0",
+          "sha": "66f2472f5c3a28f05e45c83f5efa5f47eae3cfe3"
+        },
+        {
+          "name": "feature/irreducible-residual-v0-1",
+          "sha": "d9623a57e2d8fcddaa1f83f7273f72b74087d103"
+        },
+        {
+          "name": "fix/intent-stroke-stdio-layout-bootstrap",
+          "sha": "4566ec8960448e5dbca3f41058d9990f52e88052"
+        },
+        {
+          "name": "flight/002-storyship-continuity-boundary",
+          "sha": "ce2b16d0c15f8f890c823290629d254d79c5d6d1"
+        },
+        {
+          "name": "jules-11088704621614623968-8f79ad07",
+          "sha": "ae79b98479c06bddb254c352a4b9bb2626e62d7c"
+        },
+        {
+          "name": "jules-fix-pr28-issues-16015412228110662147",
+          "sha": "55bacc9d1539dbe6989acc39a6797c1c42383a32"
+        },
+        {
+          "name": "lumi/constitutional-reconstruction-benchmark-v0.1",
+          "sha": "8311952b6b5472301a721e2087346c37cd8baace"
+        },
+        {
+          "name": "lumi/intent-stroke-v0.1",
+          "sha": "526a3af023748f61dd67d220258ede4dfeee23a1"
+        },
+        {
+          "name": "lumi/stigmergic-field-v0.1-implementation",
+          "sha": "cacba35c6eb9ce3ec9cc3aaa12199aaac5681ecd"
+        },
+        {
+          "name": "lumi/stigmergic-field-v0.1",
+          "sha": "f6253bc269996b7868703483dd30c78f11cc3cab"
+        },
+        {
+          "name": "main",
+          "sha": "1d731fbb228f68bbefc008d18c48d6be001935be"
+        },
+        {
+          "name": "radio-honeycomb-integration",
+          "sha": "5075bdf443603c5ac62d41155eae4a79e89572af"
+        },
+        {
+          "name": "reconcile/aqueous-mineral-lifecycle-current-main",
+          "sha": "d10d1f55d4fbaf54031766a2396c34b186662dab"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/the-haunted-toaster",
+      "refs": [
+        {
+          "name": "actual-fix-15630630620778783435",
+          "sha": "b0a4fa4815cbd4b8171a9765b37022ee88c21aa1"
+        },
+        {
+          "name": "agent/activate-lyric-foundry-review",
+          "sha": "5acf55a553bca62eb17f90479220d59efcf59d2d"
+        },
+        {
+          "name": "agent/alpha5-version-bump",
+          "sha": "ee3dca462fdc0d900f7f34fb748da4b4f6fc750d"
+        },
+        {
+          "name": "agent/alpha8-ready-to-test",
+          "sha": "e83a6512be1b845a553a74dc3f9f0488f4082a65"
+        },
+        {
+          "name": "agent/alpha9-recovery",
+          "sha": "3b87ed0070f5ccd59881fed81a7cccc7922665e3"
+        },
+        {
+          "name": "agent/atmosphere-field-phenomena",
+          "sha": "0a1cbfd990703161d5657cae5a4b595308dcde48"
+        },
+        {
+          "name": "agent/beta-home-bench",
+          "sha": "8c1181398e9cf024ada36163b572644932e98ab2"
+        },
+        {
+          "name": "agent/beta-home-bench-current-main",
+          "sha": "72692cf51ef0cf1ca48c1f25703ba9038234a7db"
+        },
+        {
+          "name": "agent/body-surface-standard-v0",
+          "sha": "22986bb15163f694e2ed950f2c492efd4195b400"
+        },
+        {
+          "name": "agent/bounded-field-envelope-34",
+          "sha": "82b9ea21e01c4082f531d8e2fffe0f448ec23e47"
+        },
+        {
+          "name": "agent/bring-score-70",
+          "sha": "0b17bbad611561a9a11f8958b53d20cfb92ef37d"
+        },
+        {
+          "name": "agent/build-identity-71",
+          "sha": "be1a09f1ca3b21a99c6866ba091dcdf6a6a6c357"
+        },
+        {
+          "name": "agent/build-provenance",
+          "sha": "b409ac11dc47e75df6fc0e6e5ea49e81a3b78573"
+        },
+        {
+          "name": "agent/canonical-partial-lyric-admission",
+          "sha": "de33107c85fb4ac963669d5e21df00e7e3acf40f"
+        },
+        {
+          "name": "agent/converge-frontier-56",
+          "sha": "28c7aa5ddc091060941d312826bba13a7462b177"
+        },
+        {
+          "name": "agent/converge-ux-68",
+          "sha": "df6ef746c6a55b25ac7733b03dbbd9cb9aad9754"
+        },
+        {
+          "name": "agent/delivery-aac-320k",
+          "sha": "041ff2177be696ef8e948079fddd483479b442f3"
+        },
+        {
+          "name": "agent/enact-score-grammars",
+          "sha": "73a7c7a869f36b4321cb8b39baff0c80faec795e"
+        },
+        {
+          "name": "agent/expose-generation-oracle",
+          "sha": "d50251991e15e083708f551442eb65fb7bc89420"
+        },
+        {
+          "name": "agent/ffmpeg-render-failure-evidence",
+          "sha": "f7445574bd696e6c842922e72b2fb71f25a38095"
+        },
+        {
+          "name": "agent/haunted-typography-v1",
+          "sha": "2f69967b45e3ed8de1cc48b05c4cd6a8a486a534"
+        },
+        {
+          "name": "agent/hidden-primitive-field",
+          "sha": "4a09560a4c4760e14469b7a22171944e6f8726cb"
+        },
+        {
+          "name": "agent/idempotent-release-publish",
+          "sha": "0278142c81011d64e175277249af5ac332567ade"
+        },
+        {
+          "name": "agent/import-toaster-lab-proposal",
+          "sha": "c227036ee47c1445b06db52c1d55e702490a0da0"
+        },
+        {
+          "name": "agent/inner-cadence-23976",
+          "sha": "f3a95f7acc87a7f076673a8a9acd08d1a6892cbc"
+        },
+        {
+          "name": "agent/issue-15-candidate-previews",
+          "sha": "03e2b6a4c8460a5eb54425f8b45c84920c0ee98e"
+        },
+        {
+          "name": "agent/issue-15-candidate-set",
+          "sha": "9b021d779855b06c15eb6a9c0954c59b127c78de"
+        },
+        {
+          "name": "agent/issue-16-preview-sidecars-receipt",
+          "sha": "9ac72658fb0cc341355a83ff743fa776c309d2f7"
+        },
+        {
+          "name": "agent/issue-16-production-topology",
+          "sha": "61b1718150dc1ae6aacb7435ff6b84d61d322ef5"
+        },
+        {
+          "name": "agent/issue-16-resolved-timeline-render-seam",
+          "sha": "72af89dc6103bfba8662ffa65767401c3527d76f"
+        },
+        {
+          "name": "agent/listener-hardening-alpha8",
+          "sha": "ed2ed86783c361e1db0533fc6cf15574fc465ccd"
+        },
+        {
+          "name": "agent/listener-recovery-zero-anchor-tap",
+          "sha": "a1c66cab8f84e3a21a8c7c520e9f3ab9bc9d2c56"
+        },
+        {
+          "name": "agent/listener-transport-ux",
+          "sha": "ec65e9200c84a83cb424333649e26cf0cf6e9617"
+        },
+        {
+          "name": "agent/listener-zero-lead-gap-guard",
+          "sha": "6442111a1501feda8293fcd056fccb8d8b08f575"
+        },
+        {
+          "name": "agent/lyric-compost-ghosts",
+          "sha": "790a7fb796e82272720ff5ae208b9d35415a07f1"
+        },
+        {
+          "name": "agent/lyric-foundry-mindless-safe",
+          "sha": "90570e9facf91447f2df7b289861898b95ac16c1"
+        },
+        {
+          "name": "agent/lyric-resonance",
+          "sha": "c29ec02048effc34bb4764dba453dc350cf6d759"
+        },
+        {
+          "name": "agent/matcher-false-placement-guard",
+          "sha": "969894face9f5a0fd4b9e56e1b52a0018c045ea9"
+        },
+        {
+          "name": "agent/open-field-69",
+          "sha": "6a6f85bae88dba80242771c1a8f84bd567c7620e"
+        },
+        {
+          "name": "agent/open-field-is-container",
+          "sha": "18d4353cdb3fc626ec1e8725d536e0b3292d699e"
+        },
+        {
+          "name": "agent/persistent-video-vspantry",
+          "sha": "da8e0bfb5905fc1bc7738a9ea067fce9572c51df"
+        },
+        {
+          "name": "agent/possession-arc-slice-a",
+          "sha": "928182caa8df486594098023ddb69278ab91fe37"
+        },
+        {
+          "name": "agent/receipt-memory-witness-loop",
+          "sha": "add822c7cacab593344d0f5f3980569acac8dc4e"
+        },
+        {
+          "name": "agent/receipt-memory-witness-loop-alpha9",
+          "sha": "1b34fbeb8b8b092cb5a0f7080e729ac2f4967cff"
+        },
+        {
+          "name": "agent/refresh-front-page",
+          "sha": "0a23ee0183f023643d73e3bb85b68e9c69d47534"
+        },
+        {
+          "name": "agent/refresh-front-page-2",
+          "sha": "bbeafd7711c141b5258341233ff7bd993e41ef2c"
+        },
+        {
+          "name": "agent/root-generation-package-bridge",
+          "sha": "29474f23c5f6773acaea0dbd8ba4f47923cc8e84"
+        },
+        {
+          "name": "agent/stomp-unbored",
+          "sha": "bbb362c5536d992469871004ddbcf5e19a571f0c"
+        },
+        {
+          "name": "agent/subtitle-cue-boundaries",
+          "sha": "7beebbc61ecd923db392938d4c94aab6cd2a1033"
+        },
+        {
+          "name": "agent/subtitle-listener-hardening",
+          "sha": "dab3561e805528b0fff28eaf8f57ff07d506300c"
+        },
+        {
+          "name": "agent/toaster-lab-primitives-stomp-design",
+          "sha": "6a12e101f318fdbb918547f712c87388d6d2ea01"
+        },
+        {
+          "name": "agent/toastpack-frame-reservoir",
+          "sha": "00fc6712f939b62a337ba9d89918ae803f01bb85"
+        },
+        {
+          "name": "agent/ui-integration-stabilization",
+          "sha": "9129738b6fe0959f2d7c992499a07d6d59fafaf8"
+        },
+        {
+          "name": "agent/visible-outcome-diversity",
+          "sha": "2df452eb8e62af4032c5b5f324c9559a2c178815"
+        },
+        {
+          "name": "agent/visual-language-expansion-41",
+          "sha": "b80b8634a2fa07cef913784af4c4c327a02a49d2"
+        },
+        {
+          "name": "agent/windows-release-path",
+          "sha": "116097df4ff95f33da22287e3969673b74ec40ba"
+        },
+        {
+          "name": "agent/69-open-field-container",
+          "sha": "83fd339bfca7e9f1f0262c3b8c9cd0b72443801b"
+        },
+        {
+          "name": "agent/77-partial-foundry-acceptance",
+          "sha": "02005655ab0795192e4fc45bbad54b21c38c107c"
+        },
+        {
+          "name": "agent/78-truthful-relisten",
+          "sha": "a6f5e67d5d722345f088c9db807d7fec9f680a6f"
+        },
+        {
+          "name": "agent/79-anchor-guided-recovery",
+          "sha": "8ff70259e56f1bf13334ecc12d9e5e82b0601d48"
+        },
+        {
+          "name": "agent/80-retire-lab-ui",
+          "sha": "59f2f119190aafe303b39989752fb27683bc4ff7"
+        },
+        {
+          "name": "agent/86-typography-same-seed",
+          "sha": "4670fef1aee39d1d15861349710e493f4ccd34d8"
+        },
+        {
+          "name": "agent/114-listener-packaged-parity",
+          "sha": "2e3196e2c2cf2cc9dc9c7fced428e16d75ea7c64"
+        },
+        {
+          "name": "agent/147-candidate-ecology",
+          "sha": "5061d822e6e079ef0120f29234c6aff17041a106"
+        },
+        {
+          "name": "agent/177-vspantry-live-progress",
+          "sha": "3554f4d5f28d311e67eb9e9c872514656fcc52cd"
+        },
+        {
+          "name": "agent/180-second-six-up",
+          "sha": "d5b86dd1622facaebfbf53a3088112fde219e986"
+        },
+        {
+          "name": "agent/186-listener-current-main",
+          "sha": "bdadcc7c3cc2031832c8e369547ee76461521e98"
+        },
+        {
+          "name": "agent/201-resolution-timeline-seam-fix",
+          "sha": "ef53da5bec532cee046622eb77b880d298a4d116"
+        },
+        {
+          "name": "agent/203-listener-anchor-bridge-guard",
+          "sha": "2f6a1e9a9a129abbf6adfb0172df73805d8c4ee6"
+        },
+        {
+          "name": "archive/beta-home-bench-pre-ecology-20260818",
+          "sha": "8c1181398e9cf024ada36163b572644932e98ab2"
+        },
+        {
+          "name": "archive/beta-home-bench-pre-reanchor-20260818",
+          "sha": "a6d1f91efc8b4ae43e277991d4fea6d0a89664d3"
+        },
+        {
+          "name": "archive/gold-star-renderer-alpha7",
+          "sha": "1472ddb061c471884f9f01be1f3355edc96cdee6"
+        },
+        {
+          "name": "beta/reconcile-0.0.0",
+          "sha": "9cd32a3b8f9564c27a9ee4572f370e9f49015d63"
+        },
+        {
+          "name": "beta/spine-integration",
+          "sha": "7266cb7822cf5d1364ae77e9dd4bde68e02ff51f"
+        },
+        {
+          "name": "beta/0.0.0-reconciliation",
+          "sha": "ef68287aeb615215308c39b777bfd6b0d67d2708"
+        },
+        {
+          "name": "beta/0.0.1-video-phrasing-current",
+          "sha": "fdaf32616148b1463a68f77055e2653307ea2852"
+        },
+        {
+          "name": "chore/current-spine-reconciliation-2026-08-22",
+          "sha": "1bb64aa3882a84bdb9a04d505c02784c8ca7ecda"
+        },
+        {
+          "name": "chore/issue-107-node24-actions",
+          "sha": "cc607abb149433015e22275d48b6959f68ad3f4e"
+        },
+        {
+          "name": "clarify-full-measure-names",
+          "sha": "c9d5dbd29d020b7aa6bd712adacc8e0eabed1c9f"
+        },
+        {
+          "name": "codex/implement-haunted-toaster-build-consolidation-slice",
+          "sha": "99a56789e4a9336cdb944d23369a06b5b8cd9815"
+        },
+        {
+          "name": "crater/video-phrase-human-cover-001",
+          "sha": "c6922324aa154c101d7ab86540556609349fe51e"
+        },
+        {
+          "name": "design/alpha8-creative-expansion",
+          "sha": "e32aebcb8b1918cfe8a94eccbb4ff4e19f144c0c"
+        },
+        {
+          "name": "design/creative-context-table-v1",
+          "sha": "743428fca0cea0fbc582d11330675dada3094b8a"
+        },
+        {
+          "name": "design/franken-composer-001",
+          "sha": "ad7a74d2dbd4705616437272577fc3cd2c02c777"
+        },
+        {
+          "name": "design/hyperfood-v0",
+          "sha": "ff7dedd189a5198230bda04884326b4b3b9b4a8d"
+        },
+        {
+          "name": "design/l-branch-evidence-bus",
+          "sha": "985e4f2cf93ac2cdb96ebae6488db9a36b19db82"
+        },
+        {
+          "name": "design/nested-response-contour-v1",
+          "sha": "84636d8ebed48b37f427e4ac66c509b66613347c"
+        },
+        {
+          "name": "design/nextgen-toaster-012-listening-field",
+          "sha": "d926e70188b2db6a707963112056da01e485f922"
+        },
+        {
+          "name": "design/post-walk-gait",
+          "sha": "bdd4250139a58a4acdbceec0ad43a60862b69aeb"
+        },
+        {
+          "name": "design/receipt-memory-witness-loop",
+          "sha": "a33911b98f68fa814ecc9e7003e316c6e384fca7"
+        },
+        {
+          "name": "design/receipt-memory-witness-loop-2",
+          "sha": "14c1686bddb1bc019b7c4b5a6ec443d79a6307c4"
+        },
+        {
+          "name": "design/relational-fit-001",
+          "sha": "74365daa3351555d17482662a9a13cc6a316f1e1"
+        },
+        {
+          "name": "design/video-phrase-grammar-v1",
+          "sha": "de38bbec26be83660a2ff4a1f41800250def4b28"
+        },
+        {
+          "name": "design/visual-pantry-toastpacks-memory",
+          "sha": "bff08f9863f5395d9d54c98529042c7dace6989f"
+        },
+        {
+          "name": "digest/foreign-material-lifecycle-v1",
+          "sha": "e1ae0437142f82299ccf33ab67c2655758b1ef95"
+        },
+        {
+          "name": "digest/video-topology-mask-human-bridge",
+          "sha": "35d352b095e4608e6eab8fadfadeb07744b83a4b"
+        },
+        {
+          "name": "digest/video-topology-mask-v1",
+          "sha": "c30d25e1fd5147f5607453e4ff3ebb553ec8a17a"
+        },
+        {
+          "name": "docs/agent-operating-law",
+          "sha": "5dce23dae2334a3d166123583a64a61f72af9f35"
+        },
+        {
+          "name": "docs/attention-resolution-field",
+          "sha": "b4bec1fb9aa4564de77bea9ba55a9bc4b1131d95"
+        },
+        {
+          "name": "docs/beta-creative-freedom-field-witness",
+          "sha": "f94f62ccb153cac88a61ac56bf7542905f3bf632"
+        },
+        {
+          "name": "docs/perceptual-reflex-compost-translation",
+          "sha": "d57f721673ff9495b5ed8454412c38ec55382043"
+        },
+        {
+          "name": "docs/resonant-disturbance-v0",
+          "sha": "e697488688268617fd0cd185b5088f1f2fa24475"
+        },
+        {
+          "name": "docs/sigil-grammar-v0-plan",
+          "sha": "07d8f9eed67277c8bd96aa1402945ff7ad1a8863"
+        },
+        {
+          "name": "docs/toaster-archaeology-ii-lost-organs",
+          "sha": "ff6edf236a1b1ee4f391e67855bcc8c18935b956"
+        },
+        {
+          "name": "docs/topology-events-v0-1",
+          "sha": "bec4a87702876866f87d46bcf3bc6e77ebc4aa36"
+        },
+        {
+          "name": "experiment/franken-tester-001",
+          "sha": "c52f1c26ca80c8676449449abb5133cbcd1f5445"
+        },
+        {
+          "name": "experiment/listener-look-twice-001",
+          "sha": "2b28002614b119841ca7e639b9be72b0da22987c"
+        },
+        {
+          "name": "experiment/listener-onepass-001a",
+          "sha": "b0291b1eb8d42b0d76e28a231f2c972400eb60cb"
+        },
+        {
+          "name": "experiment/listener-onepass-001b-play-surface",
+          "sha": "4e7a546ef932dc3a0afe9be4fdbec7a329f30f76"
+        },
+        {
+          "name": "experiment/nextgen-toaster-001",
+          "sha": "50116f1ce4ed5771fe431a63b6a3f983fa4d56fe"
+        },
+        {
+          "name": "experiment/nextgen-toaster-002-lab",
+          "sha": "97b31c4e1d3e200ea6354fe72f4c95c666ef5b4b"
+        },
+        {
+          "name": "experiment/nextgen-toaster-003-live-crossings",
+          "sha": "d23e74cce51fce3588f09d983ab91eabbdaef43f"
+        },
+        {
+          "name": "experiment/nextgen-toaster-004-material-placement",
+          "sha": "b2cbf28a294663c99ef12d063b21d6f9ffcbc03c"
+        },
+        {
+          "name": "experiment/nextgen-toaster-005-editor-power",
+          "sha": "28dce2ef3aeb31063a7b215850a6beee75e56d41"
+        },
+        {
+          "name": "experiment/nextgen-toaster-006-time-editor",
+          "sha": "f99151384bc5d30232594be57c826ad16900770f"
+        },
+        {
+          "name": "experiment/nextgen-toaster-007-live-preview-transport",
+          "sha": "d2646e50e29beff6c0d8dfe685ba814323b520b5"
+        },
+        {
+          "name": "experiment/nextgen-toaster-007-one-pass",
+          "sha": "a01d6b00e6253647783c61729e47b9aa2f244001"
+        },
+        {
+          "name": "experiment/nextgen-toaster-008-watch-play-trace",
+          "sha": "7e6881e752b693ad4a52e062e1754479524b102f"
+        },
+        {
+          "name": "experiment/nextgen-toaster-009-performed-topology",
+          "sha": "85eeb98205ff383fc0612e394a89fb85341f53ab"
+        },
+        {
+          "name": "experiment/nextgen-toaster-010-residue-memory",
+          "sha": "0c66c0f6681c2e778374b1d26dbe8e7e89241e74"
+        },
+        {
+          "name": "experiment/nextgen-toaster-011-full-song-form",
+          "sha": "c22f4848334bbcd096537b290f0e6de1e0f9d9cd"
+        },
+        {
+          "name": "experiment/nextgen-toaster-011-performance-program",
+          "sha": "eb419c3a27e8c0b3b77ba6a3eb7bfa9e2e26bfa9"
+        },
+        {
+          "name": "experiment/nextgen-toaster-012-real-pixel-resume",
+          "sha": "a42c82c58d2f481b79750868b29b0a6e5abda0f2"
+        },
+        {
+          "name": "experiment/nextgen-toaster-012b-wordpark-001",
+          "sha": "be3c7930d3368fa959f3e7ab67bf08821ca07bfe"
+        },
+        {
+          "name": "experiment/nextgen-toaster-013-bound-media-sparse-transport",
+          "sha": "22fa5381fce6cb07d1e2b038ff7f0de4b88bbe33"
+        },
+        {
+          "name": "experiment/nextgen-toaster-013-history-compost",
+          "sha": "923b536d068c8daf85e9d960469405e17c4d56f7"
+        },
+        {
+          "name": "experiment/nextgen-toaster-013w-weirdness-compiler",
+          "sha": "0c5a85b5ab2f084b4f17a99a9e21e0bc26c3f9ac"
+        },
+        {
+          "name": "experiment/nextgen-toaster-014-law-fossils",
+          "sha": "a88b7eb56f838e621bb849f9e1411f7139e9c4d4"
+        },
+        {
+          "name": "experiment/nextgen-toaster-015-transition-energy",
+          "sha": "e6e998f1aea258b9206894d01c41df55f288bfd9"
+        },
+        {
+          "name": "experiment/nextgen-toaster-016-creative-weather",
+          "sha": "bdbab39ef414c446630cac1bb4619cb3dc83685b"
+        },
+        {
+          "name": "experiment/nextgen-toaster-017-recurrence-weather",
+          "sha": "becea046829b5f4e784570b3237694a4b05284bd"
+        },
+        {
+          "name": "experiment/nextgen-toaster-018-possibility-map",
+          "sha": "2be8d565316a7c59a37225d8a48bf2d3c12b5a88"
+        },
+        {
+          "name": "experiment/nextgen-toaster-019-playable-terrain",
+          "sha": "64f088eb640d70471bfb8cd606d3e7bde77c8736"
+        },
+        {
+          "name": "experiment/nextgen-toaster-020-execution-custody",
+          "sha": "091391794d4a603820afff62484fb04f3743a68e"
+        },
+        {
+          "name": "experiment/nextgen-toaster-021-artifact-adoption",
+          "sha": "88abe1157c43c34eda029814eab61d40005199b3"
+        },
+        {
+          "name": "experiment/nextgen-toaster-022-adopted-artifact-promotion",
+          "sha": "366b716714f097018b6afe39b8db055b387dd4c6"
+        },
+        {
+          "name": "experiment/nextgen-toaster-023-generational-ecology",
+          "sha": "8e82bd046158109696fc0ee62f59876b8ee57e0a"
+        },
+        {
+          "name": "experiment/nextgen-toaster-024-mutation-distance",
+          "sha": "bf9e31444f4bb032f068bfc682d9fd94296753f5"
+        },
+        {
+          "name": "experiment/nextgen-toaster-025-performed-correspondence",
+          "sha": "791a941838a860d8f53f3d83aa0e509a6819e797"
+        },
+        {
+          "name": "experiment/nextgen-toaster-026-correspondence-bench",
+          "sha": "6a396536a28df824441be393df14f9fb6dc035c9"
+        },
+        {
+          "name": "experiment/polyclock-001-recurrence",
+          "sha": "66fe65523ad21824aea88519de736c791f81e967"
+        },
+        {
+          "name": "experiment/relay001-blue-night-six-up",
+          "sha": "de377643195176a2cabbaaa5f3198f8d03112ce9"
+        },
+        {
+          "name": "experiment/supabardo-sb002-proposal-001",
+          "sha": "2c86d684138f3008344b18202b81193db0c947c7"
+        },
+        {
+          "name": "experimental/franken-composer-001",
+          "sha": "0916e1d1dd60d2834682e4bd182f26f15b2d8447"
+        },
+        {
+          "name": "experimental/hyperkitchen-001-hyperframes-projection",
+          "sha": "2c9df3844594635f353231f6ecbe60b6290cdbdb"
+        },
+        {
+          "name": "feat/automatic-dogram-sidecar",
+          "sha": "a41ecb7d1253b3a3b45381fcc1995692d634f582"
+        },
+        {
+          "name": "feat/dogram-video-receipt-trace",
+          "sha": "b221eea1231908f5cfe6b8a71887f4e78f3869ce"
+        },
+        {
+          "name": "feat/elastic-topology-response-v1",
+          "sha": "944169c7f7bbd821f51fa8e404302cbaa8f4a342"
+        },
+        {
+          "name": "feat/haunted-haiku-receipts",
+          "sha": "a13aecee6d4d8491ce3881b26219ea0b4166ace7"
+        },
+        {
+          "name": "feat/lab-proposal-influence-toggle",
+          "sha": "c139421de4fe0bd41d686d1e09e1dbc4b3252a06"
+        },
+        {
+          "name": "feat/linear-v3-test-build",
+          "sha": "c85ffad2aaed6abcdeffcb8ae7c335dfbe8cc256"
+        },
+        {
+          "name": "feat/master-delivery-output-profiles",
+          "sha": "7c9b163b01e9c9e09c0031af581a49b36ba910a3"
+        },
+        {
+          "name": "feat/nuklear-pantry-exchange-001",
+          "sha": "fccce085382debb9018883a05c08df3461e5d82d"
+        },
+        {
+          "name": "feat/post-walk-axis-grammar",
+          "sha": "9d31eab1e4e695fb226031034203b0b50c72b411"
+        },
+        {
+          "name": "feat/sigil-grammar-v0",
+          "sha": "0cd11599465a0914da53a91ef09b2d21322ebc84"
+        },
+        {
+          "name": "feat/sigil-language-witness-v0",
+          "sha": "183fb03b855d9c34dca7a5d4e3d77d69fe90d08e"
+        },
+        {
+          "name": "feat/six-up-diversity-engine",
+          "sha": "8effa516c44d2183c190934499f69a8560ef3045"
+        },
+        {
+          "name": "feat/stage-a-human-witness-bridge",
+          "sha": "a27ccd1292f870063bceb3d60d64996a5cd70de2"
+        },
+        {
+          "name": "feat/test-6-forced-witness-harness",
+          "sha": "771ca3e120e8d5a4c9da691445d0fbcfb956794f"
+        },
+        {
+          "name": "feat/toaster-pantry-recursive-composition-v1",
+          "sha": "85096a9186b76c4ee734639ebee08abd269d6596"
+        },
+        {
+          "name": "feat/v0.5-visual-score-lab",
+          "sha": "f8b8b53b744522f3505c2fda983fff7f3413a1d8"
+        },
+        {
+          "name": "feat/visual-score-pure-core",
+          "sha": "0f012c211b781a47deab2b7c3599aa86abfa91bf"
+        },
+        {
+          "name": "feat/visual-score-pure-core-16697301625316106120",
+          "sha": "f01affef2811e61aa1130d22309490da4139fea9"
+        },
+        {
+          "name": "feature/creative-context-table-contracts",
+          "sha": "a751ec76435ec980bf49458e5a86e3089ae4647f"
+        },
+        {
+          "name": "feature/listening-eye-v0",
+          "sha": "fe185abbbfa9d56e613f953f7c92531853a80fb3"
+        },
+        {
+          "name": "feature/lyric-foundry-first-five",
+          "sha": "564e56f8ab15355abf1ae52362b98b3efa86ab9e"
+        },
+        {
+          "name": "feature/resolution-field-v0-1",
+          "sha": "2c2b45523e84a69a7b4bdb8b13885f782f6f4e98"
+        },
+        {
+          "name": "feature/topology-events-grab-v0.1",
+          "sha": "b66c20b72d5f0d44870be3a8b8d075cfcbbbe5c2"
+        },
+        {
+          "name": "feature/witness-window",
+          "sha": "c9ef1fed79346411131fb8786e7820369db2a6b4"
+        },
+        {
+          "name": "feature/youtube-private-publish-beta",
+          "sha": "44e7cb233a3f1c304e8884d64ed530fb31535f16"
+        },
+        {
+          "name": "field/205-204-fresh-witness",
+          "sha": "7749685b2ab1d2143374506f710b57e969e6356c"
+        },
+        {
+          "name": "fix/alpha9-range-calibration",
+          "sha": "26ad5889831a17e25c8432c6def9ff43cce0364e"
+        },
+        {
+          "name": "fix/beta-no-silent-garment-fallback",
+          "sha": "21bc6cd38f862893ddd161c99be7f4e100cf1720"
+        },
+        {
+          "name": "fix/lab-proposal-constraint-translation",
+          "sha": "094792af76860b476b1016477bdda00389181ce1"
+        },
+        {
+          "name": "fix/listening-eye-family-evidence-001",
+          "sha": "8d83d678221e28e7f81bb619fd9834fe28147f97"
+        },
+        {
+          "name": "fix/magnetic-crop-invariant",
+          "sha": "eef20b3c681908565a87d23d7fe1ad590f1d2815"
+        },
+        {
+          "name": "fix/resolution-atmosphere-alpha-preservation",
+          "sha": "6bc52e689241a24773153c2d9c5852159ab98ce6"
+        },
+        {
+          "name": "fix/six-up-preview-cwd",
+          "sha": "03a2050f43470eefe8755c721089bf0c3f84049e"
+        },
+        {
+          "name": "fix/title-safe-rotation",
+          "sha": "58d68570237acd02339321fe286970cd39d7c6fa"
+        },
+        {
+          "name": "fix/topology-event-authority-carrier",
+          "sha": "8b0ba15e8688aa0e02e9d0f926f51df380cc152c"
+        },
+        {
+          "name": "fix/track0-bound-response-contour",
+          "sha": "5f60c78807104e66de289ef677c12abf3604bd1c"
+        },
+        {
+          "name": "fix/track0-durable-listener-draft",
+          "sha": "2a063454e8eb46fdf62d1ee435a8ad84be50e633"
+        },
+        {
+          "name": "fix/video-digestion-vout-contract-001",
+          "sha": "fce507efbe2381fcae4189a0f6b3689e0bf5c880"
+        },
+        {
+          "name": "fix/117-sandboxed-preload-bridge",
+          "sha": "ba31d8697fba3aad5e385d9552d771f295bdf966"
+        },
+        {
+          "name": "fix/177-vspantry-counts-visible",
+          "sha": "bbdaa60db1a9d77c163f94e5fb9c9cb39f90a262"
+        },
+        {
+          "name": "hyperfood/slice-b-living-receipt",
+          "sha": "7a43effd52c5a7a1b91d283c52d0f29893783141"
+        },
+        {
+          "name": "hyperfood/slice-b-living-receipt-plan",
+          "sha": "e8e8fb0fa3c13c98aae8c3ca5e98cb4de9f19031"
+        },
+        {
+          "name": "impl/hyperfood-slice-a",
+          "sha": "3b504f1233ec9a9cd10cb39b302832285e250b1c"
+        },
+        {
+          "name": "integration/ghot-witness-sigil-001",
+          "sha": "3485cfd7384d540a0a45ad42585b02ca3ce1586d"
+        },
+        {
+          "name": "lab/ordered-envelope-v0",
+          "sha": "d89f9169fda0d3a74cb32d9ef0489882868cb609"
+        },
+        {
+          "name": "lab/stage-a-ordered-envelope-witness",
+          "sha": "9f758119c913fdc8c7d1d9b318128fa25c4da96f"
+        },
+        {
+          "name": "lumi/color-drift-v1",
+          "sha": "163ac223d41073b2a1e92b40f6b762a95ee9e5a8"
+        },
+        {
+          "name": "lumi/fix-alpha5-build-identity-test",
+          "sha": "87f7cce55cf25837f0deab4abae4977d73d8e154"
+        },
+        {
+          "name": "lumi/internal-response-lift",
+          "sha": "9ae8e070c5ffe21355ed7650aa3b6d9b16e3848c"
+        },
+        {
+          "name": "lumi/28-deterministic-subtitle-sidecars",
+          "sha": "9dcab821e8a0c534cc792c416dbd776e29a6442c"
+        },
+        {
+          "name": "lumi/52-hevc-transport-evidence",
+          "sha": "baf02b89efb105ca613ad3ec18d1fe84b62828ff"
+        },
+        {
+          "name": "main",
+          "sha": "3652c2a96b6b287cda316d1c92daadf7c7417eaf"
+        },
+        {
+          "name": "memory/six-up-prism-001",
+          "sha": "17194c34b9b248fd1edfa975c0cd6142d97b658a"
+        },
+        {
+          "name": "mutant/archaeology-281",
+          "sha": "3b1b08e368f189fd3d05a143cb2e55a383f63ba1"
+        },
+        {
+          "name": "mutant/batch-001-folder-controller",
+          "sha": "2fdc6464329897f942657105f687cd648c38f65d"
+        }
+      ],
+      "fullyEnumerated": false,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/convergent-codec",
+      "refs": [
+        {
+          "name": "main",
+          "sha": "38ede773ace9a38e27c61e159c36cda17090ca16"
+        },
+        {
+          "name": "shared-mask-multichannel",
+          "sha": "7fd58367246bcd20b205b07406f40791066e6237"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/unfolding-ledger",
+      "refs": [
+        {
+          "name": "main",
+          "sha": "6a531ade399c2280ba3901351d3d675a6aeb24ee"
+        },
+        {
+          "name": "restore-test-harness-9600417220467995971",
+          "sha": "f0b52c3656e08d8d077d113ba877fbe61ea3b304"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/full-measure-world-layer",
+      "refs": [
+        {
+          "name": "agent/boot-house-runtime-core",
+          "sha": "1c7bad1279de63e1125f69440add4cce03eacfb4"
+        },
+        {
+          "name": "agent/boot-the-house-design",
+          "sha": "0e8c3c264f9d916e70743d717c28de54b61b3d9c"
+        },
+        {
+          "name": "agent/boot-the-house-phase-a",
+          "sha": "5665ea6359fb7c6e07525428e5df270a7e44c350"
+        },
+        {
+          "name": "agent/boot-the-house-phase-b",
+          "sha": "a3de1fb3abe0f84093ad23fa712fac4c4f73bc84"
+        },
+        {
+          "name": "agent/boot-the-house-phase-c-final",
+          "sha": "30b1fc27deac855c65d529e169ebd974955b7d7b"
+        },
+        {
+          "name": "agent/boot-the-house-phase-c-proof",
+          "sha": "c876099bae8b2eed8b525fc2550a3e67bebe9db2"
+        },
+        {
+          "name": "agent/collision-specimen-001-design",
+          "sha": "b4bd0e12aa75659b5144f2b4728f07bc86a98326"
+        },
+        {
+          "name": "agent/human-terminal-residue-outcome-tests",
+          "sha": "e327435954640a5d54aa48e72fd7a739ab2d5918"
+        },
+        {
+          "name": "agent/human-terminal-v0-1-design",
+          "sha": "06528cac4eb205e32cb6d1e4e84264c71b7e2b3b"
+        },
+        {
+          "name": "agent/import-full-measure-vertical-slice",
+          "sha": "44b23d94f7bcc960b3568f04ca37075734135cbc"
+        },
+        {
+          "name": "agent/readme-status-refresh-2026-08-17",
+          "sha": "22f7811b6cd8e0483552a7ada62d3634407a6a8d"
+        },
+        {
+          "name": "agent/stride-specimen-001",
+          "sha": "41475b82ed552a538987f935110b7794aac0d9b3"
+        },
+        {
+          "name": "crater/contribution-field-quest-001",
+          "sha": "166f3e6c5f629e2f03641c0187c1bdf6469518df"
+        },
+        {
+          "name": "design/grace-living-room-007",
+          "sha": "e5d10a54cd528fb43216d72410db41462abc9f25"
+        },
+        {
+          "name": "docs/reconcile-status-2026-08-19",
+          "sha": "f41cec0b695aa0e52acf92ae5e0f7f8ff9ebc4e1"
+        },
+        {
+          "name": "experiment/clockwork-map-001",
+          "sha": "306764bd8930593facfea5ae198a23e945101bff"
+        },
+        {
+          "name": "experiment/field-quest-engine-001",
+          "sha": "c9206d5055ad574a23acb2eceb5f8785a4ad64fe"
+        },
+        {
+          "name": "experiment/living-deck-quest-001",
+          "sha": "60cf0fc697b8b83d89e364d7dbbfe6001f560f6d"
+        },
+        {
+          "name": "experiment/postal-corps-001-quest-door",
+          "sha": "a34caaa01e1f57fe62a5dc87a0037f375d4c5186"
+        },
+        {
+          "name": "experiment/tenet-arpg-001",
+          "sha": "ab01c74552641b16ee1fd297a33c8ac2222cd676"
+        },
+        {
+          "name": "experiment/tenet-arpg-frontier-002",
+          "sha": "199df2070681e68126bd83f3f74fbd21d92ade27"
+        },
+        {
+          "name": "experiment/warm-thread-world-001",
+          "sha": "553e97401a8483a0ee3c369fed9d3fb8f1c9058d"
+        },
+        {
+          "name": "experimental/alchematrix-001-haunted-telescope",
+          "sha": "587af5a8f1cb73781d1943343234d75aabd0f9c4"
+        },
+        {
+          "name": "feat/grace-foreign-room-offer-003",
+          "sha": "c7d856b23d6a16dccbebe29c7976af24dfee26dc"
+        },
+        {
+          "name": "feat/grace-mercy-broken-promise-001",
+          "sha": "8e551d4fa8b2e6a6139350d6a372df1d441a24e5"
+        },
+        {
+          "name": "feat/grace-origin-entry-002",
+          "sha": "91d2f2526cb46a552caab09a36761a12c0ed13b8"
+        },
+        {
+          "name": "feat/grace-room-polish-006",
+          "sha": "7b0e78fbe7ee2a84de0df4ce28faf68ac261405a"
+        },
+        {
+          "name": "feat/grace-room-stage-004",
+          "sha": "039f6d04a180e48d30c01f21d73877c8715c472d"
+        },
+        {
+          "name": "feat/grace-walkable-room-005",
+          "sha": "a8b1689f40818776cafa924245acf6869838cbc1"
+        },
+        {
+          "name": "feat/plenty-001-scarcity-inverter",
+          "sha": "fa44f99ea82137808c248fe0747e599142d5429f"
+        },
+        {
+          "name": "feature/grace-001-worldseed",
+          "sha": "b1eb6b7337b535709031df50ead728f8b2e382d4"
+        },
+        {
+          "name": "main",
+          "sha": "9e6662b47cb7bd2b3df0041fc33fffa1f1973d39"
+        },
+        {
+          "name": "navigation-aperture-2026-09-27",
+          "sha": "8abbad653a7c9655490783c723aa11d81eeaa343"
+        },
+        {
+          "name": "spec/plenty-001-scarcity-inverter",
+          "sha": "7ef777cf0fa31bd8f4da673f83f89d29d9ade45b"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/project0",
+      "refs": [
+        {
+          "name": "agent/body-surface-standard-v0",
+          "sha": "2f7d4e2109d90c7cf0c79058c68794eaf43e247f"
+        },
+        {
+          "name": "agent/boot-house-world-encounter-port",
+          "sha": "0004017ab04df428ec7c20b43fd956299cdf1210"
+        },
+        {
+          "name": "agent/continuity-triangle-conformance",
+          "sha": "7bf8e959be9e8d5cc41ab7174c06f0981124ce90"
+        },
+        {
+          "name": "agent/continuity-witness-v0-plan",
+          "sha": "59ac4b36001614ee5b6b03637324f6ed8449da43"
+        },
+        {
+          "name": "agent/correct-edge-contract-gates",
+          "sha": "53b294e7aa1f2055b1e165daa426d1713f5fa17b"
+        },
+        {
+          "name": "agent/forkability-merge-obligation",
+          "sha": "026585d3956b387d5af44d9bf0c2940ac55bd112"
+        },
+        {
+          "name": "agent/historical-medium-kernel",
+          "sha": "5e0513049e596f172b60a129f62ab8c76941d325"
+        },
+        {
+          "name": "agent/manuscript-reticulate-continuity",
+          "sha": "7d210644d58ad0a935f06132b061b41a23654558"
+        },
+        {
+          "name": "agent/manuscript-transmission-stress-corpus-design",
+          "sha": "4a193d36c43783fca2b6566e41d857667c77392e"
+        },
+        {
+          "name": "agent/readme-status-refresh-2026-08-17",
+          "sha": "924bc2737b5e3f94a1de8d519e20852a85617a59"
+        },
+        {
+          "name": "agent/resonant-tension",
+          "sha": "b916d0b07a561771db1a7170ac0b6ec1734121b8"
+        },
+        {
+          "name": "agent/self-hosting-construction-protocol",
+          "sha": "a1703e01030109a6bce7e1f6674b22851e9a2307"
+        },
+        {
+          "name": "agent/skyslicey72",
+          "sha": "ec0e36ea7cd4c739ac06f7e9ece1ed5194a70be0"
+        },
+        {
+          "name": "agent/whole-return-v0",
+          "sha": "02436b93e197dd022a0c8df269e2f7b5a172fdb5"
+        },
+        {
+          "name": "agent/world-encounter-stdio",
+          "sha": "78f46c84241c3271f9b60f4ac484c1e95e76b18d"
+        },
+        {
+          "name": "codex/canonical-addressing-test-gate",
+          "sha": "a46f1a7c967fb4be1b0073470e7f74c7a3f93f55"
+        },
+        {
+          "name": "design/nav-v0.1-crossing-witness",
+          "sha": "2167aab95bb5b5e0714560d75555dd17165fe000"
+        },
+        {
+          "name": "design/world-encounter-envelope-v0.1",
+          "sha": "f04b2a9d9e1b107e9e21a458d3f2638e05b569d2"
+        },
+        {
+          "name": "docs/l-branch-v0.1-design",
+          "sha": "9d5cec6b95321355a09b256f2029012c160e6e2b"
+        },
+        {
+          "name": "docs/reconcile-status-2026-08-19",
+          "sha": "654381447be2fd2a1961f14e66f2bc9f79f93cea"
+        },
+        {
+          "name": "docs/snap-state-v0.1-design",
+          "sha": "25bb15baa93cc03fad37f8393f66f223739cb33b"
+        },
+        {
+          "name": "feat/floor-1.1-conformance-graduation",
+          "sha": "999aaa992d7c1b545b51c3aa2c8f7b87b02bb00b"
+        },
+        {
+          "name": "feat/floor-1.1-reference-kernel",
+          "sha": "357dd9a75e0fd94adfdcf1ba01bb257ec8d7deee"
+        },
+        {
+          "name": "feat/floor-1.1-reference-kernel-spec",
+          "sha": "db8b031850871d1c5806407285d2f65f17bdc2f9"
+        },
+        {
+          "name": "feat/nav-lawful-navigation-specimen",
+          "sha": "938e78b0b8a00349ab4bd71a48faf9ac1fc5bb55"
+        },
+        {
+          "name": "feat/world-encounter-envelope-v0.1",
+          "sha": "cfe16b4d62940f914cb8c434ab96f6c31b6545c5"
+        },
+        {
+          "name": "feature/executable-reference-kernel",
+          "sha": "94c5875d83cd9dde22393eea68a0561dd94fc981"
+        },
+        {
+          "name": "feature/inhabitable-room-neighbor-v0",
+          "sha": "011d8d4d2219307265936eac8fdf4ad3d698f2f9"
+        },
+        {
+          "name": "feature/minimal-resonance-motif",
+          "sha": "37f7c70ec38df9199189127c27e077f63cac1d24"
+        },
+        {
+          "name": "fix/29-canonical-depth-cap",
+          "sha": "901df8e7f12f83ad23a7514904367d0aec3e58b0"
+        },
+        {
+          "name": "issue-5-10512511762755006164",
+          "sha": "81ca7d8e3888327964a7d620fe04be7391ff5946"
+        },
+        {
+          "name": "lumi/phaselift-crossing-001",
+          "sha": "d124aa654a22d61f7e38dcf1fa62eed9c56fd7a9"
+        },
+        {
+          "name": "lumi/phaselift-crossing-reconstitution-design",
+          "sha": "6e582c924fec194f008a88b898d981126fc16e24"
+        },
+        {
+          "name": "lumi/stigmergic-field-v0.1-notes-only",
+          "sha": "754f48bc5ac176e17af725e63eefaa890fa00f61"
+        },
+        {
+          "name": "main",
+          "sha": "08f892eb379ef538cce5b3ca081ecf683b448a4b"
+        },
+        {
+          "name": "rescue/witness-residue-kernel-22",
+          "sha": "df61363fc143eebb1d0a74153dd705f1ef93c574"
+        },
+        {
+          "name": "resolve-ontology-edge-law-14895150262590516093",
+          "sha": "8742c6411e3ce792be385672d022d75d22875b11"
+        },
+        {
+          "name": "sentinel-security-verification-15737855234386240860",
+          "sha": "463ba319996e8e5d392e0135b92bfc10963db4ad"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/appliance-prophet-king",
+      "refs": [
+        {
+          "name": "001-nutoaster-prototype",
+          "sha": "a15388ebf2391807559d7cfb334a15c9f3f57992"
+        },
+        {
+          "name": "main",
+          "sha": "242cf850a0a09eb9f0aa6b2fc0c47ec6bba335bc"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    }
+  ]
+}
