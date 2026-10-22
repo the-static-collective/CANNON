@@ -1,0 +1,93 @@
+name: STACK2 027 Warm Thread Comes Home
+
+on:
+  push:
+    branches:
+      - experiment/stack-squared-027-warm-thread-returns
+    paths:
+      - 'labs/crater-027/**'
+      - 'docs/STACK-SQUARED-027-WARM-THREAD.md'
+      - '.github/workflows/stack2-027-warm-thread.yml'
+  pull_request:
+    paths:
+      - 'labs/crater-027/**'
+      - 'docs/STACK-SQUARED-027-WARM-THREAD.md'
+      - '.github/workflows/stack2-027-warm-thread.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  warm-thread-native:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout CANNON
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Checkout exact original GHoT warm thread
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/GHoT
+          ref: 3c8be40cbaef2f9c786e5424abf15d4b138d2966
+          path: .test-support/ghot
+          persist-credentials: false
+      - name: Checkout exact original Full Measure warm thread
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/full-measure-world-layer
+          ref: 553e97401a8483a0ee3c369fed9d3fb8f1c9058d
+          path: .test-support/full
+          persist-credentials: false
+      - name: Checkout exact original Band Runtime
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/band-runtime
+          ref: f2c889df90905eda533fe6d978cd1a52c788a33e
+          path: .test-support/band
+          persist-credentials: false
+      - name: Checkout exact original Garden
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/BananaSpork
+          ref: 6738230a8557060dd59aabc19caf21826806d16f
+          path: .test-support/garden
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Install only Garden original TypeScript runtime dependencies
+        run: npm ci --prefix .test-support/garden --ignore-scripts --no-audit --no-fund
+      - name: Original GHoT and Full Measure native tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 .test-support/ghot/ghot/warm_thread_sim.py
+          export GHOT_WARM_THREAD_DIR="$PWD/.test-support/ghot"
+          node --test .test-support/full/experiments/warm-thread-world-001/tests/*.test.mjs
+      - name: STACK² 027 native crossing, original owner refusal, and cold replay
+        shell: bash
+        run: |
+          set -euo pipefail
+          export CRATER_GHOT="$PWD/.test-support/ghot"
+          export CRATER_FULL="$PWD/.test-support/full"
+          export CRATER_BAND="$PWD/.test-support/band"
+          export CRATER_GARDEN="$PWD/.test-support/garden"
+          export CRATER_TSX_CLI="$PWD/.test-support/garden/node_modules/tsx/dist/cli.mjs"
+          node "$CRATER_TSX_CLI" --test labs/crater-027/native.test.mjs
+          scratch="$(mktemp -d)"
+          trap 'rm -rf "$scratch"' EXIT
+          printf '{"ghot":"%s","full":"%s","band":"%s","garden":"%s"}\n' \
+            "$CRATER_GHOT" "$CRATER_FULL" "$CRATER_BAND" "$CRATER_GARDEN" > "$scratch/roots.json"
+          node "$CRATER_TSX_CLI" labs/crater-027/native.mjs run "$scratch/roots.json" "$scratch/receipt.json"
+          node "$CRATER_TSX_CLI" labs/crater-027/native.mjs verify "$scratch/roots.json" "$scratch/receipt.json"
+      - name: Reject donor tracked changes and check syntax
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --check labs/crater-027/native.mjs
+          node --check labs/crater-027/native.test.mjs
+          for repo in ghot full band garden; do
+            git -C ".test-support/$repo" diff --exit-code HEAD
+          done
