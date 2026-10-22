@@ -1,0 +1,48 @@
+name: STACK82 Living Commons 001
+
+on:
+  push:
+    branches:
+      - experiment/stack-squared-024-living-commons
+    paths:
+      - 'labs/living-commons-001/**'
+      - 'docs/STACK-SQUARED-024-LIVING-COMMONS.md'
+      - '.github/workflows/stack82-living-commons.yml'
+  pull_request:
+    paths:
+      - 'labs/living-commons-001/**'
+      - 'docs/STACK-SQUARED-024-LIVING-COMMONS.md'
+      - '.github/workflows/stack82-living-commons.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  synthetic-boundary-proof:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Run adversarial synthetic checks
+        run: node --test labs/living-commons-001/engine.test.mjs
+      - name: Run create-only and independent cold verify
+        shell: bash
+        run: |
+          set -euo pipefail
+          tmp="$(mktemp -d)"
+          trap 'rm -rf "$tmp"' EXIT
+          node labs/living-commons-001/engine.mjs run \
+            labs/living-commons-001/fictional-case.json \
+            labs/living-commons-001/source-registry.json \
+            "$tmp/inspection.json"
+          node labs/living-commons-001/engine.mjs verify \
+            labs/living-commons-001/fictional-case.json \
+            labs/living-commons-001/source-registry.json \
+            "$tmp/inspection.json"
+      - name: Syntax check
+        run: |
+          node --check labs/living-commons-001/engine.mjs
+          node --check labs/living-commons-001/engine.test.mjs
