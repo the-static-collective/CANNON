@@ -1,0 +1,82 @@
+{
+  "schema": "cannon.branch-evidence-slice/v0",
+  "observedDate": "2026-10-22",
+  "classification": "REF_PRESENT_NOT_LIVENESS_OR_ADMISSION",
+  "source": "GitHub REST branches (up to 2 pages x 100)",
+  "slice": {
+    "offset": 100,
+    "limit": 2
+  },
+  "repositories": [
+    {
+      "repository": "the-static-collective/JAR-VIS",
+      "refs": [
+        {
+          "name": "fix/005-openmanus-venv",
+          "sha": "cad2c7bb026ddae967f85d627503bd8150308e02"
+        },
+        {
+          "name": "genesis-001-voluntary-crossing",
+          "sha": "8d39453d1104cdab2571806059a4fd43d481196d"
+        },
+        {
+          "name": "genesis-002-attendant-workbench",
+          "sha": "b307a6d2027d7767bd19c5d3a41dcef6aaab0f73"
+        },
+        {
+          "name": "genesis-003-first-real-door",
+          "sha": "36976fd3d4908a8461873c90d6750f0b6ae11d9c"
+        },
+        {
+          "name": "genesis-004-house-party",
+          "sha": "b806b9c837e167441958208a894408b00acf3a41"
+        },
+        {
+          "name": "genesis-005-first-live-guests",
+          "sha": "20fa89a340251443afa7afbdb5432ed11fce88a6"
+        },
+        {
+          "name": "main",
+          "sha": "0a4f87938b9237ad439d9e58c3aecb276429a34d"
+        },
+        {
+          "name": "proof/house-party-005-first-native-run",
+          "sha": "9055f300f65ac8f3c14464440e27ec68623d1947"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/story-dna",
+      "refs": [
+        {
+          "name": "experiment/keep-a-place-song-to-panel-001",
+          "sha": "b881a56398725f767530d1967019d7323a1212e3"
+        },
+        {
+          "name": "feat/character-registry-003",
+          "sha": "096514ce33ccf8f83629273fe83d74b78bc58fc6"
+        },
+        {
+          "name": "feat/grok-lab-rescue-005",
+          "sha": "b38905bfde3e4389f6007caf183d07e536fdeea5"
+        },
+        {
+          "name": "feat/relationship-passenger-002",
+          "sha": "beab7fd5ab6f63de2a7a9332998c22bedf6b73ea"
+        },
+        {
+          "name": "feat/visual-continuity-004",
+          "sha": "c541c4511c459bbb80668f2a655904437d8296fd"
+        },
+        {
+          "name": "main",
+          "sha": "eda04425493c1b772fab62ea338e8b8e09edb989"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    }
+  ]
+}
