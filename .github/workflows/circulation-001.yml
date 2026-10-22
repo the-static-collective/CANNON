@@ -1,0 +1,45 @@
+name: CIRCULATION-001 three-organ native rehearsal
+on:
+  pull_request:
+    paths:
+      - 'labs/circulation-001/**'
+      - '.github/workflows/circulation-001.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-graph-planz-return:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/free-graph
+          ref: ec0ad8743c5faac3f3675760bbafcbcb1df846c1
+          path: deps/free-graph
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/planZ
+          ref: 316000e071e0da5af4762f119f80dfc3add26d7c
+          path: deps/planZ
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Test source-native crossing and rejection boundaries
+        env:
+          FREE_GRAPH_CORE: deps/free-graph/scripts/fg_core.py
+          PLANZ_SCRIPT: deps/planZ/scripts/circulation001_planz.py
+        run: python -m unittest discover -s labs/circulation-001 -p 'test_*.py' -v
+      - name: Cold three-repository CLI proof (source and returned graphs)
+        run: |
+          mkdir -p .circulation-output
+          python labs/circulation-001/cannon_seed.py run --seed labs/circulation-001/seed.json --free-graph-core deps/free-graph/scripts/fg_core.py --output .circulation-output/source.json
+          python deps/free-graph/scripts/fg.py validate .circulation-output/source.json
+          python deps/planZ/scripts/circulation001_planz.py run --graph .circulation-output/source.json --replies labs/circulation-001/replies.json --free-graph-core deps/free-graph/scripts/fg_core.py --output .circulation-output/planZ-return.json
+          python labs/circulation-001/return_to_graph.py run --graph .circulation-output/source.json --replies labs/circulation-001/replies.json --plan-return .circulation-output/planZ-return.json --free-graph-core deps/free-graph/scripts/fg_core.py --planz-script deps/planZ/scripts/circulation001_planz.py --output .circulation-output/return-graph.json
+          python deps/free-graph/scripts/fg.py validate .circulation-output/return-graph.json
+          python labs/circulation-001/cannon_seed.py verify --seed labs/circulation-001/seed.json --free-graph-core deps/free-graph/scripts/fg_core.py --output .circulation-output/source.json
+          python deps/planZ/scripts/circulation001_planz.py verify --graph .circulation-output/source.json --replies labs/circulation-001/replies.json --free-graph-core deps/free-graph/scripts/fg_core.py --output .circulation-output/planZ-return.json
+          python labs/circulation-001/return_to_graph.py verify --graph .circulation-output/source.json --replies labs/circulation-001/replies.json --plan-return .circulation-output/planZ-return.json --free-graph-core deps/free-graph/scripts/fg_core.py --planz-script deps/planZ/scripts/circulation001_planz.py --output .circulation-output/return-graph.json
