@@ -1,0 +1,87 @@
+name: STACK2 026 Native Care Return and Full Measure PLENTY
+
+on:
+  push:
+    branches:
+      - experiment/stack-squared-026-care-plenty-return
+    paths:
+      - 'labs/crater-026/**'
+      - 'docs/STACK-SQUARED-026-CARE-PLENTY.md'
+      - '.github/workflows/stack2-026-care-plenty.yml'
+  pull_request:
+    paths:
+      - 'labs/crater-026/**'
+      - 'docs/STACK-SQUARED-026-CARE-PLENTY.md'
+      - '.github/workflows/stack2-026-care-plenty.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  four-native-owners:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout CANNON
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Exact original Nourish source
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/Nourish-Kids
+          ref: beba8b81f9ec2d71ee9dac3e7a48fef667179df5
+          path: .test-support/nourish
+          persist-credentials: false
+      - name: Exact original Band Runtime source
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/band-runtime
+          ref: f2c889df90905eda533fe6d978cd1a52c788a33e
+          path: .test-support/band
+          persist-credentials: false
+      - name: Exact original BananaSpork Garden source
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/BananaSpork
+          ref: 6738230a8557060dd59aabc19caf21826806d16f
+          path: .test-support/garden
+          persist-credentials: false
+      - name: Exact original Full Measure PLENTY source
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/full-measure-world-layer
+          ref: fa44f99ea82137808c248fe0747e599142d5429f
+          path: .test-support/plenty
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Provision Garden original TypeScript runtime
+        run: npm ci --prefix .test-support/garden --ignore-scripts --no-audit --no-fund
+      - name: Source-bound native care and PLENTY hostility
+        shell: bash
+        run: |
+          set -euo pipefail
+          export CRATER_NOURISH="$PWD/.test-support/nourish"
+          export CRATER_BAND="$PWD/.test-support/band"
+          export CRATER_GARDEN="$PWD/.test-support/garden"
+          export CRATER_PLENTY="$PWD/.test-support/plenty"
+          export CRATER_TSX_CLI="$PWD/.test-support/garden/node_modules/tsx/dist/cli.mjs"
+          node "$CRATER_TSX_CLI" --test labs/crater-026/native.test.mjs
+          temp="$(mktemp -d)"
+          trap 'rm -rf "$temp"' EXIT
+          printf '{"nourish":"%s","band":"%s","garden":"%s","plenty":"%s"}\n' \
+            "$CRATER_NOURISH" "$CRATER_BAND" "$CRATER_GARDEN" "$CRATER_PLENTY" > "$temp/roots.json"
+          node "$CRATER_TSX_CLI" labs/crater-026/native.mjs run "$temp/roots.json" "$temp/receipt.json"
+          node "$CRATER_TSX_CLI" labs/crater-026/native.mjs verify "$temp/roots.json" "$temp/receipt.json"
+      - name: No donor-source changes and syntax
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --check labs/crater-026/native.mjs
+          node --check labs/crater-026/native.test.mjs
+          for repo in nourish band garden plenty; do
+            git -C ".test-support/$repo" diff --exit-code HEAD -- \
+              ':!package-lock.json'
+          done
