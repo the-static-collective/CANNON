@@ -1,0 +1,125 @@
+{
+  "schema": "cannon.living-commons-case/v0",
+  "scenarioId": "fixture:neighborhood-table",
+  "fictional": true,
+  "actors": [
+    {
+      "id": "fixture:requester",
+      "role": "requester"
+    },
+    {
+      "id": "fixture:steward",
+      "role": "steward"
+    },
+    {
+      "id": "fixture:helper",
+      "role": "helper"
+    },
+    {
+      "id": "fixture:recipient",
+      "role": "recipient"
+    },
+    {
+      "id": "fixture:artist-a",
+      "role": "artist"
+    },
+    {
+      "id": "fixture:artist-b",
+      "role": "artist"
+    },
+    {
+      "id": "fixture:editor",
+      "role": "editor"
+    }
+  ],
+  "events": [
+    {
+      "id": "fixture:need-1",
+      "lane": "care",
+      "type": "need.proposed",
+      "actor": "fixture:requester",
+      "subject": "fixture:neighborhood-table"
+    },
+    {
+      "id": "fixture:need-review-1",
+      "lane": "care",
+      "type": "need.reviewed",
+      "actor": "fixture:steward",
+      "subject": "fixture:neighborhood-table",
+      "ref": "fixture:need-1"
+    },
+    {
+      "id": "fixture:offer-1",
+      "lane": "care",
+      "type": "offer.proposed",
+      "actor": "fixture:helper",
+      "subject": "fixture:neighborhood-table",
+      "ref": "fixture:need-review-1"
+    },
+    {
+      "id": "fixture:offer-accept-1",
+      "lane": "care",
+      "type": "offer.accepted",
+      "actor": "fixture:steward",
+      "subject": "fixture:neighborhood-table",
+      "ref": "fixture:offer-1"
+    },
+    {
+      "id": "fixture:report-1",
+      "lane": "care",
+      "type": "fulfillment.reported",
+      "actor": "fixture:helper",
+      "subject": "fixture:neighborhood-table",
+      "ref": "fixture:offer-accept-1"
+    },
+    {
+      "id": "fixture:seed-1",
+      "lane": "culture",
+      "type": "seed.proposed",
+      "actor": "fixture:artist-a",
+      "subject": "fixture:neighborhood-table"
+    },
+    {
+      "id": "fixture:contribution-1",
+      "lane": "culture",
+      "type": "contribution.proposed",
+      "actor": "fixture:artist-b",
+      "subject": "fixture:neighborhood-table",
+      "ref": "fixture:seed-1"
+    },
+    {
+      "id": "fixture:consent-a-1",
+      "lane": "culture",
+      "type": "release.consented",
+      "actor": "fixture:artist-a",
+      "subject": "fixture:neighborhood-table",
+      "ref": "fixture:contribution-1",
+      "consentScope": "public-song"
+    },
+    {
+      "id": "fixture:consent-b-1",
+      "lane": "culture",
+      "type": "release.consented",
+      "actor": "fixture:artist-b",
+      "subject": "fixture:neighborhood-table",
+      "ref": "fixture:contribution-1",
+      "consentScope": "public-song"
+    },
+    {
+      "id": "fixture:edit-1",
+      "lane": "culture",
+      "type": "editorial.approved",
+      "actor": "fixture:editor",
+      "subject": "fixture:neighborhood-table",
+      "ref": "fixture:contribution-1"
+    },
+    {
+      "id": "fixture:confirm-1",
+      "lane": "care",
+      "type": "fulfillment.confirmed",
+      "actor": "fixture:recipient",
+      "subject": "fixture:neighborhood-table",
+      "ref": "fixture:report-1"
+    }
+  ]
+}
