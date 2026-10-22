@@ -1,0 +1,14 @@
+{
+  "schema": "cannon.circulation-simulated-replies/v0",
+  "fictional": true,
+  "decisions": [
+    {
+      "destination": "the-static-collective/BananaSpork",
+      "choice": "HOLD"
+    },
+    {
+      "destination": "the-static-collective/static-live",
+      "choice": "DECLINE"
+    }
+  ]
+}
