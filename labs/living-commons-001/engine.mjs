@@ -83,7 +83,7 @@ export function inspect(caseFile, registry) {
   let careStep = -1;
   let careDecision = "UNVERIFIED";
   let lastCareId = null;
-  let needId = null, offerId = null, reportId = null, helper = null;
+  let needId = null, offerId = null, reportId = null, helper = null, needRequester = null;
   let seedId = null, contributionId = null, firstArtist = null, secondArtist = null;
   let editorReviewed = false, withdrawn = false;
   const consents = new Set();
@@ -119,10 +119,11 @@ export function inspect(caseFile, registry) {
         if (careStep === -1) {
           requireThat(!Object.hasOwn(event, "ref"), "proposal must not inherit authority");
           needId = event.id;
+          needRequester = event.actor;
         } else {
           requireThat(event.ref === lastCareId, "care transition does not reference preceding occurrence");
         }
-        if (event.type === "need.reviewed") requireThat(event.actor !== caseFile.events[0].actor, "self-review of request");
+        if (event.type === "need.reviewed") requireThat(event.actor !== needRequester, "self-review of request");
         if (event.type === "offer.proposed") {
           offerId = event.id;
           helper = event.actor;
