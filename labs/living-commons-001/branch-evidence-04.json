@@ -1,0 +1,290 @@
+{
+  "schema": "cannon.branch-evidence-slice/v0",
+  "observedDate": "2026-10-22",
+  "classification": "REF_PRESENT_NOT_LIVENESS_OR_ADMISSION",
+  "source": "GitHub REST branches (up to 2 pages x 100)",
+  "slice": {
+    "offset": 40,
+    "limit": 10
+  },
+  "repositories": [
+    {
+      "repository": "the-static-collective/groove-rooms",
+      "refs": [
+        {
+          "name": "agent/protected-silence-admission",
+          "sha": "3fdb7b1a3684311a1e76967409079656515e4f71"
+        },
+        {
+          "name": "design/suno-handoff-compiler-v0",
+          "sha": "30cef17780b4360717d8ca26d8136babd1136b0e"
+        },
+        {
+          "name": "docs/capture-001-design",
+          "sha": "cc56b76d71f23935ca898f2b7e813f2b4b8ee238"
+        },
+        {
+          "name": "feat/capture-001-witness-spine",
+          "sha": "b2149fc3b2e0c11412ecb42b720965c879d72425"
+        },
+        {
+          "name": "feat/groove-post-001",
+          "sha": "ffa9719615b847d211314c9e395d76db02fa658f"
+        },
+        {
+          "name": "feat/groove-post-mailboxes-002",
+          "sha": "6f812c46e3ce71bba3b7ac41e8cb4ba66ee30d5f"
+        },
+        {
+          "name": "feat/return-address-001",
+          "sha": "7bad8977eb194d76a98423a9b80d5b93d524aaa3"
+        },
+        {
+          "name": "feat/return-address-import-001",
+          "sha": "015cdf1b3958c06889424313d63fd620cf4f7c82"
+        },
+        {
+          "name": "fix/groove-post-security-build-003",
+          "sha": "cbe7c56fb30872b9e8139bcdcdc0b4103213133f"
+        },
+        {
+          "name": "fix/groove-rooms-lint-clean-004",
+          "sha": "f6394a3cdd1bc4d2cf8e54555af774ab39ac1358"
+        },
+        {
+          "name": "integration/groove-post-atomic-005",
+          "sha": "2fccaac3245c5f32facab7b280449219d63910fe"
+        },
+        {
+          "name": "lumi/field-weather-v0.1",
+          "sha": "89627e9dca21dbc9b4477e47f846f0a8641c193b"
+        },
+        {
+          "name": "main",
+          "sha": "3861527c4b97f7dd75528d74d1fc5ea3d613077a"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/gramfork",
+      "refs": [
+        {
+          "name": "design/porch-001-telegram-reentry",
+          "sha": "8cceb99a003731a0f8e9b736104ee9404f9f179f"
+        },
+        {
+          "name": "experiment/telegram-auth-bridge-002",
+          "sha": "c5655c63ed0b128648c824b8651dad31f546a463"
+        },
+        {
+          "name": "experiment/tenetgram-porch-001",
+          "sha": "27d53ce4aac4d3c1ff34109caa83109b7ddb6f3e"
+        },
+        {
+          "name": "main",
+          "sha": "a877f0d24f16911119f732465d8a3d3041527e81"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/idea-grove",
+      "refs": [
+        {
+          "name": "PK/composer-001",
+          "sha": "006d137453a4cb8fed0093b16b379c573225afbb"
+        },
+        {
+          "name": "PK/composer-002-pressure",
+          "sha": "139309adac953894ec2c910d641272a6628e7eac"
+        },
+        {
+          "name": "PK/creative-lanes-001",
+          "sha": "469fe9453d93272f36dc4b1961c43430ba846ae4"
+        },
+        {
+          "name": "PK/golden-promise-constellation-001",
+          "sha": "dd2c6822e69d10b4a7581b25e0e2ebb820da792c"
+        },
+        {
+          "name": "PK/paula-story-video-001",
+          "sha": "79bf4aa52aa0d8a3df46b16a919a6b330647a5a9"
+        },
+        {
+          "name": "PK/paula-studio-001",
+          "sha": "2f6efab7b5eb956a59065fb493820b3dfb1ef644"
+        },
+        {
+          "name": "PK/paula-studio-002-durable-return",
+          "sha": "114e690edcfdbb2530ce464b3881074c27ca6f11"
+        },
+        {
+          "name": "PK/pkfree-001",
+          "sha": "3e27e26622f7dfb2ee7c6a870377bf7c672d501f"
+        },
+        {
+          "name": "PK/playtable-001",
+          "sha": "a01a85a4c44433f230fd238f5d88292c6e4f12fc"
+        },
+        {
+          "name": "main",
+          "sha": "3af747b959d63e08b41002fe630a0b093a21f747"
+        },
+        {
+          "name": "seed/lemon-press-001",
+          "sha": "905f77c5dc213d17c790f072cd48999329f67163"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/jubilee-workspace",
+      "refs": [
+        {
+          "name": "main",
+          "sha": "c3363c4ef5212105c251b66cc90024980516c9fc"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/pies",
+      "refs": [
+        {
+          "name": "main",
+          "sha": "62b67c04d137475b4116600403eac6236a8a0459"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/jubilee-authority-kit",
+      "refs": [
+        {
+          "name": "agent/federated-invariant-index",
+          "sha": "a523e0120b5255d0043e99baa4be698eb47f4290"
+        },
+        {
+          "name": "agent/typed-ecosystem-registry",
+          "sha": "096d0e4dcd42dc37ce6edddd534c382b4feb5a32"
+        },
+        {
+          "name": "docs/what-is-the-static-collective",
+          "sha": "f953341f3eace17d8ce589e4f3d8152a05791d0d"
+        },
+        {
+          "name": "main",
+          "sha": "b99dd1bf3e9af4c30a4f0e365237357086b7fdf6"
+        },
+        {
+          "name": "registry/status-semantics-freshness",
+          "sha": "91fbb8469395de22d45fd0790d48e877847a40bb"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/toaster-lab",
+      "refs": [
+        {
+          "name": "agent/crazy-slots-ai-studio-contract",
+          "sha": "a02182cb92bf939cb13e8f91f202f5febb77c3da"
+        },
+        {
+          "name": "agent/issue-1-authoring-boundary",
+          "sha": "a9a51dd2df221abe0661f437626db0f00bda749a"
+        },
+        {
+          "name": "agent/pr-3-exportable-proposal",
+          "sha": "ec923f3e36874309ec5f16b6480576ed5c55f5e2"
+        },
+        {
+          "name": "main",
+          "sha": "55932ad5932d9cb8e0dd386faab5f028ce514db5"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/tranchNOSE",
+      "refs": [
+        {
+          "name": "agent/001a-local-field-dynamics",
+          "sha": "3a940d70360339dbe2dde0b3a684dd667829618f"
+        },
+        {
+          "name": "exp/001a-receipt-contract",
+          "sha": "080d20e0e40c3dbba11f2cfc2453a3e71b85196a"
+        },
+        {
+          "name": "experiment/field-lab-001",
+          "sha": "670ca60012929b51e66b8bac7d0c9b85a4f95d7b"
+        },
+        {
+          "name": "experiment/hollow-copper-relational-field-001",
+          "sha": "4b5e6900dd9d625c4d5e0f2d02be22aceb04095b"
+        },
+        {
+          "name": "experiment/machine-weather-001",
+          "sha": "e45d0644ab1903df700535edb4c0f2d60bfb4354"
+        },
+        {
+          "name": "main",
+          "sha": "78390bec527a6c7c2bd15c7f6bb879a245df3382"
+        },
+        {
+          "name": "play/channel-001-differentiated-witnesses",
+          "sha": "d10ae465139723fd5cd4a4771eb8aa989a687325"
+        },
+        {
+          "name": "play/difference-001-relational-witness",
+          "sha": "6b43d251a6ed9d19261f1ce6f3b440c779e0e067"
+        },
+        {
+          "name": "robotics/r001-body-state",
+          "sha": "b3be18c40328f63d2ecfcbf7887c157241fe7d03"
+        },
+        {
+          "name": "robotics/r002-address-answer",
+          "sha": "cca4a771af764f56c36596a94c93f41951a8d824"
+        },
+        {
+          "name": "robotics/r003-counterfactual-swaps",
+          "sha": "4738c908d764638097c0fdd9c201c5fefe89ac08"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/SEAMforge",
+      "refs": [
+        {
+          "name": "main",
+          "sha": "2188ffef41db27307083ea9c27751facf173ea07"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/toaster-oracle",
+      "refs": [
+        {
+          "name": "main",
+          "sha": "5997d1aacab0c913c7b0fb110369dc17b821db01"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    }
+  ]
+}
