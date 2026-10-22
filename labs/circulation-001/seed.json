@@ -1,0 +1,17 @@
+{
+  "schema": "cannon.circulation-seed/v0",
+  "fictional": true,
+  "title": "FICTIONAL: A neighborhood table discovers extra garden produce.",
+  "receivers": [
+    {
+      "destination": "the-static-collective/BananaSpork",
+      "lane": "care",
+      "question": "FICTIONAL: Could a voluntary steward examine a surplus-food help slip?"
+    },
+    {
+      "destination": "the-static-collective/static-live",
+      "lane": "culture",
+      "question": "FICTIONAL: Could artists independently propose a harvest gathering song?"
+    }
+  ]
+}
