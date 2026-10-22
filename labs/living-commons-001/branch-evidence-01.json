@@ -1,0 +1,186 @@
+{
+  "schema": "cannon.branch-evidence-slice/v0",
+  "observedDate": "2026-10-22",
+  "classification": "REF_PRESENT_NOT_LIVENESS_OR_ADMISSION",
+  "source": "GitHub REST branches (up to 2 pages x 100)",
+  "slice": {
+    "offset": 10,
+    "limit": 10
+  },
+  "repositories": [
+    {
+      "repository": "the-static-collective/Jubilee-Engine-VM",
+      "refs": [
+        {
+          "name": "agent/nuthang-book-of-acts-v0",
+          "sha": "f2768ad25bf08b676ee56bee96b09eace5a351d3"
+        },
+        {
+          "name": "design/postemahhn-v0.1",
+          "sha": "20b529038be86cb88e2fd386536493cd694fd719"
+        },
+        {
+          "name": "feat/help-case-book-of-acts-adapter",
+          "sha": "97b2d9122ff065fafcda9e407c5def23748c3337"
+        },
+        {
+          "name": "feat/reconstitution-crossing-v0",
+          "sha": "48e8edf6cbed33bd8a3d4404f37165bd21047c14"
+        },
+        {
+          "name": "main",
+          "sha": "ec74819addeb41ebccf1667167f806bc77fb6e14"
+        },
+        {
+          "name": "research/jubilee-t10-001-bigbat-comparative-001",
+          "sha": "389f554b192ff8acea189f8bb3a0afab61da5c78"
+        },
+        {
+          "name": "research/jubilee-t10-001-bigbat-text-history-001",
+          "sha": "3cd1629063801a11e4b5a81a3dd97ba6c84fd85a"
+        },
+        {
+          "name": "research/jubilee-t10-001-wolfram-pressure-001",
+          "sha": "43020364c069207150d8ad8f2f4d8833d2bbd30d"
+        },
+        {
+          "name": "research/jubilee-t10-001",
+          "sha": "5d72e97059d073f6b4e2c3f0e6fa9b84c4178a60"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/JubileeV.1",
+      "refs": [
+        {
+          "name": "main",
+          "sha": "c8b578bc34441cab6e567dea9e251be185738481"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/jublEchat",
+      "refs": [
+        {
+          "name": "agent/nearby-growth-v0",
+          "sha": "91b2f28fdee07149a2f03c7ab5af1e786dad15f9"
+        },
+        {
+          "name": "design/residual-lineage-v0",
+          "sha": "9581decc54b1f29721e6bfcd2a5c60664af5a859"
+        },
+        {
+          "name": "feature/residual-lineage-v0",
+          "sha": "331cfc742f87eccfda2d9d6c67061d489b0d7f7c"
+        },
+        {
+          "name": "fix/ledger-witness-parity",
+          "sha": "2cfa7e0f925f5cead3aaeed6683bb831d1b062ba"
+        },
+        {
+          "name": "main",
+          "sha": "076a26b8e6250a44818c58f0c9ca0c7c67de6bca"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/seedforge",
+      "refs": [
+        {
+          "name": "main",
+          "sha": "5142afb2a0cc7cc5813c8b0fc84e164cdd2cb0af"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/seedforge-v0",
+      "refs": [
+        {
+          "name": "main",
+          "sha": "43b135c78c4308f628001854edb695906f0c70c3"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/seedFORK",
+      "refs": [
+        {
+          "name": "main",
+          "sha": "4151254daea53ef52edd9eac72b3781b17735cca"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/mundaneWORMHOLE",
+      "refs": [
+        {
+          "name": "main",
+          "sha": "b08185554de9a345453e065696f77dda7b27ef64"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/Nourish-Kids",
+      "refs": [
+        {
+          "name": "design/fulfillment-envelope-v0",
+          "sha": "cb39ecd1926ccfd65867d226c8f5983a40d61b2b"
+        },
+        {
+          "name": "experiment/jubilee-release-window-001",
+          "sha": "950b57a99de079d2a7145574f974c8fd14163a06"
+        },
+        {
+          "name": "feat/fulfillment-envelope-v0",
+          "sha": "669d9750d62c670cfd3894fcffe367af83e85374"
+        },
+        {
+          "name": "feat/return-of-help-slip-001",
+          "sha": "1d13eb45e3914abe23158689bf7a59f6600638a1"
+        },
+        {
+          "name": "main",
+          "sha": "beba8b81f9ec2d71ee9dac3e7a48fef667179df5"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/BananaGram-Gram-to-Fork",
+      "refs": [
+        {
+          "name": "main",
+          "sha": "5a0c9176f60f598bf1bebd23b729f19b5e2a1f5e"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/Jubilee-Campfire",
+      "refs": [
+        {
+          "name": "main",
+          "sha": "ad7a5cbef03a1e68058a964d5f50ef6ed93ea274"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    }
+  ]
+}
