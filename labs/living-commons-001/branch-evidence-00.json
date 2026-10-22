@@ -1,0 +1,182 @@
+{
+  "schema": "cannon.branch-evidence-slice/v0",
+  "observedDate": "2026-10-22",
+  "classification": "REF_PRESENT_NOT_LIVENESS_OR_ADMISSION",
+  "source": "GitHub REST branches (up to 2 pages x 100)",
+  "slice": {
+    "offset": 0,
+    "limit": 10
+  },
+  "repositories": [
+    {
+      "repository": "the-static-collective/tranchNode-v1",
+      "refs": [
+        {
+          "name": "main",
+          "sha": "c1ab651e55f85d9f13551c89c1de39097d6b16a4"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/the-autodisco",
+      "refs": [
+        {
+          "name": "feat/broadcast-gate-001",
+          "sha": "87e6c95d7240053d9e5032f4806538a361aa7467"
+        },
+        {
+          "name": "feat/broadcast-receipt-001",
+          "sha": "d96a7890b9a164570267e1bc5c7814589f858d94"
+        },
+        {
+          "name": "feat/exchange-001",
+          "sha": "463e7ac286b3329087d185319bccbe26c6bfa2b6"
+        },
+        {
+          "name": "feat/listener-return-001",
+          "sha": "a8c9e4d041cf233266ac7ff97bbb37c6a34cfb41"
+        },
+        {
+          "name": "feat/pair-listen-001",
+          "sha": "22683626e4c73ee9e84ab0cdef904171cf57fccc"
+        },
+        {
+          "name": "feat/release-gate-001",
+          "sha": "dc00e6dd6862fbc37333fdaaaccb66e3f4ae445e"
+        },
+        {
+          "name": "feat/voice-provider-001",
+          "sha": "0c8444f28deb2025ca4c3d510349a43b909a91ce"
+        },
+        {
+          "name": "feat/voice-render-001",
+          "sha": "6df332a5672f8c140b9ba916d40d107e96cbc378"
+        },
+        {
+          "name": "main",
+          "sha": "83f032b438e7264d3dfdfd2f0b3eb2b3f05484d0"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/BananaDash",
+      "refs": [
+        {
+          "name": "main",
+          "sha": "8b350516fb9cdb69b29bccc1133a0f6846100b6d"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/The-AutodiscoV.20.-question-marks-",
+      "refs": [
+        {
+          "name": "audio-window-001",
+          "sha": "fcf2ba327a2bd150383ad6824116ffcfb6639bfe"
+        },
+        {
+          "name": "audio-window-sample-exact-002",
+          "sha": "1d5ccc73bf75354149c9988ae879b1fb2d5fbba6"
+        },
+        {
+          "name": "broadcast-assembly-001",
+          "sha": "1e06cee07061116eb31afbcdc60b34971ee5b130"
+        },
+        {
+          "name": "first-encounter-001",
+          "sha": "ea03e2b07d99d7fa30d816ead9b708ee8d69b54e"
+        },
+        {
+          "name": "first-encounter-native-env-002",
+          "sha": "4e007383ebea586d448f6147bb60821773c49f5e"
+        },
+        {
+          "name": "look-twice-002",
+          "sha": "2d258a1b1a326c9e13e4694a9c81f0e828abc669"
+        },
+        {
+          "name": "main",
+          "sha": "7ad77a46debc7e8c05fc7434c9091f3e36870651"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/reCURV",
+      "refs": [
+        {
+          "name": "main",
+          "sha": "b276cb6eb03a2b745afbf8f37e494e8a5783c951"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/reCURVrePAIR",
+      "refs": [
+        {
+          "name": "main",
+          "sha": "77d0337909d12f1d1db8a8db32ead07a67511486"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/reMIX-reCURVrePAIR",
+      "refs": [
+        {
+          "name": "main",
+          "sha": "b7a15f087f051b63f00194cc32dfd89da9fe0256"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/LampPost",
+      "refs": [
+        {
+          "name": "main",
+          "sha": "37b7fed68bd089aab387025138a680766e5b5f5b"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/BnanaGram",
+      "refs": [
+        {
+          "name": "master",
+          "sha": "b16aaea7744d63d28362235d704c264a4e287510"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/garden-whisperer",
+      "refs": [
+        {
+          "name": "experiment/jubilee-review-view-001",
+          "sha": "86e2d60b4e043ee3b5c13dbc2e30b9e2c9cd1999"
+        },
+        {
+          "name": "main",
+          "sha": "8490c60ca07fc8f8b891f3e0355a037ebc84511d"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    }
+  ]
+}

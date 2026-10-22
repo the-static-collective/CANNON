@@ -1,0 +1,282 @@
+{
+  "schema": "cannon.branch-evidence-slice/v0",
+  "observedDate": "2026-10-22",
+  "classification": "REF_PRESENT_NOT_LIVENESS_OR_ADMISSION",
+  "source": "GitHub REST branches (up to 2 pages x 100)",
+  "slice": {
+    "offset": 30,
+    "limit": 10
+  },
+  "repositories": [
+    {
+      "repository": "the-static-collective/corpus-os",
+      "refs": [
+        {
+          "name": "agent/body-surface-standard-v0",
+          "sha": "9796fb4806d8a208481557bbaef659ba187b6edb"
+        },
+        {
+          "name": "agent/boot-house-world-encounter-destination",
+          "sha": "f7163e262200a4bcb5a3f1cdc273dc069d908d29"
+        },
+        {
+          "name": "agent/boot-house-world-encounter-red-proof",
+          "sha": "f1615b3438b5b1ef418466c7c9603e6eb7779a4d"
+        },
+        {
+          "name": "agent/continuity-attestation-v0",
+          "sha": "6fb364391145ff770ca0f32e16b9cc0f18cef383"
+        },
+        {
+          "name": "agent/corpus-action-warrant-v01",
+          "sha": "f561de013cc52323819c9b29e4093af63ca99407"
+        },
+        {
+          "name": "agent/corpus-adopted-declaration-root",
+          "sha": "d53c06c8ff37e983aa48b909811f3ca942006054"
+        },
+        {
+          "name": "agent/corpus-adopted-declaration-root-plan",
+          "sha": "fed51f2514a0aef34d081a4794cedefda61b151a"
+        },
+        {
+          "name": "agent/corpus-linux-host-port",
+          "sha": "a0d66171e4d77b95e72382e4b67ef4a8d8f38a7a"
+        },
+        {
+          "name": "agent/corpus-os-v0-1",
+          "sha": "4076a68aa77e23875ddb7dfd708669f6b0bf1bc3"
+        },
+        {
+          "name": "agent/corpus-session-cli-proof",
+          "sha": "d6a4c1149d13cead9a46840dc0dc1ebb3c5c43a8"
+        },
+        {
+          "name": "agent/corpus-session-proof",
+          "sha": "3dfb7dcba0c7f781bd309381536d68e748004aa1"
+        },
+        {
+          "name": "agent/latent-reachability",
+          "sha": "2168ef886daf8d8fb1c5b2599132adb5e35b8bd8"
+        },
+        {
+          "name": "agent/lawful-reachability",
+          "sha": "7314fedf240cf9036fff4f88c2cd718fbd1b066c"
+        },
+        {
+          "name": "agent/lawful-reachability-design",
+          "sha": "59646bc45fb07e468cc76ed8a8e834e4b89a5deb"
+        },
+        {
+          "name": "agent/local-intake-v0-1",
+          "sha": "d7e81a32c2e030ad3eaddef352793014fe226f89"
+        },
+        {
+          "name": "agent/readme-current-architecture",
+          "sha": "cc382108f874732e98f698c3fe308e078ed95041"
+        },
+        {
+          "name": "agent/readme-status-refresh-2026-08-17",
+          "sha": "2eefb4686211066a1440ec6d63faa484dbab0c83"
+        },
+        {
+          "name": "agent/world-encounter-admission",
+          "sha": "a7de410dae4fb44b4a1e69d8eef3b4b749272494"
+        },
+        {
+          "name": "bolt",
+          "sha": "97c3009c1646919a01b1501eb371be054f221ac2"
+        },
+        {
+          "name": "feat/causal-accounting-17",
+          "sha": "390275c60d6c56f15160ff8622560a6c23885756"
+        },
+        {
+          "name": "fix/world-encounter-phase-dispositions",
+          "sha": "5439cda1e85e32ad6098425fab85ee610f5cdd7e"
+        },
+        {
+          "name": "lumi/corpus-trust-runtime",
+          "sha": "b22fadd64e9b2f364beecb6b44bc039bbd49664d"
+        },
+        {
+          "name": "main",
+          "sha": "289c6fa04d04a2bde6dffbe7265903db5bec56c0"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/band-runtime",
+      "refs": [
+        {
+          "name": "agent/body-surface-standard-v0",
+          "sha": "1fff7405f4520d74e9079236858afe9e44fdc563"
+        },
+        {
+          "name": "agent/freeze-form-carry-remain",
+          "sha": "20cd9605330c8710cfa01fd984a56c3f5dafebef"
+        },
+        {
+          "name": "agent/hostile-write-admission-kernel",
+          "sha": "c086f4f8fd2144219ef48ace0affa0abc232c0a7"
+        },
+        {
+          "name": "agent/skyslicey72",
+          "sha": "7510dfb6d575a7f79a34354b68676a3b23d76727"
+        },
+        {
+          "name": "agent/v0.1-admission-kernel-slice",
+          "sha": "8d7c5ce956d3dbbb196565303d13be0bd3feb9b6"
+        },
+        {
+          "name": "design/help-slip-holding-basket-001",
+          "sha": "7cdd63ff6a11f2d76ca54e5b2d3303340bf1d6ff"
+        },
+        {
+          "name": "docs/receive-hold-pour-node-boundary",
+          "sha": "e855ae0077444b623fd382a4152a8ec363b032e0"
+        },
+        {
+          "name": "docs/runtime-status-handoff",
+          "sha": "f32c4bbd0876ba6df49d43fe1833b18cc65a86c1"
+        },
+        {
+          "name": "feat/capture-001-witness-spine",
+          "sha": "e1198f3cac876d8c81740c0eb4ec53db46533aad"
+        },
+        {
+          "name": "feat/first-mcp-admission-tool",
+          "sha": "4efcbf2f7ff75e35f473438b4dfde330236f20ff"
+        },
+        {
+          "name": "feat/first-vertical-slice-12488053708411637009",
+          "sha": "3a36684b79483c568bd685068f01c684aaa79345"
+        },
+        {
+          "name": "feat/help-slip-holding-basket-001",
+          "sha": "5a093a96adf023532e5d7134827a414613fc0a25"
+        },
+        {
+          "name": "feat/return-of-help-slip-001",
+          "sha": "1840edf7da71b7fbf3d6204c069605e8537de510"
+        },
+        {
+          "name": "lumi/stigmergic-field-v0.1-implementation",
+          "sha": "1555d0e396b6f6476bfd850474467631f11d74f7"
+        },
+        {
+          "name": "lumi/stigmergic-field-v0.1",
+          "sha": "b16300711bf74e3c8e7420fab7324616d6dac7b4"
+        },
+        {
+          "name": "main",
+          "sha": "f2c889df90905eda533fe6d978cd1a52c788a33e"
+        },
+        {
+          "name": "palette-continuity-loop-2790189673367087098",
+          "sha": "d435c3ca4f2fc5727f5b1421c6173cde8b98bd72"
+        },
+        {
+          "name": "slice/ephemeral-task-agents-v0.1",
+          "sha": "3a1ea685217cc45a68087c94d8c3be55225a3075"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/RRS",
+      "refs": [
+        {
+          "name": "main",
+          "sha": "965c7c2e9065bea6c2f52f8af504c43f493d4ca9"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/RRS-1-",
+      "refs": [
+        {
+          "name": "main",
+          "sha": "6ca36ead1a06ba889bc7683a3404b68a390537b7"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/reCOreturn",
+      "refs": [
+        {
+          "name": "agent/return-event-truth-pass",
+          "sha": "03daa9680c66cd201b94dc299b46ad573305cde5"
+        },
+        {
+          "name": "main",
+          "sha": "03daa9680c66cd201b94dc299b46ad573305cde5"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/ChronoQuest",
+      "refs": [
+        {
+          "name": "main",
+          "sha": "7366c88dc7c135ea2e5064750c94022d489b32c9"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/formation-trace",
+      "refs": [
+        {
+          "name": "main",
+          "sha": "d1bbe5edf56342f8edd2b5e950ae374103a7810e"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/Corpus-OS-Local-Intake-Implementation",
+      "refs": [
+        {
+          "name": "main",
+          "sha": "2f759d64c12f9599ffd54abc071a707e24ff26fa"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/100pies",
+      "refs": [
+        {
+          "name": "main",
+          "sha": "88c29cfefd13093708ad70f0361a6d516d87cd8c"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/fork-EXCLAIM",
+      "refs": [
+        {
+          "name": "main",
+          "sha": "137e63383ec9db35ae86392f53cc10b3758fde9a"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    }
+  ]
+}

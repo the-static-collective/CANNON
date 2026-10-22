@@ -1,0 +1,890 @@
+{
+  "schema": "cannon.branch-evidence-slice/v0",
+  "observedDate": "2026-10-22",
+  "classification": "REF_PRESENT_NOT_LIVENESS_OR_ADMISSION",
+  "source": "GitHub REST branches (up to 2 pages x 100)",
+  "slice": {
+    "offset": 90,
+    "limit": 10
+  },
+  "repositories": [
+    {
+      "repository": "the-static-collective/love",
+      "refs": [
+        {
+          "name": "main",
+          "sha": "60c26510d02e667edae83ced64bd9976c3eac6f7"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/DVOTE",
+      "refs": [
+        {
+          "name": "campaign/paula-42-001",
+          "sha": "9c3c3d2d0ffa34d49011fa2ddca1e7c229686a1a"
+        },
+        {
+          "name": "experiment/campaign-format-001",
+          "sha": "589293fa80af9be01c3bed1fb4db08b3b2e4123d"
+        },
+        {
+          "name": "experiment/composer-001",
+          "sha": "28d3483aeebc33d8be4a56b927cdae6eec907901"
+        },
+        {
+          "name": "experiment/lifegame-001",
+          "sha": "f2742e190b16d3a975e44416d183d31745b9f820"
+        },
+        {
+          "name": "experiment/make-ground-loop-001",
+          "sha": "50bd81bfef7785f2c4c8935bcd45b06371e4c197"
+        },
+        {
+          "name": "experiment/memento-export-001",
+          "sha": "34020e8e908a48114e1211da60af8ac39bc0dd47"
+        },
+        {
+          "name": "experiment/threshold-shelf-receipts-001",
+          "sha": "9a2a45db41039dfc952bcf8d2d849aa487ed0da0"
+        },
+        {
+          "name": "feat/door-packet-001",
+          "sha": "dae5441582a4d475b5426991c3882853bc17dadd"
+        },
+        {
+          "name": "main",
+          "sha": "2f33ab0901ee0140991dd5d263aebfdfd69b3848"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/GrO",
+      "refs": [
+        {
+          "name": "experiment/abundent-relatte-intake-001",
+          "sha": "fd80f737a04034241822bb5688991600c39e91fb"
+        },
+        {
+          "name": "experiment/field-quest-encounters-001",
+          "sha": "d32009710645380adb852a119715b771bafd3684"
+        },
+        {
+          "name": "experiment/field-ship-003-mobile-revival",
+          "sha": "36e71e361085c10970ffaa873ce3a784026b77c5"
+        },
+        {
+          "name": "experiment/glean-001-remnant-quest",
+          "sha": "32e21ddfaa2d29d21bf4e9f9cbdcf997d3b8883f"
+        },
+        {
+          "name": "experiment/gro-android-crossing-002",
+          "sha": "47c9ab77c2b94223a01421e362d0222ac2efefbc"
+        },
+        {
+          "name": "experiment/gro-forage-001-wall-e-phone",
+          "sha": "85e47caa71a7e76cbb76ce55e59da9c0521cdaf0"
+        },
+        {
+          "name": "experiment/land-crossing-001-plot-thickens",
+          "sha": "5f229c2ef7ba49611e4f24f7b269bae74448da77"
+        },
+        {
+          "name": "experiment/pocket-doors-001",
+          "sha": "0febd0bdb08ca66845991321b067906840f1e8d3"
+        },
+        {
+          "name": "experiment/postal-pocket-001-local-encounter",
+          "sha": "fb3b2386f3b7e28e6fa8225719b5ba8be0c15046"
+        },
+        {
+          "name": "experiment/property-002-private-site-readiness",
+          "sha": "0f29e3d3a7a0c2d965afed1870f91efc20deb02d"
+        },
+        {
+          "name": "feat/door-packet-001",
+          "sha": "2e62fb3be2ee46f474d612f1918b6a3c955948aa"
+        },
+        {
+          "name": "fork-garden-001",
+          "sha": "3f977c8f7afc18d88655398943530e75485b6656"
+        },
+        {
+          "name": "genesis/possibility-field-001",
+          "sha": "6abfc4ff80948d3ed2b619ae36e2262ad0e42e4d"
+        },
+        {
+          "name": "main",
+          "sha": "86798d9baed2e697af5700fc3c27b8c3444b19f0"
+        },
+        {
+          "name": "mineral/world-seed-001",
+          "sha": "543eb4c4d98016df426c319732f87f9eec76cddc"
+        },
+        {
+          "name": "tenet/addressed-seed-003",
+          "sha": "5b8ce060f06cc8b7992ab0c0ec7bda10f5febab6"
+        },
+        {
+          "name": "tenet/checkpoint-succession-009",
+          "sha": "fff0b9e641caa0be416619397fb4994ffb2ff1d5"
+        },
+        {
+          "name": "tenet/cross-locality-002",
+          "sha": "57b932eed4497fbd29a35b4a73a6b6f6d82b1415"
+        },
+        {
+          "name": "tenet/descendant-without-broadcast-007",
+          "sha": "01093c47b3a6f5db70d24a473d485f909b2c8f28"
+        },
+        {
+          "name": "tenet/discovery-not-provider-005",
+          "sha": "455d330be018770c6219f700d5962db6fff0b157"
+        },
+        {
+          "name": "tenet/fork-not-conflict-010",
+          "sha": "5adacb8f16690840caf6d62bb0c20fad4d6ad47b"
+        },
+        {
+          "name": "tenet/generations-pruning-008-clean",
+          "sha": "802189c773bdb253c0e0dbc86c31b8cb15ec7ea6"
+        },
+        {
+          "name": "tenet/generations-pruning-008",
+          "sha": "01093c47b3a6f5db70d24a473d485f909b2c8f28"
+        },
+        {
+          "name": "tenet/leave-possibility-001",
+          "sha": "7cf2a8953bccbe59a4a082711af653b2b2d749be"
+        },
+        {
+          "name": "tenet/many-maps-one-seed-006",
+          "sha": "81414a76acc72decec2c4a2b54d42202e1d999f0"
+        },
+        {
+          "name": "tenet/recombinant-graph-frontier-012",
+          "sha": "8b3a6ee8fe47ad95d1028ff366f832db90775551"
+        },
+        {
+          "name": "tenet/recombination-without-collapse-011",
+          "sha": "baaa66d400d9b30e01ba5e2f6da50984ec2205a3"
+        },
+        {
+          "name": "tenet/replaceable-roads-004",
+          "sha": "d363405b211b1c711f24706991385887d68e11f3"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/planZ",
+      "refs": [
+        {
+          "name": "build/jubilee-field-kit-002",
+          "sha": "21cdf8399f185b022d1356a7383509fe7f4adf93"
+        },
+        {
+          "name": "build/jubilee-road-room-001",
+          "sha": "9f6f1c339109f73c351eff1dcf1ed77187044693"
+        },
+        {
+          "name": "experiment/banana-reactor-64-001",
+          "sha": "7481da74c98b66ef34daf04a6d36458fedae7167"
+        },
+        {
+          "name": "experiment/branch-capability-census-004",
+          "sha": "ec384bfddbdff471ea8d9b295b905980f702e1ad"
+        },
+        {
+          "name": "experiment/fatherhand-grant-chain-residue-001",
+          "sha": "e8111fdb64c5587b33aece0fed639ed3d03375ac"
+        },
+        {
+          "name": "experiment/heart-001-fatherhand-combinatrix",
+          "sha": "bc0ae32e0abb22cda53cc197acd6d14429fee6fa"
+        },
+        {
+          "name": "experiment/relay001-next-mission",
+          "sha": "f4b8207105cc7c7883d5533892c83089d0a7322d"
+        },
+        {
+          "name": "feat/census-senses-mutation-002",
+          "sha": "557577c6ae4cd30a45b07cf23709283c8b4bf548"
+        },
+        {
+          "name": "feat/global-plan-census-001",
+          "sha": "c93ccbfa6a501cdfd5e4ff8a3957300ecc0ae9c5"
+        },
+        {
+          "name": "feat/phaselift-001-living-phase-board",
+          "sha": "52183eafe0daf311582c6016b37805ae24ef4ec6"
+        },
+        {
+          "name": "feat/remains-instruments-003",
+          "sha": "535d34b5d7680ab98fb50e717b4cd00b972a232b"
+        },
+        {
+          "name": "feat/transition-receipts-003-1",
+          "sha": "8621c46f8e4e70d7e2c09fe57a2936dcb949f6f6"
+        },
+        {
+          "name": "harvest/conversation-ideas-2026-10-16-001",
+          "sha": "9fe64b9d48792499cfd972b9de88bf0d63268f11"
+        },
+        {
+          "name": "main",
+          "sha": "dad6593c3718c65fa4bb7a3650af8fc80d060ce6"
+        },
+        {
+          "name": "plan/abundent-field-grand-shard-001",
+          "sha": "1ec9a4043b150296e0d90796fae5e5cc02ba3dcc"
+        },
+        {
+          "name": "plan/community-breath-field-025",
+          "sha": "2a2dfb4ac21fb0c7e448fd43707738603edea627"
+        },
+        {
+          "name": "proposal/common-table-waseca-grand-plan-001",
+          "sha": "e57b227242d64d4e485540f6406ec63d21407e3c"
+        },
+        {
+          "name": "proposal/heap-cut-001-grocery-network",
+          "sha": "5735123d2b3c29e8a6ff2d39ee6f08d168a09aa0"
+        },
+        {
+          "name": "proposal/master-servant-field-score-001",
+          "sha": "b819dec38b36f49ae1d1991d4e73a752bb4a2d5d"
+        },
+        {
+          "name": "proposal/revival-traveling-jubilee-topper-001",
+          "sha": "686c8df2bec928a83c05b3198fb4898c663e22f4"
+        },
+        {
+          "name": "proposal/the-garden-master-shard-001",
+          "sha": "d0bcdf7d9fc40eef59deed560057c8579a69cb2a"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/webZ",
+      "refs": [
+        {
+          "name": "archive/abundent-garden-workbench-2026-10-13",
+          "sha": "1617369bc105ec065c2ec917298ea5381647cc43"
+        },
+        {
+          "name": "design/webz-maxhinal-porch-001",
+          "sha": "b487aab92a8a2a572001cd91424a81b3a14abce9"
+        },
+        {
+          "name": "experiment/abundent-banana-reactor-001",
+          "sha": "8993d13c826d62389d3ff75288984c764236a1d5"
+        },
+        {
+          "name": "experiment/abundent-field-byte-001",
+          "sha": "f8fe57b1efcc41e5caa3426c99caf50972a2a7a8"
+        },
+        {
+          "name": "experiment/abundent-relatte-crossing-001",
+          "sha": "d8a71d8f3b2f26c44d3716a566982dae055688b0"
+        },
+        {
+          "name": "experiment/branch-receipt-viewer-002",
+          "sha": "5cd9b50d386568ffcbf6f90cfe803aa9cba816ac"
+        },
+        {
+          "name": "experiment/branch-workshop-001",
+          "sha": "525058b09808555957199701ba966f22987a4771"
+        },
+        {
+          "name": "experiment/dual-tranchnode-lineage-009",
+          "sha": "d75a6feb9c51cf7a1f7d280cfd6267bf4f1ecab3"
+        },
+        {
+          "name": "experiment/founder-node-003-dual-custody",
+          "sha": "45ca3f586cda98fc19ee84d6bf76a3eef0f0a1e3"
+        },
+        {
+          "name": "experiment/giving-tree-002",
+          "sha": "356dce50071e37418190ce5adae3930600628ab7"
+        },
+        {
+          "name": "experiment/giving-tree-commons-003",
+          "sha": "3fa8e19cad07ab110c6d6f2793ebefeaaf6bb6de"
+        },
+        {
+          "name": "experiment/giving-tree-crossing-004",
+          "sha": "0623a0593e9ff025c787220314d4f1858820db38"
+        },
+        {
+          "name": "experiment/giving-tree-forest-005",
+          "sha": "ada6898fb00ea014f1a29186e7d63ae2ae4670ac"
+        },
+        {
+          "name": "experiment/glean-001-invitation-porch",
+          "sha": "12c30311d9bce61f8f58ddca923d58a7ee21c959"
+        },
+        {
+          "name": "experiment/grounds-mycelium-007",
+          "sha": "e64eae6970dafca6be829dca208341b976c9503a"
+        },
+        {
+          "name": "experiment/grounds-mycelium-circulation-008",
+          "sha": "9aef03860ee66b09dc39073f2045346e33a4059f"
+        },
+        {
+          "name": "experiment/harmony-grove-001",
+          "sha": "2a7e9f2627a04c82b5aa52a66992744b18c99024"
+        },
+        {
+          "name": "experiment/living-grounds-006",
+          "sha": "365dd07812b05566993d3ccb53932bcfdd87dcb7"
+        },
+        {
+          "name": "experiment/living-navigation-composer-001",
+          "sha": "b55ad68d336c43ff9d48aa3ff1c09eb518016f4a"
+        },
+        {
+          "name": "experiment/music-field-002-federated-sources",
+          "sha": "fcdb6290090dd19f23f6502826d5760b80d90850"
+        },
+        {
+          "name": "experiment/music-field-003-youtube-oauth",
+          "sha": "7ea6255ea16b32e6ffbadc9ee2a512035110e0ec"
+        },
+        {
+          "name": "experiment/music-field-004-audius-listening-orchard",
+          "sha": "18189f7aaca21ea90ab70b3749506fd8c3185dc8"
+        },
+        {
+          "name": "experiment/name-orchard-001-signed-missing-book",
+          "sha": "c1d56bc592ada0a56d5995cb37524a9ee6f9f11c"
+        },
+        {
+          "name": "experiment/name-orchard-002-sms-postcards",
+          "sha": "c754d0c33acbb14500812403fb9fd081244322fd"
+        },
+        {
+          "name": "experiment/needs-001-first-crossing",
+          "sha": "b68810cd5ef7870458dd1ac40b246f4d2159ee6c"
+        },
+        {
+          "name": "experiment/pocket-door-crossing-006",
+          "sha": "ea88ce53828f8b8bd46995ff51910ecb5872445c"
+        },
+        {
+          "name": "experiment/post-office-courier-004",
+          "sha": "6a712ff5ff393d85cc62c1b7acec177474ffaab0"
+        },
+        {
+          "name": "experiment/post-office-peer-003",
+          "sha": "7881d95be90fd15e20c3379cbd1a965331951456"
+        },
+        {
+          "name": "experiment/post-office-seed-002",
+          "sha": "1208d02f2680c0b11af8a5d8334a1416fcc02003"
+        },
+        {
+          "name": "experiment/postal-pocket-001-webz-host",
+          "sha": "b395c8f9f7ce35fdbc33d83353aeb5f0f7313fef"
+        },
+        {
+          "name": "experiment/receipt-glass-goatnote-002",
+          "sha": "fb6253426cd22b312b5cee49974ab111a7656bd2"
+        },
+        {
+          "name": "experiment/relay001-relatte-evidence-door",
+          "sha": "8007e6b947df0f56d0f15e78d453f4b31defee9c"
+        },
+        {
+          "name": "experiment/rootline-encouragement-005",
+          "sha": "6a30c5f4771a583801f5e75e565ee6db91492478"
+        },
+        {
+          "name": "experiment/skymirror-webz-optical-lab-001",
+          "sha": "a890a1ca30b2327262909a8eed58e0fc5db5fc87"
+        },
+        {
+          "name": "experiment/static-field-week-001",
+          "sha": "628973ddbfa8db256728d6edf9e9e0961c3069ff"
+        },
+        {
+          "name": "experiment/suno-atlas-001-library-dials",
+          "sha": "c56b2298d992fb06ab6ed80c61c4bda579e4d1e0"
+        },
+        {
+          "name": "experiment/wandering-lens-001-question-engine",
+          "sha": "36a18117f31b7ade59148a3b82ac1fb9167b1d01"
+        },
+        {
+          "name": "experiment/wandering-lens-002-visitor-annex",
+          "sha": "785a075c8be867f6e8d9a6a115ff457151f53970"
+        },
+        {
+          "name": "experiment/webz-gro-forage-001-field-porch",
+          "sha": "237da36c0503c998ccc003b47fa26d1e9102c03d"
+        },
+        {
+          "name": "experiment/webz-receipt-glass-001",
+          "sha": "5e4c9e0fa6dd808a9e6bc854f077ede7006950ce"
+        },
+        {
+          "name": "feat/abundent-door-composer-001",
+          "sha": "432070e4a8bcaf3f1d202603659da9454848dd34"
+        },
+        {
+          "name": "feat/abundent-garden-workbench-001",
+          "sha": "4abeb8e048bec3db9e58a4b60fe03d65f0c91a63"
+        },
+        {
+          "name": "feat/abundent-launch-001",
+          "sha": "3e68c276934cbdafca0541f4ca5e2f16a813b3a7"
+        },
+        {
+          "name": "feat/abundent-post-office-001",
+          "sha": "631002daa0554be2a14d51513d26bd6e3691fa60"
+        },
+        {
+          "name": "feat/abundent-threshold-001",
+          "sha": "87c55333db9f6a0c3598cb6f9a6086a4cca52465"
+        },
+        {
+          "name": "feat/first-encounter-002",
+          "sha": "8153c60393e4e206160b284082f7eb3161d3f379"
+        },
+        {
+          "name": "feat/offline-sovereign-porch",
+          "sha": "659166135f1c3898d07829f6eb5a1d074ec082f5"
+        },
+        {
+          "name": "feat/postcard-zero-quantum-code-001",
+          "sha": "7a460574f5af16422638d0164bac52c4bc9e955f"
+        },
+        {
+          "name": "feat/static-pressing-001",
+          "sha": "1ad3bfd5d2429ec36f843818ac6f5bbde401e177"
+        },
+        {
+          "name": "feat/static-web-001-public-field",
+          "sha": "b0ef20554df647edded47e2a9c20d8f7807598d4"
+        },
+        {
+          "name": "feat/static-web-002-moving-field",
+          "sha": "118eb60f4d8b1c244a0b40ea71f229946940669e"
+        },
+        {
+          "name": "feature/a-week-together-listening-room-001",
+          "sha": "cc98e92db41668bea86bf93ca14ebd12fc733ffe"
+        },
+        {
+          "name": "feature/field-002-observation-to-card",
+          "sha": "5c8c105baa766c172a39e987e816414dfbe759b1"
+        },
+        {
+          "name": "feature/listening-rooms-dial-zoom-001",
+          "sha": "e06ecfdf681eef1df12f19d0ac36fb23d6b17833"
+        },
+        {
+          "name": "feature/2day-universe-albums-001",
+          "sha": "decad246632dc01ef9f280ba2e1eb1f36e0927ea"
+        },
+        {
+          "name": "main",
+          "sha": "3cbc91d6b9a4dbaa941995de6006b2f290d00d51"
+        },
+        {
+          "name": "release/a-week-together-garden-001",
+          "sha": "1617369bc105ec065c2ec917298ea5381647cc43"
+        },
+        {
+          "name": "release/field-cards-reconciled-001",
+          "sha": "31f80398c937e5da289d517f50e01cf6470c7c6a"
+        },
+        {
+          "name": "release/needs-001-abundent-live",
+          "sha": "65539f065db609c97e5c3ca1ca0b2d0f90c7498a"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/Jubilee-treasury",
+      "refs": [
+        {
+          "name": "experiment/ambient-trickle-inbox-009",
+          "sha": "ecc94e38c7cb2752fd16c3f0969c51637dae4192"
+        },
+        {
+          "name": "experiment/bandcamp-source-011",
+          "sha": "4a811ea520be427a3f5a6a5cf2c9f8f32bb1007c"
+        },
+        {
+          "name": "experiment/fall-share-asset-treasury-007",
+          "sha": "a2872299eb0a294713c3d34a77f47814c3d4403b"
+        },
+        {
+          "name": "experiment/github-live-trickle-010",
+          "sha": "2043baa72042c864274e8d2abd416c05cfb4b1fd"
+        },
+        {
+          "name": "experiment/haunted-jubilee-arcade-019",
+          "sha": "f2a3989209f309c077dd5c7b595e1d3ba08f61a9"
+        },
+        {
+          "name": "experiment/haunted-jubilee-powerloss-020",
+          "sha": "33fa9c4bddc35fca77834ece45cfeee50f482afc"
+        },
+        {
+          "name": "experiment/living-capacity-index-008",
+          "sha": "04eefb64541700d5ac3f31387d6c5f6d2d830c0d"
+        },
+        {
+          "name": "experiment/native-capacity-routing-002",
+          "sha": "efb6ce130bc793bbe8990a08907fa6ef9b7cd68b"
+        },
+        {
+          "name": "experiment/penny-box-001-church-participation",
+          "sha": "bb05d90c12b13f5c7c1c948d85c54cec2dbcd2ce"
+        },
+        {
+          "name": "experiment/penny-box-002-physical-digital-identity",
+          "sha": "495424cea612d2f10555866218d0dda3d277f7b3"
+        },
+        {
+          "name": "experiment/penny-box-that-asks-016",
+          "sha": "55fcc580db6c6acee5b49660d45f8b809dc86b9d"
+        },
+        {
+          "name": "experiment/penny-field-capture-018",
+          "sha": "3b6bbad7e17e782c8724542c18755d9d12fc5f3e"
+        },
+        {
+          "name": "experiment/penny-hardware-witness-017",
+          "sha": "3dc224f61839f5312f99ab65a546dca6a9a9254c"
+        },
+        {
+          "name": "experiment/penny-recursive-option-engine-013",
+          "sha": "6a85276b43d215184def60bdc43ac486fa78c452"
+        },
+        {
+          "name": "experiment/penny-two-node-partition-015",
+          "sha": "b1c403c5300a2244d09c0979ae50b8071b941d53"
+        },
+        {
+          "name": "experiment/penny-work-matter-crossing-014",
+          "sha": "a36777cb87bcfb6b7706b910ba18c4c4b24c73a3"
+        },
+        {
+          "name": "experiment/portable-needs-survive-host-loss-001",
+          "sha": "665550e6240b7e0f45b52ed489c55c445d3aff17"
+        },
+        {
+          "name": "experiment/regenerative-cad-handoff-010",
+          "sha": "00a3e0a1d522b4bd8021a46ecde9b2db27698441"
+        },
+        {
+          "name": "experiment/regenerative-capacity-static-os-009",
+          "sha": "e3783ed8a9a0c5ac731b9b560aea662bacd75bd9"
+        },
+        {
+          "name": "experiment/universal-door-registry-012",
+          "sha": "8c76773faa9ea7d068bc5baede7a503b4f3caa5e"
+        },
+        {
+          "name": "main",
+          "sha": "922639ef84fcf773dbf179d8d9966b0db1247424"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/CANNON",
+      "refs": [
+        {
+          "name": "experiment/adapter-forge-005",
+          "sha": "ff8efbea88a777b075c95fb34a6178a29a1ea0fc"
+        },
+        {
+          "name": "experiment/branch-ghot-relatte-crossing-009",
+          "sha": "b9e114c8dc5a978d6b156bcb7ce5d34152c9dc8c"
+        },
+        {
+          "name": "experiment/branch-loadout-008",
+          "sha": "edf95984c71f9a940d1dcb312e9c84b3e0d4cdcc"
+        },
+        {
+          "name": "experiment/canon-crossing-002",
+          "sha": "0b7cafb066ca51a54d87df9f7198ab18f45e73d9"
+        },
+        {
+          "name": "experiment/canon-field-001",
+          "sha": "453cf70c820a114423811cecdc70b4ec06f2675b"
+        },
+        {
+          "name": "experiment/chronomid-seam-011",
+          "sha": "5714f7c16719a5c89cc7942c3f4b006a840d5d54"
+        },
+        {
+          "name": "experiment/conversation-collider-001",
+          "sha": "e04137681b4f14d723b50e291919a0f894795c43"
+        },
+        {
+          "name": "experiment/conversation-collider-source-002",
+          "sha": "3e646484eaaaa9e326145ae7281d27b243adde1b"
+        },
+        {
+          "name": "experiment/conversation-collider-work-003",
+          "sha": "aabd276e4edb2ae4229ccf94eed8a7f561b17a0a"
+        },
+        {
+          "name": "experiment/founder-pollen-loadout-012",
+          "sha": "2da1f596a15fa7295baf4126db7118904cdee63f"
+        },
+        {
+          "name": "experiment/kinship-bridge-africa-007",
+          "sha": "8906a7b559565e844ed0a7791eced89ac5a549d4"
+        },
+        {
+          "name": "experiment/kinship-surplus-006",
+          "sha": "9101b76f1387389300e070f3a6851df75269f39f"
+        },
+        {
+          "name": "experiment/present-use-003",
+          "sha": "99a9c270397717b690615178d0e821df545fb684"
+        },
+        {
+          "name": "experiment/project0-semantic-floor-013",
+          "sha": "51952cece26dac08df26d75d122406df72217797"
+        },
+        {
+          "name": "experiment/project0-tranchnode-encounter-014",
+          "sha": "66a49006675a45f1f3b196ba9c711016a586843c"
+        },
+        {
+          "name": "experiment/signed-ghot-receipt-crossing-010",
+          "sha": "a53b422c444834465469e38c1d80c88025f90f8e"
+        },
+        {
+          "name": "experiment/stack-squared-017",
+          "sha": "3aa5b0d0e9403e90affe05ec4056825e8d166fe4"
+        },
+        {
+          "name": "experiment/stack-squared-018-native-floor",
+          "sha": "53a1b439161210c03168bb0bb3f6f178ee1da315"
+        },
+        {
+          "name": "experiment/stack-squared-022-thinking-workbench",
+          "sha": "4f4710a399e191f40dc6c812f71008b8456400d2"
+        },
+        {
+          "name": "experiment/stack-squared-023-ai-relatte-hold",
+          "sha": "2fab6e142f21f6213bbcf4e290030acfce756061"
+        },
+        {
+          "name": "experiment/stack-squared-024-living-commons",
+          "sha": "eff4d49431c33ddc34d20df0fb7d27ff985820be"
+        },
+        {
+          "name": "experiment/stack-squared-025-community-breath-field",
+          "sha": "62db2d1146f73c04757aca24e78aedf94c5b5c97"
+        },
+        {
+          "name": "experiment/supabardo-death-custody-016",
+          "sha": "04b075dd6597fc4f4fa1e8535daaaa09b6f61a1a"
+        },
+        {
+          "name": "experiment/tranchnode-dual-lineage-015",
+          "sha": "20fcdf3dcf5d7ebbbf0520646a0fc2ed83e35f67"
+        },
+        {
+          "name": "experiment/typed-compatibility-004",
+          "sha": "420a5ded1c56af266ac2b9a06f827fe3a22361fc"
+        },
+        {
+          "name": "main",
+          "sha": "62a557389013155c07e4d98578cbfb560f5f59c5"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/vidmage",
+      "refs": [
+        {
+          "name": "experiment/band-iq-001-evidence-to-next-experiment",
+          "sha": "9aac4d577abda71db8c52ea35e7ae0a033a4b85c"
+        },
+        {
+          "name": "experiment/band-iq-002-lens-to-film-loop",
+          "sha": "b5208484da4dae75badf41c7ca5f122c5c865895"
+        },
+        {
+          "name": "experiment/band-iq-003-native-playdeck-witness",
+          "sha": "f9bba3091a7ad63ba502585cdeeae722906e5cfd"
+        },
+        {
+          "name": "experiment/band-iq-004-human-review-bench",
+          "sha": "17a6dc6c9dd7997f996675d6e65944b85e7a0b51"
+        },
+        {
+          "name": "experiment/band-iq-005-human-next-question",
+          "sha": "95be04d59ca3d805fb19ba97f12098b01ac51e08"
+        },
+        {
+          "name": "experiment/band-iq-006-question-laboratory",
+          "sha": "f9bd0597b22268b256bd8ff46afed6194ada1402"
+        },
+        {
+          "name": "experiment/band-iq-007-human-ac-review",
+          "sha": "efe295097f272a9af1d624024f9631cb50283ce7"
+        },
+        {
+          "name": "experiment/band-iq-008-living-workbench",
+          "sha": "f2264a36eed06d6f118c3f4a29847181bf0aef37"
+        },
+        {
+          "name": "experiment/band-iq-009-front-porch",
+          "sha": "6121bee649522f202b21d34ae87dd5fd8d479ed2"
+        },
+        {
+          "name": "experiment/band-iq-010-storytable",
+          "sha": "e574ab3c254a27f7456aeb4a4db90eda513e9d9a"
+        },
+        {
+          "name": "experiment/band-iq-011-living-filmstrip",
+          "sha": "9a12a564e3cd356628d694ddc66108b4bdcb074e"
+        },
+        {
+          "name": "experiment/band-iq-012-contact-sheet",
+          "sha": "24ef1ef73ec66745e20a37b56b148a7c731cdc5d"
+        },
+        {
+          "name": "experiment/band-iq-013-candidate-tray",
+          "sha": "820bf72f402ebeb5db0822494853a1425d439341"
+        },
+        {
+          "name": "experiment/band-iq-013-candidate-tray-cross-bits",
+          "sha": "3f6f6cdde4fc45a1c803b8e0c029b12de4c1bba9"
+        },
+        {
+          "name": "experiment/toaster-lbranch-blender-director-001",
+          "sha": "223190e7294197532cdfebb598ae8d85f8273c7e"
+        },
+        {
+          "name": "feature/paula-domain-017-ph-abundent",
+          "sha": "71917db0f9d2f9260139a990b782fcb217e40c2e"
+        },
+        {
+          "name": "feature/paula-dual-host-016",
+          "sha": "400f19c25a13b860607b25e2b40789f5f7482bde"
+        },
+        {
+          "name": "feature/paula-pocket-014-mobile-receipts",
+          "sha": "d7f37195eac43c5530ed9e51446a986f0a30688e"
+        },
+        {
+          "name": "genesis/blender-first-grand-smash-001",
+          "sha": "6d9286e5a81ee6cd81f4618a6a8d6fc2903a5c7a"
+        },
+        {
+          "name": "main",
+          "sha": "209064f31b1e47e9f9708a56b09a86ad727a2499"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/freeport",
+      "refs": [
+        {
+          "name": "experiment/freeport-003-bonded-garden",
+          "sha": "d550dbafe63df7d608f17c4ba44d41df3de2aa78"
+        },
+        {
+          "name": "experiment/freeport-004-first-foreign-ship",
+          "sha": "c4aef4b3f4f0dea71013f43489fafc4eca38bf8d"
+        },
+        {
+          "name": "experiment/freeport-005-supabase-harbor-signals",
+          "sha": "311775a4024eefd0b09c1e42d3f6bf05f7798316"
+        },
+        {
+          "name": "experiment/freeport-006-first-branch-graft",
+          "sha": "b2693fb141cc8eebca56e74fa644dc6b1938b518"
+        },
+        {
+          "name": "main",
+          "sha": "78560cb7d53d6fee108fee0d09017a720ad69fcf"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/SIA",
+      "refs": [
+        {
+          "name": "archive/daughtershome-auto-s01e01-20261021",
+          "sha": "2da0f5e8854768f531a855d72ca07fdecb83dac8"
+        },
+        {
+          "name": "archive/daughtershome-testimony-06-07-20261021",
+          "sha": "01677b491957b6aa095829add5682613f506f72d"
+        },
+        {
+          "name": "experiment/relay001-fifth-organ-archive",
+          "sha": "a61ef4871c2d26101a361265983f03733c25aad9"
+        },
+        {
+          "name": "feat/blue-night-morning-sia-20261013",
+          "sha": "86cc113ccb96d104ba338040086014e6dddf9948"
+        },
+        {
+          "name": "feat/fishbone-001-browser-witness",
+          "sha": "ea3d97b120fef53138353754f7ab7a5dfbffc687"
+        },
+        {
+          "name": "feat/fishbone-002-temporal-witness",
+          "sha": "e03c267e40ccbf4dd5edb7a3b9e3531b1ac2b881"
+        },
+        {
+          "name": "feat/fossil-orrery-001-grok-import",
+          "sha": "051e05f67769c2bde2b4741d5c760c0ccf5e3624"
+        },
+        {
+          "name": "feat/story-dna-relationship-passenger-002",
+          "sha": "e17df81515ad392eedb573f323a163eef77b53b8"
+        },
+        {
+          "name": "feat/suno-album-capture-2026-10-13",
+          "sha": "f4005afd6357b5ffca3ed6f19421d1b0a7ffbc1f"
+        },
+        {
+          "name": "feature/suno-owner-export-intake-001",
+          "sha": "d8ee6f0facf41980523e4bb95a1d28d8a1223836"
+        },
+        {
+          "name": "main",
+          "sha": "41a896f895474e950deb64db67049c794f2ae1d9"
+        },
+        {
+          "name": "test/fishbone-live-browser-smoke",
+          "sha": "9097dd050f22b9c45d335e4469f8bcf25f8f30cc"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    }
+  ]
+}

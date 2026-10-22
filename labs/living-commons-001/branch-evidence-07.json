@@ -1,0 +1,1406 @@
+{
+  "schema": "cannon.branch-evidence-slice/v0",
+  "observedDate": "2026-10-22",
+  "classification": "REF_PRESENT_NOT_LIVENESS_OR_ADMISSION",
+  "source": "GitHub REST branches (up to 2 pages x 100)",
+  "slice": {
+    "offset": 70,
+    "limit": 10
+  },
+  "repositories": [
+    {
+      "repository": "the-static-collective/STORYSHIP",
+      "refs": [
+        {
+          "name": "docs/storyship-launch-v0-plan",
+          "sha": "ca65695634aed17dcd802d246899158fbfa7e0db"
+        },
+        {
+          "name": "feat/storyship-elf-ark-001",
+          "sha": "775792081db519337b02576e79b180ade98864a0"
+        },
+        {
+          "name": "feat/storyship-launch-v0",
+          "sha": "65ddacde838f66909955007103efc365f35caf08"
+        },
+        {
+          "name": "flight/002-ark-continuity-proof",
+          "sha": "4c5de72915a24be0ee0188a0953f8850c9456799"
+        },
+        {
+          "name": "main",
+          "sha": "daa2f4c551ed612727660407105465645f95a9d7"
+        },
+        {
+          "name": "proposal/life-ship-narrative-navigation-001",
+          "sha": "7f13a438d8fe4dd93c911991c603cef1b6f1cdb4"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/revival",
+      "refs": [
+        {
+          "name": "build/jubilee-scripture-door-001",
+          "sha": "cc48fcf1eb469dd998c1317abce21be00a9429b4"
+        },
+        {
+          "name": "feat/door-packet-001",
+          "sha": "47a6ee01c721ad4eca7f8260e9cb8875bbe37e28"
+        },
+        {
+          "name": "genesis-001-executable-kernel",
+          "sha": "ec5b7c64b1472e77a178f34d619cf383e98b9e37"
+        },
+        {
+          "name": "main",
+          "sha": "af1e00c24e3d7c6eb6b1ac39ef59bf894e2385fd"
+        },
+        {
+          "name": "revival-002-curiosity-compiler",
+          "sha": "5f45217a5e643a0af2b2471d5a7347df7d627dcb"
+        },
+        {
+          "name": "revival-003-choice-surface",
+          "sha": "c0e2fe8a872fe40d033046f5d81fc6eaa0cea06b"
+        },
+        {
+          "name": "revival-004-curiosity-room",
+          "sha": "cbef94c8b5cd24a091e600768d8f2ae098d0c3a2"
+        },
+        {
+          "name": "revival-005-curiosity-atlas",
+          "sha": "f62b792969aa6de511581288ec68cd43a1fd5943"
+        },
+        {
+          "name": "revival-006-real-food",
+          "sha": "d2c0d40c850fa679801b8ee38757931e76514b81"
+        },
+        {
+          "name": "revival-007-lemma-doors",
+          "sha": "d5e61a421ac3aabf83130155f0c19c6122ba5749"
+        },
+        {
+          "name": "revival-008-aleph-tav-instrument",
+          "sha": "e5d89adcc50267af42201cc8c7486dd60b1c54dc"
+        },
+        {
+          "name": "revival-009-object-relations",
+          "sha": "eec712ab0d55e56f032be0565ec84d444c02942d"
+        },
+        {
+          "name": "revival-010-first-world",
+          "sha": "443a3c76ce896c2f43a4f77b7e7ef32c6553d6a3"
+        },
+        {
+          "name": "revival-011-world-has-places",
+          "sha": "13db5eec5050d1e4ec3ce109206b42b5ca5db293"
+        },
+        {
+          "name": "revival-012-earned-names",
+          "sha": "d0b198b9f1af857ed98aea814ba0b49e7446ef22"
+        },
+        {
+          "name": "revival-013-pilgrim-door",
+          "sha": "490d880d2575b38ccbd9f41e234e1db95ecb9f44"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/static-live",
+      "refs": [
+        {
+          "name": "agent/body-surface-standard-v0",
+          "sha": "d57d5dd28e704dde8d3071101becb2af599e7c1c"
+        },
+        {
+          "name": "agent/maddtarget-live-media-organism-001",
+          "sha": "86a33a4360632e15fe1ebc278411e6c9144af146"
+        },
+        {
+          "name": "agent/stream-001-broadcast-console",
+          "sha": "a34313475741f7efd65395b83072928cd923e0bb"
+        },
+        {
+          "name": "design/ghostcast-001-temporal-theater",
+          "sha": "4bc45279d5f226e2a4f4759a58bd24e9787681a5"
+        },
+        {
+          "name": "design/phono-live-001",
+          "sha": "afc7aeb9dcf6212c222293646a0074bb143b33ef"
+        },
+        {
+          "name": "experiment/church-commons-001-recoverable-mirrors",
+          "sha": "f9ddc2430d156aafdc35552ff80abd02524ba00d"
+        },
+        {
+          "name": "experiment/church-commons-002-verified-failover",
+          "sha": "7c0c95328bf9a1e4387c117968aa7a3cb3f6f3ee"
+        },
+        {
+          "name": "experiment/church-commons-003-signed-withdrawal-leases",
+          "sha": "76b526d352624145a1e284109b2877de600b6d06"
+        },
+        {
+          "name": "experiment/church-commons-004-ghot-external-adapter",
+          "sha": "6472ffed4f5dd30b6ac5d6c425202167828d1b89"
+        },
+        {
+          "name": "experiment/church-commons-005-two-laptop-field-kit",
+          "sha": "d9dc4d94ee5aac4c2262a52c51caf322069ba92a"
+        },
+        {
+          "name": "experiment/kinship-jubilee-neighbor-door-006",
+          "sha": "3784e39268e3294d87dbcf646f85b8c2b7f0c99a"
+        },
+        {
+          "name": "experiment/kinship-living-gifts-007",
+          "sha": "66fed5728d6ba60f3ebf86abeb5c7b8c25ae1ff7"
+        },
+        {
+          "name": "experiment/living-hymnal-001-church-adapters",
+          "sha": "a45e85e36e334293f43667a829eb4576750676e3"
+        },
+        {
+          "name": "experiment/pastor-of-funk-fragment-choir-001",
+          "sha": "e5749f061d472eb9a07dc3acb94d41844e51daa4"
+        },
+        {
+          "name": "experiment/radio-world-001-two-doors",
+          "sha": "eb0048fe56f7125ec2a2e10ffaf00569c959c702"
+        },
+        {
+          "name": "feat/attention-crossing-live-001",
+          "sha": "ad1804b01f2b87f594d2105a558798a30820d4eb"
+        },
+        {
+          "name": "feat/attention-crossing-live-return-002",
+          "sha": "eda612c470685076a6e3d548288ff2fd87e2c1c7"
+        },
+        {
+          "name": "feat/house-broadcast-identity-v01",
+          "sha": "b0147ceda0e7a60ec4b2f824e89930a932db7b1c"
+        },
+        {
+          "name": "feat/lifestream-001-manual-bridge",
+          "sha": "2222cea82907cd06820810c75ac6e2e679c14037"
+        },
+        {
+          "name": "feat/lifestream-002-moment-inbox",
+          "sha": "4d901b9593b3c299c1acd9c524fbc44ef3ecaa0f"
+        },
+        {
+          "name": "feat/live-001-band-can-lose-a-limb",
+          "sha": "b1b981819601d920678d55d87dc1c7f534457da7"
+        },
+        {
+          "name": "feat/midi-live-001-band-has-handles",
+          "sha": "810b1e80070174517935b4fcfc08f938473df213"
+        },
+        {
+          "name": "kinship-001-first-morning-pack",
+          "sha": "cda5c2e19b4e214a19940ea20e28dd9a80d8329b"
+        },
+        {
+          "name": "kinship-001-radio-community-pilot",
+          "sha": "0392a629d057524b1c9ee4e5fb2c931860ab3908"
+        },
+        {
+          "name": "kinship-002-fall-share-room",
+          "sha": "f1a2a9322ebfcc618368d3dd2efc08e6f6ef66c4"
+        },
+        {
+          "name": "kinship-002-single-file-handoff",
+          "sha": "3cd19b16bfc6c5f7de2586f4081934c70dff0190"
+        },
+        {
+          "name": "kinship-003-toaster-memory",
+          "sha": "a005ddc77bd8f6d8fa530a22ee30c01624a6d041"
+        },
+        {
+          "name": "kinship-004-porch-shift-handoff",
+          "sha": "5c9e1f4cec0a8a494d9de16e2cbaf690d179d667"
+        },
+        {
+          "name": "kinship-005-campaign-track",
+          "sha": "307a9fcbc910e12159439773bff159279a324ee7"
+        },
+        {
+          "name": "main",
+          "sha": "38e67b2930cea09c3e01a05447a6e92a67c2468f"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/static-workbench",
+      "refs": [
+        {
+          "name": "PK/adoption-bridge-workbench-001",
+          "sha": "b013ebbef321012f6af1e695a14ee1282d596e89"
+        },
+        {
+          "name": "PK/holographic-kernel-001-bat",
+          "sha": "c52c8be255fd81ba6c0176fbcb70a09c6dcce452"
+        },
+        {
+          "name": "PK/paula-orchard-seed-003-tonight",
+          "sha": "5e41997d4eebc5960134d40ae0249ce06317cb0d"
+        },
+        {
+          "name": "assets/static-arg-figma-handoff-001",
+          "sha": "8401b57e99cfb6f14f5e44e8db71b017d3802db2"
+        },
+        {
+          "name": "banana-elf-co-delight-001",
+          "sha": "120a1b51381a06b14d6f7cfdfae78cd3aeedc5eb"
+        },
+        {
+          "name": "banana-elf-fork-001",
+          "sha": "b69e9d46417ab2b1f6811072f23b3597254583f3"
+        },
+        {
+          "name": "carried-intent-assignment-001",
+          "sha": "a74080c3fa3fa8ce0b0cc1fb52de5afc109fb68d"
+        },
+        {
+          "name": "carried-intent-dispatch-001",
+          "sha": "fa1f554a6956871891ee6e79273ecbf6d2e67d2a"
+        },
+        {
+          "name": "design/maddlib-maxhine-001",
+          "sha": "e2c97e6674b81f16492be11187f6d8bc57896e42"
+        },
+        {
+          "name": "docs/webz-native-001-workbench",
+          "sha": "f2b514d1acbf0f55d8934b215bf4ee5ce7fc2fc8"
+        },
+        {
+          "name": "experiment/clockwork-001-multicalendar",
+          "sha": "ac1aff2faa817692b15864f435f43ba9f2a20b3d"
+        },
+        {
+          "name": "experiment/composable-occurrence-001",
+          "sha": "f2a99546c9bca1f90cb3305895ea50315e4f3339"
+        },
+        {
+          "name": "experiment/composition-ecology-001",
+          "sha": "bf652a5f05d6d7b68b8b9436be5c2ff1d94d0934"
+        },
+        {
+          "name": "experiment/l-branch-context-mix-001",
+          "sha": "2d13a40822da8d82899fc181ffda1e289d052e71"
+        },
+        {
+          "name": "experiment/pincersmash-week-crossing-002",
+          "sha": "d52f25b7ffa19887a414d85b833e0562c73804f0"
+        },
+        {
+          "name": "experiment/return-room-workbench-001",
+          "sha": "a7528199af3bb3e4286561e3aa4200b33cedbd94"
+        },
+        {
+          "name": "experiment/stack-squared-019-lego-floor",
+          "sha": "22cb917f26af0cb342a6f60efb2dccecc26b4802"
+        },
+        {
+          "name": "experiment/stack-squared-020-one-use-act",
+          "sha": "cbd2ce62ead10051f9cfaebd2738b83296284f0d"
+        },
+        {
+          "name": "experiment/stack-squared-021-post-office-lego",
+          "sha": "840e9480947f976d4cc7332b713f8cdb038d842e"
+        },
+        {
+          "name": "experiment/stack-squared-022-hold-shelf",
+          "sha": "0d9e73403eda861fdbc5ff2bda98c534c5bd84ca"
+        },
+        {
+          "name": "experiment/stack-squared-023-mycelium-shelf",
+          "sha": "9e0ced2a9734cdaa8db4c1964f379f9c4335035b"
+        },
+        {
+          "name": "experiment/stack-squared-024-living-receipt-floor",
+          "sha": "f1e58a6c6bec58e3cd4db623d4690abb60d104cf"
+        },
+        {
+          "name": "experiment/stack-squared-024-toaster-useful-delight",
+          "sha": "91d88926ac624b66240d263401615634259ff79c"
+        },
+        {
+          "name": "experiment/stack-squared-025-native-verification-porter",
+          "sha": "7a06505107c7cf8ac743a649394c0e44549b9fb3"
+        },
+        {
+          "name": "experiment/stack-squared-025-pocket-seed-printer",
+          "sha": "949dc406e9e927e178e6bffe7f8b2f5557db01f0"
+        },
+        {
+          "name": "experiment/stack-squared-026-openmanus-portable-verification",
+          "sha": "9a6b8ff701fe58317d53f2b5a4d97cb80abb7dff"
+        },
+        {
+          "name": "experiment/stack-squared-027-elf-openmanus-hatch",
+          "sha": "4bafad14e3e376eae006106fe7079e0d2b90f080"
+        },
+        {
+          "name": "experiment/stack-squared-028-elf-openmanus-local-model",
+          "sha": "c5cd254f38155d839ee4db8a9ece2c15dbdd5f04"
+        },
+        {
+          "name": "experiment/stack-squared-029-live-elf-lineage",
+          "sha": "460b3788d01ec068001b5708654c045d2566532a"
+        },
+        {
+          "name": "feat/arg-house-visual-pass-002",
+          "sha": "3e5822a263fb7898b1af38bbf998113b9de6d1d7"
+        },
+        {
+          "name": "feat/arg-world-entry-001",
+          "sha": "5a43fe5bf6101f4ab6334f24cd5d57429194122a"
+        },
+        {
+          "name": "feat/attention-crossing-001",
+          "sha": "3e59212f94b7a7e8594c358cbac317ac04f92b9c"
+        },
+        {
+          "name": "feat/attention-crossing-002-attention-shelf",
+          "sha": "d22f16754338fa8bd933aa4122769d45674fb237"
+        },
+        {
+          "name": "feat/attention-crossing-mirror-003",
+          "sha": "7e93493cd6529f42438210dedff7ef2da9c1683e"
+        },
+        {
+          "name": "feat/attention-crossing-path-home-004",
+          "sha": "804b172021f4fb599e99a84dfa0d32c772fb3e90"
+        },
+        {
+          "name": "feat/audio-window-radio-006",
+          "sha": "082c011519bf641e6eed0bbc39ca877b8d726f98"
+        },
+        {
+          "name": "feat/book-gap-workshop-001",
+          "sha": "94839b1bcf4016bafe9257df41d5be585be12ab7"
+        },
+        {
+          "name": "feat/book-of-machines-001",
+          "sha": "0bae7361f7e6355cf526af4780cfa22ce704b586"
+        },
+        {
+          "name": "feat/branch-deck-001-local-inventory",
+          "sha": "65f5cdccc75f96a76162cedd8beb94707be9d745"
+        },
+        {
+          "name": "feat/branch-deck-002-github-remote",
+          "sha": "d53298a00bdc3de6f3c2a538be580ae75e32a754"
+        },
+        {
+          "name": "feat/branch-deck-003-isolated-worktrees",
+          "sha": "7dce4fbe10639e81e6f01b16f6771e6d0e8aa8b4"
+        },
+        {
+          "name": "feat/branch-deck-004-collective-radar",
+          "sha": "a73c5f2aefca4b852ca7662c10b1ea1d37c0dac8"
+        },
+        {
+          "name": "feat/branch-deck-005-declared-test-suites",
+          "sha": "5f4402b84872716c572996681b84d1cc06ca08fb"
+        },
+        {
+          "name": "feat/broadcast-assembly-007",
+          "sha": "d788221be5ad6178cb1fb5db1e40e999074f872e"
+        },
+        {
+          "name": "feat/chronobody-living-main-preview-v01",
+          "sha": "663b8334236d26aac8ad28812a4d3bd182dc3dac"
+        },
+        {
+          "name": "feat/creator-desk-v01",
+          "sha": "ac913406e310bc08e9de22dafce1b9da5bf7a5f9"
+        },
+        {
+          "name": "feat/creator-desk-v02-source-packs-drafts",
+          "sha": "c35e58c61fee1d9c0f51a168065958d96a4a73d8"
+        },
+        {
+          "name": "feat/creator-maxhinal-ride-dock",
+          "sha": "f1a62760196ed5d998a31d4587815a7185e5d921"
+        },
+        {
+          "name": "feat/dogram-generation-field-001",
+          "sha": "cb587126b5f21b755424ddd92f0b53d60d7a858f"
+        },
+        {
+          "name": "feat/dogram-impact-desk-001",
+          "sha": "3216213c811502516fdd27f93229bc4f4f6edd6b"
+        },
+        {
+          "name": "feat/doorhouse-ghot-body-choice-003",
+          "sha": "3ffb53b26960a5252911324ff00fc6b0068f2fe8"
+        },
+        {
+          "name": "feat/doorhouse-toaster-004",
+          "sha": "4595c124a4a34790d3a007c643ea179564e8781c"
+        },
+        {
+          "name": "feat/field-station-001",
+          "sha": "166457b28705defcc010ad8197184a0b0ec41761"
+        },
+        {
+          "name": "feat/ghot-idle-shell-001",
+          "sha": "78be3286daf8687be1b35a31c9b76edab5963253"
+        },
+        {
+          "name": "feat/graft-candidate-draft-experiments-003",
+          "sha": "3b06824f379d6bfd8206829d2ed769efc4704e63"
+        },
+        {
+          "name": "feat/graft-dogram-witness-001",
+          "sha": "95c183ac09ec3d2fcd8126ad079ce82e80ac45e4"
+        },
+        {
+          "name": "feat/graft-native-candidate-table-002",
+          "sha": "a3acd283f079402ae7dec989e35226d5a780ce5e"
+        },
+        {
+          "name": "feat/groundkeeper-001-field-lab",
+          "sha": "7d5fdc7ce102cb26319c4fc77888e37cb1e31176"
+        },
+        {
+          "name": "feat/house-founder-composition-inspection-v01",
+          "sha": "7a17a3d9ec1409b876fc77682718100d4d898265"
+        },
+        {
+          "name": "feat/house-native-maxhinal-v01",
+          "sha": "703fa5e9766e22c66586b795fec47abd4eb4c937"
+        },
+        {
+          "name": "feat/house-rectified-rocket-flight2-v01",
+          "sha": "73883e8165916f3d42d9546cd5504fa706908f34"
+        },
+        {
+          "name": "feat/house-remembers-doors-001",
+          "sha": "daa124ed6c65d180ebd9ecd2fdfafd15479969f2"
+        },
+        {
+          "name": "feat/house-return-desk-v01",
+          "sha": "ab862c96e5276d02345101ed585f72ad1b068814"
+        },
+        {
+          "name": "feat/house-staged-rocket-v01",
+          "sha": "dc34aef7e2041b1bf22a283bd7ed7a8f4ef40062"
+        },
+        {
+          "name": "feat/house-static-broadcast-door-v01",
+          "sha": "f399ea8dcca6f52fa854d51e4e5f6115a7ddd211"
+        },
+        {
+          "name": "feat/launchpad-001-house-first-run",
+          "sha": "2bf471172ab19b4232386f708a8f4d63d9ea4eba"
+        },
+        {
+          "name": "feat/lifestream-001-manual-bridge",
+          "sha": "d7c622d6a5572d208838872e70a6d11532a082e7"
+        },
+        {
+          "name": "feat/lifestream-002-moment-inbox",
+          "sha": "b22ef537824c7409694bcca8dc20595f8802b5a1"
+        },
+        {
+          "name": "feat/listener-delta-field-001",
+          "sha": "9efea9514d42e6af57949207964d0ca185a42646"
+        },
+        {
+          "name": "feat/living-main-relation-chamber-v01",
+          "sha": "b9cd13f74c8337faf895a939c49bbb341743ad6f"
+        },
+        {
+          "name": "feat/look-twice-005",
+          "sha": "6e915ab27aad8bfd780b6669d58be617fa7a0c1b"
+        },
+        {
+          "name": "feat/maddloop-001-abstract-loop-pedal",
+          "sha": "87ed518787c4475f58e16355cb69b6a37f79eaee"
+        },
+        {
+          "name": "feat/mirror-001-visual-demo",
+          "sha": "bd0371740583a8da2ab2874b03dc909d4df89179"
+        },
+        {
+          "name": "feat/phono-field-door-001",
+          "sha": "ca7ef08cdd7ee21f1c3deb169990c0afd0faed46"
+        },
+        {
+          "name": "feat/phono-reentry-001",
+          "sha": "bdb4e4cdff620b8c7768e465fe881ab4854c953a"
+        },
+        {
+          "name": "feat/road-desk-001-mainline",
+          "sha": "0d4d35c502aee258897dade05f849f79e02e6c29"
+        },
+        {
+          "name": "feat/road-desk-001",
+          "sha": "d7ec75ed7ab6fe8a92805875091fe20754821960"
+        },
+        {
+          "name": "feat/static-arg-first-door-001",
+          "sha": "dac6f297d87b47df13601cf4d5ba7255f33f276b"
+        },
+        {
+          "name": "feat/static-genesis-elf-001",
+          "sha": "38c6b13747f62b70961b93a0124a06ebd2932f20"
+        },
+        {
+          "name": "feat/v0.2-house",
+          "sha": "3a42bdd57ff9d3c85fb42065f6e4ff8bc4a7d3cb"
+        },
+        {
+          "name": "feat/webz-003-independent-byte-custody",
+          "sha": "cb3b0243ef54640208fc99fa9f2848827906108e"
+        },
+        {
+          "name": "feat/webz-relatte-002-first-sovereign-parcel",
+          "sha": "6e5eda2fb5be8a0948b2f9abf002e936a2bebb92"
+        },
+        {
+          "name": "feature/ark-arrival-reentry-001",
+          "sha": "9ba0e0cc0a2feeec92f29dc064c3f34722ebbbf4"
+        },
+        {
+          "name": "feature/branch-harbor-003-freeport-graph",
+          "sha": "21a8ee5ead7fcd99fa9032520f437992bd617392"
+        },
+        {
+          "name": "feature/creator-context-door-001",
+          "sha": "7d7d7e48556563ac7ea10475ef9afa3d08fb8abd"
+        },
+        {
+          "name": "feature/house-flywheel-001-return-ledger",
+          "sha": "92b0b89c07028c7c6690e51de55d18edd3de5a37"
+        },
+        {
+          "name": "feature/house-flywheel-002-return-shelf",
+          "sha": "b2b1c0f6634a519910ee4dd21d7144806563ca12"
+        },
+        {
+          "name": "feature/house-flywheel-003-capability-loom",
+          "sha": "eaeb12243bf76697985fb2a24978061387d4486f"
+        },
+        {
+          "name": "feature/old-growth-001-source-composer",
+          "sha": "79d1efd2da668ef50c09cff50b2a29364d8302f4"
+        },
+        {
+          "name": "feature/old-growth-002-pinned-graft-import",
+          "sha": "16b0d5a2eb9c4c9b7da27f9ee1d8d8ba422a35a2"
+        },
+        {
+          "name": "field-reseed-crossing-001",
+          "sha": "0182348ce1beb8813fa390144c4c5f2ce3de9125"
+        },
+        {
+          "name": "field-return-001",
+          "sha": "527cb497ef0f1a8a26260d8a7e250442c9ebc972"
+        },
+        {
+          "name": "flight/001-composed-house-elf",
+          "sha": "f0ee71a5a6941d2efdc36d48f0a06a7f39472884"
+        },
+        {
+          "name": "flight/001-reviewed-maxhinal-plan",
+          "sha": "dd00866febedd8d591d0f10a86290b0210a25e1c"
+        },
+        {
+          "name": "flight-card-handoff-v0",
+          "sha": "1a2fc2f8bc8167b4ab753797d9a84fb5d55f4085"
+        },
+        {
+          "name": "integration/first-use-whole-house-20260920",
+          "sha": "f3829fa8767961f8993fda241715f49b06d7b29d"
+        },
+        {
+          "name": "integration/rectified-main-carrier-20260920",
+          "sha": "7d90126a87f79ffa370a3302863d92b9ee1d907a"
+        },
+        {
+          "name": "main",
+          "sha": "53db559bbc510ad1003a0f8330d1673dcd04d7a0"
+        },
+        {
+          "name": "navigation-aperture-2026-09-27",
+          "sha": "0b45fccab1e0ea2ab835e31411073cc0db49c23d"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/GOATnote",
+      "refs": [
+        {
+          "name": "experiment/cad-journal-001",
+          "sha": "64fee0380bf10d68c9885ccfd6b5632567892704"
+        },
+        {
+          "name": "experiment/composable-occurrence-return-001",
+          "sha": "06b65bf01ab45d90dbe731fc9065233da3a83c23"
+        },
+        {
+          "name": "experiment/goatedges-001",
+          "sha": "ba5e1469575f19aae8c8e9c6bc9d9e757441a392"
+        },
+        {
+          "name": "experiment/goatrooms-001",
+          "sha": "306ef0d2195daf60cdfab428b4c48c836be3804d"
+        },
+        {
+          "name": "experiment/goatwalk-001",
+          "sha": "56344c946050dbb51e8296e313a3b04daee6b9bf"
+        },
+        {
+          "name": "experiment/lemonpress-marginalia-export-004",
+          "sha": "95e63de4fdbbe1132294a5798a81b8d1a745fb18"
+        },
+        {
+          "name": "experiment/receipt-glass-goatnote-001",
+          "sha": "4fe5f118cfff80541e4e8f5d9ff378bcd979ceed"
+        },
+        {
+          "name": "experiment/receipt-recovery-gate-003",
+          "sha": "e8266df5dfc1eb4ba5e93901acad826042be1240"
+        },
+        {
+          "name": "experiment/receipt-relations-timecut-002",
+          "sha": "4374aed8cc15370a87dcd299b5d164bb15270160"
+        },
+        {
+          "name": "experiment/timecut-001",
+          "sha": "a014063db74486d8549c90e4551e7e234e963c99"
+        },
+        {
+          "name": "feat/attention-crossing-goatnote-001",
+          "sha": "4c763602157cacad206ed578617824359bf6ef99"
+        },
+        {
+          "name": "feat/attention-crossing-goatnote-return-002",
+          "sha": "734047026ef2543a94e568d7c597f8549625e5f9"
+        },
+        {
+          "name": "feature/return-thread-001-20260920",
+          "sha": "85c0f09a3f2e6fe8a7db34ec8e2ce5ee27adadab"
+        },
+        {
+          "name": "main",
+          "sha": "926728aa95c5b38b08546e259b04016cecaa3dee"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/static-os",
+      "refs": [
+        {
+          "name": "deployment/road-desk-001",
+          "sha": "4ed8db50aefc0c429e2a74fe9924adbb04993f3a"
+        },
+        {
+          "name": "deployment/roadkit-001",
+          "sha": "67c4aa681cb6afb61bbe2e8bbeb6fe5c604f139c"
+        },
+        {
+          "name": "experiment/all-printer-field-012",
+          "sha": "43428dbd2f1de72818cc3dad987042fea765dac9"
+        },
+        {
+          "name": "experiment/apparatus-compiler-002",
+          "sha": "e4cea899035d701ce0a68aaead6397aea912161f"
+        },
+        {
+          "name": "experiment/bandcamp-field-score-001-singing-sigil",
+          "sha": "ac2f149c96671cb84687f592fe71c1fc776010af"
+        },
+        {
+          "name": "experiment/bardo-boot-witness-001",
+          "sha": "17e209cebb8d45b05dd9c564e99b5f5519b2d4a0"
+        },
+        {
+          "name": "experiment/composed-nav-contact-to-witness-001",
+          "sha": "42a99796b2959b49917d087e21d8a7f192bc736e"
+        },
+        {
+          "name": "experiment/composed-witness-to-world-001",
+          "sha": "8d0606d15261185ff77cbada8edd4dbe21ffde4d"
+        },
+        {
+          "name": "experiment/condition-field-world-fork-001",
+          "sha": "5344b5750b36588c2c49c73a9009d2550c0c5b84"
+        },
+        {
+          "name": "experiment/cranknode-001",
+          "sha": "bffd4ebca9e9006864095b4c0357b5fc123929a0"
+        },
+        {
+          "name": "experiment/cranknode-002-provider-crossing-candidate",
+          "sha": "6887e09c87936b53bbaa505ca633a05e7c69c9e5"
+        },
+        {
+          "name": "experiment/cranknode-003-physical-edge",
+          "sha": "7c80ccca540464e6fae8c412bbb6c365ad883366"
+        },
+        {
+          "name": "experiment/dvote-make-ground-loop-001",
+          "sha": "bc55dc21010da1f3bf7ff1ec82666abe4d6153f2"
+        },
+        {
+          "name": "experiment/external-witness-field-001",
+          "sha": "8966a1de98e30d26f9314b66b96059bd00e34ae6"
+        },
+        {
+          "name": "experiment/external-witness-gate-001",
+          "sha": "1431e7b7e5d7d2840ba4c7e3d212f034d2843642"
+        },
+        {
+          "name": "experiment/fabrication-crossing-013",
+          "sha": "7bc551610421bd60a8dbf624d93d7a6682ce3987"
+        },
+        {
+          "name": "experiment/field-cell-001-scrap-bench",
+          "sha": "d52e8be0557512f150bba914eb2c0c0d651da6b0"
+        },
+        {
+          "name": "experiment/field-processor-001-go-static",
+          "sha": "7126d16091a156a2c075145d56dfd965bf57f7dd"
+        },
+        {
+          "name": "experiment/first-physical-boot-001",
+          "sha": "a4530eaf0bf52161e8117906d06806a449c47593"
+        },
+        {
+          "name": "experiment/five-door-boot-witness-001",
+          "sha": "0a446e90d46c261aba0a5755fd49994a6c60525b"
+        },
+        {
+          "name": "experiment/forage-001-permission-custody",
+          "sha": "03539a6c2c39be28395c0df57ecfb7234136c4e1"
+        },
+        {
+          "name": "experiment/forage-002-walle-field-scout",
+          "sha": "7a3ede43d635205bdf465a284f0053d7c0963b3c"
+        },
+        {
+          "name": "experiment/glean-001-steward-remainder",
+          "sha": "1190446dd09e158491d79c36dad6502027c98a9d"
+        },
+        {
+          "name": "experiment/kettlenode-001-energy-gate",
+          "sha": "99d3a12faf1cd5502793091a0ac99754a75d39fc"
+        },
+        {
+          "name": "experiment/kettlenode-002-heat-commons",
+          "sha": "af09cddbdb8a7854890b10013cbdce40193f0fc4"
+        },
+        {
+          "name": "experiment/life-authoring-open-page-001",
+          "sha": "76ba2d4cdd1d238df1b7fa1fd50ab4a87ea68d79"
+        },
+        {
+          "name": "experiment/make-ground-to-witness-reentry-001",
+          "sha": "2181f7437f59b34c103a7283a7a4d02e45464af9"
+        },
+        {
+          "name": "experiment/mandelbrot-world-field-001",
+          "sha": "aa387bcd857d78c0e7d99ab2e0f861c6afe183c6"
+        },
+        {
+          "name": "experiment/measurement-path-audit-001",
+          "sha": "d706bfaa82bc2d2949a1aaca5c14eedddf357d91"
+        },
+        {
+          "name": "experiment/nav-bridge-executable-001",
+          "sha": "97fa00930e794ee3dd4257c54b58d8277e51f52b"
+        },
+        {
+          "name": "experiment/nav-to-witness-crossing-001",
+          "sha": "90432a327887e34756b42e2f99f790e933a3e5b9"
+        },
+        {
+          "name": "experiment/navigation-braid-001",
+          "sha": "61e79210b9b5e098cc6ea9ebe8dd14343537f0a6"
+        },
+        {
+          "name": "experiment/navigation-weave-001",
+          "sha": "e19e1f32149dec300ff83f6f676f107d5a1f1717"
+        },
+        {
+          "name": "experiment/physical-print-packet-011",
+          "sha": "49d06c79542ecd0994f116417fe14fceed867a24"
+        },
+        {
+          "name": "experiment/question-first-session-001",
+          "sha": "457cd6fb09f3010c2f80634fa3c4e3e7c8bcedbe"
+        },
+        {
+          "name": "experiment/regenerative-design-capacity-010",
+          "sha": "a1cf59835a03a689b371cb64585b48631a28267b"
+        },
+        {
+          "name": "experiment/residual-witness-discriminator-001",
+          "sha": "3d97808e34a0815a3f130f4ae5bbdceacb235a86"
+        },
+        {
+          "name": "experiment/return-room-001-question-custody",
+          "sha": "2201d09107c31e5823ef641643b269fbd765c0d1"
+        },
+        {
+          "name": "experiment/robot-garden-001",
+          "sha": "a40d9ee1ee7d59c1d1dede6a0ba88ae7b99014c1"
+        },
+        {
+          "name": "experiment/robot-garden-002-phone-t3i",
+          "sha": "2ef49e77ce4236575c7c1c84758120e712411618"
+        },
+        {
+          "name": "experiment/robot-garden-003-gopro-calibration",
+          "sha": "e1fd689085cc9b348495bf0b79354fde269bb09f"
+        },
+        {
+          "name": "experiment/robot-garden-004-hero3-video",
+          "sha": "80c989112b4656800f97fc1cca1d3bc74a3011ef"
+        },
+        {
+          "name": "experiment/singing-sigil-f1-physical-coupon",
+          "sha": "1defcc738d12bffacfd6e2fd27cbaf50c384904c"
+        },
+        {
+          "name": "experiment/static-2012-reference-machine-001",
+          "sha": "d431eee9dae1a448434ce2df52b3db9fb240e169"
+        },
+        {
+          "name": "experiment/static-cad-003",
+          "sha": "98ec1bc4e86f999e85a08ab80e055f596d79184a"
+        },
+        {
+          "name": "experiment/static-cad-004",
+          "sha": "bbfe07e488829ce7538111418b2d198e8b97323c"
+        },
+        {
+          "name": "experiment/static-cad-005-relatte",
+          "sha": "8f8b30b2a223e54a5955fa5d365e33680b7399b4"
+        },
+        {
+          "name": "experiment/static-cad-006-goatnote",
+          "sha": "0d460524d0db129a8cccb0661cb9f533f3e6793b"
+        },
+        {
+          "name": "experiment/two-cycle-navigation-history-001",
+          "sha": "1952472a03f1b5dc15218fe75caef7b8dacd286a"
+        },
+        {
+          "name": "experiment/v1-world-bus-vehicle-ecm",
+          "sha": "405fbbf56f96a32af1ed332e2ad9105c09f073da"
+        },
+        {
+          "name": "experiment/weave-generation-to-nav-cycle-001",
+          "sha": "a4cf4397755ede2b555c4f11f835a9de289b8d27"
+        },
+        {
+          "name": "experiment/weave-to-nav-admission-001",
+          "sha": "4f1ce6a5f7a0aee26f484222560a35af38aba7c8"
+        },
+        {
+          "name": "experiment/witness-field-discrimination-cycle-001",
+          "sha": "74b9a80b409ac9819766aa9ad41003fc34de1f74"
+        },
+        {
+          "name": "experiment/witness-field-to-nav-001",
+          "sha": "6dbd78eebf545ec8e3ff427716064817ee8679e6"
+        },
+        {
+          "name": "experiment/witness-reentry-to-world-001",
+          "sha": "b7a10094514adeba723f40a95efbd1faa84cd6ef"
+        },
+        {
+          "name": "experiment/witness-to-world-crossing-001",
+          "sha": "c1f3024e267ecf033e03f7707bcb07e784e1f095"
+        },
+        {
+          "name": "experiment/world-dogram-nav-reorientation-001",
+          "sha": "4972f56345357677bfb4613348ba61cd1c2d9475"
+        },
+        {
+          "name": "experiment/world-to-make-ground-crossing-001",
+          "sha": "8b7224ec7fb07e3fa5c474b7bdbddb9c27739cb6"
+        },
+        {
+          "name": "feat/genesis-001-elf-guest-gate",
+          "sha": "f26f9110b6a2b83f2dfece2eefcc9f7552ba04bd"
+        },
+        {
+          "name": "feat/launchpad-001-user-bootstrap",
+          "sha": "841d087584d26bdb6fb38c48e6723c10ff4983bc"
+        },
+        {
+          "name": "feat/launchpad-002-desktop-installer",
+          "sha": "7a1706aa8e0298265a792cc3770ea204fb4750e6"
+        },
+        {
+          "name": "flight/003-elf-triad-candidate",
+          "sha": "cc73440e6bf17e873613cd2d2e1d67e1fde11618"
+        },
+        {
+          "name": "genesis-001-live-iso",
+          "sha": "6dda8a20ad9fc086cb00f340db5bff60d513e513"
+        },
+        {
+          "name": "integration/bardo-bridge-001",
+          "sha": "7f39c43efb90ce1c4a4014ecd66acde2c2a2a89a"
+        },
+        {
+          "name": "integration/bardo-generality-002",
+          "sha": "5f178af63b3da661e45fbc797e60201f0e605966"
+        },
+        {
+          "name": "integration/ghot-idle-operator-001",
+          "sha": "a4f10f5881e05784617e5eec13c5e69fe17c7dad"
+        },
+        {
+          "name": "integration/git-bridge-001",
+          "sha": "2f9756a464ee2022c7b0abdcc6636b4cb9123f53"
+        },
+        {
+          "name": "integration/instrument-host-001",
+          "sha": "8d3de9160a1f1fdffc6741712a112d34fbadf7e3"
+        },
+        {
+          "name": "integration/living-codex-endpoint-001",
+          "sha": "fa72a854867ecde431d59896dc0725f957faa0af"
+        },
+        {
+          "name": "integration/persistent-root-001",
+          "sha": "2d019d5e1a22f7914cd412fc2da7fe3d7438ea1b"
+        },
+        {
+          "name": "integration/whole-body-001",
+          "sha": "34f55292792fa40cb8ec838119cd3b5383560fcd"
+        },
+        {
+          "name": "integration/whole-house-desktop-candidate-20260920",
+          "sha": "850c42b7526e912f943eebed0262d96465a09a8e"
+        },
+        {
+          "name": "main",
+          "sha": "2833ee03e26a4492138d2167f2102c674bf91970"
+        },
+        {
+          "name": "release/first-house-download-candidate-20260921",
+          "sha": "877b64319e83b7c1cb134de92981ccdb1330de47"
+        },
+        {
+          "name": "triad-001-contract-candidate",
+          "sha": "d499597b063b53e555aefebffc97f04b948278c1"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/static-field",
+      "refs": [
+        {
+          "name": "assets/first-bell-porch-3d-001",
+          "sha": "0250e5a7cc3493b50040a5dbe4a06a263e2c0abb"
+        },
+        {
+          "name": "assets/first-bell-porch-portable-glb-001",
+          "sha": "8893762805e40e47812ca2f09c4dd3df9a37ec7b"
+        },
+        {
+          "name": "experiment/play-seedplate-001",
+          "sha": "50a2c2c48f5cc18a00fd860861d0fe1efd3e49c5"
+        },
+        {
+          "name": "experiment/postemahhn-living-deck-001",
+          "sha": "80b08f7a45f6957239582091536ea9528df7a1b7"
+        },
+        {
+          "name": "experiment/wormhole-wars-001",
+          "sha": "e75221c6a3cec8686968d1892dc001fae17f3e0f"
+        },
+        {
+          "name": "experiment/wormhole-wars-002-receiving-world",
+          "sha": "c64a417f3a54df3b14b557e3b976cabe3a601378"
+        },
+        {
+          "name": "experiment/wormhole-wars-003-table-world",
+          "sha": "19e200a03d26c86de26c80535552fe538a3fe119"
+        },
+        {
+          "name": "experiment/wormhole-wars-004-visual-pass",
+          "sha": "89cd64b0b88e0b889731eb950d6275debce61f93"
+        },
+        {
+          "name": "feat/first-bell-native-crossing-002",
+          "sha": "caf228888859ed522f9467af01f038c75a53e48e"
+        },
+        {
+          "name": "feat/static-field-first-bell-001",
+          "sha": "59d6adff7cc48de57340dc5c924bd26646105d41"
+        },
+        {
+          "name": "main",
+          "sha": "2d4433864e8e31275e56766522c090007e0d522b"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/the-haunted-blender",
+      "refs": [
+        {
+          "name": "experimental/accepted-take-cut-001",
+          "sha": "787d65b4c3b6798a290dc6d45e7d1d99b4283abf"
+        },
+        {
+          "name": "experimental/alchemical-compiler-v0.1",
+          "sha": "b512acdb60adf87130e0935ec9fd3129ad8ceaba"
+        },
+        {
+          "name": "experimental/art-i-fact-constructor-001",
+          "sha": "033dec4a503629e960c67166336794540c8f0430"
+        },
+        {
+          "name": "experimental/contour-material-v0.1",
+          "sha": "1dc6ee8c367a9f525cf2141c0b7ac2a0644bb404"
+        },
+        {
+          "name": "experimental/correspondence-engine-v0.1",
+          "sha": "d28c0738e92cd36a948e76e8e67f6790f9e3be30"
+        },
+        {
+          "name": "experimental/counterfactual-director-001",
+          "sha": "f65b217b3e7fba7b44c8cb381e6a06368a898b04"
+        },
+        {
+          "name": "experimental/creative-claw-take-001",
+          "sha": "94dd09b706fe678938eeeacff6708ca0b112c6af"
+        },
+        {
+          "name": "experimental/creative-use-001",
+          "sha": "b84bd22dd7788446345fd5f646207828cf2a7621"
+        },
+        {
+          "name": "experimental/door-feedback-001",
+          "sha": "79c87e31b7f70eed7657f515790fb910d4aac26b"
+        },
+        {
+          "name": "experimental/door-hinge-dance-001",
+          "sha": "aada7c67d057346eb5162f4c5ffdeafc26a70360"
+        },
+        {
+          "name": "experimental/living-mesh-v0.1",
+          "sha": "11608132f352282074ea1e9b7f3e6d055106f359"
+        },
+        {
+          "name": "experimental/living-object-v0.1",
+          "sha": "fd715dfc89bc42f9053e7a13feb348bc2e34656b"
+        },
+        {
+          "name": "experimental/memory-competition-001",
+          "sha": "294c853bf4d2a5f6dd7440f0c4990b73795987de"
+        },
+        {
+          "name": "experimental/memory-feedback-001",
+          "sha": "6aca64fdeeb458653e20558c4b23fa89ec622ba7"
+        },
+        {
+          "name": "experimental/memory-strength-001",
+          "sha": "ba75a17bf07cae2026becb60c05b72cd2c9f9d70"
+        },
+        {
+          "name": "experimental/nuclear-scaffold-v0.1",
+          "sha": "aa5f6181e1b8bd0ea61553696e04dea706262b45"
+        },
+        {
+          "name": "experimental/nuklear-pantry-exchange-001",
+          "sha": "42162d7e55edeeb0328b1572f1b89ee85e0baa3d"
+        },
+        {
+          "name": "experimental/object-events-v0.1",
+          "sha": "f726400c7a001c52ee0f78001d843993118dc0f5"
+        },
+        {
+          "name": "experimental/observer-local-vision-001",
+          "sha": "9beec9cce02f9c595386fc39fd7fb79a890434da"
+        },
+        {
+          "name": "experimental/orchard-chronobody-001",
+          "sha": "a73c0036117ff0b155ae0738d00e41c19206a6a3"
+        },
+        {
+          "name": "experimental/orchard-observer-memory-002",
+          "sha": "35fc972fe7bba994db63291de89c88871575159e"
+        },
+        {
+          "name": "experimental/relatte-video-window-001",
+          "sha": "8c97ff8935dbea705edb4805dc6711afd110efbe"
+        },
+        {
+          "name": "experimental/scene-artifact-001",
+          "sha": "8a7e6ef3a1dd6f5ff4d99f7495dbf22b0608c8bd"
+        },
+        {
+          "name": "experimental/scene-weave-001",
+          "sha": "360b8a39925567d54f2f656448e3ae2e3c757a40"
+        },
+        {
+          "name": "experimental/time-slice-recajgger-001",
+          "sha": "60c8746215f23aaa3e06f730fa44ecb0df341210"
+        },
+        {
+          "name": "experimental/visual-dream-door-observer-001",
+          "sha": "d219ba3878de1083872e049218edc7ab2b9d6733"
+        },
+        {
+          "name": "feat/nuclear-pantry-first-smashes",
+          "sha": "ae5085a097fcbf3e693c1e77af2cdd93a4d0b846"
+        },
+        {
+          "name": "integration/franken-blender-001",
+          "sha": "cbfd600144bfb78d1dfc2cafe9b7f6e9146b10fa"
+        },
+        {
+          "name": "integration/franken-blender-002-cutout-machine",
+          "sha": "7cfdee2b7c823baa9219683f1a9cbfc68b21191b"
+        },
+        {
+          "name": "integration/franken-blender-003-dreambreeder",
+          "sha": "5227ffe7b59240bb3daa5527eb4881969091f073"
+        },
+        {
+          "name": "integration/franken-blender-004-cutout-compiler",
+          "sha": "2b17439c12d87493455596d0dfa2b11bbbb1bfa0"
+        },
+        {
+          "name": "integration/franken-blender-005-ghot-compost-adapter",
+          "sha": "b7af4553172a786edebf63c43468e176c2ffa184"
+        },
+        {
+          "name": "integration/franken-blender-005-keep-scene-awaken",
+          "sha": "78be68dbe788c0744684433205b276c56a580c00"
+        },
+        {
+          "name": "integration/franken-blender-006-motion-organ-router",
+          "sha": "425c53971ab44cf7d53e914a22af6f1d5caae5d4"
+        },
+        {
+          "name": "integration/franken-blender-007-atlas-executor",
+          "sha": "a343a54b2fe098616214adc02b88f43d105d7597"
+        },
+        {
+          "name": "integration/franken-blender-007b-atlas-black-box",
+          "sha": "25ff44ea2c2f7d8444d1b09380ed5078893fc484"
+        },
+        {
+          "name": "integration/franken-blender-008-cockpit",
+          "sha": "207cb1b042cb1f8dd111893c7b9ffac652c6acce"
+        },
+        {
+          "name": "integration/franken-blender-008a-visual-cockpit",
+          "sha": "1233fffb5011a35a16d7997e3f13213d3d4f9e25"
+        },
+        {
+          "name": "integration/franken-blender-008b-auto-crossings",
+          "sha": "bee873c9878e03fff3ffd5d0164605798a77a36b"
+        },
+        {
+          "name": "integration/franken-blender-008c-provider-driver",
+          "sha": "712f77aebc149dcfcca77422bc1f66969faa6e7e"
+        },
+        {
+          "name": "integration/franken-blender-008d-plugin-orchard",
+          "sha": "8451e09e977600a66ff68362153ea26e2bd2633a"
+        },
+        {
+          "name": "integration/franken-blender-008e-zero-dollar-film-mill",
+          "sha": "2861515164987354208170a6ea4f707883923387"
+        },
+        {
+          "name": "integration/franken-blender-008f-weakest-window-doctor",
+          "sha": "363e1ddcb22570b82e3df5b07008c0a2a79f1c1c"
+        },
+        {
+          "name": "integration/franken-blender-008g-cutout-puppet-factory",
+          "sha": "7817009fcf0f618b18fa5ca89a0e9b9f9fa4435f"
+        },
+        {
+          "name": "integration/franken-blender-008h-parts-harvester",
+          "sha": "9bdd378b98001770af1191c01ae93e7938265bf3"
+        },
+        {
+          "name": "integration/franken-blender-008i-moving-insert-stage",
+          "sha": "55a4dbdc6affe6f869f9f2ed467aae0a8940899a"
+        },
+        {
+          "name": "integration/franken-blender-008j-paper-director",
+          "sha": "070d8034e11052f7e84588e19e36f452c862a772"
+        },
+        {
+          "name": "integration/franken-blender-008k-ensemble-stage",
+          "sha": "c99d948b496b22b3b3ea82bc15b90d50597f58b6"
+        },
+        {
+          "name": "integration/franken-blender-008l-material-surface-grammar",
+          "sha": "a39d6c3be8197b38b06c2f45fb323e4ef8b4f279"
+        },
+        {
+          "name": "integration/franken-blender-008m-manga-anime-grammar-atlas",
+          "sha": "367e8c0f6cc7c68c453ff1e5081180976af51858"
+        },
+        {
+          "name": "integration/franken-blender-008n-particular-to-performance",
+          "sha": "e46a381f9b4490ed38f4ce3bfdec5bcdd39dde22"
+        },
+        {
+          "name": "integration/franken-blender-008o-page-five-manga-film",
+          "sha": "0961569c920a8c53330227305a2f9143071c382c"
+        },
+        {
+          "name": "integration/franken-blender-008p-owned-pixel-manga-film",
+          "sha": "4e3f098d328a9659d9074852ef7861b7d3078fee"
+        },
+        {
+          "name": "integration/mangalize-001-first-class-verb",
+          "sha": "268d31f4a5283ce96209e3f7957edcfa2df30a7b"
+        },
+        {
+          "name": "integration/mangalize-002-quarantine-release",
+          "sha": "8b4f7da114e55150dfb564fea171c827bcf8759a"
+        },
+        {
+          "name": "integration/mangalize-003-performed-use",
+          "sha": "736dc0eba07b591a7aa25abf3fb92e5ddbaa7a23"
+        },
+        {
+          "name": "integration/mangalize-004-pixel-execution",
+          "sha": "49e9400d3753a6a308317eef8bd5b1fb93cc5322"
+        },
+        {
+          "name": "integration/mangalize-005-presentation-ground",
+          "sha": "cf0256a49ac8aa879cf2a044847d248177fcfad9"
+        },
+        {
+          "name": "main",
+          "sha": "b9e8279b864089510517d278e29292bda176f066"
+        },
+        {
+          "name": "plans/branch-ledger-001",
+          "sha": "234059d60a7d8341877186d2479e6f54c53b944b"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/fogGlass",
+      "refs": [
+        {
+          "name": "main",
+          "sha": "bff0ff0910061af12919a2778f72c85ff721c67d"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/ROroomOM",
+      "refs": [
+        {
+          "name": "archive/orphan-constellation-20260924",
+          "sha": "f321dc9275da3ed87942f947eb09ab9fb3d62300"
+        },
+        {
+          "name": "experiment/addressable-particular-001",
+          "sha": "29a4ab9d8f1a0571171c88a340048c9a4944902d"
+        },
+        {
+          "name": "experiment/frankenstein-lemon-loom-room-001",
+          "sha": "86abc11bbfacc68c7b30889d962b59d541615113"
+        },
+        {
+          "name": "experiment/living-deck-room-001",
+          "sha": "f7372b6b5dd18bbce8a850100742521495b0a814"
+        },
+        {
+          "name": "experiment/relatte-com5-room-001",
+          "sha": "8fc42b2e958725fc00e3fee25da7770a3ab5f1e4"
+        },
+        {
+          "name": "experiment/relatte-com5-room-002-organ-adapters",
+          "sha": "973a918dcc7a9ea42fae777a03f0bc8e403739e9"
+        },
+        {
+          "name": "experiment/relatte-com5-room-003-audio-resolver",
+          "sha": "16da465940d6fa21a2f502fa34680eb6ea2f20fb"
+        },
+        {
+          "name": "experiment/relatte-com5-room-004-video-window",
+          "sha": "abf2544bdaf81c13aa44ad41671b98d95b853ce9"
+        },
+        {
+          "name": "experiment/relatte-com5-room-005-room-score",
+          "sha": "e9ef2b4d03d89d8e2426bc7e96a16c343365d925"
+        },
+        {
+          "name": "experiment/relatte-com5-room-006-play-memory",
+          "sha": "1fa7fb6dffa99507a821e1ddcb15e091059f7ea1"
+        },
+        {
+          "name": "experiment/relatte-com5-room-007-human-ai-crossing",
+          "sha": "564c6db387869d071b0ff993956bae56b72b8804"
+        },
+        {
+          "name": "experiment/relatte-com5-room-008-offer-echo-cross",
+          "sha": "5cdd90461106e7cd0c51d2f8fa87198f0a319cb7"
+        },
+        {
+          "name": "experiment/relatte-com5-room-009-guest-port",
+          "sha": "5e93843ceae80a2bca94ff438f0bc24dc49a4b85"
+        },
+        {
+          "name": "experiment/rsc-epistemic-instrument-001",
+          "sha": "14eba4f40d255cdbf410b39e6464e6d0ee8a7c6b"
+        },
+        {
+          "name": "integration/room-006-008-orphan-recomposition-20260924",
+          "sha": "2066cd2def0ab7425b6ce5663aec05046a9d7b0b"
+        },
+        {
+          "name": "main",
+          "sha": "5c74709f30aeb3cc0d8a2e5ffb04907c42da83cc"
+        },
+        {
+          "name": "room-005-capability-crossing",
+          "sha": "be6494044b70d78de51b90560dc90fe91c580ad7"
+        },
+        {
+          "name": "room-006-effectful-rejoin-bat",
+          "sha": "cc461b582e9acadbe598be6185be01a6d16b80b3"
+        },
+        {
+          "name": "room-007-stem-cell-development",
+          "sha": "fcbfee9f0b2b6b188de9b456280b62cafca4bb71"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    }
+  ]
+}

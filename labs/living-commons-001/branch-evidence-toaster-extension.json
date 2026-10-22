@@ -1,0 +1,156 @@
+{
+  "schema": "cannon.branch-evidence-extension/v0",
+  "observedDate": "2026-10-22",
+  "classification": "REF_PRESENT_NOT_LIVENESS_OR_ADMISSION",
+  "repository": "the-static-collective/the-haunted-toaster",
+  "extends": "branch-evidence-02.json",
+  "pagesStart": 3,
+  "refs": [
+    {
+      "name": "mutant/batch-console-309",
+      "sha": "b3b25c5cf99faaf5c7b9fc0ef6809939ecfca7b5"
+    },
+    {
+      "name": "mutant/future-rearview-memory-prophecy-001",
+      "sha": "46cf79575106af9caf56a0c3bd13cf9d4c774f26"
+    },
+    {
+      "name": "mutant/video-phrase-archaeology-carrier",
+      "sha": "d7745594905cc8a042c207dddba43115160f7c2b"
+    },
+    {
+      "name": "navigation-aperture-2026-09-27",
+      "sha": "eb445936b87c9b876c1ab283067650112fddc344"
+    },
+    {
+      "name": "ops/package-exact-6ff36ffa",
+      "sha": "4d14aaf71967f9c6a3a1912800ed84e07fabff6b"
+    },
+    {
+      "name": "plan/hyperfood-slice-a",
+      "sha": "a6cb4593d434eeaa9de3501c07cc852dad0bbd03"
+    },
+    {
+      "name": "plan/receipt-memory-witness-loop",
+      "sha": "bff08f9863f5395d9d54c98529042c7dace6989f"
+    },
+    {
+      "name": "plan/receipt-memory-witness-loop-clean",
+      "sha": "d20ddfe7429d6e07ce2551e627900fa84c832277"
+    },
+    {
+      "name": "plan/sigil-algebra-v0",
+      "sha": "5b9a9396a8b8c3ae912bfef634f42043ecb8d46e"
+    },
+    {
+      "name": "plan/sigil-language-witness-v0",
+      "sha": "600c32aee343f2821142b6646e3cf63d884305d5"
+    },
+    {
+      "name": "plan/ui-witness-toastmoods",
+      "sha": "7651619a51b3e8217e91fd0abd23566d71ff3670"
+    },
+    {
+      "name": "promote/field-spine-from-212",
+      "sha": "6ff36ffa4e30bb8d097fe62a3d9a5409e0061a1d"
+    },
+    {
+      "name": "re-port/stage-a-current-walk-e",
+      "sha": "d408a58754f4a53d1ca2c60141b3086bae21a22e"
+    },
+    {
+      "name": "re-port/stage-a-human-witness-current-walk-e",
+      "sha": "5b693ca8760253a902920884ff33692ac30d5c03"
+    },
+    {
+      "name": "reconcile/2026-09-15-glean",
+      "sha": "5e61cae10bcd5dc124bf482145e92e1bb722e482"
+    },
+    {
+      "name": "release/haunted-toaster-v0.4.0-demo",
+      "sha": "dd5e0fc151f9cbbef9d90d776844214c3a2e3a84"
+    },
+    {
+      "name": "release/v0.5.0-alpha.2",
+      "sha": "862cbad0d7cced76b4af6122540b6661cf83c074"
+    },
+    {
+      "name": "rescue/beta-receipt-memory-loop-v2-review",
+      "sha": "fe769e62dd668c52e10e96cdac3a195a4e206a4e"
+    },
+    {
+      "name": "rescue/beta-receipt-memory-loop-v2",
+      "sha": "fe769e62dd668c52e10e96cdac3a195a4e206a4e"
+    },
+    {
+      "name": "rescue/166-current-spine-implementation",
+      "sha": "0f967b8f7f0544bf94160611a60fa3c9232504e9"
+    },
+    {
+      "name": "resurrection/video-eating-mutation-mixer-001",
+      "sha": "3997a110516ecd770cb0f0509c70d11455f7a009"
+    },
+    {
+      "name": "slice-d-foreign-material-v1",
+      "sha": "f4a575db65d1bdb9cc5e7b462c30226660d4b804"
+    },
+    {
+      "name": "tdd/elastic-topology-response-task1-red",
+      "sha": "f13e80af5a2e09ba6a307fb5de031b8c6b0e8f26"
+    },
+    {
+      "name": "tdd/elastic-topology-response-task2-red",
+      "sha": "e568eb9b994cae06d5e0de0bab9f1783cc423b8a"
+    },
+    {
+      "name": "tdd/elastic-topology-response-task3-red",
+      "sha": "0f15c6f7c57ae1c57cd99866968e5e3e2b7128b0"
+    },
+    {
+      "name": "tdd/elastic-topology-response-task4-red",
+      "sha": "54b73cceb45c63199378b3e0ef0c00850f724318"
+    },
+    {
+      "name": "tdd/elastic-topology-response-task5-red",
+      "sha": "cf4a209f082ef12a29e17e6fad9e5e342a9f6bdd"
+    },
+    {
+      "name": "tdd/elastic-topology-response-task6-red",
+      "sha": "01ee694563e6516e40b07037d998ba01e4733070"
+    },
+    {
+      "name": "test/alpha9-field-witness-receipt",
+      "sha": "7fe9474b40b4c27341b50f19f9b0a429e77c95dd"
+    },
+    {
+      "name": "topology/v000-test-floor",
+      "sha": "de38bbec26be83660a2ff4a1f41800250def4b28"
+    },
+    {
+      "name": "video/digestion-six-001-current",
+      "sha": "a93cb6cb8653a0fce81e552028c2813b9c24bd23"
+    },
+    {
+      "name": "walk/a-foreign-material-current-spine",
+      "sha": "f397d8bdb39d4e0df7a536399508257a40df1b07"
+    },
+    {
+      "name": "walk/b-topology-family",
+      "sha": "d183cf199fe44e30132d76105d5d2deb65cc56c6"
+    },
+    {
+      "name": "walk/c-listener-reentry",
+      "sha": "badb30d92cee7669bb2761fc5d39be38d49eca82"
+    },
+    {
+      "name": "walk/d-l-branch-v1",
+      "sha": "3cb5da13fd6636b4309c37b14171a34eca54e7f6"
+    },
+    {
+      "name": "walk/e-sequential-braid",
+      "sha": "ddbe15975d99dded7b755d5138e1a7cc2da29f84"
+    }
+  ],
+  "fullyEnumeratedAfterExtension": true,
+  "errors": []
+}

@@ -1,0 +1,1990 @@
+{
+  "schema": "cannon.branch-evidence-slice/v0",
+  "observedDate": "2026-10-22",
+  "classification": "REF_PRESENT_NOT_LIVENESS_OR_ADMISSION",
+  "source": "GitHub REST branches (up to 2 pages x 100)",
+  "slice": {
+    "offset": 60,
+    "limit": 10
+  },
+  "repositories": [
+    {
+      "repository": "the-static-collective/free-graph",
+      "refs": [
+        {
+          "name": "agent/body-emergence-001",
+          "sha": "1a361cf026b6953cce7412edeb3e99dcde4e842d"
+        },
+        {
+          "name": "agent/skyslicey72",
+          "sha": "7abf8738310464629bc2bc98279a077a6e0a65e5"
+        },
+        {
+          "name": "docs/relational-coordinate-v0",
+          "sha": "fcd85804b6284c7955eb60642d31b82930cae0d7"
+        },
+        {
+          "name": "experiment/relay001-sia-traversal",
+          "sha": "fce3634baf2ac127695271671e3571ab54a9d92d"
+        },
+        {
+          "name": "feat/free-graph-v0",
+          "sha": "826c6b06e2835bc4cd84a5ae992644deb030ea70"
+        },
+        {
+          "name": "feat/promotion-crucible-v0",
+          "sha": "23c72ba2aa162be17717eee0ca0970a04672121a"
+        },
+        {
+          "name": "main",
+          "sha": "ec0ad8743c5faac3f3675760bbafcbcb1df846c1"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/WORLDSEED",
+      "refs": [
+        {
+          "name": "design/origin-container-001",
+          "sha": "a0ca819d6cf1fc95550972d0e32941d088f70d9d"
+        },
+        {
+          "name": "feat/origin-first-crossing-001",
+          "sha": "071840566d716cc4f546f101319da5b9f0c1bad6"
+        },
+        {
+          "name": "feat/origin-foreign-room-exit-003",
+          "sha": "dcb464124f79b3d682ab11ec3708a60da1669f3c"
+        },
+        {
+          "name": "feat/origin-native-foreign-room-ux-005",
+          "sha": "49f7002392d79b0df84d5c979653d4d49acc93c8"
+        },
+        {
+          "name": "feat/origin-real-source-crossing-004",
+          "sha": "e8af53564c5845a5fedcd1c2e739976be09b03a6"
+        },
+        {
+          "name": "feat/origin-scene-ux-004",
+          "sha": "7afe2040fea5cf30f451110e708ba867156260e5"
+        },
+        {
+          "name": "feat/origin-static-field-receipt-composition-003",
+          "sha": "f0ad0a8e6ecb60be542c0da9452ff08ad553d29b"
+        },
+        {
+          "name": "feat/origin-table-002",
+          "sha": "b84436e496b485ef7bf2882bc2e1690fd9acaf68"
+        },
+        {
+          "name": "main",
+          "sha": "bffcedd9e5c5c42e0cf122c27c4e33c097cfb0e0"
+        },
+        {
+          "name": "worldseed-v0.1-first-seed",
+          "sha": "b47389d12e6d585c04759b754dc701e7154c38c9"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/DerekDerrikDark",
+      "refs": [
+        {
+          "name": "design/compile-from-within",
+          "sha": "d5795fe57ea1fd32fa63a34e44ea899dcf84da96"
+        },
+        {
+          "name": "experiment/constitute-001-local-door",
+          "sha": "08dedf89b735e0e60ec0e0b741ff2a37873fbd02"
+        },
+        {
+          "name": "experiment/constitute-002-world-makes-game",
+          "sha": "03d317b9c1fffe516de0946749dce12908cd45bf"
+        },
+        {
+          "name": "launch/ddd-v0",
+          "sha": "e9446b02e4317caf12d95bcd19988c6c19d36232"
+        },
+        {
+          "name": "main",
+          "sha": "2f1bc26a037fb504509b265827d1c0e20c0c8ca0"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/the-daily-slice",
+      "refs": [
+        {
+          "name": "agent/body-surface-standard-v0",
+          "sha": "ac11a25f4de547a01c0e3659f3b5b2436dff0eac"
+        },
+        {
+          "name": "agent/skyslicey72",
+          "sha": "f582700e73855d53a83b93327f55bb8ccea1812b"
+        },
+        {
+          "name": "artifact/hjdm-witness-first",
+          "sha": "81b09dce9823c97e46c48dc5cea888c77ae06b3a"
+        },
+        {
+          "name": "artifact/hugh-jackman-discontinuity-machine",
+          "sha": "ea661cc607468ce14b7e5038957c1610ca22c460"
+        },
+        {
+          "name": "content/banana-elf-late-edition",
+          "sha": "25835b921f99b1a8e1baef316a6ddd604b79ff5c"
+        },
+        {
+          "name": "feat/daily-slice-learns-to-speak",
+          "sha": "a6e9cbe0f66937eb5e408bb4667198472c69a5ab"
+        },
+        {
+          "name": "feat/daily-slice-v0",
+          "sha": "4427fc9020779dd2060daea0b1059e9bdfb7289b"
+        },
+        {
+          "name": "feat/madd-hugh-jackman-maxhinal",
+          "sha": "771885caafb41a57b62f520fa4c9900dbd9eb1a1"
+        },
+        {
+          "name": "feat/toastloaf-001-braided-brioche",
+          "sha": "483ea9ece2eb44bdd0266e80a6a3fbfaebdf625c"
+        },
+        {
+          "name": "feat/transfer-packet-zero",
+          "sha": "51c2f4c4f35281c27fcdbd4b8feb8a48aef4bc01"
+        },
+        {
+          "name": "feat/transfer-packet-zero-2",
+          "sha": "9bc809b6de42709c814077246ffbd8eb5fa1c658"
+        },
+        {
+          "name": "lighthouse/3-6-7-12-megazord",
+          "sha": "66f41d65317d4d7cfb2dbd53df2869a4c6419cff"
+        },
+        {
+          "name": "main",
+          "sha": "4fecebd2f5eaeb200ad3f7ebf8fd8860be4ce30b"
+        },
+        {
+          "name": "narrative/2026-08-28-receipt-carrying-experimentalist",
+          "sha": "fdf5a49eaeadd799a01e593ba20eff71ef23debd"
+        },
+        {
+          "name": "narrative/2026-08-29-three-clock-receipt",
+          "sha": "70718276f0b2c4fad7d64674c21627d48986fbaf"
+        },
+        {
+          "name": "octopus/return-room-wrecking-crew-001",
+          "sha": "8d8bc717fcaac7db81fd913268ea8da50d0d3e56"
+        },
+        {
+          "name": "plan/jubilee-engine-megazord",
+          "sha": "1ff6b37211daf2637537d911831c2d343d609a5a"
+        },
+        {
+          "name": "reconcile/cat-human-fiber-current-main",
+          "sha": "0981a6a0e3b56dcc5035e6281ffb3784c51c53f0"
+        },
+        {
+          "name": "reconcile/shapes-in-the-fog-current-main",
+          "sha": "1d80142b13e3254e2208283d7f93a3e2793d2323"
+        },
+        {
+          "name": "research/causal-uptake-living-inheritance-001",
+          "sha": "42f7f939f514a43fa6f9fcc0e83103d6e7eb19c7"
+        },
+        {
+          "name": "slice/adapter-garden-native-organs-v02",
+          "sha": "2a8455875ffbc3165191f465e2477618ad83c738"
+        },
+        {
+          "name": "slice/artifact-receipt-moving-home",
+          "sha": "dfd2c398bf5e78c0dd63ab356e22aa9cd24c3b2d"
+        },
+        {
+          "name": "slice/body-surface-not-occurrence",
+          "sha": "933cf979d7dd28f130bc252bf9b74707ae1dee26"
+        },
+        {
+          "name": "slice/cat-human-fiber",
+          "sha": "ee3afbbf8d260a7cad38a41b684b07fd2bb7b8b2"
+        },
+        {
+          "name": "slice/collective-breathes-48-49-50",
+          "sha": "db3db406689f43520ad27ad5113904687665e662"
+        },
+        {
+          "name": "slice/contribution-backed-history",
+          "sha": "37b39150532c328be59a668068f701b0ae9abab8"
+        },
+        {
+          "name": "slice/crossing-harvest-2026-08-25",
+          "sha": "2a710d40cfce52fd24ba61c2cca0db13fdbde83b"
+        },
+        {
+          "name": "slice/daily-digestion-001",
+          "sha": "cb10e3a9369150a720546d2cf0b3e13c207b8d0e"
+        },
+        {
+          "name": "slice/door-ancestry-right-wrong-2026-08-28",
+          "sha": "337c72d1389df712db5632c56ab7f5ab20b00cf2"
+        },
+        {
+          "name": "slice/everything-is-mathals-2026-08-28",
+          "sha": "915fab915ef87c40353ced45dd958b166f0808d9"
+        },
+        {
+          "name": "slice/hocus-phocus-phase-lift",
+          "sha": "88fec4f70009dffa217a256c31ffcbb1e6691ba2"
+        },
+        {
+          "name": "slice/jubilee-engine-lighthouse",
+          "sha": "0f5df46dbad0739b63abb52364db0eb88d56651b"
+        },
+        {
+          "name": "slice/logos-runtime-proximity-2026-08-25",
+          "sha": "f7a9db91ad4b3d3c1cb9f7d60993f4cde5f2d2d3"
+        },
+        {
+          "name": "slice/open-crossing-2026-08-24",
+          "sha": "3dd8b0727fbc93a37a685d98bf2e7c13b26aeda1"
+        },
+        {
+          "name": "slice/plj-triadic-screw-orthogonal-lift",
+          "sha": "dcb372f708f2468d41135574920b7840b8162ae2"
+        },
+        {
+          "name": "slice/shapes-in-the-fog",
+          "sha": "6541a5cb5fc6505eb01e64f1047a30962d2f1e3a"
+        },
+        {
+          "name": "slice/static-node-always-building-its-child",
+          "sha": "0995168e28387276acb700a96617885d55c5f88e"
+        },
+        {
+          "name": "slice/still-just-tuesday-album-grammar",
+          "sha": "a85b87557fcda758adf5ce710d05e0f25e9540fe"
+        },
+        {
+          "name": "slice/storyship-river-under-river",
+          "sha": "c67a515d3fab3082a4f94ec5359ee5aa3ad18227"
+        },
+        {
+          "name": "slice/the-needle-may-be-a-fiber-2026-08-29",
+          "sha": "40992568421e967a277f346e98ee7c1bd3d7abce"
+        },
+        {
+          "name": "slice/the-point-thing-2026-08-30",
+          "sha": "923d56463f2efed921602c771da4dd79a5ca90d5"
+        },
+        {
+          "name": "slice/the-road-drew-itself-2026-08-29",
+          "sha": "09575f11ca47b805ee859f5a874a3e07f0d1dfb0"
+        },
+        {
+          "name": "slice/tuesday-peel-leep",
+          "sha": "e305e76fda578aa2aa270c6a1bca6f6ccd0c6d47"
+        },
+        {
+          "name": "slice/whole-earth-reader-digest-001-return-aperture-test",
+          "sha": "f4d9ed2c5b961914273ec92eb4f5e85c8a5a79c6"
+        },
+        {
+          "name": "slice/2026-08-25-recursive-compiler-groove",
+          "sha": "92ab2b1eff9f84f3fd0c8b1182884addc4547b0f"
+        },
+        {
+          "name": "slice/2026-08-26-four-letters-durable",
+          "sha": "1d7b7d2a74b00f2a5a19f32b25a596f9d62e8900"
+        },
+        {
+          "name": "slice/2026-08-26-mercy-keeps-rupture-from-terminal",
+          "sha": "7cf76cecc3bccaa7a4fe912cb02d704f79b87b19"
+        },
+        {
+          "name": "slice/2026-08-26-sinai-autograph-coffee",
+          "sha": "f3109cbefba59a7e30a087acecf2b893f94aa460"
+        },
+        {
+          "name": "slice/2026-08-26-the-gate-carries-forward",
+          "sha": "ab28daae06259a5174f57aece326a223c8f454db"
+        },
+        {
+          "name": "slice/2026-08-26-the-innovation-may-be-the-binding",
+          "sha": "f329dacec58c6dfe534f5c8978963e6ad2e555e8"
+        },
+        {
+          "name": "slice/2026-08-26-the-name-is-not-a-password",
+          "sha": "1381693804ea56b5f399abea7a01bb9628d24db0"
+        },
+        {
+          "name": "slice/2026-08-27-13th-cup",
+          "sha": "7859300f335826264971a29e467ec27b966b2ec8"
+        },
+        {
+          "name": "slice/2026-08-27-aftermathals",
+          "sha": "d83a0f8535c2e83e4fc3526da561fdb0c6534d4a"
+        },
+        {
+          "name": "slice/2026-08-27-finally-brunch-decoder-ladder",
+          "sha": "017277bb5c66a6168e29f704f72d630fb5e38b71"
+        },
+        {
+          "name": "slice/2026-08-27-interest-is-not-attention",
+          "sha": "41ab760458b5703f7168c616416ed1f5b57d0efd"
+        },
+        {
+          "name": "slice/2026-08-27-jubilee-gate-livebrunch",
+          "sha": "7552075a42f32b058e5034e6678ab162004644c3"
+        },
+        {
+          "name": "slice/2026-08-27-moving-temporal-braid",
+          "sha": "bf2f2cf0e338abdfe1f071e719abbc299c0edd3d"
+        },
+        {
+          "name": "slice/2026-08-27-reallylatebrunch-access-engineering",
+          "sha": "a45637becf6a8ed40eb60ba6e3ef3821f0022472"
+        },
+        {
+          "name": "slice/2026-08-27-slicing-ahead",
+          "sha": "557a8a8166c44a5508714d10dc90e0468b2eda7d"
+        },
+        {
+          "name": "slice/2026-08-28-scoutpaste-harvest",
+          "sha": "c79289f0fe95c39a6d9fb59320ed42031a8dc1d3"
+        },
+        {
+          "name": "slice/2026-08-29-the-answer-forgot-the-fiber",
+          "sha": "c6be139f34cb66db21bd6a2fb61fd02197b61ab8"
+        },
+        {
+          "name": "slice/2026-08-31-humanentropy",
+          "sha": "cd492768e94f9921511044f89fe25ac448440fed"
+        },
+        {
+          "name": "slice/2026-08-31-humanentropy-checkpoint",
+          "sha": "cd492768e94f9921511044f89fe25ac448440fed"
+        },
+        {
+          "name": "slice/2026-08-31-usb-hub-remembers-the-room",
+          "sha": "5e063410a206f95e286376b352175f45d6dc7680"
+        },
+        {
+          "name": "slice/2026-08-31-walk-braid",
+          "sha": "d9ec684c282e8085ad5663a5c7798e821b1a3e4f"
+        },
+        {
+          "name": "slice/2026-09-01-arrival-downbeat",
+          "sha": "5f6c6d3eaa14a53559631840969cf08e4271d233"
+        },
+        {
+          "name": "slice/2026-09-16-green-grammar-refusal-to-collapse",
+          "sha": "15a42a8d6cbc8d213594e599fea8105f801fffb6"
+        },
+        {
+          "name": "slice/2026-09-22-last-new-first-phase-lift",
+          "sha": "643443c35ba9cac41b1c1d34da4506e138051bc4"
+        },
+        {
+          "name": "slice/2026-09-23-previously-unseen-or-measured",
+          "sha": "04c230138f0457450e34a99ef2c8b2dcb70988c3"
+        },
+        {
+          "name": "slice/2026-09-25-babybody-pressure-to-tissue",
+          "sha": "73ce9b3ae564a6010c41cf33801e8f728497be46"
+        },
+        {
+          "name": "slice/2026-09-25-hjj044-two-engine-train",
+          "sha": "2453e729e6c65d754713a448a54259ed0f70d8ce"
+        },
+        {
+          "name": "slice/2026-10-03-newsie-first-continuity",
+          "sha": "fdec0f043a98dbe7a7443a20a6d1f0ddd1ac2894"
+        },
+        {
+          "name": "slice/2026-10-05-charter-under-the-bell",
+          "sha": "a4f161291af2bc07005e4e3cf547c0a1823aaaea"
+        },
+        {
+          "name": "spec/madd-hugh-jackman-maxhinal",
+          "sha": "cbc221dcb7ac7a0b2556b5351534e7205ae16ebf"
+        },
+        {
+          "name": "spec/toastloaf-001-braided-edition",
+          "sha": "18ad5fc62335ed19ca68bffaabcc80ac69aef9b5"
+        },
+        {
+          "name": "spec/toastloaf-001-review",
+          "sha": "740b68106b2d1cf744e51ac95cfdab5a2cc4e945"
+        },
+        {
+          "name": "thread/biblical-through-line-quantum-yarn",
+          "sha": "258cdb11c0fe5bbe7f7f1c7650ea87914b8b607f"
+        },
+        {
+          "name": "thread/jubilee-engine-ports-assembled",
+          "sha": "ee5a4e1060da0a7d0a7368a28125c37186cf7cab"
+        },
+        {
+          "name": "walkthrough/fill-quotient-carrier-2026-08-29",
+          "sha": "733e9a0f15b64162ac14d72bb702255ba372868e"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/MEMENTO",
+      "refs": [
+        {
+          "name": "book/static-collective-a0",
+          "sha": "fc9c7ca5fdb69958b6588faa1acb7dcff375ff01"
+        },
+        {
+          "name": "canon/005-canon-cannonball-run-2026-09-21",
+          "sha": "aa243258d1bf8df50de88ca42456209b6c411f19"
+        },
+        {
+          "name": "design/trapper-keeper-weird-universal-receipts",
+          "sha": "535bf6b15e91368b055a64de04ee5032b1c916e6"
+        },
+        {
+          "name": "design/understory-historical-imaginations",
+          "sha": "131f40a067064b4d50b85d882ccb6f97c4a27901"
+        },
+        {
+          "name": "experiment/cultural-lineage-graph-001",
+          "sha": "e9754bd5f16993b5eddd8071219756fbfd4780ed"
+        },
+        {
+          "name": "experiment/distinction-reachability-001",
+          "sha": "c7642b3665e639c7074fe9c506c764628c90d7b1"
+        },
+        {
+          "name": "experiment/distinction-runtime-001",
+          "sha": "fa279e2a02a6f1eb8de00dae7cd7ef2a2670ecec"
+        },
+        {
+          "name": "experiment/indwelling-007-checkpoint-008-frontier",
+          "sha": "3b839a4cd3764e4ecdb5e93f2f2fb970285e461c"
+        },
+        {
+          "name": "experiment/indwelling-008-relational-fractal-affordance",
+          "sha": "d50a02c0bfc305ab356ec54a412e18ca438f2ac7"
+        },
+        {
+          "name": "experiment/inside-garden-001",
+          "sha": "870fc2b6da39a2073db655a70743cc4b5a215e5e"
+        },
+        {
+          "name": "experiment/interaction-grammar-001",
+          "sha": "aa3efc7b216aee48f5d423463b2138e46850cade"
+        },
+        {
+          "name": "experiment/madd-clown-relatte-crossing-001",
+          "sha": "7efd3065e1f21343240824a33c6763a0c815817a"
+        },
+        {
+          "name": "experiment/madd-understory-question-box-002",
+          "sha": "cb56d8de381258d70ea45496088dc6703f5ef3f9"
+        },
+        {
+          "name": "experiment/maddclown-phone-tumbler-001",
+          "sha": "a610503af6e541921262997438a861cd22233659"
+        },
+        {
+          "name": "experiment/role-nursery-001",
+          "sha": "a11593ec326b3f71823939a463a6e48d1cfe9d9d"
+        },
+        {
+          "name": "experiment/role-reachability-001",
+          "sha": "e8e73edaaf8310b6fdee1dbf84f67e6423309ce4"
+        },
+        {
+          "name": "experiment/role-transport-001",
+          "sha": "ce0f9b8d0c875d483fa63eab996e001512a81cfa"
+        },
+        {
+          "name": "experiment/shared-tradition-001",
+          "sha": "fc5a0194d215d452f75960465305bf08f2740a23"
+        },
+        {
+          "name": "experiment/tradition-formation-001",
+          "sha": "4bdd00acd9fabb0e6b066c7850013581a8773f46"
+        },
+        {
+          "name": "experiment/understory-003-checkpoint",
+          "sha": "3276071694b4a7a212b6c5fe25220da606baa1a4"
+        },
+        {
+          "name": "experiment/understory-fractal-particular-001",
+          "sha": "0b64a621bd7b683cef855a4a3a67523f9df096d4"
+        },
+        {
+          "name": "experiment/understory-self-call-001",
+          "sha": "4707cd95ae199b236cb3dae58b9026f50d264d98"
+        },
+        {
+          "name": "experiment/visual-dream-contact-001",
+          "sha": "1f52f1ae62bbd91e5ba22225b705f219c42bac94"
+        },
+        {
+          "name": "experiment/visual-dreaming-001",
+          "sha": "3fb1c393d72e165d7951d1713f7e94e3bff24c7a"
+        },
+        {
+          "name": "feat/memento-hatch-v0",
+          "sha": "682f5e70b712ce02915e9ca1dcb85cf59ea1f1da"
+        },
+        {
+          "name": "hjj/003-the-other-notebook",
+          "sha": "100b975530fed77bac9f3e71689175be826a1e40"
+        },
+        {
+          "name": "hjj/404-another-way-in",
+          "sha": "641b4014299c40e6cc021734ac01516b83bbcfb5"
+        },
+        {
+          "name": "impl/3rdi-memento-handoff-v0",
+          "sha": "bf8cf044b8fd645c0472cf8db925bdec9dafacc1"
+        },
+        {
+          "name": "journal/hjj-address-type-time-receipt-2026-09-16",
+          "sha": "d458a68bc0a39f9c5fff0d6aff7ceb6d17d6f5da"
+        },
+        {
+          "name": "journal/hugh-jackman-quantum-code-peak",
+          "sha": "b5f07109f634fae9ab93d05f75adfe2813b4877e"
+        },
+        {
+          "name": "journal/006-theseus-deck-2026-09-19",
+          "sha": "4f6e0ababf781be4915482be944276b0e0ff6a23"
+        },
+        {
+          "name": "journal/007-the-bell-was-first-2026-09-21",
+          "sha": "3344e8b97212b1035ca80ee549c0b0e4bcd580e1"
+        },
+        {
+          "name": "lemon/disputed-007-third-machine-20260924",
+          "sha": "70f596763c87c63908632545a4b96738c3a20834"
+        },
+        {
+          "name": "lemon/impossible-machines-007-gyrophonic-vessel",
+          "sha": "4866cb235ea2d12314262dd3949f204738f482d9"
+        },
+        {
+          "name": "lemon/001-room-was-already-there-20260924",
+          "sha": "929f235ab35691e8740d5962dd3b3a291b592bd5"
+        },
+        {
+          "name": "lighthouse/jubilee-engine-port",
+          "sha": "d7ee51f70140b1a4d5e9936d47354432ebcc5af6"
+        },
+        {
+          "name": "main",
+          "sha": "70ceaad8fd7a87e5b5f753f8f345693aec7570a0"
+        },
+        {
+          "name": "material/maxhimal-jaxmanal-wcbour",
+          "sha": "7da4e09f8e152da5c9126ddc480f82502f82eb5c"
+        },
+        {
+          "name": "memento/lift7-ring-phase-shift-20260831",
+          "sha": "bf8e0ed6a2ed4b064521fcd3f48586ee6a959cda"
+        },
+        {
+          "name": "research/darkness-visible-nvs-biway-001",
+          "sha": "da7d380cfc9e38343986dd1d729ec78911f1c9b4"
+        },
+        {
+          "name": "research/understory-face-down-card-2026-09-19",
+          "sha": "0247fa73d2d0d500394fc1d63f41150992bc63d5"
+        },
+        {
+          "name": "story/orchard-worldseed",
+          "sha": "bf48d294d2377ecc77fb6b0e31d4df8635419978"
+        },
+        {
+          "name": "story/007-witness-train-canonical-2026-09-19",
+          "sha": "2bdf979ccd838e7ea51fda27d31a680e32b80635"
+        },
+        {
+          "name": "understory/family-image-return-2026-09-22",
+          "sha": "4978dd35164ad4232280546ac87e366f92899cf8"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/Human-Witness",
+      "refs": [
+        {
+          "name": "design/maxhinal-13-constellation-001",
+          "sha": "0665e29739e5cd5c597eb7f9d5b83aa7e713a962"
+        },
+        {
+          "name": "implementation/maxhinal-13-001",
+          "sha": "e7ce02526f900b6f1aca42e0d7e0124f0e6ca53c"
+        },
+        {
+          "name": "implementation/maxhinal-13-issue-4",
+          "sha": "4f0143fcaf44dfe249ea7f2c769e7b39fed4dbfd"
+        },
+        {
+          "name": "main",
+          "sha": "6c30bae1896db52bdb387d25b9ee577e0542e055"
+        },
+        {
+          "name": "seed/human-witness-v0.1",
+          "sha": "117b29c36610e331c0585795bd8bafeef9be5650"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/ALEX.2",
+      "refs": [
+        {
+          "name": "agent/body-surface-standard-v0",
+          "sha": "3f3327cfcb5cc21988cf5ba32d1686e06c4e8267"
+        },
+        {
+          "name": "agent/crater-eligibility-independence-001",
+          "sha": "5385255c37fe6a9ddef8ac942b992fe930a76d02"
+        },
+        {
+          "name": "agent/crater-partition-swap-001",
+          "sha": "b81b8d5338e4043be56405d442dec439bf4852f7"
+        },
+        {
+          "name": "agent/crater-smash-name-composition",
+          "sha": "35539a22ba1d9b038e08a8a7cea026e3bce560a8"
+        },
+        {
+          "name": "agent/crater-smash-name-transport-probe",
+          "sha": "d56c57b5fa224c6403ae2cd34baaac1068b81356"
+        },
+        {
+          "name": "agent/crater-smash-order-swap-control",
+          "sha": "707f2f7ca106e8864b1fa156ba36017fb59ceac6"
+        },
+        {
+          "name": "agent/crater-smash-packet-digest-binding",
+          "sha": "2a35eaf99b738cf61d2dc257a7626c05a372d498"
+        },
+        {
+          "name": "agent/menu-provenance-001",
+          "sha": "1aadae09d73bdf1528bd0f3ea2818321291a1275"
+        },
+        {
+          "name": "agent/mn-church-legal-bedrock-001",
+          "sha": "e86d36e0870764c285a60048c94b1222ded08991"
+        },
+        {
+          "name": "agent/skyslicey72",
+          "sha": "28208e5e2fbcd5b5ae00188ef3dbfc1b53ed0be4"
+        },
+        {
+          "name": "alchemathology-ninefold",
+          "sha": "3f60f2021e811e2a9e12dc97d3b4d8b5bc9a6614"
+        },
+        {
+          "name": "design/alex-desk-v0",
+          "sha": "ce500806a2c057a463408e0c8c394c18a92f0135"
+        },
+        {
+          "name": "design/alex-loadout-runtime-boundary-v0",
+          "sha": "003e360bc47f24c84bbf894f32aeec7d2e41a3cd"
+        },
+        {
+          "name": "design/alexandria-floor-v0",
+          "sha": "080c3e2b7c645a6f17c584bb661c3bdf53a6f374"
+        },
+        {
+          "name": "design/binocular-recursion-001",
+          "sha": "811dfbd086652e4cd49a3854d2c66e31d64dbbaa"
+        },
+        {
+          "name": "design/bookroom-001-gate4",
+          "sha": "ab33b978c71da2c789542c78a9876e41348da042"
+        },
+        {
+          "name": "design/cross-aperture-intersection-001",
+          "sha": "abd01155d3cb43a091a338c95402ee87f6553a38"
+        },
+        {
+          "name": "design/far-side-pass-practice",
+          "sha": "2723c12ee62e7c8a504dbb0f3c2cfbf7bb5af8ae"
+        },
+        {
+          "name": "design/mathal-runtime-harvest",
+          "sha": "076871f2319ef6fffe632eb4c9d53d10a655b413"
+        },
+        {
+          "name": "design/mediated-support-rectangle",
+          "sha": "e9685b7482e6f3076986be0b0998e3a208feac76"
+        },
+        {
+          "name": "design/projection-invariance-frontier",
+          "sha": "34a80f5c8d866df9da0a6cab7ca4bd46dea8eb3c"
+        },
+        {
+          "name": "design/research-formation-spine-chronobody",
+          "sha": "605b280325d154c0680cca945a6f1224e27e6a35"
+        },
+        {
+          "name": "exp/criterion-not-policy-001",
+          "sha": "5741061bc0016551a85b52ab26bb8f09270f9822"
+        },
+        {
+          "name": "experiment/relation-nursery-001",
+          "sha": "c25759f5444d44983758f5816b872055f4bec79f"
+        },
+        {
+          "name": "feat/blind-crucible-v1",
+          "sha": "b242089b52fa302945511cea43a7f9c854a69e73"
+        },
+        {
+          "name": "feat/bookroom-001-gate4-runtime",
+          "sha": "f76f36319e3e0a26a45ad63f1d1592c59ebcd71e"
+        },
+        {
+          "name": "feat/loadinstead-door-router-m0",
+          "sha": "acb7a0471230b9872ec9ed8e73593b485a9a1e55"
+        },
+        {
+          "name": "feat/loadout-front-door",
+          "sha": "2e30c10358006d509b948c1ec8217a5fde7b75b2"
+        },
+        {
+          "name": "feat/loadout-handshake-v0",
+          "sha": "8a30122fe0982a2e8953391eeff84ab1f13b2e3b"
+        },
+        {
+          "name": "feat/local-support-001-refresh",
+          "sha": "bbaed64b4f8f35f1cc116a32f8e93446d6e36406"
+        },
+        {
+          "name": "feat/local-support-001",
+          "sha": "61acaee2d6f56c66431c00fb1720590f6c5c4e21"
+        },
+        {
+          "name": "feat/mortal-actor-001-loadout",
+          "sha": "08048efba661242d07b489240d237a6d1544e747"
+        },
+        {
+          "name": "feat/mortal-actor-loadout-binding",
+          "sha": "81c9192d4b0c57fb1ba28832d2a28fa886816d12"
+        },
+        {
+          "name": "feat/mortal-actor-local-support",
+          "sha": "e816beb8c6bfd9f99dc76dff8b9e3c8e9a76df7c"
+        },
+        {
+          "name": "feat/name-attestation-transform-v0",
+          "sha": "c2d97b761c5df93e41f9b2f1fee35b326bcce446"
+        },
+        {
+          "name": "feat/name-nulls-001-refresh",
+          "sha": "3d3a0064ccd5a647e1740f19ada5402d6fa50491"
+        },
+        {
+          "name": "feat/name-nulls-001",
+          "sha": "d8bc33f062f024551846ff2a2d70ea12b560d205"
+        },
+        {
+          "name": "feat/name-six-specimen-gate-001",
+          "sha": "17401770d51f288c785d2510f98f7474ccc3c703"
+        },
+        {
+          "name": "feat/night-grown-crucibles",
+          "sha": "c7e6d929a037afbacaf544ce9b871d7b0d3c2f25"
+        },
+        {
+          "name": "feat/passage-world-alex-formation",
+          "sha": "5ba2718042d0af65b5f73b15f7448756da71c4a4"
+        },
+        {
+          "name": "feat/relation-derivation-001",
+          "sha": "7fa1d138bfd14906394738c9fc47f3e64a3ca1fb"
+        },
+        {
+          "name": "feat/world-bridge-001",
+          "sha": "58fb96ec03b80344d2ca29583cfed9aee085cc85"
+        },
+        {
+          "name": "feature/alex-commons-dialogic-trace-v0",
+          "sha": "be3477ec9acf89769fe8705d28ca8d00cc6c82e1"
+        },
+        {
+          "name": "feature/cross-aperture-intersection-001",
+          "sha": "3a99350797a19cdc78f8fbe7eb02664347ccb049"
+        },
+        {
+          "name": "feature/far-side-pass-m0",
+          "sha": "52c678767017c170506ce1895d3a610b6ef115b4"
+        },
+        {
+          "name": "feature/ungate-001-decoder-ring-archaeology",
+          "sha": "a8db4e0c491a3634228b12757d29a35911b13290"
+        },
+        {
+          "name": "impl/binocular-recursion-001",
+          "sha": "c26620efc3c601eb0686825e1cfcbe1f1951f49e"
+        },
+        {
+          "name": "impl/chronobody-research-spine-v0",
+          "sha": "8a257fe799723183469c89c029f93f2d4ec2d3be"
+        },
+        {
+          "name": "impl/cross-aperture-intersection-001",
+          "sha": "849eef70801b5712cb48662a6b919fe4e4b4f86c"
+        },
+        {
+          "name": "impl/projection-break-001",
+          "sha": "923540d38288dd917335ec11d6714b3757bc19f2"
+        },
+        {
+          "name": "impl/projection-invariance-001",
+          "sha": "d096000a873acb128d6ebc45e5a959784cd88d6f"
+        },
+        {
+          "name": "lighthouse/jubilee-engine-port",
+          "sha": "c4c8c36874f6b9b6a7f6e70bae5b7f9f246eb517"
+        },
+        {
+          "name": "main",
+          "sha": "7d116b716df82ee2379b399d90936d2fc01b7b16"
+        },
+        {
+          "name": "navigation-aperture-2026-09-27",
+          "sha": "7fe35a7375d365ad814d99ddf564d040d50dbfab"
+        },
+        {
+          "name": "noop-temp-check",
+          "sha": "8657054a6055f4f3fc7bed170de1364ac6e1072d"
+        },
+        {
+          "name": "plan/binocular-recursion-001",
+          "sha": "9e343aad870aae31fb510dd3d54b51f16f6edea3"
+        },
+        {
+          "name": "plan/bookroom-001-gate4",
+          "sha": "ffb0c5d9f30a19999dac90bbcdb4de247be75fdb"
+        },
+        {
+          "name": "proof/passage-world-owner-export",
+          "sha": "b953fa0dca364442ea26e941bc48ff71802ec968"
+        },
+        {
+          "name": "reconcile/count-boundary-research-current-main",
+          "sha": "95306339fb88584a6a68a8279ad0c5a684238cf3"
+        },
+        {
+          "name": "reconcile/far-side-pass-m0-current-main",
+          "sha": "f370ed05e2716fee7f72b5caf45615fae6a86c1e"
+        },
+        {
+          "name": "reconcile/maddcl0wn-broken-decoder-current-main",
+          "sha": "8b1098aa4c86272301cd4134910b26e47bf393c7"
+        },
+        {
+          "name": "reconcile/openness-ringing-current-main",
+          "sha": "4223c6e547d887d143105615bf868abd59cd4666"
+        },
+        {
+          "name": "reconcile/partition-swap-001-current-main",
+          "sha": "9543fdca106718259ee7f1ad0b25df62564fdd69"
+        },
+        {
+          "name": "research/co-phase-relation-001",
+          "sha": "4a3dfe7da92f6162abdf8f7dc8a3638f19890fa6"
+        },
+        {
+          "name": "research/darkness-visible-wtc-corkboard-001",
+          "sha": "d6a044d438263a13faf94ee2aa5433ecb4dbe723"
+        },
+        {
+          "name": "research/decoder-as-probe-2026-08-28",
+          "sha": "514378b2e3f77d82c561b7ab83626907a92c9efb"
+        },
+        {
+          "name": "research/hinge-001-constitutive-crossing",
+          "sha": "ee445f142cc8a802a0e1b4cf6f77ac296440f9db"
+        },
+        {
+          "name": "research/interest-becomes-causal-when-read-2026-08-28",
+          "sha": "e3e3bc704d9621a18023e6749433fe060d93ff0c"
+        },
+        {
+          "name": "research/maddcl0wn-broken-decoder-pressure-2026-08-28-r2",
+          "sha": "5b720d9f8cd2060a8259a2dcb321c54bdb8daaae"
+        },
+        {
+          "name": "research/maddcl0wn-broken-decoder-pressure-2026-08-28",
+          "sha": "c5b3e4c7e7f9bbfe617f5ada41df971f79854343"
+        },
+        {
+          "name": "research/openness-multiplies-ringing-2026-08-28",
+          "sha": "10783f7e4e06fab203a3c4861623c6ff713bd0fa"
+        },
+        {
+          "name": "research/order-scale-recurrence-001",
+          "sha": "bdcfc984863c16c9d6279f04e0e0e418a5750f55"
+        },
+        {
+          "name": "research/ptah-memphis-shabaqo-2026-09-17",
+          "sha": "560a33ac64a9ed5306a0957563a37025b8494f2c"
+        },
+        {
+          "name": "research/question-operation-reachability-reconcile",
+          "sha": "379ae7fc631f59da637835b9e017631525338bfb"
+        },
+        {
+          "name": "research/receipt-is-not-the-past-2026-08-27",
+          "sha": "57e0beb661bf126641f9c7c4a8e8b8d11dea1e06"
+        },
+        {
+          "name": "research/target-determinacy-fiber-sufficiency-skeleton",
+          "sha": "4a3f3bb5305ab726e011239d458bf08cc87afb07"
+        },
+        {
+          "name": "research/temporal-crucible-2026-08-26",
+          "sha": "50960b1c2ad659f5c11a566f49c099066cb007ee"
+        },
+        {
+          "name": "research/typed-occurrence-field-2026-08-27",
+          "sha": "0f1dac43d1983482989faad5985b5ada29be1908"
+        },
+        {
+          "name": "research/when-is-partial-order-2026-08-27",
+          "sha": "d23aada1c377577b94d8ea6c8c67eb2e71baf2e5"
+        },
+        {
+          "name": "slice/count-boundary-research-v0",
+          "sha": "0ed0c2c41cbfddc9596a553e5304aebabb245e3b"
+        },
+        {
+          "name": "slice/homega-active-discernment-2026-08-29",
+          "sha": "3035dd1aaeaf49265169e75dc6dce00cb3c8961e"
+        },
+        {
+          "name": "slice/maddcl0wn-residual-probe-001",
+          "sha": "62ab70c961fc8113a444f9152e0befc54ff77496"
+        },
+        {
+          "name": "slice/rebind-without-retrojection-001",
+          "sha": "b51df6ccfcca9c103baf7311f6245e5a00a969e8"
+        },
+        {
+          "name": "slice/receipt-descent-001",
+          "sha": "702ee2705a4d2648697a622f85a97e0222bca775"
+        },
+        {
+          "name": "slice/smash-relational-closure-round",
+          "sha": "e8b1559eabd661a03031c2cfc87171391c6acb5b"
+        },
+        {
+          "name": "slice/syzygy-pressure-001",
+          "sha": "22725f32abf8a53125fbbd9f73f2be229c77ab8a"
+        },
+        {
+          "name": "test/passage-world-loadinstead",
+          "sha": "41d9bf957620661b3f95cfcac3ffdab6eb292df5"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/3rdi",
+      "refs": [
+        {
+          "name": "agent/body-surface-standard-v0",
+          "sha": "6477b212f56fa09b63241625b012a58e90d99cbf"
+        },
+        {
+          "name": "agent/jubilee-handoff-cut-001",
+          "sha": "5c7d2beb48b9e276ba4760d1eadb93a727648c70"
+        },
+        {
+          "name": "agent/skyslicey72",
+          "sha": "e08b743be5d855848fba11b4a9cb1d29d403c9f3"
+        },
+        {
+          "name": "crater/formation-walk-chronology-001",
+          "sha": "03aea4c44a3d67bae4a957ac13f739d5dd20cbf1"
+        },
+        {
+          "name": "design/memento-handoff-v0",
+          "sha": "52cdfeed069248f017d463291fb2259b9efab86a"
+        },
+        {
+          "name": "design/memento-understory-routing",
+          "sha": "e1c32d409a237982b6c1abf8985e50b7d955b21f"
+        },
+        {
+          "name": "design/walk-receipt-projection-v0",
+          "sha": "3239801cc2843569f49403d44bdf638e9690d9f5"
+        },
+        {
+          "name": "experiment/glyph-transition-quotient-deform-001",
+          "sha": "ac139a3d61e20b71bcd14090cb8de1993a7c8270"
+        },
+        {
+          "name": "experiment/residual-cut-001",
+          "sha": "481766cab1ab035e691b64ff1f440e3543baf040"
+        },
+        {
+          "name": "experiment/successor-lift-001",
+          "sha": "a5c60a8e239d33b16e3ad0f01c63d28ebac8ec73"
+        },
+        {
+          "name": "feat/glyphtrace-v0-land",
+          "sha": "d37174b1330f395c675c3e01c7cb4cdaa3b0f853"
+        },
+        {
+          "name": "feat/glyphtrace-v0",
+          "sha": "d37174b1330f395c675c3e01c7cb4cdaa3b0f853"
+        },
+        {
+          "name": "feat/hatch-3rdi",
+          "sha": "c856a67bf88da983e24905dd88b61ae50cfd0b9b"
+        },
+        {
+          "name": "feat/mortal-actor-001-handoff",
+          "sha": "04781217996622cf3e8d151d845c64772189b17d"
+        },
+        {
+          "name": "impl/memento-handoff-v0",
+          "sha": "75a51cc76d7356b0ebd7560494f58695c6e6d1ba"
+        },
+        {
+          "name": "impl/walk-receipt-projection-v0",
+          "sha": "dfbdc5aec9e1b75a633c0a434cd6913d447662b1"
+        },
+        {
+          "name": "lighthouse/jubilee-engine-port",
+          "sha": "d64816a2df9e4d22374d5bee4ca8d09b39f64ba1"
+        },
+        {
+          "name": "main",
+          "sha": "e631167a04c6bd1bf95c62cbe5a415994ebb8134"
+        },
+        {
+          "name": "reconcile/epistemic-walk-current-main",
+          "sha": "e85e1a849acedc117680e90246abe57178f63581"
+        },
+        {
+          "name": "research/silver-colloid-relation-projection",
+          "sha": "cf9b6d0d6e53435bd18e529532e44840a2c21b55"
+        },
+        {
+          "name": "research/walk-braid-projection-001",
+          "sha": "e3c5a401efc3a7a8af90b367aca8533661a0492c"
+        },
+        {
+          "name": "slice/formation-aperture-2026-08-29",
+          "sha": "b996b557e0719676e188caba1fe206b62832bb02"
+        },
+        {
+          "name": "slice/heartsee-raw-openings-frontier",
+          "sha": "571c87a9a353da1bafc60f6f106900d67b0a81ef"
+        },
+        {
+          "name": "slice/name-observer-cuts-v0",
+          "sha": "353d4d528bfcc92ae6b4e47ca49cfc07fc7523b4"
+        },
+        {
+          "name": "slice/rebind-without-retrojection-001",
+          "sha": "cce0c6a8718f72cbee0a2d0c7b391e2eb9a5d33e"
+        },
+        {
+          "name": "slice/syzygy-cut-001",
+          "sha": "09dad36f730ba0d198ace1857762b452c899d290"
+        },
+        {
+          "name": "slice/water-name-hypertube-observer-cuts-2026-08-29",
+          "sha": "e51af4692bd368116dda7a6275ee7c2cd58efcd7"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/Dogram",
+      "refs": [
+        {
+          "name": "agent/body-surface-standard-v0",
+          "sha": "f422473fcf5b3f07fa0f5e300f0e0d809575c287"
+        },
+        {
+          "name": "agent/skyslicey72",
+          "sha": "3a29b3ecc245481af06e698cea6fcc6eff4f8808"
+        },
+        {
+          "name": "alchemathology-ninefold",
+          "sha": "e2cd007f04bf188a39d62488dca5f60ecd06b7ab"
+        },
+        {
+          "name": "design/binocular-disparity-mathals",
+          "sha": "91a09bf67576ccff5e5c129790313204731185e9"
+        },
+        {
+          "name": "design/contribution-field-001",
+          "sha": "d628a1abb9e8726efa45dac46e460747888d61b0"
+        },
+        {
+          "name": "design/execution-cut-omega-quotient-001",
+          "sha": "5eb88c7c030bfafac7d4fec886815f5d8471c7f5"
+        },
+        {
+          "name": "design/lift-tower-cross-repo-slices",
+          "sha": "583d3844bab96d0cff837bb25f1ded29cea060b9"
+        },
+        {
+          "name": "design/mapping-torus-receipt-v0",
+          "sha": "e3bbb8db9aadcc1cacd6e4d6aa52fcb6e44132c7"
+        },
+        {
+          "name": "design/omega-cycle-001",
+          "sha": "4046698b0a83ecb7869b151261a8687bcaa9cdab"
+        },
+        {
+          "name": "design/phaselift-3-promotion-kernel",
+          "sha": "4c7d19598872d8a7b41dee2da4f685945d2aa2b9"
+        },
+        {
+          "name": "design/productive-desync-transverse-generators-001",
+          "sha": "7a5d4e9649e71fd468b807aaaea5a38323908605"
+        },
+        {
+          "name": "experiment/temporal-return-001-clockwork-crossing",
+          "sha": "4b09cca5a81b2b9ad5c6df34ac76dae9fa895159"
+        },
+        {
+          "name": "feat/automatic-impact-check",
+          "sha": "7ddf87dbe30677315d6cdc985c24611003c40f43"
+        },
+        {
+          "name": "feat/generation-delta-001",
+          "sha": "643958c6d9080d5089fbc6137106c303c458609b"
+        },
+        {
+          "name": "feat/impact-receipt",
+          "sha": "5d5c64ddb06a21d99acebe7234486721781b5784"
+        },
+        {
+          "name": "feat/listener-delta-001",
+          "sha": "23ab03095b08e2d0445ba2fd09e2c684e1599a80"
+        },
+        {
+          "name": "feat/toaster-paired-render-experiment",
+          "sha": "a50df93f201ff186f8f3fb73c5c1d2e679415754"
+        },
+        {
+          "name": "feature/grace-game-mechanics-stdio",
+          "sha": "0e1d30431421419073948a65834efdfca1a38bb3"
+        },
+        {
+          "name": "fix/declared-failure-family-cardinality-receipt",
+          "sha": "83b7b04ddd66b304c2a7935cf800896faabf69ea"
+        },
+        {
+          "name": "gap-trough-funnel-vortex-fatdog",
+          "sha": "58a3012747f6e06600a51602edf54a61d3b48a8f"
+        },
+        {
+          "name": "impl/dogram-v0",
+          "sha": "043aedc84dd7b92223ec66cd733edb14c9965a96"
+        },
+        {
+          "name": "impl/execution-cut-omega-quotient-001",
+          "sha": "765acecb2ef0404c3ed3c385c624cd5cd1f25733"
+        },
+        {
+          "name": "impl/ice-cube-001",
+          "sha": "9ec97eab633ef25f7b1cba209aee27f5067b095e"
+        },
+        {
+          "name": "impl/mapping-torus-receipt-v0",
+          "sha": "b5eaf88031d502cd48c17bc23693c936c541aab0"
+        },
+        {
+          "name": "impl/mathal-vm-delta-bootstrap",
+          "sha": "7725f0b6466d936d6cde2fc7258237556b106406"
+        },
+        {
+          "name": "impl/omega-cycle-001",
+          "sha": "a8862aedd3e2118a50f8dd8e33245d81d8a1a7fe"
+        },
+        {
+          "name": "impl/productive-desync-transverse-generators-001",
+          "sha": "b0667f19f4b675446c86a95a8110c4df8bf10387"
+        },
+        {
+          "name": "impl/quotient-return-honing",
+          "sha": "994f8e44cb55f6ffde9a88afb041249591582177"
+        },
+        {
+          "name": "impl/sparse-ice-probe-001",
+          "sha": "767dd6876225d863ce20ae07cee6017e5a80f7cb"
+        },
+        {
+          "name": "lighthouse/jubilee-engine-port",
+          "sha": "550b618a4156425516e8fe5f1dbb9d9a4406ad69"
+        },
+        {
+          "name": "lumi/phaselift-flow-gap-mathal-ledger",
+          "sha": "463234469b651907881f992b1997250e29bc1276"
+        },
+        {
+          "name": "main",
+          "sha": "551b5f9df18f17ec69b452ddcdff01718e0ff771"
+        },
+        {
+          "name": "noop",
+          "sha": "159672207f5fdfc6ff030ab5cb325bebebab00b9"
+        },
+        {
+          "name": "noop2",
+          "sha": "159672207f5fdfc6ff030ab5cb325bebebab00b9"
+        },
+        {
+          "name": "noop3",
+          "sha": "159672207f5fdfc6ff030ab5cb325bebebab00b9"
+        },
+        {
+          "name": "noop4",
+          "sha": "159672207f5fdfc6ff030ab5cb325bebebab00b9"
+        },
+        {
+          "name": "noop5",
+          "sha": "159672207f5fdfc6ff030ab5cb325bebebab00b9"
+        },
+        {
+          "name": "noop6",
+          "sha": "159672207f5fdfc6ff030ab5cb325bebebab00b9"
+        },
+        {
+          "name": "noop7",
+          "sha": "159672207f5fdfc6ff030ab5cb325bebebab00b9"
+        },
+        {
+          "name": "noop-check",
+          "sha": "043aedc84dd7b92223ec66cd733edb14c9965a96"
+        },
+        {
+          "name": "noop-review",
+          "sha": "ed4a728ae3f566989f6e51b5f0e0b2aeb2e076d7"
+        },
+        {
+          "name": "noop-temp-check",
+          "sha": "c3c1148f1bd1ed0a98a7714586e9cc1a746ddc63"
+        },
+        {
+          "name": "phase-a-oracle-floor",
+          "sha": "2634c291897dcc84633a3f073ab448d0a773e74d"
+        },
+        {
+          "name": "plan/quotient-return-honing",
+          "sha": "861ec6141d5e0499e397299568b39087c75d40e3"
+        },
+        {
+          "name": "reconcile/execution-cut-omega-quotient-current-main",
+          "sha": "983f8fbc1c631fedcc07120856af1a4ea3747369"
+        },
+        {
+          "name": "reconcile/variation-cube-current-main",
+          "sha": "ca43e83cfff1cf3847cb6b84b8e24bd5a68bae4b"
+        },
+        {
+          "name": "research/APERTURE-PARTITION-LATTICE-001",
+          "sha": "9e5ad1efe4a6e14f349be6fc0e9f6468f63af813"
+        },
+        {
+          "name": "research/COLOR-REFINEMENT-FIXPOINT-001",
+          "sha": "5130078df50dad287701681b947a3b711f4f7c08"
+        },
+        {
+          "name": "research/COUPLING-WITNESS-001",
+          "sha": "b12b56e96d41b6d57ad9a471060e62b9c2dfb824"
+        },
+        {
+          "name": "research/DOGWOLF-001-operation-preservation",
+          "sha": "33f357e85effef867b2c00b396743188a4b84977"
+        },
+        {
+          "name": "research/DOGWOLF-002-phantom-path-lift",
+          "sha": "fd91759a87de1d78b00a78d0e4c16e5292c4105d"
+        },
+        {
+          "name": "research/EQUITABLE-QUOTIENT-REALIZATION-001",
+          "sha": "0d2d848ef9a3c5243492bd28fa5c9a71423b2508"
+        },
+        {
+          "name": "research/FACTORIZATION-PATH-001",
+          "sha": "bcd654778b4d56db2d8460c275c1f09d6ef1c039"
+        },
+        {
+          "name": "research/MARKOV-LUMPABILITY-001",
+          "sha": "f6f21e1d6ec72b58350a5f09312e98f3ec8c85e3"
+        },
+        {
+          "name": "research/MARKOV-LUMPABILITY-RESIDUAL-001",
+          "sha": "5b77bb1d2a2b34ed44bb88f8f4b644ff7e7cfb08"
+        },
+        {
+          "name": "research/MARKOV-RESIDUAL-PROPAGATION-001",
+          "sha": "cefa63d8ad35829cd3751e14265552f34385e9bf"
+        },
+        {
+          "name": "research/OUTER-DISTRIBUTION-001",
+          "sha": "71a6046b7870e195598c80a0e4c1f33e3f94525a"
+        },
+        {
+          "name": "research/PARALLEL-ARROW-FACTORIZATION-001",
+          "sha": "97a706e7899db6faffd0832fa695ffe51362e9f4"
+        },
+        {
+          "name": "research/PARALLEL-COHERENCE-WITNESS-001",
+          "sha": "b9ceff54929298e381eac4749108e5268b55b4fe"
+        },
+        {
+          "name": "research/PARALLEL-EQUIVALENCE-WITNESS-001",
+          "sha": "7a9d4c4afd4ab243c5267772fc5fedabb5875498"
+        },
+        {
+          "name": "research/PROBE-LATTICE-INCOMPARABILITY-001",
+          "sha": "0d2d848ef9a3c5243492bd28fa5c9a71423b2508"
+        },
+        {
+          "name": "research/STRICT3-INTERCHANGE-FACTORIZATION-001",
+          "sha": "bb5d381ca7d88e54537d22a7f878a590eb9d9453"
+        },
+        {
+          "name": "research/TRANSPORT-GEOMETRY-001",
+          "sha": "66bd7041eaa68901a651c66080a565393ee95e7d"
+        },
+        {
+          "name": "research/TYPED-COSPECTRAL-INCIDENCE-001",
+          "sha": "0b37e5dd638e3b2cd0203347bc3b44bcf9063df6"
+        },
+        {
+          "name": "research/action-groupoid-transport-001",
+          "sha": "db4036481b5d7e714822107778d8be2586f5f9b0"
+        },
+        {
+          "name": "research/adaptive-probe-cost-prior-001",
+          "sha": "17290a3d21d49f6341f578f16bc1a55639edba59"
+        },
+        {
+          "name": "research/ambiguity-profile-001",
+          "sha": "3f99796d5c779e9c20c980fc2fb51bafb0f70d5c"
+        },
+        {
+          "name": "research/anti-collapse-reachability-001",
+          "sha": "4d5175f2381ec8abdaf3bf1e081251166103ca19"
+        },
+        {
+          "name": "research/banach-section-obstruction-001",
+          "sha": "098921c1cfeaad09056e90016d088628489cade3"
+        },
+        {
+          "name": "research/biregular-incidence-collision-001",
+          "sha": "e9bba964fdacd8555af4a8dc93f25bcd75243770"
+        },
+        {
+          "name": "research/blocker-summary-collision-001",
+          "sha": "65e1160c564b4cfdbf5a6bc77821d6987eea6403"
+        },
+        {
+          "name": "research/budget-rounding-residual-001",
+          "sha": "46b9aa279e5f21f9d06e09d9f86321edf4d3b80c"
+        },
+        {
+          "name": "research/co-phase-walk-braid-spring",
+          "sha": "855c7f5a051dca567d52a64a6472a0a4310650fb"
+        },
+        {
+          "name": "research/cochain-witness-nonuniqueness-001",
+          "sha": "7f02a4c481e0a56dd224950bf10261ab355a1cc0"
+        },
+        {
+          "name": "research/cohomologous-associator-change-001",
+          "sha": "7472fad327b49d54c1dd809313ea32476e4fcbf9"
+        },
+        {
+          "name": "research/cohomologous-associator-gauge-001",
+          "sha": "732690d425483273aaedb5cb160f17b0541e1e2b"
+        },
+        {
+          "name": "research/commute-001-finite-ordered-paths",
+          "sha": "1e3396f72173e9e2f30f8d0e9b64e5714f79ec98"
+        },
+        {
+          "name": "research/convex-presentation-invariance-001",
+          "sha": "f8e278307ccfc66a4e64a1d0f3fd2086eeb0f1e6"
+        },
+        {
+          "name": "research/coordinate-covariance-001",
+          "sha": "34016b2071a2cf520e432cc85733dad1087bbcba"
+        },
+        {
+          "name": "research/critical-hessian-inertia-001",
+          "sha": "0615a5eeecbe892480dd9231b433142b50902c1d"
+        },
+        {
+          "name": "research/crossed-module-face-lift-001",
+          "sha": "7451b1cfdf75b1f292e49b8e8842902e810db7ea"
+        },
+        {
+          "name": "research/declared-failure-family-001",
+          "sha": "3c4e3d308088a4f869bf34f690836228fe199ec7"
+        },
+        {
+          "name": "research/declared-path-equivalence-001",
+          "sha": "cec39f03e0e92076e35a82cf78a5d64a976dde14"
+        },
+        {
+          "name": "research/decoder-space-calculus-2026-08-28",
+          "sha": "12c7b906b0ac4c92983c79e495b540b13373f20a"
+        },
+        {
+          "name": "research/delta-as-carrier-001",
+          "sha": "f3df80af8f915fe11731876e7445c4f3ee47aec7"
+        },
+        {
+          "name": "research/descend-001-quotient-operation-preservation",
+          "sha": "4d704af28ea635bcc68ae0555e65c55527c25865"
+        },
+        {
+          "name": "research/dogwolf-compose-001-workbench-receipt",
+          "sha": "809a02040b0de0c34521a7186151fce757e6fdc4"
+        },
+        {
+          "name": "research/drmaddd-return-gluing-obstruction",
+          "sha": "a465f81b4788c6f43c83a9703dd430d537ed9c6f"
+        },
+        {
+          "name": "research/equitable-quotient-realization-001",
+          "sha": "62af19660f69f16ada8a27ff66909ca53d79ec0f"
+        },
+        {
+          "name": "research/erasure-corruption-distance-001",
+          "sha": "bef66cf3fda0c682fe7d965426ecb9d0cdd5a20d"
+        },
+        {
+          "name": "research/facet-scaling-multiplier-001",
+          "sha": "464131f37812e1f78078a20c794a9ecb0ff0e034"
+        },
+        {
+          "name": "research/fatdog-345-hidden-lift-disclosure",
+          "sha": "da6377f9de7b62876c54ac8e31d730e1e58a9298"
+        },
+        {
+          "name": "research/field-reduction-dependence-001",
+          "sha": "824a8d4fc54aa7d591581f73ffda93ff13092f8d"
+        },
+        {
+          "name": "research/finite-gauge-holonomy-001",
+          "sha": "f712a12af1aaa5f6bb774ea30f198f3a1e0a7ec0"
+        },
+        {
+          "name": "research/foata-profile-collision-001",
+          "sha": "6e026a87c320753774a224d21b60b3c7bdf4ef3f"
+        },
+        {
+          "name": "research/fractional-isomorphism-coupling-001",
+          "sha": "dce8a34bf0316635f38b4e63ab64081db537fd26"
+        },
+        {
+          "name": "research/h-representation-dual-degeneracy-001",
+          "sha": "3f8cfb8cfdafddddb7514d9eff7d1bbb0b656b60"
+        },
+        {
+          "name": "research/heisenberg-bilinear-order-residue-001",
+          "sha": "b6fe0b12e59f87735d3977e05bcc01e1bf8b928f"
+        },
+        {
+          "name": "research/higher-order-dependence-001",
+          "sha": "664980f66589b57e058c45bd72a8c3e6bdae5160"
+        },
+        {
+          "name": "research/hinge-dogram-001",
+          "sha": "70fab52e85b9cca09c10d7068843971db0a2c1c2"
+        },
+        {
+          "name": "research/hypergraph-blocker-duality-001",
+          "sha": "f89f0e06c3987061f90ede27f547e6b4ac6f1796"
+        },
+        {
+          "name": "research/ingleton-representability-obstruction-001",
+          "sha": "9860805eae2f462788e7577037de40ab902127d6"
+        },
+        {
+          "name": "research/inverse-perturbation-singularity-001",
+          "sha": "fa059f0d8497c3a539a0f85f3f3e051e19416066"
+        },
+        {
+          "name": "research/jet-order-vanishing-001",
+          "sha": "1d6152d0e10daec0c691c20f91015a2762d84e7e"
+        },
+        {
+          "name": "research/joint-degree-incidence-001",
+          "sha": "e93c6484b7fe32b88749826cb2e9205f8c71f4bb"
+        },
+        {
+          "name": "research/laplacian-codegree-structure-001",
+          "sha": "20d519b5d8054e3ec6d40fe6f6d87bf84356627b"
+        },
+        {
+          "name": "research/laplacian-cospectral-structure-001",
+          "sha": "d87a9f697ed377250531aaf171d36959ca474ac5"
+        },
+        {
+          "name": "research/lineage-braid-001",
+          "sha": "9e3ec66c2d074a62006687eeec60dc8f0a17a0a4"
+        },
+        {
+          "name": "research/lineage-spine-001",
+          "sha": "86df807ea25919b263925222367ce646c611fbfb"
+        },
+        {
+          "name": "research/lineage-weave-001",
+          "sha": "8c0a434096e50782467c5ef24a1c9cde2fb6d478"
+        },
+        {
+          "name": "research/list-decoding-ambiguity-001",
+          "sha": "0bad0bd4cb45864923f702f177efae8726d534e0"
+        },
+        {
+          "name": "research/local-global-cycle-cohomology-001",
+          "sha": "2e0edfdf7a6f15a3b296f9b7f7397b36930287e7"
+        },
+        {
+          "name": "research/localized-spectral-deck-001",
+          "sha": "687f874109bf2a6f4f4b16d1abf31bd5cc3a6292"
+        },
+        {
+          "name": "research/mathband-incubator-001-design",
+          "sha": "d9b1c6099339df593212362846c1f408ce18e3a2"
+        },
+        {
+          "name": "research/matroid-rank-coherence-001",
+          "sha": "f426fea6a7699f72abea6a07e535ef9aacf53c91"
+        },
+        {
+          "name": "research/may-union-quotient-001",
+          "sha": "d3ac2412f062e5431a4a7b39b0071d51bd2820a6"
+        },
+        {
+          "name": "research/mazurkiewicz-trace-quotient-001",
+          "sha": "b3830c761c53b4287f5dcfbcbeb3066e2c855c3c"
+        },
+        {
+          "name": "research/minimal-separating-bases-001",
+          "sha": "eebe90a10ecca945b4a49b1c57c50f142a918055"
+        },
+        {
+          "name": "research/modal-extrema-incidence-001",
+          "sha": "fe16578d7d5ce921a8b87cc2cd9f610d19d9037d"
+        },
+        {
+          "name": "research/non-normal-type-constitution-001",
+          "sha": "2ac4d96cc7f0ecce4dc8d603c1fb318ee0b01a5e"
+        },
+        {
+          "name": "research/nonlinear-hessian-chain-001",
+          "sha": "be4d150642036fdf4dca117294e02b5cdd297325"
+        },
+        {
+          "name": "research/operation-reachability-quotient-001",
+          "sha": "fa2ef084d5ea4429581f06eca38fe55379f10df0"
+        },
+        {
+          "name": "research/orbit-audio-inverse-001",
+          "sha": "ac23a2af0ee4d83ddf1cf238070aca21a40462d8"
+        },
+        {
+          "name": "research/orientation-signature-001",
+          "sha": "6fb2a7704fe5ff2327aed4a15d2c7b51cf5736fd"
+        },
+        {
+          "name": "research/pareto-transport-001",
+          "sha": "9e76c93fb4b1a9551a821f34b284bb1eb551dbc1"
+        },
+        {
+          "name": "research/path-tree-test-language-001",
+          "sha": "576b641d04e68f99200a64bf80362c5111641dea"
+        },
+        {
+          "name": "research/petri-incidence-concurrency-001",
+          "sha": "4f539cfc47ba5bb6079766e28b8908b756742925"
+        },
+        {
+          "name": "research/plj-triadic-screw-orthogonal-lift",
+          "sha": "91a4b502d50efa31eb59156bd902e0d01b0b5c09"
+        },
+        {
+          "name": "research/point-horizon-001",
+          "sha": "22a4f361e5c277e720bd1ea21e817f8b4b1501e3"
+        },
+        {
+          "name": "research/prior-ambiguity-criterion-collision-001",
+          "sha": "38b3528ba37e391251000c3cc7657f832385217f"
+        },
+        {
+          "name": "research/probe-cost-pareto-001",
+          "sha": "09f56b4cb4e229e12912117e018bf7fd8f9bb5fb"
+        },
+        {
+          "name": "research/probe-partition-refinement-001",
+          "sha": "00c4b92614da5815eb4a19bad50a900c01d34ab0"
+        },
+        {
+          "name": "research/probe-separation-001",
+          "sha": "d31481229dcadb47ffeedea962de66b124c4b037"
+        },
+        {
+          "name": "research/pseudoinverse-rank-stratum-001",
+          "sha": "aa04946418f66d7a503d7fd7c2352e10b3a6acd5"
+        },
+        {
+          "name": "research/quotient-return-fatdog",
+          "sha": "8b63c5c339ca395b9792915236781addc6b69252"
+        },
+        {
+          "name": "research/randomized-minimax-saddle-001",
+          "sha": "6d406a029c43b74a7fc6f6c21563e7dac713f380"
+        },
+        {
+          "name": "research/reachability-path-homology-001-review",
+          "sha": "cf9c3565cec27e0452972dfc2f7d82a2f019d9fa"
+        },
+        {
+          "name": "research/reachability-path-homology-001",
+          "sha": "cf9c3565cec27e0452972dfc2f7d82a2f019d9fa"
+        },
+        {
+          "name": "research/relational-invariant-transform-001",
+          "sha": "3ba7b5d54a2bef5c5f1e11477b0757163029840e"
+        },
+        {
+          "name": "research/reorientation-obstruction-001",
+          "sha": "0cdd766911549e42180782c524f699c32e9f7fde"
+        },
+        {
+          "name": "research/rewrite-branch-normal-form-001",
+          "sha": "66c5725ce217229e4a71382e66e18bf7acef7491"
+        },
+        {
+          "name": "research/robust-separating-distance-001",
+          "sha": "b56eeac803e6a3bdf7db94a5afc32f5a9db4a371"
+        },
+        {
+          "name": "research/robust-separation-margin-001",
+          "sha": "535eab122bb0baa6e924e5fd5a5c52e4740a44a5"
+        },
+        {
+          "name": "research/scalarization-visibility-001",
+          "sha": "65c10dcf61264884792a8ff8b09df2251a75c0d2"
+        },
+        {
+          "name": "research/separating-view-family-001",
+          "sha": "ce14571fbcaa5e6da24945fac4c0c757a3bd009e"
+        },
+        {
+          "name": "research/sheaf-cospectral-gluing-001",
+          "sha": "050e116c71896e9424a8021f2ba77cd7174a4f25"
+        },
+        {
+          "name": "research/sheaf-holonomy-global-section-001",
+          "sha": "2cca0bc22a9325189abf4e11c51db0d3359cba01"
+        },
+        {
+          "name": "research/sheaf-laplacian-energy-001",
+          "sha": "5827f55cbbd1506a582ecf4e56d2c142f0d8126b"
+        },
+        {
+          "name": "research/sidereal-winding-001",
+          "sha": "73efee7cfdcbdeec31d703119cf7e1957224488f"
+        },
+        {
+          "name": "research/signed-affine-intertwiner-001",
+          "sha": "f5ca18711dba3db6f36cbfdae09dbbde018a4385"
+        },
+        {
+          "name": "research/smooth-flat-germ-001",
+          "sha": "ea8ee142a17ee1e36a22b11f3091bc69be61d99c"
+        },
+        {
+          "name": "research/spectral-summary-collision-001",
+          "sha": "90050c344230efb1e93c27104848fbc095e463c8"
+        },
+        {
+          "name": "research/split-exact-section-fiber-001",
+          "sha": "24c4aa185680c1b62732eace89cad88440f0fe38"
+        },
+        {
+          "name": "research/strict2-action-composition-001",
+          "sha": "f2811bed166abe93cf43307b41543367d2964110"
+        },
+        {
+          "name": "research/strict2-interchange-whiskering-001",
+          "sha": "016637ad42f391e16b43fac2d91bbe9558f818c4"
+        },
+        {
+          "name": "research/strongly-regular-clique-collision-001",
+          "sha": "ee591114ef378e0f6543e009c151ddbb7fd0a530"
+        },
+        {
+          "name": "research/successor-class-quotient-001",
+          "sha": "62832989127a780ca7f892f7e8c9691712bebec8"
+        },
+        {
+          "name": "research/successor-descent-001-finite-futures",
+          "sha": "bcd649b49ca0f9ec474b36a5154bd6977983daa9"
+        },
+        {
+          "name": "research/successor-incidence-001",
+          "sha": "a53f97e9081803ae117b9eb49389c6fe5970c739"
+        },
+        {
+          "name": "research/taylor-map-fiber-001",
+          "sha": "d7436a1ddafa1c10c77d8c52e2b634409e1ec8af"
+        },
+        {
+          "name": "research/tetrahedral-bianchi-001",
+          "sha": "1e155f924fc5c6028636449a212b471860ca72a1"
+        },
+        {
+          "name": "research/trace-dependence-001",
+          "sha": "c5934a1d5b97c1e71a96d03e505384dfaf799096"
+        },
+        {
+          "name": "research/trace-projection-receipt-001",
+          "sha": "7c885e7760951de5dbecd6568df18d96451c0b3a"
+        },
+        {
+          "name": "research/trail-universal-timestamp-001",
+          "sha": "bbce78171150bcd02095e2c0cb509a82ce125375"
+        },
+        {
+          "name": "research/transport-metric-ranking-001",
+          "sha": "cc470e26419981908943329bd3cadd5fe2dc6d3e"
+        },
+        {
+          "name": "research/tree-treewidth2-test-language-001",
+          "sha": "06e6092499ceb30a32cbd79da058a3d694623a27"
+        },
+        {
+          "name": "research/triangular-triple-helix-001",
+          "sha": "d434bcfb05585795c5e0e814c0a5f2c9dced1abb"
+        },
+        {
+          "name": "research/triangulator-001",
+          "sha": "7d33f249e2cbbe0876e1a8c68756b0151d875df7"
+        },
+        {
+          "name": "research/type-action-subgroup-001",
+          "sha": "9db767461ad64cdbcfcbe5e59977dc899782aedd"
+        },
+        {
+          "name": "research/type-stabilizer-authority-001",
+          "sha": "c0b2c2c1c8b47da264380b412d04c087a2999061"
+        },
+        {
+          "name": "research/uniform-right-inverse-001",
+          "sha": "1cbecf285153e6259ddd331ab1d4baa317d55dce"
+        },
+        {
+          "name": "research/unsupported-pareto-001",
+          "sha": "fb5d1fad95bf942403ed4b248aa31d89e4d029be"
+        },
+        {
+          "name": "research/weak2-associator-cohomology-001",
+          "sha": "5eab6569d38555c4fc6457b7ee24921139275ad2"
+        },
+        {
+          "name": "research/wl-arity-separation-001",
+          "sha": "2680514a7a9b0683a99a0680a62aea1c2419e9eb"
+        },
+        {
+          "name": "research/wl-arity-threshold-001",
+          "sha": "ec5b49a7e771d24ebb4f1b7accc9021e4c43331b"
+        },
+        {
+          "name": "slice/common-carrier-successor-1700-1800",
+          "sha": "995dbf3273caf44489b745393afc7fd3a9a6c9a6"
+        },
+        {
+          "name": "slice/count-boundary-001",
+          "sha": "b01831c071fbf387685e616e28d85776e0f029c9"
+        },
+        {
+          "name": "slice/count-boundary-recursion-v0",
+          "sha": "726f65629b684ac98dbcbefc8b10496283e29180"
+        },
+        {
+          "name": "slice/dr-maddd-relational-field-2026-08-29",
+          "sha": "d7dac9e0fc8398e7d44ad7465cdb81301e31ae57"
+        },
+        {
+          "name": "slice/far-side-simplicity-mathal-harvest",
+          "sha": "000fc397c49f69d9bc4c710a26576d5b28a92e7a"
+        },
+        {
+          "name": "slice/far-side-variation-calculus",
+          "sha": "9ecabd166b9e630d86fa29e3608943ecc9748e3d"
+        },
+        {
+          "name": "slice/hyperyarn-homega-2026-08-29",
+          "sha": "5379fa8547e18e11b2806ba765ce264f22584313"
+        },
+        {
+          "name": "slice/madddogclown-replay-2026-08-29",
+          "sha": "ccbe39bd58645795abf0c4a0b4ae237249f5bb46"
+        },
+        {
+          "name": "slice/name-decoder-pressure-v0",
+          "sha": "fd0a73e8491e2f4b18b600504b8bc61b9a67f7e6"
+        },
+        {
+          "name": "slice/quotient-probe-completion-2026-08-28",
+          "sha": "19717a9a13e23f76180ae264b352cd28cd5c7680"
+        },
+        {
+          "name": "slice/residual-topology-route-field",
+          "sha": "716723c36f722ea90e055a61e59bcd333cd2b239"
+        },
+        {
+          "name": "slice/syzygy-ring-001",
+          "sha": "4fe4785b40044be13395323cac14869996b77a8d"
+        },
+        {
+          "name": "test/variation-cube-001",
+          "sha": "85ba273308bda82737a15b8af00b93c9aa25b0e8"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    },
+    {
+      "repository": "the-static-collective/LOADOUT",
+      "refs": [
+        {
+          "name": "agent/body-surface-standard-v0",
+          "sha": "22a3953ffab25d1c6ec12557a84119d62893164d"
+        },
+        {
+          "name": "agent/executable-crater-resolve-live-git",
+          "sha": "c204614581e8ec38b19179cb581b1174fd769d91"
+        },
+        {
+          "name": "design/loadout-dev-v0",
+          "sha": "14c0acfbf89014fb28794760d281eedf7ce10462"
+        },
+        {
+          "name": "design/merge-formation-receipt-v0",
+          "sha": "8099b8a3ea1eebd24d15ba3ca54805d85393d69b"
+        },
+        {
+          "name": "design/read-only-host-adapter-v0",
+          "sha": "a525ade8169d8f394aaf95766857aaac14951a19"
+        },
+        {
+          "name": "experiment/jubilee-handoff-pressure-001",
+          "sha": "1adcb3d82f736f3ca8329c3c1d0d9eba398d49ee"
+        },
+        {
+          "name": "experiment/maddcl0wnout-receipt-axis-diff-001",
+          "sha": "c2a5d5b57a5bee27e22def9bebaa26b93a07cc85"
+        },
+        {
+          "name": "experiment/maddcl0wnout-receipt-order-7319",
+          "sha": "1adcb3d82f736f3ca8329c3c1d0d9eba398d49ee"
+        },
+        {
+          "name": "experiment/maddcl0wnout-unknown-axis-001",
+          "sha": "76eb743b5a3b5b8d8a5d160791e633da7c6ac232"
+        },
+        {
+          "name": "feat/live-surface-v0",
+          "sha": "6cb369a1ee391de545c8de6d5682486470ffbdc9"
+        },
+        {
+          "name": "feat/mathal-shaped-compiler-kernel",
+          "sha": "04f5fe8aa569d70aa678583e4a8738b858babb41"
+        },
+        {
+          "name": "feat/openmanus-nervous-system-v0",
+          "sha": "dd5456d45946271e2d20d1dc6145b71576d2380b"
+        },
+        {
+          "name": "impl/merge-formation-receipt-v0",
+          "sha": "482764e0086b50b9b6424be2ada3fe061ad4f7ab"
+        },
+        {
+          "name": "impl/read-only-host-adapter-v0",
+          "sha": "d680ac4f4f0fcde95e35a06a19d486b79726782b"
+        },
+        {
+          "name": "lighthouse/jubilee-engine-port",
+          "sha": "ca61e277b3fe8805686d245d8b7a49c506408d3e"
+        },
+        {
+          "name": "lumi/phaselift-reconstitute-001",
+          "sha": "fb7b5ed19cef838357cff2303f466c0a1b5a5c44"
+        },
+        {
+          "name": "maddcl0wnout/path-residue-001",
+          "sha": "d5444c43049d4390046a041da93dba38b68380af"
+        },
+        {
+          "name": "maddcl0wnout/top-level-residue-001",
+          "sha": "7ebebd8ef7434afde0cec978d48c690e40c3814b"
+        },
+        {
+          "name": "main",
+          "sha": "1adcb3d82f736f3ca8329c3c1d0d9eba398d49ee"
+        },
+        {
+          "name": "reconcile/current-organ-current-main",
+          "sha": "7a5a39796b6e27a693e0e671836cc7761019119b"
+        },
+        {
+          "name": "reconcile/loadout-breach-composition-current-main",
+          "sha": "673b659bf82ceba216ea249939fedb1f03eb03c5"
+        },
+        {
+          "name": "reconcile/loadout-breach-current-main",
+          "sha": "b7b0bd98d7bd819825585e49f46257185a0b6278"
+        },
+        {
+          "name": "reconcile/loadout-dev-current-main",
+          "sha": "295931d012a1bc726744d464fa6357f3d3e47182"
+        },
+        {
+          "name": "slice/name-deep-dive-loadout-v0",
+          "sha": "24c894d5d2dd5c4456d1c96c2f807f288e07d7c9"
+        },
+        {
+          "name": "slice/rebind-without-retrojection-001",
+          "sha": "170c8890030c4731348b40b8b362b937d0af56df"
+        }
+      ],
+      "fullyEnumerated": true,
+      "errors": []
+    }
+  ]
+}

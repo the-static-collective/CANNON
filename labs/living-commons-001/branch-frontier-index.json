@@ -1,0 +1,1720 @@
+{
+  "schema": "cannon.branch-frontier-index/v0",
+  "observedDate": "2026-10-22",
+  "classification": "BRANCH_ADDRESSES_NOT_TEST_OR_FIELD_PROOF",
+  "sources": "11 branch-evidence slices + Haunted Toaster pagination extension; explicit 102 candidate scopes",
+  "totals": {
+    "repositories": 102,
+    "gitBranchRefs": 2132,
+    "nonDefaultRefs": 2031,
+    "reposWithNonDefault": 70,
+    "fullyEnumerated": true
+  },
+  "repositorySummary": [
+    {
+      "repository": "the-static-collective/the-haunted-toaster",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 236,
+      "nonDefaultRefs": 235,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-02.json",
+        "branch-evidence-toaster-extension.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/Dogram",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 188,
+      "nonDefaultRefs": 187,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-06.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/GHoT",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 128,
+      "nonDefaultRefs": 127,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-08.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/reLATTE",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 121,
+      "nonDefaultRefs": 120,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-08.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/static-workbench",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 99,
+      "nonDefaultRefs": 98,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-07.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/ALEX.2",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 87,
+      "nonDefaultRefs": 86,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-06.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/What-is-the-static-collective-",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 81,
+      "nonDefaultRefs": 80,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-05.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/the-daily-slice",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 79,
+      "nonDefaultRefs": 78,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-06.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/national-treasure",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 78,
+      "nonDefaultRefs": 77,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-05.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/static-os",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 75,
+      "nonDefaultRefs": 74,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-07.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/the-haunted-blender",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 60,
+      "nonDefaultRefs": 59,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-07.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/lemonPRESS",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 59,
+      "nonDefaultRefs": 58,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-08.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/webZ",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 59,
+      "nonDefaultRefs": 58,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-09.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/tranchnode",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 45,
+      "nonDefaultRefs": 44,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-02.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/MEMENTO",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 44,
+      "nonDefaultRefs": 43,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-06.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/project0",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 38,
+      "nonDefaultRefs": 37,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-02.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/full-measure-world-layer",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 34,
+      "nonDefaultRefs": 33,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-02.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/static-live",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 30,
+      "nonDefaultRefs": 29,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-07.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/GrO",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 28,
+      "nonDefaultRefs": 27,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-09.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/3rdi",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 27,
+      "nonDefaultRefs": 26,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-06.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/CANNON",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 26,
+      "nonDefaultRefs": 25,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-09.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/the-haunted-phonography",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 25,
+      "nonDefaultRefs": 24,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-05.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/LOADOUT",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 25,
+      "nonDefaultRefs": 24,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-06.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/corpus-os",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 23,
+      "nonDefaultRefs": 22,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-03.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/planZ",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 21,
+      "nonDefaultRefs": 20,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-09.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/Jubilee-treasury",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 21,
+      "nonDefaultRefs": 20,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-09.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/vidmage",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 20,
+      "nonDefaultRefs": 19,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-09.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/ROroomOM",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 19,
+      "nonDefaultRefs": 18,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-07.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/band-runtime",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 18,
+      "nonDefaultRefs": 17,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-03.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/iron-lung",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 18,
+      "nonDefaultRefs": 17,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-05.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/black-star",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 18,
+      "nonDefaultRefs": 17,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-08.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/revival",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 16,
+      "nonDefaultRefs": 15,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-07.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/GOATnote",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 14,
+      "nonDefaultRefs": 13,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-07.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/groove-rooms",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 13,
+      "nonDefaultRefs": 12,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-04.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/autodiscography-vault",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 13,
+      "nonDefaultRefs": 12,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-05.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/BananaSpork",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 12,
+      "nonDefaultRefs": 11,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-02.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/SIA",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 12,
+      "nonDefaultRefs": 11,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-09.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/idea-grove",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 11,
+      "nonDefaultRefs": 10,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-04.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/tranchNOSE",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 11,
+      "nonDefaultRefs": 10,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-04.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/static-field",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 11,
+      "nonDefaultRefs": 10,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-07.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/WORLDSEED",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 10,
+      "nonDefaultRefs": 9,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-06.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/King-sCup",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 10,
+      "nonDefaultRefs": 9,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-08.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/the-autodisco",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 9,
+      "nonDefaultRefs": 8,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-00.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/Jubilee-Engine-VM",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 9,
+      "nonDefaultRefs": 8,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-01.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/Upper-room",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 9,
+      "nonDefaultRefs": 8,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-05.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/DVOTE",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 9,
+      "nonDefaultRefs": 8,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-09.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/JAR-VIS",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 8,
+      "nonDefaultRefs": 7,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-10.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/The-AutodiscoV.20.-question-marks-",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 7,
+      "nonDefaultRefs": 6,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-00.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/free-graph",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 7,
+      "nonDefaultRefs": 6,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-06.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/STORYSHIP",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 6,
+      "nonDefaultRefs": 5,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-07.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/story-dna",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 6,
+      "nonDefaultRefs": 5,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-10.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/jublEchat",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 5,
+      "nonDefaultRefs": 4,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-01.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/Nourish-Kids",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 5,
+      "nonDefaultRefs": 4,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-01.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/jubilee-authority-kit",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 5,
+      "nonDefaultRefs": 4,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-04.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/founder-node",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 5,
+      "nonDefaultRefs": 4,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-05.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/DerekDerrikDark",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 5,
+      "nonDefaultRefs": 4,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-06.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/Human-Witness",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 5,
+      "nonDefaultRefs": 4,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-06.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/freeport",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 5,
+      "nonDefaultRefs": 4,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-09.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/gramfork",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 4,
+      "nonDefaultRefs": 3,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-04.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/toaster-lab",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 4,
+      "nonDefaultRefs": 3,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-04.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/the-haunted-pol-ish-roids",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 4,
+      "nonDefaultRefs": 3,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-05.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/playdeck",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 4,
+      "nonDefaultRefs": 3,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-08.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/WITNESS",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 3,
+      "nonDefaultRefs": 2,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-08.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/garden-whisperer",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 2,
+      "nonDefaultRefs": 1,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-00.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/convergent-codec",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 2,
+      "nonDefaultRefs": 1,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-02.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/unfolding-ledger",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 2,
+      "nonDefaultRefs": 1,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-02.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/appliance-prophet-king",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 2,
+      "nonDefaultRefs": 1,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-02.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/reCOreturn",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 2,
+      "nonDefaultRefs": 1,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-03.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/toaster-lab2",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 2,
+      "nonDefaultRefs": 1,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-05.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/trust",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 2,
+      "nonDefaultRefs": 1,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-08.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/tranchNode-v1",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 1,
+      "nonDefaultRefs": 0,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-00.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/BananaDash",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 1,
+      "nonDefaultRefs": 0,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-00.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/reCURV",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 1,
+      "nonDefaultRefs": 0,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-00.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/reCURVrePAIR",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 1,
+      "nonDefaultRefs": 0,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-00.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/reMIX-reCURVrePAIR",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 1,
+      "nonDefaultRefs": 0,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-00.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/LampPost",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 1,
+      "nonDefaultRefs": 0,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-00.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/BnanaGram",
+      "defaultRefs": [
+        "master"
+      ],
+      "observedRefs": 1,
+      "nonDefaultRefs": 0,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-00.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/JubileeV.1",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 1,
+      "nonDefaultRefs": 0,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-01.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/seedforge",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 1,
+      "nonDefaultRefs": 0,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-01.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/seedforge-v0",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 1,
+      "nonDefaultRefs": 0,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-01.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/seedFORK",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 1,
+      "nonDefaultRefs": 0,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-01.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/mundaneWORMHOLE",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 1,
+      "nonDefaultRefs": 0,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-01.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/BananaGram-Gram-to-Fork",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 1,
+      "nonDefaultRefs": 0,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-01.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/Jubilee-Campfire",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 1,
+      "nonDefaultRefs": 0,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-01.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/autodisco-video-receipt",
+      "defaultRefs": [],
+      "observedRefs": 0,
+      "nonDefaultRefs": 0,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-02.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/circle",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 1,
+      "nonDefaultRefs": 0,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-02.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/RRS",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 1,
+      "nonDefaultRefs": 0,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-03.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/RRS-1-",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 1,
+      "nonDefaultRefs": 0,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-03.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/ChronoQuest",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 1,
+      "nonDefaultRefs": 0,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-03.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/formation-trace",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 1,
+      "nonDefaultRefs": 0,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-03.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/Corpus-OS-Local-Intake-Implementation",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 1,
+      "nonDefaultRefs": 0,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-03.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/100pies",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 1,
+      "nonDefaultRefs": 0,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-03.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/fork-EXCLAIM",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 1,
+      "nonDefaultRefs": 0,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-03.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/jubilee-workspace",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 1,
+      "nonDefaultRefs": 0,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-04.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/pies",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 1,
+      "nonDefaultRefs": 0,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-04.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/SEAMforge",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 1,
+      "nonDefaultRefs": 0,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-04.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/toaster-oracle",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 1,
+      "nonDefaultRefs": 0,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-04.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/cloudflare-control",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 1,
+      "nonDefaultRefs": 0,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-05.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/fogGlass",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 1,
+      "nonDefaultRefs": 0,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-07.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/cUps",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 1,
+      "nonDefaultRefs": 0,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-08.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/the-static-collective",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 1,
+      "nonDefaultRefs": 0,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-08.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    },
+    {
+      "repository": "the-static-collective/love",
+      "defaultRefs": [
+        "main"
+      ],
+      "observedRefs": 1,
+      "nonDefaultRefs": 0,
+      "listingComplete": true,
+      "sourceSlices": [
+        "branch-evidence-09.json"
+      ],
+      "workState": "NOT_YET_RECONCILED",
+      "prDisposition": "NOT_YET_INSPECTED",
+      "testState": "NOT_YET_INSPECTED",
+      "authorityState": "NOT_ADMITTED_BY_CENSUS"
+    }
+  ],
+  "independentMainComparisons": [
+    {
+      "repo": "CANNON",
+      "ref": "experiment/stack-squared-024-living-commons",
+      "comparison": "ahead",
+      "aheadBy": 132,
+      "behindBy": 0,
+      "filesTouched": 138,
+      "example": "CANNON experiment engine, tests and fixtures"
+    },
+    {
+      "repo": "planZ",
+      "ref": "feat/phaselift-001-living-phase-board",
+      "comparison": "ahead",
+      "aheadBy": 13,
+      "behindBy": 0,
+      "filesTouched": 9,
+      "example": "phaselift/app.mjs + board.json + tests"
+    },
+    {
+      "repo": "planZ",
+      "ref": "proposal/common-table-waseca-grand-plan-001",
+      "comparison": "ahead",
+      "aheadBy": 1,
+      "behindBy": 0,
+      "filesTouched": 1,
+      "example": "plans/2026-10-21-common-table-waseca-grand-plan-001.md"
+    },
+    {
+      "repo": "static-field",
+      "ref": "feat/static-field-first-bell-001",
+      "comparison": "diverged",
+      "aheadBy": 1,
+      "behindBy": 2,
+      "filesTouched": 40,
+      "example": "public/app.js + docs + fixtures"
+    },
+    {
+      "repo": "WITNESS",
+      "ref": "genesis/community-audio-bible-001",
+      "comparison": "diverged",
+      "aheadBy": 23,
+      "behindBy": 1,
+      "filesTouched": 15,
+      "example": "Genesis witness prototypes, workflow and docs"
+    },
+    {
+      "repo": "webZ",
+      "ref": "release/needs-001-abundent-live",
+      "comparison": "diverged",
+      "aheadBy": 44,
+      "behindBy": 1,
+      "filesTouched": 115,
+      "example": "webZ app files + site work"
+    },
+    {
+      "repo": "the-haunted-blender",
+      "ref": "integration/franken-blender-008p-owned-pixel-manga-film",
+      "comparison": "ahead",
+      "aheadBy": 345,
+      "behindBy": 0,
+      "filesTouched": 281,
+      "example": "Blender integration source and workflows"
+    }
+  ],
+  "guardrails": [
+    "README_NOT_CODE_CENSUS",
+    "NONDEFAULT_BRANCH_NOT_AUTO_CANON",
+    "MAIN_NOT_MONOPOLY",
+    "HEAD_PRESENT_NOT_EXECUTABLE",
+    "PR_NOT_AUTOMATIC_ADMISSION",
+    "APPROVED_DESIGN_NOT_DEPLOYMENT",
+    "ALL_DONOR_IMPORTS_REQUIRE_LOCAL_REVIEW"
+  ]
+}
