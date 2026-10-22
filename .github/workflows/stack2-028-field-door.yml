@@ -1,0 +1,54 @@
+name: STACK2 028 First Contact human field door
+
+on:
+  push:
+    branches:
+      - experiment/stack-squared-028-first-contact-field-door
+    paths:
+      - 'labs/field-first-contact-028/**'
+      - 'docs/STACK-SQUARED-028-FIRST-CONTACT-FIELD.md'
+      - '.github/workflows/stack2-028-field-door.yml'
+  pull_request:
+    paths:
+      - 'labs/field-first-contact-028/**'
+      - 'docs/STACK-SQUARED-028-FIRST-CONTACT-FIELD.md'
+      - '.github/workflows/stack2-028-field-door.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  offline-static-field-door:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Human choice and QR safety contracts
+        run: node --test labs/field-first-contact-028/core.test.mjs
+      - name: Check pure source syntax
+        run: |
+          node --check labs/field-first-contact-028/core.mjs
+          node --check labs/field-first-contact-028/app.mjs
+          node --check labs/field-first-contact-028/core.test.mjs
+      - name: Smoke test publicly servable static asset routes without external service
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd labs/field-first-contact-028
+          python3 -m http.server 8877 --bind 127.0.0.1 >/tmp/cannon-028-http.log 2>&1 &
+          server=$!
+          trap 'kill "$server" || true' EXIT
+          for i in {1..25}; do
+            if curl --fail --silent --output /dev/null http://127.0.0.1:8877/index.html; then break; fi
+            sleep 0.2
+          done
+          for file in index.html app.mjs core.mjs style.css vendor/qrcode.min.js vendor/LICENSE.qrcodejs.txt; do
+            curl --fail --show-error --silent --output /dev/null "http://127.0.0.1:8877/$file"
+          done
+          test "$(curl --silent http://127.0.0.1:8877/index.html | grep -c 'No account')" -ge 1
+          test "$(curl --silent http://127.0.0.1:8877/index.html | grep -c 'operator-tested')" -ge 1
