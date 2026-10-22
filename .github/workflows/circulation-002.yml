@@ -1,0 +1,81 @@
+name: CIRCULATION-002 native BananaSpork return to Free Graph
+on:
+  pull_request:
+    paths:
+      - 'labs/circulation-002/**'
+      - '.github/workflows/circulation-002.yml'
+      - 'docs/CIRCULATION-002.md'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  native-care-receiver-returns:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/free-graph
+          ref: ec0ad8743c5faac3f3675760bbafcbcb1df846c1
+          path: deps/free-graph
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/planZ
+          ref: 316000e071e0da5af4762f119f80dfc3add26d7c
+          path: deps/planZ
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/BananaSpork
+          ref: 28e24d730571510d9dc3559ebec547401e626095
+          path: deps/BananaSpork
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install recipient's native compiler
+        working-directory: deps/BananaSpork
+        run: npm ci
+      - name: Compose source-native CANNON graph and planZ invitations
+        run: |
+          mkdir -p .circulation002
+          python labs/circulation-001/cannon_seed.py run --seed labs/circulation-001/seed.json --free-graph-core deps/free-graph/scripts/fg_core.py --output .circulation002/source-graph.json
+          python deps/free-graph/scripts/fg.py validate .circulation002/source-graph.json
+          python deps/planZ/scripts/circulation001_planz.py run --graph .circulation002/source-graph.json --replies labs/circulation-001/replies.json --free-graph-core deps/free-graph/scripts/fg_core.py --output .circulation002/planZ-artifact.json
+          python deps/planZ/scripts/circulation001_planz.py verify --graph .circulation002/source-graph.json --replies labs/circulation-001/replies.json --free-graph-core deps/free-graph/scripts/fg_core.py --output .circulation002/planZ-artifact.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          root=Path(".circulation002")
+          graph=json.loads((root/"source-graph.json").read_text())
+          plan=json.loads((root/"planZ-artifact.json").read_text())
+          assert plan["graph_packet_id"]==graph["packet_id"]
+          bundle={"schema":"banana-spork.circulation-input/v0",
+                  "source_graph":graph,"offer_set":plan["offer_set"]}
+          (root/"receiver-input.json").write_text(json.dumps(bundle,indent=2)+"\n")
+          PY
+      - name: Execute actual native BananaSpork receiver with fictional local selection
+        working-directory: deps/BananaSpork
+        env:
+          CIRCULATION_SIMULATION_ONLY: YES_FIXTURE_ONLY
+        run: |
+          node --import tsx scripts/circulation002_fixture_export.ts ../../.circulation002/receiver-input.json ../../.circulation002/banana-local-reply.json
+      - name: Re-enter native Free Graph independently without changing original packet
+        run: |
+          python labs/circulation-002/return_from_bananaspork.py run --graph .circulation002/source-graph.json --reply .circulation002/banana-local-reply.json --free-graph-core deps/free-graph/scripts/fg_core.py --planz-script deps/planZ/scripts/circulation001_planz.py --output .circulation002/native-return-graph.json
+          python deps/free-graph/scripts/fg.py validate .circulation002/native-return-graph.json
+          python labs/circulation-002/return_from_bananaspork.py verify --graph .circulation002/source-graph.json --reply .circulation002/banana-local-reply.json --free-graph-core deps/free-graph/scripts/fg_core.py --planz-script deps/planZ/scripts/circulation001_planz.py --output .circulation002/native-return-graph.json
+      - name: Native CANNON refusals and replay invariants
+        env:
+          CIRCULATION002_GRAPH: .circulation002/source-graph.json
+          CIRCULATION002_REPLY: .circulation002/banana-local-reply.json
+          CIRCULATION002_FG: deps/free-graph/scripts/fg_core.py
+          CIRCULATION002_PLANZ: deps/planZ/scripts/circulation001_planz.py
+        run: python -m unittest discover -s labs/circulation-002 -p 'test_*.py' -v
+      - name: Verify all four source repositories untouched
+        run: |
+          git diff --exit-code -- labs/circulation-001
+          git -C deps/BananaSpork diff --exit-code
+          git -C deps/planZ diff --exit-code
+          git -C deps/free-graph diff --exit-code
