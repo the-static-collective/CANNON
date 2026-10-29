@@ -1,0 +1,35 @@
+name: GROOVETOWN-002 particularity proof
+on:
+  push:
+    branches:
+      - experiment/groovetown-002-particularity
+  pull_request:
+    paths:
+      - 'experiments/groovetown-002/**'
+      - '.github/workflows/groovetown-002.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  offline-proof:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Original synthetic town plus particularity regressions
+        run: node --test experiments/groovetown-001/groovetown.test.mjs experiments/groovetown-002/particularity.test.mjs
+      - name: Produce and cold-replay portable packets
+        run: |
+          node experiments/groovetown-002/particularity.mjs demo /tmp/groovetown-002-a
+          node experiments/groovetown-002/particularity.mjs demo /tmp/groovetown-002-b
+          diff -r /tmp/groovetown-002-a /tmp/groovetown-002-b
+      - uses: actions/upload-artifact@v4
+        with:
+          name: groovetown-002-fictional-output-cards
+          path: /tmp/groovetown-002-a/
+          retention-days: 14
