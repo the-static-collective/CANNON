@@ -1,0 +1,63 @@
+name: REACTOR-BOOK-003 original owners, native gap proof and held manuscript
+on:
+  push:
+    branches: ["experiment/reactor-book-003"]
+    paths: ["creative/reactor-*","scripts/reactor-book-*","test/reactor-book.test.mjs","docs/REACTOR-BOOK-003.md",".github/workflows/reactor-book-003.yml"]
+  pull_request:
+    paths: ["creative/reactor-*","scripts/reactor-book-*","test/reactor-book.test.mjs","docs/REACTOR-BOOK-003.md",".github/workflows/reactor-book-003.yml"]
+permissions:
+  contents: read
+jobs:
+  three-owner-proof:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Fetch independent exact owner histories (no merges)
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/reactor-owner"
+          git clone --quiet https://github.com/the-static-collective/planZ.git "$RUNNER_TEMP/reactor-owner/planz"
+          git -C "$RUNNER_TEMP/reactor-owner/planz" checkout --quiet --detach 64ed8a376acd63a5d630e1649b6001fb3b3251de
+          git clone --quiet https://github.com/the-static-collective/static-workbench.git "$RUNNER_TEMP/reactor-owner/workbench"
+          git -C "$RUNNER_TEMP/reactor-owner/workbench" checkout --quiet --detach 53db559bbc510ad1003a0f8330d1673dcd04d7a0
+          git clone --quiet https://github.com/the-static-collective/lemonPRESS.git "$RUNNER_TEMP/reactor-owner/lemonpress"
+          git -C "$RUNNER_TEMP/reactor-owner/lemonpress" checkout --quiet --detach aae960f13d45eb4713460ed9660b7baf5ba3c473
+          node -e 'const fs=require("fs");let p=process.env.RUNNER_TEMP+"/reactor-owner";fs.writeFileSync(process.env.RUNNER_TEMP+"/reactor-roots.json",JSON.stringify({planz:p+"/planz",workbench:p+"/workbench",lemonpress:p+"/lemonpress"}))'
+      - name: Original PlanZ, original lemonPRESS and CANNON tests
+        run: |
+          node --test test/reactor-book.test.mjs
+          (cd "$RUNNER_TEMP/reactor-owner/planz" && node --test reactor/collide.test.mjs reactor/recursive.test.mjs)
+          (cd "$RUNNER_TEMP/reactor-owner/lemonpress" && node --test machine-book/edition.test.mjs)
+      - name: Show original available PlanZ plans and choose a scripted CI fixture
+        run: |
+          node scripts/reactor-book-crossing.mjs list --roots "$RUNNER_TEMP/reactor-roots.json" > "$RUNNER_TEMP/held-menu.json"
+          node -e 'const fs=require("fs");let x=JSON.parse(fs.readFileSync(process.env.RUNNER_TEMP+"/held-menu.json"));if(x.status!=="CI_SCRIPTED_CHOICE_ONLY"||x.candidates.length!==8)process.exit(1);'
+          node -e 'const fs=require("fs");let x=JSON.parse(fs.readFileSync(process.env.RUNNER_TEMP+"/held-menu.json"));fs.appendFileSync(process.env.GITHUB_ENV,"SELECTED_PLAN_ID="+x.candidates[0].id+"\n")'
+      - name: Native planZ to actual Workbench SQLite folios to lemonPRESS edition
+        run: |
+          node scripts/reactor-book-crossing.mjs build --roots "$RUNNER_TEMP/reactor-roots.json" --plan-id "$SELECTED_PLAN_ID" --out "$GITHUB_WORKSPACE/reactor-held-proof" --authorize CI_SCRIPTED_HOLD_ONLY
+          node scripts/reactor-book-crossing.mjs verify --roots "$RUNNER_TEMP/reactor-roots.json" --plan-id "$SELECTED_PLAN_ID" --out "$GITHUB_WORKSPACE/reactor-held-proof"
+          node -e 'const fs=require("fs");let r=JSON.parse(fs.readFileSync("reactor-held-proof/receipt.json"));if(r.nativeOwnersExecuted.length!==3||r.nativeWorkbenchPortGapCount!==1||r.actualMachineOrHardwareRun||r.published||r.newCreativeOwnerCandidates<8)process.exit(1);console.log("CUTS",r.portableCutCount,"PLANS",r.proposedPlanCount,"OWNERS",r.nativeOwnersExecuted.length);'
+      - name: Hostile authorization, forged selection and publication-tamper refusal
+        run: |
+          set -euo pipefail
+          if node scripts/reactor-book-crossing.mjs build --roots "$RUNNER_TEMP/reactor-roots.json" --plan-id "$SELECTED_PLAN_ID" --out "$RUNNER_TEMP/forbidden-authority" --authorize ACTUAL_HUMAN_KEEP; then exit 1; fi
+          if node scripts/reactor-book-crossing.mjs build --roots "$RUNNER_TEMP/reactor-roots.json" --plan-id plan-000000000000000000000000 --out "$RUNNER_TEMP/forged-plan" --authorize CI_SCRIPTED_HOLD_ONLY; then exit 1; fi
+          cp reactor-held-proof/lemonpress/index.html "$RUNNER_TEMP/clean-index.html"
+          printf '\nFAKE_PUBLISHING_AUTHORITY' >> reactor-held-proof/lemonpress/index.html
+          if node scripts/reactor-book-crossing.mjs verify --roots "$RUNNER_TEMP/reactor-roots.json" --plan-id "$SELECTED_PLAN_ID" --out "$GITHUB_WORKSPACE/reactor-held-proof"; then exit 1; fi
+          cp "$RUNNER_TEMP/clean-index.html" reactor-held-proof/lemonpress/index.html
+          node scripts/reactor-book-crossing.mjs verify --roots "$RUNNER_TEMP/reactor-roots.json" --plan-id "$SELECTED_PLAN_ID" --out "$GITHUB_WORKSPACE/reactor-held-proof"
+      - name: Preserve all plan cuts, native machine evidence and illustrated edition
+        uses: actions/upload-artifact@v4
+        with:
+          name: reactor-book-003-held-illustrated-manuscript-and-native-receipts
+          path: reactor-held-proof/
+          retention-days: 30
+          if-no-files-found: error

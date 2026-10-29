@@ -1,0 +1,55 @@
+{
+  "schema": "cannon.creator-orbit/v1",
+  "status": "PROPOSAL_ONLY_NOT_EXECUTED",
+  "description": "Additional candidate creative receivers; no provider is invoked or granted permission by this menu.",
+  "options": [
+    {
+      "owner": "STATIC OS",
+      "role": "portable invention cartridge",
+      "proposedCrossing": "HELD machine folio => source-verified offline ASK/OFFER cartridge",
+      "gate": "Owner-native runtime and human review; no real hardware boot claimed"
+    },
+    {
+      "owner": "Static Live",
+      "role": "temporal performance score",
+      "proposedCrossing": "Folio => declared Performance Packet candidate or delayed Ghostcast moment",
+      "gate": "Song/performer rights, stage roster and real occurrence separate"
+    },
+    {
+      "owner": "Static Field",
+      "role": "playable consent and reception world",
+      "proposedCrossing": "Folio gap => independent game-world HOLD/REFUSE encounter",
+      "gate": "No automatic world admission or real-world consent"
+    },
+    {
+      "owner": "Haunted Toaster",
+      "role": "six-up visual invention studies",
+      "proposedCrossing": "Folio geometry => candidate visual scores",
+      "gate": "Original generator and human KEEP to be proven"
+    },
+    {
+      "owner": "Haunted Blender",
+      "role": "moving machine-paper studies",
+      "proposedCrossing": "Accepted visual score => short fictional moving study",
+      "gate": "Media rights and actual Blender native render required"
+    },
+    {
+      "owner": "PlayDeck",
+      "role": "narrative mechanical scene",
+      "proposedCrossing": "Folios as manually chosen composition cards",
+      "gate": "Native composer validation separate; logical card not a rendered video"
+    },
+    {
+      "owner": "GHoT / GRAFT",
+      "role": "measured failure and reuse",
+      "proposedCrossing": "Exact failed port obstruction => reviewed capability hypothesis",
+      "gate": "Bounded tests, independent evidence, owner admission"
+    },
+    {
+      "owner": "JAR;VIS MADDCL0WN",
+      "role": "question-led expressive interface",
+      "proposedCrossing": "Selected candidate => one of six optional explanatory costumes",
+      "gate": "Original local renderer and audience-facing choice; no automatic publication"
+    }
+  ]
+}
