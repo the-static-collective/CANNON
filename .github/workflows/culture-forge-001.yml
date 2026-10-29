@@ -1,0 +1,55 @@
+name: CULTURE-FORGE-001 source-pinned native matter x idea artifacts
+on:
+  push:
+    branches: ['experiment/culture-forge-001-webz-gro']
+  pull_request:
+    paths:
+      - 'src/culture-forge.mjs'
+      - 'scripts/culture-forge.mjs'
+      - 'test/culture-forge.test.mjs'
+      - '.github/workflows/culture-forge-001.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  native-forge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: cannon
+      - uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/webZ
+          ref: 83b35070d8d56155156655279bfdcf50aa77794f
+          path: webz
+      - uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/GrO
+          ref: 9e6361105aae335ccb0657092809eef43e7ab4da
+          path: gro
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Test original CANNON corpus and new engine
+        run: npm test
+        working-directory: cannon
+      - name: Execute original WebZ and GrO native functions; print actual zine and card
+        run: node cannon/scripts/culture-forge.mjs build --webz webz --gro gro --out culture-out --topic "A room that remembers how to share a useful discovery"
+      - name: Independently re-read exact original Git objects and output bytes
+        run: node cannon/scripts/culture-forge.mjs verify --webz webz --gro gro --out culture-out
+      - name: Test output tamper refusal (never overwrite inspected output)
+        run: |
+          cp culture-out/comic.html culture-out/comic.save
+          printf 'forged' >> culture-out/comic.html
+          if node cannon/scripts/culture-forge.mjs verify --webz webz --gro gro --out culture-out; then
+            echo "ERROR: tamper passed"; exit 1
+          fi
+          mv culture-out/comic.save culture-out/comic.html
+          node cannon/scripts/culture-forge.mjs verify --webz webz --gro gro --out culture-out
+      - name: Upload actual generated six-panel artwork and provenance without private inputs
+        uses: actions/upload-artifact@v4
+        with:
+          name: culture-forge-001-six-panel-zine
+          path: culture-out/
+          retention-days: 30
