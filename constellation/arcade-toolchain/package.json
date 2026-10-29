@@ -1,0 +1,10 @@
+{
+  "name": "constellation-002-local-toolchain",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "tsx": "4.21.0",
+    "typescript": "5.8.2"
+  }
+}

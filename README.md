@@ -21,3 +21,7 @@ The owner decides which signed histories and versions are canon for each scope.
 ## CONSTELLATION-001 — executable review experiment
 
 [Exact-pin setup, native crossings, offline first-boot desk and independent replay](docs/CONSTELLATION-001.md). This branch stacks on the actual GENESIS-BOOT-001 #38 head, preserving #37 and #5. Nine independent donor repositories execute through ten exact source cuts; the public atlas inventories 89 repositories separately from runtime proof. MIT Living Suitcase, Voqal First Circle and an open institutional doorway share deterministic software receipts; all real-world and institutional gates remain explicit.
+
+## CONSTELLATION-002 — Native Stranger Arcade
+
+[Operate, challenge and cold-verify the native machine](docs/CONSTELLATION-002.md): 22 distinct executing native donor owners, 64 consumed public source owners, five connected fourteen-stage missions, real local challenge packets and restart-safe refusal/revocation. Stacked on exact PR #47; prior experiments remain independently replayable.
