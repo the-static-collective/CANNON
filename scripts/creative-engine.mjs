@@ -46,7 +46,7 @@ function main(){
  hold(Object.keys(roots).sort().join(',')==='ironlung,staticlive','ROOT_ALLOWLIST');
  const out=resolve(opts['--out']),parent=realpathSync(dirname(out));
  hold(join(parent,out.split('/').at(-1))===out,'OUTPUT_PARENT_SYMLINK');
- for(const p of Object.values(roots)){const r=relative(realpathSync(p),out);hold(r!==''&&(r==='..'||r.startsWith('../')),'OUTPUT_INSIDE_SOURCE')}
+ for(const p of Object.values(roots)){const r=relative(realpathSync(p),out);hold(r!==''&&(r==='..'||r.startsWith('../')||r.startsWith('..\\')),'OUTPUT_INSIDE_SOURCE')}
  hold(mode==='build'?!existsSync(out):existsSync(out)&&lstatSync(out).isDirectory()&&!lstatSync(out).isSymbolicLink(),'OUTPUT_STATE');
  const tmp=mkdtempSync(join(parent,'.creative-001-'));
  try{
