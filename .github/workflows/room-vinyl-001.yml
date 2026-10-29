@@ -1,0 +1,49 @@
+name: CANNON ROOM-VINYL-001 Band Runtime to lemonPRESS owner-native proof
+on:
+  push:
+    branches: ['experiment/room-vinyl-001']
+  pull_request:
+    paths: ['creative/cannon-room-synthetic.json','creative/room-vinyl-sources.json','scripts/room-vinyl-crossing.mjs','test/room-vinyl.test.mjs','.github/workflows/room-vinyl-001.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  native-crossing:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Acquire two independently owned exact source commits (no private repository)
+        run: |
+          mkdir -p "$RUNNER_TEMP/room-vinyl"
+          git clone --quiet https://github.com/the-static-collective/band-runtime.git "$RUNNER_TEMP/room-vinyl/band"
+          git -C "$RUNNER_TEMP/room-vinyl/band" checkout --quiet --detach 081c5742dae49153a3b554db1f2f9be48078a93e
+          git clone --quiet https://github.com/the-static-collective/lemonPRESS.git "$RUNNER_TEMP/room-vinyl/lemon"
+          git -C "$RUNNER_TEMP/room-vinyl/lemon" checkout --quiet --detach c96738e8333b3f75e1c485b8e25f276c4da68f8a
+          printf '{"band":"%s/room-vinyl/band","lemonpress":"%s/room-vinyl/lemon"}\n' "$RUNNER_TEMP" "$RUNNER_TEMP" > "$RUNNER_TEMP/room-vinyl-roots.json"
+      - name: Install Band TS executor without hooks
+        run: |
+          cd "$RUNNER_TEMP/room-vinyl/band"
+          npm install --ignore-scripts --no-package-lock --no-audit --no-fund
+      - name: Execute original source owner tests
+        run: |
+          (cd "$RUNNER_TEMP/room-vinyl/band" && npm test -- --run test/creative-room-bridge.test.ts)
+          (cd "$RUNNER_TEMP/room-vinyl/lemon" && node --test test/vinyl-preflight.test.mjs)
+          node --test test/room-vinyl.test.mjs
+      - name: Run real native-to-native crossing and independent cold bytes
+        run: |
+          node scripts/room-vinyl-crossing.mjs build --roots "$RUNNER_TEMP/room-vinyl-roots.json" --out "$RUNNER_TEMP/room-vinyl-output" --authorize LOCAL_FICTIONAL_ONLY
+          node scripts/room-vinyl-crossing.mjs verify --roots "$RUNNER_TEMP/room-vinyl-roots.json" --out "$RUNNER_TEMP/room-vinyl-output"
+          printf '\nforgery' >> "$RUNNER_TEMP/room-vinyl-output/lemonpress/proof.json"
+          if node scripts/room-vinyl-crossing.mjs verify --roots "$RUNNER_TEMP/room-vinyl-roots.json" --out "$RUNNER_TEMP/room-vinyl-output"; then echo 'FORGERY ACCEPTED';exit 1; fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cannon-room-vinyl-native-held-evidence
+          path: ${{ runner.temp }}/room-vinyl-output/
+          retention-days: 30
+          if-no-files-found: error

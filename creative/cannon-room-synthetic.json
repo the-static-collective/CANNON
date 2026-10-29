@@ -1,0 +1,15 @@
+{
+  "schema": "groove-room/cannon-review/v1",
+  "origin": "CANNON_LOCAL_SYNTHETIC",
+  "sourceParcelSha256": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "returnParcelSha256": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "parentParcelSha256": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "sender": "FICTIONAL_A",
+  "recipient": "FICTIONAL_B",
+  "rights": "SENDER_ASSERTION_NOT_VERIFIED_LICENSE",
+  "semanticEffect": "none",
+  "transmitted": false,
+  "realParticipants": 0,
+  "publicationAuthorized": false,
+  "decision": "INTERESTING"
+}
