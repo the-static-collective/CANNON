@@ -1,0 +1,36 @@
+name: STORY-ROOMS-005 exact native fiction-to-Second-Table crossing
+on:
+  pull_request:
+    paths:
+      - 'scripts/story-rooms-005.mjs'
+      - 'test/story-rooms-005.test.mjs'
+      - '.github/workflows/story-rooms-005.yml'
+  workflow_dispatch:
+jobs:
+  native:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test test/story-rooms-005.test.mjs
+      - name: Clone the three true source owners at pinned commits
+        run: |
+          git clone --quiet https://github.com/the-static-collective/JAR-VIS.git /tmp/story-jarvis
+          git -C /tmp/story-jarvis checkout --quiet 28d46f26ae373cb20f4fc288c21b891fe97a6f68
+          git clone --quiet https://github.com/the-static-collective/planZ.git /tmp/story-planz
+          git -C /tmp/story-planz checkout --quiet 2507c36c0dc832b49b67d3c8b975544b5a53a84c
+          git clone --quiet https://github.com/the-static-collective/webZ.git /tmp/story-webz
+          git -C /tmp/story-webz checkout --quiet 52b45697508b89e282dad7979666a60ce143457b
+      - name: Genuine three-owner execution and frozen saved evidence inspection
+        run: |
+          node scripts/story-rooms-005.mjs demo --jarvis /tmp/story-jarvis --planz /tmp/story-planz --webz /tmp/story-webz --out /tmp/cannon-story-rooms-output
+          node scripts/story-rooms-005.mjs verify --jarvis /tmp/story-jarvis --planz /tmp/story-planz --webz /tmp/story-webz --out /tmp/cannon-story-rooms-output
+      - uses: actions/upload-artifact@v4
+        with:
+          name: story-rooms-005-native-three-owner-offline-cinema-HOLD
+          path: /tmp/cannon-story-rooms-output/
+          if-no-files-found: error
