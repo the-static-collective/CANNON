@@ -1,0 +1,120 @@
+{
+  "schema": "cannon.reflex-library/v1",
+  "origin": "the-static-collective/CANNON",
+  "authority": "EXPERIMENT_HOLD",
+  "purpose": "Locally discover separately demonstrated synthetic CANNON capabilities without automatically running anything",
+  "capabilities": [
+    {
+      "id": "film-press-synthetic-selection/v1",
+      "title": "Selected held plan → independent native film software proof",
+      "status": "SOURCE_NATIVE_REPLAYED",
+      "risk": "SYNTHETIC_ONLY",
+      "owner": "CANNON",
+      "runner": "scripts/inspand-reflex.mjs",
+      "sourcePlan": "the-static-collective/planZ@64ed8a376acd63a5d630e1649b6001fb3b3251de",
+      "input": {
+        "type": "planz.generated-plan/v1",
+        "fields": [
+          "planId",
+          "exactPinnedPlanZCheckout",
+          "fiveOwnerCheckoutMap",
+          "operatorRouteChoice"
+        ],
+        "requiredChoice": true
+      },
+      "output": {
+        "type": "cannon.inspand-receipt/v1",
+        "artifacts": [
+          "native/owners/blender-silent-study.mp4",
+          "receipt.json"
+        ],
+        "planContentAffectsNativePixels": false
+      },
+      "discover": {
+        "terms": [
+          "plan",
+          "proof",
+          "synthetic",
+          "film",
+          "selection",
+          "replay",
+          "creative"
+        ],
+        "recommendation": "TEST_FIXTURE_ONLY"
+      },
+      "gates": {
+        "buildAuthorization": "SYNTHETIC_TEST_ONLY",
+        "humanKeep": false,
+        "publish": false,
+        "physical": false
+      },
+      "cost": {
+        "timeSavedSeconds": null,
+        "computeExpenseUsd": null
+      },
+      "failureMode": "HOLD"
+    },
+    {
+      "id": "film-press-plan-shaped/v1",
+      "title": "Held plan content → native Toaster, PlayDeck and Blender pixels",
+      "status": "SOURCE_NATIVE_REPLAYED",
+      "risk": "SYNTHETIC_ONLY",
+      "owner": "CANNON",
+      "runner": "scripts/inspand-reflex.mjs",
+      "sourcePlan": "the-static-collective/planZ@64ed8a376acd63a5d630e1649b6001fb3b3251de",
+      "input": {
+        "type": "planz.generated-plan/v1",
+        "fields": [
+          "planId",
+          "exactPinnedPlanZCheckout",
+          "fiveOwnerCheckoutMap",
+          "operatorRouteChoice"
+        ],
+        "requiredChoice": true
+      },
+      "output": {
+        "type": "cannon.inspand-receipt/v1",
+        "artifacts": [
+          "native/owners/blender-silent-study.mp4",
+          "native/inputs/plan-binding.json",
+          "receipt.json"
+        ],
+        "planContentAffectsNativePixels": true
+      },
+      "discover": {
+        "terms": [
+          "plan",
+          "pixels",
+          "visual",
+          "render",
+          "creative",
+          "film",
+          "video",
+          "toaster",
+          "art",
+          "replay"
+        ],
+        "recommendation": "TEST_FIXTURE_ONLY"
+      },
+      "gates": {
+        "buildAuthorization": "SYNTHETIC_TEST_ONLY",
+        "humanKeep": false,
+        "publish": false,
+        "physical": false
+      },
+      "cost": {
+        "timeSavedSeconds": null,
+        "computeExpenseUsd": null
+      },
+      "failureMode": "HOLD"
+    }
+  ],
+  "policies": {
+    "discoveryIsApproval": false,
+    "selectionIsExecution": false,
+    "executionIsPublication": false,
+    "replayIsHumanWitness": false,
+    "proposalIsVerifiedFact": false,
+    "allOutputsHeld": true
+  }
+}
