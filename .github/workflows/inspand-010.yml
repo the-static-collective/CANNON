@@ -55,6 +55,15 @@ jobs:
           python3 -m pip install 'Pillow>=9'
           (cd /tmp/inspand-010/playdeck && npm install --ignore-scripts --no-package-lock --no-audit --no-fund)
           (cd /tmp/inspand-010/band && npm install --ignore-scripts --no-package-lock --no-audit --no-fund)
+      - name: Original owner native compatibility checks and restore generated PlayDeck source
+        run: |
+          (cd /tmp/inspand-010/toaster/src/full-measure && node --test tests/sigil-utterance-family.test.cjs)
+          (cd /tmp/inspand-010/playdeck && npm run compose:genesis)
+          (cd /tmp/inspand-010/blender && python3 -m unittest discover -s tests -p test_scene_growth_005.py)
+          (cd /tmp/inspand-010/band && npm test -- --run test/creative-room-bridge.test.ts)
+          (cd /tmp/inspand-010/lemonpress && node --test test/vinyl-preflight.test.mjs)
+          git -C /tmp/inspand-010/playdeck restore --source=HEAD -- packages/ingest/src/cli.ts
+          git -C /tmp/inspand-010/playdeck diff --exit-code
       - name: Select real original planZ generated plan from original native planner
         run: |
           (cd /tmp/inspand-010/planz && node --test reactor/collide.test.mjs reactor/recursive.test.mjs)
