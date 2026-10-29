@@ -1,0 +1,45 @@
+name: GROOVETOWN-005 synthetic impossibility foundry
+on:
+  push:
+    branches: [experiment/groovetown-005-impossibility-foundry]
+  pull_request:
+    paths:
+      - 'experiments/groovetown-001/**'
+      - 'experiments/groovetown-002/**'
+      - 'experiments/groovetown-003/**'
+      - 'experiments/groovetown-004/**'
+      - 'experiments/groovetown-005/**'
+      - '.github/workflows/groovetown-005.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  executable-proof:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Original inherited modules and foundry tests
+        run: |
+          node --test \
+            experiments/groovetown-001/groovetown.test.mjs \
+            experiments/groovetown-002/particularity.test.mjs \
+            experiments/groovetown-003/intertown.test.mjs \
+            experiments/groovetown-004/reciprocity.test.mjs \
+            experiments/groovetown-005/foundry.test.mjs
+      - name: Two independent real executions
+        run: |
+          node experiments/groovetown-005/foundry.mjs demo "$RUNNER_TEMP/foundry-a"
+          node experiments/groovetown-005/foundry.mjs demo "$RUNNER_TEMP/foundry-b"
+          diff -rq "$RUNNER_TEMP/foundry-a" "$RUNNER_TEMP/foundry-b"
+      - name: Preserve synthetic review packet
+        uses: actions/upload-artifact@v4
+        with:
+          name: groovetown-005-impossibility-foundry-FICTIONAL
+          path: ${{ runner.temp }}/foundry-a/
+          retention-days: 14
