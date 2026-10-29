@@ -1,7 +1,7 @@
-name: ONE-INVENTION-SEVEN-005 — one machine, seven native expressions and return
+name: ONE-INVENTION-RETURN-006 — seven native forms loop into original PlanZ
 on:
   push:
-    branches: ["experiment/one-invention-seven-005"]
+    branches: ["experiment/one-invention-seven-005","experiment/one-invention-plan-return-006"]
     paths: ["scripts/one-invention-seven.mjs","test/one-invention-seven.test.mjs","docs/ONE-INVENTION-SEVEN-005.md",".github/workflows/one-invention-seven-005.yml"]
   pull_request:
     paths: ["scripts/one-invention-seven.mjs","test/one-invention-seven.test.mjs","docs/ONE-INVENTION-SEVEN-005.md",".github/workflows/one-invention-seven-005.yml"]
@@ -112,10 +112,21 @@ jobs:
           if node scripts/one-invention-seven.mjs verify --book "$RUNNER_TEMP/book-one" --roots "$RUNNER_TEMP/roots-seven.json" --plan-id "$PLAN_ONE" --out "$GITHUB_WORKSPACE/one-invention-held"; then exit 1; fi
           cp "$RUNNER_TEMP/original-creature.json" one-invention-held/views/jarvis.json
           node scripts/one-invention-seven.mjs verify --book "$RUNNER_TEMP/book-one" --roots "$RUNNER_TEMP/roots-seven.json" --plan-id "$PLAN_ONE" --out "$GITHUB_WORKSPACE/one-invention-held"
+      - name: Compile seven actual creative software outputs back through original PlanZ
+        run: |
+          git clone --quiet https://github.com/the-static-collective/planZ.git "$RUNNER_TEMP/planz-return"
+          git -C "$RUNNER_TEMP/planz-return" checkout --quiet --detach c94c2091d2d121def39d85981d8c323f5724f6e7
+          node --test "$RUNNER_TEMP/planz-return/reactor/return-seven.test.mjs"
+          node "$RUNNER_TEMP/planz-return/reactor/return-seven.mjs" --source-dir "$GITHUB_WORKSPACE/one-invention-held" --out-dir "$GITHUB_WORKSPACE/planz-return-held" > "$RUNNER_TEMP/feedback.json"
+          node "$RUNNER_TEMP/planz-return/reactor/return-seven.mjs" --source-dir "$GITHUB_WORKSPACE/one-invention-held" --out-dir "$GITHUB_WORKSPACE/planz-return-held" > "$RUNNER_TEMP/feedback-replayed.json"
+          cmp "$RUNNER_TEMP/feedback.json" "$RUNNER_TEMP/feedback-replayed.json"
+          node -e 'const fs=require("fs");const x=JSON.parse(fs.readFileSync(process.env.RUNNER_TEMP+"/feedback.json"));if(x.angleCutCount!==28||x.proposedDescendantCount!==7||x.donorEnginesExecutedHere!==false||x.plans.some(p=>p.authority!=="NONE"||p.executed))process.exit(1);console.log("Native PlanZ intake: 28 perspective cuts, 7 held descendant plans")'
       - name: Keep the seven-ways exhibition, original outputs, independent return questions and receipts
         uses: actions/upload-artifact@v4
         with:
-          name: one-invention-seven-005-held-exhibition-and-return-plans
-          path: one-invention-held/
+          name: one-invention-return-006-seven-creations-plus-native-planz-descendants
+          path: |
+            one-invention-held/
+            planz-return-held/
           if-no-files-found: error
           retention-days: 30
