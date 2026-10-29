@@ -72,7 +72,7 @@ export function analyze(packet,canonical){
   need(rows.length===9&&scores?.calls===9,'MISSING_ARM');
   const eachLine=rows.every(r=>r.card.split('\n').every(line=>countWords(line)>=2&&countWords(line)<=3));
   need(eachLine&&rows.every(r=>r.card.split('\n').every(line=>
-    !/^(FACT|IDEA|RELATION|SOURCE|ADAPTER|ASK)\s/.test(line)),'LABEL_FREE');
+    !/^(FACT|IDEA|RELATION|SOURCE|ADAPTER|ASK)\s/.test(line))),'LABEL_FREE');
   const exact=rows.filter(r=>r.response.toLowerCase().replace(/[.\s]+$/,'')===
     r.expected.toLowerCase()).length;
   need(exact===scores.exactCorrect,'METRICS');
