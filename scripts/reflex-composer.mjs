@@ -86,7 +86,7 @@ function readStage(dir){
  const memory=JSON.parse(readFileSync(join(dir,'library-memory.json'),'utf8'));
  const choice=JSON.parse(readFileSync(join(dir,'library-choice.json'),'utf8'));
  const cap=JSON.parse(readFileSync(join(dir,'library-capability.json'),'utf8'));
- need(cap?.schema==='cannon.inspand-capability/v1'&&cap.owner==='CANNON','CAPABILITY_SHAPE');
+ need(cap?.id&&cap.owner==='CANNON'&&cap.runner==='scripts/inspand-reflex.mjs'&&cap.registrySha256,'CAPABILITY_SHAPE');
  return {memory,choice,cap};
 }
 function escapeHTML(t){return String(t).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');}
