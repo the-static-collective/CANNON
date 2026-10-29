@@ -77,7 +77,7 @@ test('strict loopback, csrf and explicit review gate; executable request remains
  assert.match(created.id,/^genesis-/);
  assert.equal(env.calls(),1);
  assert.equal(created.generated,true);
- assert.equal((await fetch(env.url+created.links.firstBoot)).status,200);
+ assert.equal((await fetch(new URL(created.links.firstBoot,env.url))).status,200);
  assert.equal((await fetch(env.url+'runs/../secrets')).status,404);
  assert.equal((await fetch(env.url+'runs/'+created.id+'/../../hosts')).status,404);
  const history=await (await fetch(env.url+'api/status')).json();
