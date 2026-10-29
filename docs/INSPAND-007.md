@@ -1,6 +1,6 @@
 # INSPAND-007 — Golden Compass: two-word questions, triad bearings
 
-**Owner:** CANNON's independent read-only evaluation and review-book layer. **Original model / generation owner:** Iron Lung's COMPASS-001 draft PR #9, exact locked commit `cc770ff20688e9768477f92f4e880bef36a06e98`. **Parent:** INSPAND-006 draft #74, with a previous long-form and seven-style negative benchmark.
+**Owner:** CANNON's independent read-only evaluation and review-book layer. **Original model / generation owner:** Iron Lung's COMPASS-001 draft PR #9, exact locked commit `6159d4c45d96e51922413c5e5aaf2461ae576a6e`. **Parent:** INSPAND-006 draft #74, with a previous long-form and seven-style negative benchmark.
 
 ## Hypothesis
 
