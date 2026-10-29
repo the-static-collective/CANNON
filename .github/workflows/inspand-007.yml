@@ -1,0 +1,63 @@
+name: INSPAND-007 Compass three-way original model test
+on:
+  push:
+    branches: [experiment/inspand-007-compass-triangulation]
+  pull_request:
+    paths:
+      - scripts/compass-evaluator.mjs
+      - test/compass-evaluator.test.mjs
+      - registry/compass-source-lock-v1.json
+      - .github/workflows/inspand-007.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  fixture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: node --test test/compass-evaluator.test.mjs
+      - name: Checkout original Iron Lung
+        run: |
+          git clone --quiet https://github.com/the-static-collective/iron-lung.git /tmp/compass-owner
+          git -C /tmp/compass-owner checkout --quiet --detach 6159d4c45d96e51922413c5e5aaf2461ae576a6e
+          (cd /tmp/compass-owner && npm install --ignore-scripts --no-package-lock --no-audit --no-fund && npm run check)
+      - name: Build and cold replay original experiment through CANNON
+        run: |
+          node scripts/compass-evaluator.mjs inspect --lung /tmp/compass-owner
+          node scripts/compass-evaluator.mjs build --lung /tmp/compass-owner --provider fixture --source /tmp/compass-owner/fixtures/triple-transfer-input-v1.json --out /tmp/compass-control --authorize SYNTHETIC_TEST_ONLY
+          node scripts/compass-evaluator.mjs verify --lung /tmp/compass-owner --provider fixture --source /tmp/compass-owner/fixtures/triple-transfer-input-v1.json --out /tmp/compass-control
+      - uses: actions/upload-artifact@v4
+        with:
+          name: compass-007-control-book
+          path: /tmp/compass-control
+  real-flan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Exact original owner and pretrained FLAN CPU runtime
+        run: |
+          git clone --quiet https://github.com/the-static-collective/iron-lung.git /tmp/compass-owner
+          git -C /tmp/compass-owner checkout --quiet --detach 6159d4c45d96e51922413c5e5aaf2461ae576a6e
+          (cd /tmp/compass-owner && npm install --ignore-scripts --no-package-lock --no-audit --no-fund)
+          python3 -m pip install 'torch>=2.2,<3' --index-url https://download.pytorch.org/whl/cpu
+          python3 -m pip install -r /tmp/compass-owner/model/requirements-triple.txt
+      - name: Equal budget nine versus nine and 27 microquestions from original Iron Lung
+        run: |
+          node scripts/compass-evaluator.mjs build --lung /tmp/compass-owner --provider flan --source /tmp/compass-owner/fixtures/triple-transfer-input-v1.json --out /tmp/compass-real --authorize SYNTHETIC_TEST_ONLY
+          node scripts/compass-evaluator.mjs verify --lung /tmp/compass-owner --provider flan --source /tmp/compass-owner/fixtures/triple-transfer-input-v1.json --out /tmp/compass-real
+      - uses: actions/upload-artifact@v4
+        with:
+          name: compass-007-real-flan-review-book
+          path: /tmp/compass-real
