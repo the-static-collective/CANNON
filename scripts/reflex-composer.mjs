@@ -86,8 +86,10 @@ function readStage(dir){
  const memory=JSON.parse(readFileSync(join(dir,'library-memory.json'),'utf8'));
  const choice=JSON.parse(readFileSync(join(dir,'library-choice.json'),'utf8'));
  const cap=JSON.parse(readFileSync(join(dir,'library-capability.json'),'utf8'));
+ const nativeCap=JSON.parse(readFileSync(join(dir,'native/capability.json'),'utf8'));
  need(cap?.id&&cap.owner==='CANNON'&&cap.runner==='scripts/inspand-reflex.mjs'&&cap.registrySha256,'CAPABILITY_SHAPE');
- return {memory,choice,cap};
+ need(nativeCap.schema==='cannon.inspand-capability/v1'&&nativeCap.id===cap.id,'NATIVE_CAPABILITY_ID');
+ return {memory,choice,cap,nativeCap};
 }
 function escapeHTML(t){return String(t).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');}
 function composedPacket(recipe,registrySha,first,second,handoff){
@@ -95,7 +97,8 @@ function composedPacket(recipe,registrySha,first,second,handoff){
   &&second.choice?.capabilityId===fixedIds[1]
   &&second.choice.planId===handoff.boundPlanId
   &&second.memory.reusableRecipe?.planId===handoff.boundPlanId
-  &&second.cap?.mediaInputsDerivedFromPlan===true,'SECOND_NOT_SHAPED');
+  &&second.cap?.output?.planContentAffectsNativePixels===true
+  &&second.nativeCap?.mediaInputsDerivedFromPlan===true,'SECOND_NOT_SHAPED');
  need(first.memory.observedOutputs?.nativeSilentVideoSha256
   &&second.memory.observedOutputs?.nativeSilentVideoSha256,'MISSING_OWNER_BYTES');
  need(first.memory.observedOutputs.nativeSilentVideoSha256!==second.memory.observedOutputs.nativeSilentVideoSha256,
