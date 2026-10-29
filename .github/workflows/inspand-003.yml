@@ -1,0 +1,124 @@
+name: INSPAND-003 reusable discoverable reflex library and replay
+on:
+  push:
+    branches:
+      - experiment/inspand-003-reflex-library
+  pull_request:
+    paths:
+      - scripts/inspand-reflex.mjs
+      - test/inspand-reflex.test.mjs
+      - test/inspand-002-media.test.mjs
+      - scripts/film-press-crossing.mjs
+      - docs/INSPAND-001.md
+      - registry/reflex-library-v1.json
+      - scripts/reflex-library.mjs
+      - test/reflex-library.test.mjs
+      - .github/workflows/inspand-003.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  first-reflex:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: First fail-closed unit gates
+        run: node --test test/inspand-reflex.test.mjs test/inspand-002-media.test.mjs test/film-press.test.mjs test/reflex-library.test.mjs
+      - name: Checkout original exact source owners
+        run: |
+          mkdir -p /tmp/inspand-001
+          git clone --quiet https://github.com/the-static-collective/planZ.git /tmp/inspand-001/planz
+          git -C /tmp/inspand-001/planz checkout --quiet --detach 64ed8a376acd63a5d630e1649b6001fb3b3251de
+          git clone --quiet https://github.com/the-static-collective/the-haunted-toaster.git /tmp/inspand-001/toaster
+          git -C /tmp/inspand-001/toaster checkout --quiet --detach 3652c2a96b6b287cda316d1c92daadf7c7417eaf
+          git clone --quiet https://github.com/the-static-collective/playdeck.git /tmp/inspand-001/playdeck
+          git -C /tmp/inspand-001/playdeck checkout --quiet --detach a7cf718421e767fd382a01894063c3eeba3d2930
+          git clone --quiet https://github.com/the-static-collective/the-haunted-blender.git /tmp/inspand-001/blender
+          git -C /tmp/inspand-001/blender checkout --quiet --detach 78be68dbe788c0744684433205b276c56a580c00
+          git clone --quiet https://github.com/the-static-collective/band-runtime.git /tmp/inspand-001/band
+          git -C /tmp/inspand-001/band checkout --quiet --detach 081c5742dae49153a3b554db1f2f9be48078a93e
+          git clone --quiet https://github.com/the-static-collective/lemonPRESS.git /tmp/inspand-001/lemonpress
+          git -C /tmp/inspand-001/lemonpress checkout --quiet --detach c96738e8333b3f75e1c485b8e25f276c4da68f8a
+          node -e "const fs=require('fs'),p='/tmp/inspand-001';fs.writeFileSync(p+'/roots.json',JSON.stringify(Object.fromEntries(['toaster','playdeck','blender','band','lemonpress'].map(k=>[k,p+'/'+k]))))"
+      - name: Original source runtime dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg
+          python3 -m pip install 'Pillow>=9'
+          (cd /tmp/inspand-001/playdeck && npm install --ignore-scripts --no-package-lock --no-audit --no-fund)
+          (cd /tmp/inspand-001/band && npm install --ignore-scripts --no-package-lock --no-audit --no-fund)
+      - name: Original owner suites, not substitute implementations
+        run: |
+          (cd /tmp/inspand-001/planz && node --test reactor/collide.test.mjs reactor/recursive.test.mjs)
+          (cd /tmp/inspand-001/toaster/src/full-measure && node --test tests/sigil-utterance-family.test.cjs)
+          (cd /tmp/inspand-001/playdeck && npm run compose:genesis)
+          (cd /tmp/inspand-001/blender && python3 -m unittest discover -s tests -p test_scene_growth_005.py)
+          (cd /tmp/inspand-001/band && npm test -- --run test/creative-room-bridge.test.ts)
+          (cd /tmp/inspand-001/lemonpress && node --test test/vinyl-preflight.test.mjs)
+          git -C /tmp/inspand-001/playdeck restore --source=HEAD -- packages/ingest/src/cli.ts
+          git -C /tmp/inspand-001/playdeck diff --exit-code
+      - name: Scripted synthetic fixture chooses one exact original plan ID
+        run: |
+          node /tmp/inspand-001/planz/reactor/recursive.mjs --depth 1 --cross-limit 0 --format json > /tmp/inspand-001/plans.json
+          node -e 'const fs=require("fs");const m=JSON.parse(fs.readFileSync(process.argv[1]));const root=m.roots.find(x=>x.chamberId==="RHYTHM-MUTANT");if(!root)process.exit(2);const p=m.proposedPlans.find(x=>x.kind==="LENS_SYNTHESIS"&&x.parentIds.length===1&&x.parentIds[0]===root.id);if(!p)process.exit(2);fs.writeFileSync(process.argv[2],p.id)' /tmp/inspand-001/plans.json /tmp/inspand-001/plan-id
+      - name: Original native execution and exact cold replay plus forgery refusal
+        run: |
+          PLAN_ID="$(cat /tmp/inspand-001/plan-id)"
+          node scripts/inspand-reflex.mjs build --planz /tmp/inspand-001/planz --plan "$PLAN_ID" --route film-press-plan-shaped/v1 --roots /tmp/inspand-001/roots.json --out /tmp/inspand-001/output --authorize SYNTHETIC_TEST_ONLY
+          node scripts/inspand-reflex.mjs verify --planz /tmp/inspand-001/planz --plan "$PLAN_ID" --route film-press-plan-shaped/v1 --roots /tmp/inspand-001/roots.json --out /tmp/inspand-001/output
+          cp /tmp/inspand-001/output/selection.json /tmp/inspand-001/clean-selection.json
+          printf '\nFORGED_APPROVAL' >> /tmp/inspand-001/output/selection.json
+          if node scripts/inspand-reflex.mjs verify --planz /tmp/inspand-001/planz --plan "$PLAN_ID" --route film-press-plan-shaped/v1 --roots /tmp/inspand-001/roots.json --out /tmp/inspand-001/output; then echo 'TAMPER ACCEPTED'; exit 1; fi
+          cp /tmp/inspand-001/clean-selection.json /tmp/inspand-001/output/selection.json
+          node scripts/inspand-reflex.mjs verify --planz /tmp/inspand-001/planz --plan "$PLAN_ID" --route film-press-plan-shaped/v1 --roots /tmp/inspand-001/roots.json --out /tmp/inspand-001/output
+      - name: A/B original plan content must change native original-rendered bytes
+        run: |
+          node -e 'const fs=require("fs");const m=JSON.parse(fs.readFileSync("/tmp/inspand-001/plans.json"));const r=m.roots.find(x=>x.chamberId==="ORCHARD-CINEMA");const p=m.proposedPlans.find(x=>x.parentIds?.[0]===r.id);if(!p)process.exit(2);fs.writeFileSync("/tmp/inspand-001/orchard-id",p.id)'
+          OTHER_ID="$(cat /tmp/inspand-001/orchard-id)"
+          node scripts/inspand-reflex.mjs build --planz /tmp/inspand-001/planz --plan "$OTHER_ID" --route film-press-plan-shaped/v1 --roots /tmp/inspand-001/roots.json --out /tmp/inspand-001/orchard-output --authorize SYNTHETIC_TEST_ONLY
+          node scripts/inspand-reflex.mjs verify --planz /tmp/inspand-001/planz --plan "$OTHER_ID" --route film-press-plan-shaped/v1 --roots /tmp/inspand-001/roots.json --out /tmp/inspand-001/orchard-output
+          if cmp -s /tmp/inspand-001/output/native/owners/blender-silent-study.mp4 /tmp/inspand-001/orchard-output/native/owners/blender-silent-study.mp4; then echo "SAME MP4 DESPITE CHANGED PLAN"; exit 1; fi
+          if cmp -s /tmp/inspand-001/output/native/owners/toaster-family.json /tmp/inspand-001/orchard-output/native/owners/toaster-family.json; then echo "SAME NATIVE TOASTER PLAN"; exit 1; fi
+          sha256sum /tmp/inspand-001/output/native/owners/blender-silent-study.mp4 /tmp/inspand-001/orchard-output/native/owners/blender-silent-study.mp4
+      - name: Discover source-backed capabilities without granting authority
+        run: |
+          node scripts/reflex-library.mjs list
+          node scripts/reflex-library.mjs discover --need 'plan film visual replay'
+          node scripts/reflex-library.mjs discover --need 'housing meals'
+      - name: Build once, verify, reuse same recipe in new local output, compare proof
+        run: |
+          PLAN="$(cat /tmp/inspand-001/plan-id)"
+          node scripts/reflex-library.mjs build --capability film-press-plan-shaped/v1 --plan "$PLAN" --planz /tmp/inspand-001/planz --roots /tmp/inspand-001/roots.json --out /tmp/inspand-001/reflex-first --authorize SYNTHETIC_TEST_ONLY
+          node scripts/reflex-library.mjs verify --capability film-press-plan-shaped/v1 --plan "$PLAN" --planz /tmp/inspand-001/planz --roots /tmp/inspand-001/roots.json --out /tmp/inspand-001/reflex-first
+          node scripts/reflex-library.mjs build --capability film-press-plan-shaped/v1 --plan "$PLAN" --planz /tmp/inspand-001/planz --roots /tmp/inspand-001/roots.json --out /tmp/inspand-001/reflex-second --authorize SYNTHETIC_TEST_ONLY
+          node scripts/reflex-library.mjs verify --capability film-press-plan-shaped/v1 --plan "$PLAN" --planz /tmp/inspand-001/planz --roots /tmp/inspand-001/roots.json --out /tmp/inspand-001/reflex-second
+          cmp /tmp/inspand-001/reflex-first/library-memory.json /tmp/inspand-001/reflex-second/library-memory.json
+          cmp /tmp/inspand-001/reflex-first/native/native/owners/blender-silent-study.mp4 /tmp/inspand-001/reflex-second/native/native/owners/blender-silent-study.mp4
+      - name: Altered memory or capability selection is refused
+        run: |
+          PLAN="$(cat /tmp/inspand-001/plan-id)"
+          cp /tmp/inspand-001/reflex-first/library-memory.json /tmp/inspand-001/clean-memory.json
+          printf 'FAKE_ACCEPTED' >> /tmp/inspand-001/reflex-first/library-memory.json
+          if node scripts/reflex-library.mjs verify --capability film-press-plan-shaped/v1 --plan "$PLAN" --planz /tmp/inspand-001/planz --roots /tmp/inspand-001/roots.json --out /tmp/inspand-001/reflex-first; then exit 1; fi
+          cp /tmp/inspand-001/clean-memory.json /tmp/inspand-001/reflex-first/library-memory.json
+          if node scripts/reflex-library.mjs verify --capability film-press-synthetic-selection/v1 --plan "$PLAN" --planz /tmp/inspand-001/planz --roots /tmp/inspand-001/roots.json --out /tmp/inspand-001/reflex-first; then exit 1; fi
+          node scripts/reflex-library.mjs verify --capability film-press-plan-shaped/v1 --plan "$PLAN" --planz /tmp/inspand-001/planz --roots /tmp/inspand-001/roots.json --out /tmp/inspand-001/reflex-first
+      - uses: actions/upload-artifact@v4
+        with:
+          name: inspand-003-repeatable-held-native-reflex-and-capability-memory
+          path: |
+            /tmp/inspand-001/output/
+            /tmp/inspand-001/orchard-output/
+            /tmp/inspand-001/reflex-first/
+            /tmp/inspand-001/reflex-second/
+          retention-days: 30
+          if-no-files-found: error
