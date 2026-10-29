@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "0.1",
+  "id": "physical-proof",
+  "physical": "paper-cutout",
+  "surface": "ink-on-paper",
+  "transition": "contact-sheet-to-room",
+  "awakening": "proposal-only",
+  "laws": [
+    "No source becomes a licensed media master",
+    "No synthetic KEEP is a human production approval"
+  ]
+}
