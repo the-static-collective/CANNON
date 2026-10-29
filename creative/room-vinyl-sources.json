@@ -1,0 +1,22 @@
+{
+  "schema": "cannon.room-vinyl-sources/v1",
+  "observation": "2026-10-29",
+  "nativeOwners": {
+    "band": {
+      "repository": "the-static-collective/band-runtime",
+      "commit": "081c5742dae49153a3b554db1f2f9be48078a93e",
+      "command": "node -r ts-node/register scripts/room-review.ts"
+    },
+    "lemonpress": {
+      "repository": "the-static-collective/lemonPRESS",
+      "commit": "c96738e8333b3f75e1c485b8e25f276c4da68f8a",
+      "command": "node scripts/vinyl-preflight.mjs"
+    }
+  },
+  "privateOwner": {
+    "repository": "the-static-collective/groove-rooms",
+    "pullRequest": 16,
+    "status": "PRIVATE_OWNER_NATIVE_ONLY_NOT_ACQUIRED_BY_PUBLIC_CANNON"
+  },
+  "authority": "LOCAL_SYNTHETIC_HOLD_ONLY"
+}
