@@ -1,0 +1,52 @@
+name: CREATIVE-ENGINE-001 native owners and byte replay
+on:
+  push:
+    branches: ['experiment/creative-engine-001']
+  pull_request:
+    paths: ['creative/**','src/creative-engine/**','scripts/creative-engine.mjs','test/creative-engine.test.mjs','.github/workflows/creative-engine-001.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original-owners:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Acquire exact original public source cuts
+        run: |
+          mkdir -p "$RUNNER_TEMP/creative-donors"
+          git clone --quiet https://github.com/the-static-collective/iron-lung.git "$RUNNER_TEMP/creative-donors/ironlung"
+          git -C "$RUNNER_TEMP/creative-donors/ironlung" checkout --quiet --detach bf6c09170ee5b48a477a29f536e065fc6e69011a
+          git clone --quiet https://github.com/the-static-collective/static-live.git "$RUNNER_TEMP/creative-donors/staticlive"
+          git -C "$RUNNER_TEMP/creative-donors/staticlive" checkout --quiet --detach 38e67b2930cea09c3e01a05447a6e92a67c2468f
+          printf '{"ironlung":"%s/creative-donors/ironlung","staticlive":"%s/creative-donors/staticlive"}\n' "$RUNNER_TEMP" "$RUNNER_TEMP" > "$RUNNER_TEMP/creative-roots.json"
+      - name: Install TypeScript runner without postinstall scripts
+        run: |
+          cd "$RUNNER_TEMP/creative-donors/ironlung"
+          npm install --no-package-lock --ignore-scripts --no-audit --no-fund
+      - name: Run original owner suites and hostile CANNON tests
+        run: |
+          (cd "$RUNNER_TEMP/creative-donors/ironlung" && npm run check)
+          (cd "$RUNNER_TEMP/creative-donors/staticlive" && npm test)
+          node --test test/creative-engine.test.mjs
+      - name: Build cold replay and deliberate tamper refusal
+        run: |
+          node scripts/creative-engine.mjs build --roots "$RUNNER_TEMP/creative-roots.json" --out "$RUNNER_TEMP/creative-output" --authorize LOCAL_FICTIONAL_ONLY
+          node scripts/creative-engine.mjs verify --roots "$RUNNER_TEMP/creative-roots.json" --out "$RUNNER_TEMP/creative-output"
+          printf 'forged' >> "$RUNNER_TEMP/creative-output/room-bridge.json"
+          if node scripts/creative-engine.mjs verify --roots "$RUNNER_TEMP/creative-roots.json" --out "$RUNNER_TEMP/creative-output"; then
+            echo 'ERROR: forgery accepted';exit 1
+          fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: creative-engine-001-native-software-evidence
+          path: ${{ runner.temp }}/creative-output/
+          retention-days: 30
+          if-no-files-found: error

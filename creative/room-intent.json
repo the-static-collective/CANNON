@@ -1,0 +1,10 @@
+{
+  "schema": "cannon.creative-room-intent/v1",
+  "mode": "FICTIONAL_LOCAL_ONLY",
+  "participants": "NONE",
+  "semanticEffect": "none",
+  "rights": "NOT_ASSERTED",
+  "transport": "NONE",
+  "published": false,
+  "sourceOwnerExecuted": false
+}
