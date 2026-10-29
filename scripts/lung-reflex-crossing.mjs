@@ -32,7 +32,8 @@ export function inspectOriginalLung(path){
  const dir=rootDir(path);
  hold(git(dir,'rev-parse','HEAD')===LOCK.commit,'LUNG_COMMIT');
  hold(git(dir,'remote','get-url','origin').replace(/\.git$/,'')==='https://github.com/'+LOCK.repository,'LUNG_ORIGIN');
- hold(git(dir,'status','--porcelain','--untracked-files=normal')==='','LUNG_DIRTY');
+ const changes=git(dir,'status','--porcelain','--untracked-files=normal').split('\n').filter(Boolean);
+ hold(changes.every(x=>x==='?? node_modules/'),'LUNG_DIRTY');
  for(const [file,object] of Object.entries(LOCK.files)){
   hold(git(dir,'rev-parse','HEAD:'+file)===object,'LUNG_BLOB_'+file);
   // Binary Git blob and live working copy must match the reviewed source.
@@ -133,7 +134,7 @@ function options(args){
 function composedReceipt(source,pressure,native,plan){
  const core={schema:'cannon.lung-reflex-execution/v1',
   status:'SOURCE_OWNER_MODEL_PROPOSALS_PLUS_NATIVE_EXECUTION_HELD',
-  lungOwnerCommit:source.commit,model:pressure.model??null,
+  lungOwnerCommit:source.commit,modelSource:source.flan,
   lungFieldSha256:pressure.fieldSha256,pressureSha256:pressure.pressureSha256,
   planId:plan,selectedNativeRecipe:RECIPE,selectionBasis:'OPERATOR_EXPLICIT_PREAUTHORIZED_TEST',
   nativeReceiptSha256:native.receiptSha256,
