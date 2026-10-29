@@ -1,8 +1,8 @@
-name: ONE-INVENTION-RETURN-006 — seven native forms loop into original PlanZ
+name: ROOT-NESTED-007 — one first PlanZ output contains seven creative planning cycles
 on:
   push:
-    branches: ["experiment/one-invention-seven-005","experiment/one-invention-plan-return-006"]
-    paths: ["scripts/one-invention-seven.mjs","test/one-invention-seven.test.mjs","docs/ONE-INVENTION-SEVEN-005.md",".github/workflows/one-invention-seven-005.yml"]
+    branches: ["experiment/one-invention-seven-005","experiment/one-invention-plan-return-006","experiment/root-nested-seven-cycle-007"]
+    paths: ["scripts/one-invention-seven.mjs","test/one-invention-seven.test.mjs","docs/ONE-INVENTION-SEVEN-005.md","docs/ROOT-NESTED-007.md",".github/workflows/one-invention-seven-005.yml"]
   pull_request:
     paths: ["scripts/one-invention-seven.mjs","test/one-invention-seven.test.mjs","docs/ONE-INVENTION-SEVEN-005.md",".github/workflows/one-invention-seven-005.yml"]
 permissions:
@@ -121,12 +121,46 @@ jobs:
           node "$RUNNER_TEMP/planz-return/reactor/return-seven.mjs" --source-dir "$GITHUB_WORKSPACE/one-invention-held" --out-dir "$GITHUB_WORKSPACE/planz-return-held" > "$RUNNER_TEMP/feedback-replayed.json"
           cmp "$RUNNER_TEMP/feedback.json" "$RUNNER_TEMP/feedback-replayed.json"
           node -e 'const fs=require("fs");const x=JSON.parse(fs.readFileSync(process.env.RUNNER_TEMP+"/feedback.json"));if(x.angleCutCount!==28||x.proposedDescendantCount!==7||x.donorEnginesExecutedHere!==false||x.plans.some(p=>p.authority!=="NONE"||p.executed))process.exit(1);console.log("Native PlanZ intake: 28 perspective cuts, 7 held descendant plans")'
+      - name: The FIRST PlanZ output now contains seven nested invention cycles and grandchildren
+        run: |
+          set -euo pipefail
+          git clone --quiet https://github.com/the-static-collective/planZ.git "$RUNNER_TEMP/planz-nested"
+          git -C "$RUNNER_TEMP/planz-nested" checkout --quiet --detach 336e03879fc230fcc3bea4b13c78f0f4919d13a0
+          node --test "$RUNNER_TEMP/planz-nested/reactor/nest-seven.test.mjs"
+          node "$RUNNER_TEMP/planz-nested/reactor/nest-seven.mjs" --source-dir "$GITHUB_WORKSPACE/one-invention-held" --return-dir "$GITHUB_WORKSPACE/planz-return-held" --out-dir "$GITHUB_WORKSPACE/planz-nested-held" --depth 2 > "$RUNNER_TEMP/nested-result.json"
+          node "$RUNNER_TEMP/planz-nested/reactor/nest-seven.mjs" --source-dir "$GITHUB_WORKSPACE/one-invention-held" --return-dir "$GITHUB_WORKSPACE/planz-return-held" --out-dir "$GITHUB_WORKSPACE/planz-nested-held" --depth 2 > "$RUNNER_TEMP/nested-replay.json"
+          cmp "$RUNNER_TEMP/nested-result.json" "$RUNNER_TEMP/nested-replay.json"
+          node --input-type=module <<'NODE'
+          import {readFileSync} from 'node:fs';
+          const nested=JSON.parse(readFileSync('planz-nested-held/manifest.json'));
+          const tree=JSON.parse(readFileSync('planz-nested-held/tree.json'));
+          const initial=JSON.parse(readFileSync('one-invention-held/receipt.json'));
+          if(nested.originalPlanId!==initial.sourcePlanId||nested.rootCycleId!==tree.root.id||
+             nested.cycleCount!==14||nested.planCount!==14||nested.cutCount!==56||
+             nested.newNativeOwnerRuns!==0||nested.newPlanningOnlyPlans!==7||
+             tree.root.children.length!==7||tree.root.children.some(x=>x.parentCycleId!==tree.root.id||x.children.length!==1||
+             x.children[0].parentCycleId!==x.id||x.children[0].evidenceMode!=='INHERITED_UNRERUN_HISTORICAL_EVIDENCE')||
+             nested.originalSourceMutated||nested.executed||nested.authority!=='NONE')process.exit(2);
+          console.log('NESTED ROOT:',nested.originalPlanId,'7 CREATOR CHILDREN, 7 GRANDCHILDREN, 56 CUTS, 14 HELD PLANS');
+          NODE
+      - name: Nested cycles refuse changed previously saved PlanZ return evidence
+        run: |
+          set -euo pipefail
+          MANIFEST="$(node -e 'const x=require("./planz-return-held/manifests/"+require("./planz-nested-held/manifest.json").sourcePlanZReturnManifest+".json"); process.stdout.write(x.manifestSha256)')"
+          FILE="planz-return-held/manifests/$MANIFEST.json"
+          cp "$FILE" "$RUNNER_TEMP/prior-return-original.json"
+          printf '\nFALSE_EXTERNAL_EXECUTION' >> "$FILE"
+          if node "$RUNNER_TEMP/planz-nested/reactor/nest-seven.mjs" --source-dir "$GITHUB_WORKSPACE/one-invention-held" --return-dir "$GITHUB_WORKSPACE/planz-return-held" --out-dir "$GITHUB_WORKSPACE/planz-nested-held" --depth 2 > "$RUNNER_TEMP/malicious.json"; then exit 1; fi
+          cp "$RUNNER_TEMP/prior-return-original.json" "$FILE"
+          node "$RUNNER_TEMP/planz-nested/reactor/nest-seven.mjs" --source-dir "$GITHUB_WORKSPACE/one-invention-held" --return-dir "$GITHUB_WORKSPACE/planz-return-held" --out-dir "$GITHUB_WORKSPACE/planz-nested-held" --depth 2 > "$RUNNER_TEMP/restored-nested.json"
+          cmp "$RUNNER_TEMP/nested-result.json" "$RUNNER_TEMP/restored-nested.json"
       - name: Keep the seven-ways exhibition, original outputs, independent return questions and receipts
         uses: actions/upload-artifact@v4
         with:
-          name: one-invention-return-006-seven-creations-plus-native-planz-descendants
+          name: root-nested-007-first-invention-seven-creative-cycles
           path: |
             one-invention-held/
             planz-return-held/
+            planz-nested-held/
           if-no-files-found: error
           retention-days: 30
