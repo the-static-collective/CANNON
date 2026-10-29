@@ -4,10 +4,14 @@
   "private": true,
   "type": "module",
   "description": "Owner-signed Git canon selections without branch merges or automatic authority.",
-  "engines": { "node": ">=24" },
+  "engines": {
+    "node": ">=24"
+  },
   "scripts": {
     "test": "node --test test/*.test.mjs",
     "canon:demo": "node scripts/cannon.mjs demo work/canon-field-001",
-    "canon:verify": "node scripts/cannon.mjs verify work/canon-field-001/bundle.json work/canon-field-001/lab-generated-pins.json"
+    "canon:verify": "node scripts/cannon.mjs verify work/canon-field-001/bundle.json work/canon-field-001/lab-generated-pins.json",
+    "culture:build": "node scripts/culture-forge.mjs build",
+    "culture:verify": "node scripts/culture-forge.mjs verify"
   }
 }
