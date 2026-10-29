@@ -39,6 +39,12 @@ jobs:
         run: |
           node scripts/guest-native-proof.mjs --sources "${{ runner.temp }}/twenty-two-guests/sources.json" --out "${{ runner.temp }}/native-owner-proofs"
           cp "${{ runner.temp }}/native-owner-proofs/receipt.json" "${{ runner.temp }}/guest-concourse-show/native-test-receipt.json"
+      - name: Prove original music proposal versus math difference
+        run: |
+          node scripts/guest-music-delta.mjs --sources "${{ runner.temp }}/twenty-two-guests/sources.json" --out "${{ runner.temp }}/music-delta"
+          test -s "${{ runner.temp }}/music-delta/cowboy.mid"
+          test -s "${{ runner.temp }}/music-delta/ghost.mid"
+          test -s "${{ runner.temp }}/music-delta/dogram.receipt.json"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -46,4 +52,5 @@ jobs:
           path: |
             ${{ runner.temp }}/guest-concourse-show
             ${{ runner.temp }}/native-owner-proofs
+            ${{ runner.temp }}/music-delta
           retention-days: 14
