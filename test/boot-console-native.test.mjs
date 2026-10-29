@@ -26,8 +26,8 @@ test('actual local browser boot triggers original independent donor code, surviv
  const result=await res.json();
  assert.equal(result.generated,true);
  const id=result.id;
- assert.match(await (await fetch(url+result.links.firstBoot)).text(),/What shall we build together/);
- assert.match(await (await fetch(url+result.links.comic)).text(),/A Room That Remembers/);
+ assert.match(await (await fetch(new URL(result.links.firstBoot,url))).text(),/What shall we build together/);
+ assert.match(await (await fetch(new URL(result.links.comic,url))).text(),/A Room That Remembers/);
  const evidence=JSON.parse(readFileSync(join(outParent,id,'boot-receipt.json'),'utf8'));
  assert.equal(evidence.evidence.originalSourceCodeInvoked,true);
  assert.equal(evidence.evidence.physicalTestsCompleted,0);
