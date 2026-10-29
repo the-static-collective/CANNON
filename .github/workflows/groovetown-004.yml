@@ -1,0 +1,39 @@
+name: GROOVETOWN-004 Reciprocity Reactor deterministic proof
+on:
+  push:
+    branches: [experiment/groovetown-004-reciprocity-reactor]
+  pull_request:
+    paths:
+      - 'experiments/groovetown-001/**'
+      - 'experiments/groovetown-002/**'
+      - 'experiments/groovetown-003/**'
+      - 'experiments/groovetown-004/**'
+      - '.github/workflows/groovetown-004.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  local-proof:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Original ancestor + new reciprocity tests
+        run: |
+          node --test experiments/groovetown-001/groovetown.test.mjs experiments/groovetown-002/particularity.test.mjs experiments/groovetown-003/intertown.test.mjs experiments/groovetown-004/reciprocity.test.mjs
+      - name: Independent builds and exact file comparison
+        run: |
+          node experiments/groovetown-004/reciprocity.mjs demo "$RUNNER_TEMP/reciprocity-a"
+          node experiments/groovetown-004/reciprocity.mjs demo "$RUNNER_TEMP/reciprocity-b"
+          diff -rq "$RUNNER_TEMP/reciprocity-a" "$RUNNER_TEMP/reciprocity-b"
+      - name: Keep one synthetic proof for inspection
+        uses: actions/upload-artifact@v4
+        with:
+          name: groovetown-004-fictional-review-only
+          path: ${{ runner.temp }}/reciprocity-a/
+          retention-days: 14
