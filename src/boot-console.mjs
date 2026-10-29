@@ -9,14 +9,17 @@ import {existsSync,statSync,readFileSync,readdirSync,mkdirSync,rmSync,realpathSy
 import {resolve,join,dirname} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {buildGenesisBoot,coldVerifyGenesisBoot,validateRequest} from './genesis-boot.mjs';
+import {runWarmFirstBoot,verifyWarmFirstBoot,WARM_ROOT_KEYS} from './boot-warm-thread.mjs';
 
 const ROOT=dirname(fileURLToPath(import.meta.url));
 const UI=resolve(ROOT,'../ui/first-boot');
 const ID=/^genesis-[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/;
+const WARM_ID=/^warmthread-[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/;
 const FILES=new Set([
  'first-boot.html','house-A.html','house-B.html','house-A.json','house-B.json',
  'jarvis-candidate.json','ghot-simulation.json','comic.html','field-card.md',
- 'culture-receipt.json','boot-receipt.json','request.json'
+ 'culture-receipt.json','boot-receipt.json','request.json',
+ 'warm-thread.html','warm-thread-receipt.json'
 ]);
 const SHELF=Object.freeze([
  {id:'genesis-native',title:'First boot / 6 original repositories',state:'EXECUTABLE_SOURCE_PINNED_SYNTHETIC',
@@ -41,18 +44,20 @@ const mime={html:'text/html; charset=utf-8',json:'application/json; charset=utf-
 const pickType=file=>mime[file.split('.').pop()]??'application/octet-stream';
 const json=x=>JSON.stringify(x)+'\n';
 const requireBootId=id=>typeof id==='string'&&ID.test(id);
+const anyRunId=id=>requireBootId(id)||WARM_ID.test(id);
 function safeHistory(dir){
  const found=[];
  for(const id of readdirSync(dir)){
-  if(!requireBootId(id))continue;
+  if(!anyRunId(id))continue;
   const full=join(dir,id);
   try{
    if(!statSync(full).isDirectory())continue;
-   const path=join(full,'boot-receipt.json');
+   const warm=WARM_ID.test(id);
+   const path=join(full,warm?'warm-thread-receipt.json':'boot-receipt.json');
    if(!existsSync(path)||statSync(path).size>1500000)continue;
    const receipt=JSON.parse(readFileSync(path,'utf8'));
-   if(receipt.schema!=='cannon.genesis-boot-cross-branch/v1'||!receipt.receiptSha256)continue;
-   found.push({id,classification:receipt.disposition,simulated:receipt.sampleType==='FICTIONAL_SITES_A_B_NOT_INDEPENDENT_HUMANS'});
+   if(receipt.schema!==(warm?'cannon.genesis-warm-thread/v1':'cannon.genesis-boot-cross-branch/v1')||!receipt.receiptSha256)continue;
+   found.push({id,classification:receipt.disposition,simulated:true,kind:warm?'WARM_THREAD':'LIVING_HOUSE'});
   }catch{} // Ignore unrecognized folders or incomplete runs: no proof is assumed.
  }
  return found.sort((a,b)=>b.id.localeCompare(a.id)).slice(0,30);
@@ -74,10 +79,17 @@ function limitedBody(req){
   req.on('error',reject);
  });
 }
-export function createBootConsole({roots,outParent,compose=buildGenesisBoot,verify=coldVerifyGenesisBoot}){
+export function createBootConsole({roots,outParent,compose=buildGenesisBoot,verify=coldVerifyGenesisBoot,
+ warmRoots=null,warmCompose=runWarmFirstBoot,warmVerify=verifyWarmFirstBoot}){
  if(!roots||Object.keys(roots).sort().join()!==['ghot','gro','jarvis','staticos','webz'].sort().join())
   throw Error('FIVE_EXPLICIT_SOURCE_CHECKOUTS_REQUIRED');
  for(const root of Object.values(roots))if(typeof root!=='string'||!statSync(root).isDirectory())throw Error('MISSING_SOURCE_CHECKOUT');
+ if(warmRoots!==null){
+  if(Object.keys(warmRoots).sort().join()!==WARM_ROOT_KEYS.slice().sort().join())
+   throw Error('INVALID_OPTIONAL_WARM_ORGAN_ROOTS');
+  for(const root of Object.values(warmRoots))if(typeof root!=='string'||!statSync(root).isDirectory())
+   throw Error('WARM_SOURCE_ROOT_MISSING');
+ }
  const dir=realpathSync(resolve(outParent));
  if(!statSync(dir).isDirectory())throw Error('OUTPUT_PARENT_MUST_EXIST');
  let csrf=randomBytes(24).toString('hex'),busy=false;
@@ -102,12 +114,14 @@ export function createBootConsole({roots,outParent,compose=buildGenesisBoot,veri
      mode:'LOCAL_ONLY_SOURCE_PINNED_HUMAN_REVIEW',running:busy,
      firstBoot:'EXPLORE_BUILD_WITNESS',nonce:csrf,
      physicalProof:'NONE',independentOperators:'NONE',
-     bridgeShelf:SHELF,history:safeHistory(dir)}));return;
+     warmAvailable:warmRoots!==null,
+     bridgeShelf:SHELF.map(x=>({...x,runnableHere:x.id==='warm-thread'&&warmRoots!==null})),
+     history:safeHistory(dir)}));return;
    }
    const m=/^\/runs\/([^/]+)\/([^/]+)$/.exec(bare);
    if(m){
     const [,id,file]=m;
-    if(!requireBootId(id)||!FILES.has(file)||!existsSync(join(dir,id,file))){
+    if(!anyRunId(id)||!FILES.has(file)||!existsSync(join(dir,id,file))){
      send(res,404,json({error:'NOT_FOUND'}));return;
     }
     const full=join(dir,id,file);
@@ -119,7 +133,7 @@ export function createBootConsole({roots,outParent,compose=buildGenesisBoot,veri
    }
    send(res,404,json({error:'NOT_FOUND'}));return;
   }
-  if(req.method==='POST'&&(bare==='/api/compose'||bare==='/api/verify')){
+  if(req.method==='POST'&&(bare==='/api/compose'||bare==='/api/verify'||bare==='/api/warm')){
    const expected=`http://127.0.0.1:${port}`;
    if(req.headers.origin!==expected||
       req.headers['x-genesis-token']!==csrf||
@@ -149,10 +163,25 @@ export function createBootConsole({roots,outParent,compose=buildGenesisBoot,veri
           comic:`/runs/${id}/comic.html`,receipt:`/runs/${id}/boot-receipt.json`},
         note:'Actual original code ran with fictional A/B survey only. No field observation or physical actuation.'}));
      }catch(e){if(existsSync(out))rmSync(out,{recursive:true,force:true});throw e;}
+    }else if(bare==='/api/warm'){
+     if(warmRoots===null)throw Error('WARM_THREAD_ORIGINAL_SOURCES_NOT_CONFIGURED');
+     if(Object.keys(body).sort().join()!=='acknowledgeFictional'||body.acknowledgeFictional!==true)
+      throw Error('EXPLICIT_FICTIONAL_DEMONSTRATION_ACKNOWLEDGMENT_REQUIRED');
+     const id=`warmthread-${randomUUID()}`,out=join(dir,id);
+     try{
+      const receipt=await warmCompose(warmRoots,out);
+      send(res,201,json({id,disposition:receipt.disposition,
+       links:{warm:`/runs/${id}/warm-thread.html`,receipt:`/runs/${id}/warm-thread-receipt.json`},
+       note:'Original GHoT, Full Measure, Garden, Band crossing; fictional human actions only, unresolved transport preserved.'}));
+     }catch(e){if(existsSync(out))rmSync(out,{recursive:true,force:true});throw e;}
     }else{
-     if(Object.keys(body).sort().join()!=='id'||!requireBootId(body.id)||
-      !existsSync(join(dir,body.id,'boot-receipt.json')))throw Error('UNKNOWN_RUN_ID');
-     const result=await verify(roots,join(dir,body.id));
+     if(Object.keys(body).sort().join()!=='id'||!anyRunId(body.id)||
+      !existsSync(join(dir,body.id,WARM_ID.test(body.id)?'warm-thread-receipt.json':'boot-receipt.json')))
+      throw Error('UNKNOWN_RUN_ID');
+     const result=WARM_ID.test(body.id)?
+      (warmRoots===null?null:await warmVerify(warmRoots,join(dir,body.id))):
+      await verify(roots,join(dir,body.id));
+     if(!result)throw Error('WARM_SOURCE_UNAVAILABLE_FOR_VERIFICATION');
      send(res,200,json({id:body.id,...result,fieldStatus:'NOT_WITNESSED'}));
     }
    }catch{
