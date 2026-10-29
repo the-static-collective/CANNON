@@ -25,7 +25,7 @@ function readBinding(file){
  if(!file)return null;
  const b=JSON.parse(readFileSync(resolve(file),'utf8'));
  need(b?.schema==='cannon.inspand-plan-binding/v1','BINDING_SCHEMA');
- const {digest,...core}=b;
+ const {digest,toasterSeed,...core}=b;
  need(digest===hash(Buffer.from(j(core))),'BINDING_DIGEST');
  need(/^plan-[a-f0-9]{24}$/.test(b.planId),'BINDING_PLAN');
  need(['RHYTHM-MUTANT','ORCHARD-CINEMA'].includes(b.chamber),'BINDING_CHAMBER');
