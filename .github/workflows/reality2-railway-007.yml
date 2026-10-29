@@ -1,0 +1,42 @@
+name: REALITY2 Little Yes Express 007 — offline party game
+on:
+  push:
+    branches: [experiment/reality2-little-yes-express-007]
+  pull_request:
+    paths:
+      - 'experiments/reality2-railway-007/**'
+      - '.github/workflows/reality2-railway-007.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  party-rulebook:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: false}
+      - uses: actions/setup-node@v4
+        with: {node-version: '22'}
+      - name: Original bounded Groovetown model and new party tests
+        run: |
+          node --test experiments/reality2-railway-007/game.test.mjs experiments/reality2-railway-007/bridge.test.mjs
+      - name: Bundle must embed exact tested engine source (no network)
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const root='experiments/reality2-railway-007/';
+          const source=fs.readFileSync(root+'game.mjs','utf8').replaceAll('export const','const').replaceAll('export function','function');
+          const expected=fs.readFileSync(root+'shell.html','utf8').replace('/* __ENGINE_INSERT__ */',source);
+          const actual=fs.readFileSync(root+'index.html','utf8');
+          if(expected!==actual)throw Error('Offline HTML differs from current original game source');
+          console.log('Offline party bundle matches tested engine exactly.');
+          NODE
+      - name: Expose review-only playable file
+        uses: actions/upload-artifact@v4
+        with:
+          name: little-yes-express-007-offline-review
+          path: |
+            experiments/reality2-railway-007/index.html
+            experiments/reality2-railway-007/README.md
+          retention-days: 14
