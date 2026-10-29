@@ -1,0 +1,35 @@
+{
+  "schema": "voqal.rewrite-source-observation/v2",
+  "nativeArtifact": {
+    "repository": "the-static-collective/CANNON",
+    "pr": 49,
+    "commit": "f99d4b0f74b117e0af034137d550e88aa3d01f26",
+    "workflowRun": 40890275329,
+    "artifactId": 12905200588,
+    "zipSha256": "sha256:4f79131fa9a185f4415fc4a8ba485d8ff87d0ea36e5b16c8166a7f5134817142",
+    "receiptId": "sha256:c479ce4aa4bc767314507ca2198154129813e0e854302956a8f7fdf64d46ea0e",
+    "hashedCoreFilesVerified": 121
+  },
+  "originalApplication": {
+    "repository": "the-static-collective/CANNON",
+    "pr": 48,
+    "commit": "bd1c7e4ac9f1e658b25bb325c2934f6508df4640",
+    "workflowRun": 40880351738,
+    "artifactId": 12900172659,
+    "zipSha256": "sha256:a520912a9cd6bbada8ede32da2a4ed82260ef4ae4c6ed9df11627117becea4de",
+    "receiptId": "sha256:3357e4d8294efd2788046bcb40eaca89eb51ea8517faffdf803cca2618ec7108",
+    "hashedDraftFilesVerified": 4,
+    "inheritedNativeReceipt": "sha256:658e90a1457818f6a7d38d6181f7e81fbe4941c42e5535eb6ecf03bf4a49d92b"
+  },
+  "checks": {
+    "receiptLinkedAcrossNativeAndOriginalApplication": true,
+    "scene": "voqal",
+    "nativeOwnersExecuted": 22,
+    "documentRepositoriesVerified": 64,
+    "distinctPublicRepositories": 69,
+    "fieldValidated": false,
+    "realSurvivorIntake": false,
+    "applicationSubmitted": false
+  },
+  "sourceHashesAre": "ordinary hash-based software evidence; not independently signed institutional attestation"
+}
