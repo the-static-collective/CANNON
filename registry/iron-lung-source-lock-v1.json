@@ -1,0 +1,17 @@
+{
+  "schema": "cannon.lung-source-lock/v1",
+  "repository": "the-static-collective/iron-lung",
+  "commit": "955e2f39493ca4b429969ad268a7e31a3d546445",
+  "files": {
+    "src/triple-transfer.ts": "ef14dabca86304cb9e83b456e4a1971b8283f57f",
+    "scripts/triple-transfer.ts": "5f0f8b50bbb6f4a18f4adb2246ddbc4e6d026d60",
+    "model/flan-t5-bridge.py": "8b4adffbec419a67e71a38ceae062f66e28ba2a1",
+    "fixtures/triple-transfer-input-v1.json": "4dd592f7ac3d12757c82e594d7608a4bb1927065",
+    "package.json": "59ed01304abac5e22c22d4386b84ed6e6eb3f4b8"
+  },
+  "flan": {
+    "model": "google/flan-t5-small",
+    "revision": "14fd6edcfdd71f2ef5b67d4e735fee8bc6d9fd31"
+  },
+  "status": "SOURCE_PIN_ONLY_NO_HUMAN_AUTHORITY"
+}
