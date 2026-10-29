@@ -1,0 +1,81 @@
+name: INSPAND-009 source truths and headerless compass contents
+on:
+  push:
+    branches: [experiment/inspand-009-content-grounding]
+  pull_request:
+    paths:
+      - scripts/content-grounding.mjs
+      - test/content-grounding.test.mjs
+      - registry/content-compass-lock-v1.json
+      - docs/INSPAND-009.md
+      - .github/workflows/inspand-009.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  control:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: CANNON source registry and boundary tests
+        run: |
+          node --check scripts/content-grounding.mjs
+          node --test test/content-grounding.test.mjs test/real-contract-compass.test.mjs
+      - name: Verify exact original Iron Lung source
+        run: |
+          git clone --quiet https://github.com/the-static-collective/iron-lung.git "$RUNNER_TEMP/original"
+          git -C "$RUNNER_TEMP/original" checkout --quiet --detach 5a8c0fa6b79a2f0fbec7c26e0a0d5ee70f89fe88
+          (cd "$RUNNER_TEMP/original" && npm install --ignore-scripts --no-audit --no-fund --no-package-lock && npm run check)
+      - name: Execute 72 fixture questions across real compatible and deliberately absent adapter scenarios
+        run: |
+          node scripts/content-grounding.mjs inspect
+          node scripts/content-grounding.mjs build --lung "$RUNNER_TEMP/original" --provider fixture --out "$RUNNER_TEMP/content-fixture" --authorize SYNTHETIC_TEST_ONLY
+          node scripts/content-grounding.mjs verify --lung "$RUNNER_TEMP/original" --provider fixture --out "$RUNNER_TEMP/content-fixture"
+          node -e 'const fs=require("fs"),x=JSON.parse(fs.readFileSync(process.argv[1]));if(x.totalModelCalls!==72||x.measurements.length!==8||!x.measurements.every(m=>m.labelsInModelInput===0)||x.noNativeExecution!==true)process.exit(2)' "$RUNNER_TEMP/content-fixture/evaluation.json"
+      - name: Refuse forged output
+        run: |
+          cp "$RUNNER_TEMP/content-fixture/model-steps.json" "$RUNNER_TEMP/safe.json"
+          printf 'FAKE_PERMIT' >> "$RUNNER_TEMP/content-fixture/model-steps.json"
+          if node scripts/content-grounding.mjs verify --lung "$RUNNER_TEMP/original" --provider fixture --out "$RUNNER_TEMP/content-fixture"; then echo 'FORGED_OUTPUT_ACCEPTED'; exit 1; fi
+          cp "$RUNNER_TEMP/safe.json" "$RUNNER_TEMP/content-fixture/model-steps.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: inspand-009-source-grounded-fixture
+          path: ${{ runner.temp }}/content-fixture
+          if-no-files-found: error
+  actual-model:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Exact original source and original pinned pretrained FLAN CPU
+        run: |
+          git clone --quiet https://github.com/the-static-collective/iron-lung.git "$RUNNER_TEMP/original"
+          git -C "$RUNNER_TEMP/original" checkout --quiet --detach 5a8c0fa6b79a2f0fbec7c26e0a0d5ee70f89fe88
+          (cd "$RUNNER_TEMP/original" && npm install --ignore-scripts --no-package-lock --no-audit --no-fund)
+          python3 -m pip install 'torch>=2.2,<3' --index-url https://download.pytorch.org/whl/cpu
+          python3 -m pip install -r "$RUNNER_TEMP/original/model/requirements-triple.txt"
+      - name: Run source-bound 72 actual model transformations and independent cold replay
+        run: |
+          node scripts/content-grounding.mjs build --lung "$RUNNER_TEMP/original" --provider flan --out "$RUNNER_TEMP/content-flan" --authorize SYNTHETIC_TEST_ONLY
+          node scripts/content-grounding.mjs verify --lung "$RUNNER_TEMP/original" --provider flan --out "$RUNNER_TEMP/content-flan"
+          node -e 'const fs=require("fs"),p=JSON.parse(fs.readFileSync(process.argv[1])),r=JSON.parse(fs.readFileSync(process.argv[2]));if(p.provider.kind!=="flan-t5"||p.steps.length!==72||r.totalModelCalls!==72||r.noNativeExecution!==true||r.measurements.some(x=>x.labelsInModelInput))process.exit(3)' "$RUNNER_TEMP/content-flan/model-steps.json" "$RUNNER_TEMP/content-flan/evaluation.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: inspand-009-real-flan-content-bearing-facts-ideas-and-relations
+          path: ${{ runner.temp }}/content-flan
+          if-no-files-found: error
