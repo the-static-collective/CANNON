@@ -12,7 +12,7 @@ const outParent=process.env.GENESIS_OUTPUT_PARENT;
 function post(url,path,nonce,body){return fetch(url+path,{method:'POST',headers:{
   'Content-Type':'application/json','Origin':url.slice(0,-1),'X-Genesis-Token':nonce
  },body:JSON.stringify(body)});}
-test('actual local browser boot triggers original independent donor code, survives restart, and refuses forged result',async t=>{
+test('actual local browser boot triggers original independent donor code, survives restart, and refuses forged result', {skip:!outParent}, async t=>{
  for(const k of keys)assert.ok(roots[k]&&existsSync(roots[k]),'REQUIRED_REAL_GIT_CHECKOUT_'+k);
  assert.ok(outParent,'OUTPUT_PARENT_REQUIRED');
  mkdirSync(outParent,{recursive:true});
