@@ -1,0 +1,59 @@
+{
+  "schema": "cannon.mutation-pressure-registry/v1",
+  "owner": "CANNON",
+  "sourceOwner": "the-static-collective/iron-lung",
+  "authority": "LOCAL_SYNTHETIC_ONLY",
+  "baseline": "BASELINE",
+  "strategyCount": 7,
+  "totalRuns": 8,
+  "stageCountPerRun": 9,
+  "maxModelRequests": 72,
+  "methods": [
+    {
+      "id": "DA_VINCI",
+      "prompt": "Try a small specific mechanical or software invention that solves one concrete part of the problem. Name an observable output and a needed input.",
+      "criteria": "testable mechanism"
+    },
+    {
+      "id": "DARWIN",
+      "prompt": "Mutate exactly one interface or step of the existing process. State the changed part and what unchanged ancestry must be preserved.",
+      "criteria": "one minimal variation"
+    },
+    {
+      "id": "BACH",
+      "prompt": "Reorder or vary a repeating pattern in the process. Describe a change in sequence that has an observable benefit.",
+      "criteria": "measurable variation"
+    },
+    {
+      "id": "ESCHER",
+      "prompt": "Reverse a dependency or swap producer and consumer perspectives. Expose a potential cycle or incompatible assumption.",
+      "criteria": "inversion or contradiction"
+    },
+    {
+      "id": "OCTOPUS",
+      "prompt": "Find a second substantially different pathway to a similar result, preferably through a different available capability.",
+      "criteria": "alternate route"
+    },
+    {
+      "id": "COMBINATRIX",
+      "prompt": "Name two available capabilities and propose a typed adapter that might connect their actual output and input contracts.",
+      "criteria": "typed interface proposal"
+    },
+    {
+      "id": "IRON_LUNG",
+      "prompt": "Retain two unresolved interpretations of a gap. Explain what source evidence or independent witness would distinguish them.",
+      "criteria": "multiple held interpretations"
+    }
+  ],
+  "boundaries": {
+    "generatedTextCanExecute": false,
+    "generatedTextCanApprove": false,
+    "generatedTextCanChooseRecipe": false,
+    "scoresAreNotSemanticQuality": true,
+    "promoteAutomatically": false,
+    "discloseNoImprovement": true,
+    "measureExecutionCost": true,
+    "totalNativeExecutions": 0,
+    "sourceBraidMayNotBeEdited": true
+  }
+}

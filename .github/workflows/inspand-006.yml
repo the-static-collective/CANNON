@@ -1,0 +1,87 @@
+name: INSPAND-006 Seven Strategy Mutation Pressure Lab
+on:
+  push:
+    branches:
+      - experiment/inspand-006-mutation-lab
+  pull_request:
+    paths:
+      - registry/mutation-pressure-v1.json
+      - scripts/mutation-pressure-lab.mjs
+      - test/mutation-pressure-lab.test.mjs
+      - docs/INSPAND-006.md
+      - .github/workflows/inspand-006.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  fixture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Local bounded and authorization tests
+        run: |
+          node --check scripts/mutation-pressure-lab.mjs
+          node --test test/mutation-pressure-lab.test.mjs test/lung-reflex-crossing.test.mjs
+          node scripts/mutation-pressure-lab.mjs list
+      - name: Fetch exact independent Iron Lung source, no rewriting
+        run: |
+          git clone --quiet https://github.com/the-static-collective/iron-lung.git "$RUNNER_TEMP/iron-lung"
+          git -C "$RUNNER_TEMP/iron-lung" checkout --quiet --detach 955e2f39493ca4b429969ad268a7e31a3d546445
+          (cd "$RUNNER_TEMP/iron-lung" && npm install --ignore-scripts --no-package-lock --no-audit --no-fund)
+          (cd "$RUNNER_TEMP/iron-lung" && npm run check)
+      - name: Eight original Iron Lung runs, seventy-two nested transfers
+        run: |
+          SOURCE="$RUNNER_TEMP/iron-lung/fixtures/triple-transfer-input-v1.json"
+          node scripts/mutation-pressure-lab.mjs build --lung "$RUNNER_TEMP/iron-lung" --source "$SOURCE" --provider fixture --out "$RUNNER_TEMP/mutation-fixture" --authorize SYNTHETIC_TEST_ONLY
+          node scripts/mutation-pressure-lab.mjs verify --lung "$RUNNER_TEMP/iron-lung" --source "$SOURCE" --provider fixture --out "$RUNNER_TEMP/mutation-fixture"
+          node -e 'const x=require(process.argv[1]);if(x.totalNestedTransfers!==72||x.rows.length!==8||x.modelAddedCapabilities!==0||x.noAutoWinner!==true||x.noSemanticQualityClaim!==true)process.exit(4)' "$RUNNER_TEMP/mutation-fixture/report.json"
+      - name: Evidence tamper is refused
+        run: |
+          cp "$RUNNER_TEMP/mutation-fixture/runs/BACH/field.json" "$RUNNER_TEMP/original-field.json"
+          printf 'TAMPERED' >> "$RUNNER_TEMP/mutation-fixture/runs/BACH/field.json"
+          if node scripts/mutation-pressure-lab.mjs verify --lung "$RUNNER_TEMP/iron-lung" --source "$RUNNER_TEMP/iron-lung/fixtures/triple-transfer-input-v1.json" --provider fixture --out "$RUNNER_TEMP/mutation-fixture"; then echo 'FORGED_FIELD_ACCEPTED'; exit 1; fi
+          cp "$RUNNER_TEMP/original-field.json" "$RUNNER_TEMP/mutation-fixture/runs/BACH/field.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: inspand-006-seven-strategy-fixture-comparison
+          path: ${{ runner.temp }}/mutation-fixture
+          retention-days: 30
+          if-no-files-found: error
+  actual-flan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Verify original source and install actual pretrained FLAN CPU model
+        run: |
+          git clone --quiet https://github.com/the-static-collective/iron-lung.git "$RUNNER_TEMP/iron-lung"
+          git -C "$RUNNER_TEMP/iron-lung" checkout --quiet --detach 955e2f39493ca4b429969ad268a7e31a3d546445
+          (cd "$RUNNER_TEMP/iron-lung" && npm install --ignore-scripts --no-package-lock --no-audit --no-fund)
+          python3 -m pip install 'torch>=2.2,<3' --index-url https://download.pytorch.org/whl/cpu
+          python3 -m pip install -r "$RUNNER_TEMP/iron-lung/model/requirements-triple.txt"
+      - name: Original Google FLAN model runs all eight pressure strategies
+        run: |
+          SOURCE="$RUNNER_TEMP/iron-lung/fixtures/triple-transfer-input-v1.json"
+          node scripts/mutation-pressure-lab.mjs build --lung "$RUNNER_TEMP/iron-lung" --source "$SOURCE" --provider flan --out "$RUNNER_TEMP/mutation-flan" --authorize SYNTHETIC_TEST_ONLY
+          node scripts/mutation-pressure-lab.mjs verify --lung "$RUNNER_TEMP/iron-lung" --source "$SOURCE" --provider flan --out "$RUNNER_TEMP/mutation-flan"
+          node -e 'const fs=require("fs"),x=JSON.parse(fs.readFileSync(process.argv[1])),f=JSON.parse(fs.readFileSync(process.argv[2]));if(x.totalNestedTransfers!==72||x.provider.kind!=="flan-t5"||x.modelAddedCapabilities!==0||f.provider.kind!=="flan-t5"||f.steps.length!==9)process.exit(4)' "$RUNNER_TEMP/mutation-flan/report.json" "$RUNNER_TEMP/mutation-flan/runs/OCTOPUS/field.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: inspand-006-real-google-flan-seven-mutation-branches-and-baseline
+          path: ${{ runner.temp }}/mutation-flan
+          retention-days: 30
+          if-no-files-found: error
