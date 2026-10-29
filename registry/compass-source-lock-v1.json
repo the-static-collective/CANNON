@@ -1,13 +1,13 @@
 {
   "schema": "cannon.compass-source-lock/v1",
   "repository": "the-static-collective/iron-lung",
-  "commit": "cc770ff20688e9768477f92f4e880bef36a06e98",
+  "commit": "6159d4c45d96e51922413c5e5aaf2461ae576a6e",
   "model": {
     "name": "google/flan-t5-small",
     "revision": "14fd6edcfdd71f2ef5b67d4e735fee8bc6d9fd31"
   },
   "files": {
-    "src/compass.ts": "882c2950a58c6aebdf7ab91a5f4e9dcd85887818",
+    "src/compass.ts": "fa3e2ceb72e20a541cae53395864dc5b44276eb6",
     "scripts/compass-lab.ts": "69ea1e544d338c291c85ee88a3cccb76e1eabe37",
     "scripts/triple-transfer.ts": "4b6a1b96c6430e044d03473bf95615d11b679ff2",
     "src/triple-transfer.ts": "ef14dabca86304cb9e83b456e4a1971b8283f57f",
