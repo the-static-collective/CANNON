@@ -1,0 +1,59 @@
+{
+  "schema": "constellation-sources/v1",
+  "ancestry": [
+    {
+      "pr": 38,
+      "commit": "bb57e71151bca1eb245abfc82cf74047e9105169"
+    },
+    {
+      "pr": 37,
+      "commit": "cb7f14b71e7e26456097abd7b0e78a49f50c64eb"
+    },
+    {
+      "pr": 5,
+      "commit": "99a9c270397717b690615178d0e821df545fb684"
+    }
+  ],
+  "sources": {
+    "webz": {
+      "repository": "the-static-collective/webZ",
+      "commit": "83b35070d8d56155156655279bfdcf50aa77794f"
+    },
+    "gro": {
+      "repository": "the-static-collective/GrO",
+      "commit": "9e6361105aae335ccb0657092809eef43e7ab4da"
+    },
+    "staticos": {
+      "repository": "the-static-collective/static-os",
+      "commit": "b02b5016cbd5bf2f73d758d5ed1416246b789157"
+    },
+    "ghot": {
+      "repository": "the-static-collective/GHoT",
+      "commit": "6f0cc9e93e2544cd2fc67a0aa43a06198825a654"
+    },
+    "jarvis": {
+      "repository": "the-static-collective/JAR-VIS",
+      "commit": "c9b8341f2eff16105f58dcd5bb9031245bcb0558"
+    },
+    "planz": {
+      "repository": "the-static-collective/planZ",
+      "commit": "5b6df7fb2a3a0c57d0fff8381108589ec2765a94"
+    },
+    "relatte": {
+      "repository": "the-static-collective/reLATTE",
+      "commit": "39038d66b15f43559c48c7da8b8a40a76b883ff0"
+    },
+    "fullmeasure": {
+      "repository": "the-static-collective/full-measure-world-layer",
+      "commit": "93cabb25759093aef4461d2b97ce232da284399c"
+    },
+    "graft": {
+      "repository": "the-static-collective/GRAFT",
+      "commit": "aa3984d2dbdf949996639b029ca0d95ab6c290e5"
+    },
+    "stillhere": {
+      "repository": "the-static-collective/full-measure-world-layer",
+      "commit": "e88d5b55d58fa4cc5c37f01192a5a4ab400680f7"
+    }
+  }
+}

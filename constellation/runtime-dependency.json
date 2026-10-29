@@ -1,0 +1,15 @@
+{
+  "package": "json-canonicalize",
+  "version": "3.0.1",
+  "files": {
+    "LICENSE.md": "sha256:975bb5a2743ef419a6b3493186c1d05551db8bf8a1935c7c02a7d8b04b4f5dbe",
+    "README.md": "sha256:347c31d2521148a159373bd44be3a598aac42aac215eb04ae2a9a1fb8e66d9d9",
+    "dist/index.d.mts": "sha256:9aaeb9946cb2d61e56a336437198d6df6ad56d2be326dffc31ffe08c7dcf45a0",
+    "dist/index.d.ts": "sha256:9aaeb9946cb2d61e56a336437198d6df6ad56d2be326dffc31ffe08c7dcf45a0",
+    "dist/index.js": "sha256:c0312b1ec7bb7938532e1022fb216494983c0cdea7a458fbe24a45041e473c2c",
+    "dist/index.js.map": "sha256:ba463f90eef330e60bb16df016614b76bc7037d4bd6f11c078179543ce3a9bfb",
+    "dist/index.mjs": "sha256:413ee0b6d6d6e9f65ea0f9d80becadd6ff2204c3e951e9a5aa9f7aed2020f771",
+    "dist/index.mjs.map": "sha256:1c032c27a62b3c791a1b423ee7875a73e9b9feebc7aa4b58033dfa222b258c78",
+    "package.json": "sha256:fc562205b87e1f7a76197449fcff858933a5f2513a8c30aad49a09d27a33d023"
+  }
+}

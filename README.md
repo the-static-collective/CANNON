@@ -17,3 +17,7 @@ Principles:
 An executable CANON FIELD 001 candidate will be developed on a branch and reviewed by pull request. This bootstrap does not itself admit any code, alter any other repository, or create an owner trust anchor. 
 
 The owner decides which signed histories and versions are canon for each scope.
+
+## CONSTELLATION-001 — executable review experiment
+
+[Exact-pin setup, native crossings, offline first-boot desk and independent replay](docs/CONSTELLATION-001.md). This branch stacks on the actual GENESIS-BOOT-001 #38 head, preserving #37 and #5. Nine independent donor repositories execute through ten exact source cuts; the public atlas inventories 89 repositories separately from runtime proof. MIT Living Suitcase, Voqal First Circle and an open institutional doorway share deterministic software receipts; all real-world and institutional gates remain explicit.
