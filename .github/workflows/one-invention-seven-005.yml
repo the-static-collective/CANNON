@@ -1,0 +1,121 @@
+name: ONE-INVENTION-SEVEN-005 — one machine, seven native expressions and return
+on:
+  push:
+    branches: ["experiment/one-invention-seven-005"]
+    paths: ["scripts/one-invention-seven.mjs","test/one-invention-seven.test.mjs","docs/ONE-INVENTION-SEVEN-005.md",".github/workflows/one-invention-seven-005.yml"]
+  pull_request:
+    paths: ["scripts/one-invention-seven.mjs","test/one-invention-seven.test.mjs","docs/ONE-INVENTION-SEVEN-005.md",".github/workflows/one-invention-seven-005.yml"]
+permissions:
+  contents: read
+jobs:
+  one-invention-seven-native:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Install real native scene renderer
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg
+          python3 -m pip install 'Pillow>=9'
+      - name: Clone 10 original project histories pinned to exact commits
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/native-origins"
+          clone_at() {
+            local alias="$1" repo="$2" sha="$3"
+            git clone --quiet "https://github.com/the-static-collective/$repo.git" "$RUNNER_TEMP/native-origins/$alias"
+            git -C "$RUNNER_TEMP/native-origins/$alias" checkout --quiet --detach "$sha"
+          }
+          clone_at planz planZ 64ed8a376acd63a5d630e1649b6001fb3b3251de
+          clone_at workbench static-workbench 53db559bbc510ad1003a0f8330d1673dcd04d7a0
+          clone_at press lemonPRESS aae960f13d45eb4713460ed9660b7baf5ba3c473
+          clone_at toaster the-haunted-toaster 3652c2a96b6b287cda316d1c92daadf7c7417eaf
+          clone_at playdeck playdeck a7cf718421e767fd382a01894063c3eeba3d2930
+          clone_at blender the-haunted-blender 78be68dbe788c0744684433205b276c56a580c00
+          clone_at field static-field 80b08f7a45f6957239582091536ea9528df7a1b7
+          clone_at jarvis JAR-VIS 1660e98a3e456e2a1fdfe098d1b3cd0277e5db32
+          clone_at live static-live 38e67b2930cea09c3e01a05447a6e92a67c2468f
+          clone_at os static-os b4cf776fae485b9035812196db7abb6553a78972
+          node --input-type=module <<'NODE'
+          import {writeFileSync} from 'node:fs';
+          const b=process.env.RUNNER_TEMP+'/native-origins/';
+          for(const [name,aliases] of Object.entries({
+            book:{planz:'planz',workbench:'workbench',lemonpress:'press'},
+            seven:{'haunted-toaster':'toaster',playdeck:'playdeck','haunted-blender':'blender',
+                   'static-field':'field',jarvis:'jarvis','static-live':'live','static-os':'os'}
+          }))writeFileSync(process.env.RUNNER_TEMP+'/roots-'+name+'.json',
+            JSON.stringify(Object.fromEntries(Object.entries(aliases).map(([k,v])=>[k,b+v]))));
+          NODE
+      - name: Install only required PlayDeck source-native TypeScript executor
+        run: |
+          (cd "$RUNNER_TEMP/native-origins/playdeck" && npm install --ignore-scripts --no-package-lock --no-audit --no-fund)
+          git -C "$RUNNER_TEMP/native-origins/playdeck" restore --source=HEAD -- packages/ingest/src/cli.ts
+      - name: Verify original native owner test code, not CANNON pseudocode
+        run: |
+          node --test test/one-invention-seven.test.mjs
+          (cd "$RUNNER_TEMP/native-origins/planz" && node --test reactor/collide.test.mjs reactor/recursive.test.mjs)
+          (cd "$RUNNER_TEMP/native-origins/press" && node --test machine-book/edition.test.mjs)
+          (cd "$RUNNER_TEMP/native-origins/field/experiments/postemahhn-living-deck-001" && node --test tests/composer.test.mjs)
+          (cd "$RUNNER_TEMP/native-origins/jarvis" && node --test test/madd-slots.test.mjs)
+      - name: Choose one original generation-one invention candidate as SCRIPTED CI fixture
+        run: |
+          node scripts/reactor-book-crossing.mjs list --roots "$RUNNER_TEMP/roots-book.json" > "$RUNNER_TEMP/choice.json"
+          node --input-type=module <<'NODE'
+          import {readFileSync,appendFileSync} from 'node:fs';
+          const menu=JSON.parse(readFileSync(process.env.RUNNER_TEMP+'/choice.json'));
+          if(menu.candidates.length!==8 || menu.candidates.some(x=>x.status!=='PROPOSED_UNVERIFIED'))process.exit(2);
+          appendFileSync(process.env.GITHUB_ENV,'PLAN_ONE='+menu.candidates[0].id+'\n');
+          appendFileSync(process.env.GITHUB_ENV,'PLAN_TWO='+menu.candidates[1].id+'\n');
+          NODE
+      - name: Original PlanZ -> real Workbench Book -> original lemonPRESS machine manuscript
+        run: |
+          node scripts/reactor-book-crossing.mjs build --roots "$RUNNER_TEMP/roots-book.json" --plan-id "$PLAN_ONE" --out "$RUNNER_TEMP/book-one" --authorize CI_SCRIPTED_HOLD_ONLY
+          node scripts/reactor-book-crossing.mjs verify --roots "$RUNNER_TEMP/roots-book.json" --plan-id "$PLAN_ONE" --out "$RUNNER_TEMP/book-one"
+      - name: ONE invention genuinely drives seven original native creative software engines
+        run: |
+          node scripts/one-invention-seven.mjs build --book "$RUNNER_TEMP/book-one" --roots "$RUNNER_TEMP/roots-seven.json" --plan-id "$PLAN_ONE" --out "$GITHUB_WORKSPACE/one-invention-held" --authorize CI_SCRIPTED_HOLD_ONLY
+          node scripts/one-invention-seven.mjs verify --book "$RUNNER_TEMP/book-one" --roots "$RUNNER_TEMP/roots-seven.json" --plan-id "$PLAN_ONE" --out "$GITHUB_WORKSPACE/one-invention-held"
+          node --input-type=module <<'NODE'
+          import {readFileSync} from 'node:fs';
+          const r=JSON.parse(readFileSync('one-invention-held/receipt.json'));
+          const returned=JSON.parse(readFileSync('one-invention-held/lineage/return.json'));
+          if(r.expressionCount!==7||r.heldReturnQuestionCount!==7||r.originalHumanSelections!==0||
+            r.physicalMachineOperated||r.licensedPublicRelease||returned.candidates.length!==7)process.exit(2);
+          console.log('ONE INVENTION',r.sourcePlanId,'SEVEN NATIVE EXPRESSIONS',r.expressionCount,'RETURN QUESTIONS',r.heldReturnQuestionCount);
+          NODE
+      - name: Independent second plan has independently different native creative ancestry
+        run: |
+          node scripts/reactor-book-crossing.mjs build --roots "$RUNNER_TEMP/roots-book.json" --plan-id "$PLAN_TWO" --out "$RUNNER_TEMP/book-two" --authorize CI_SCRIPTED_HOLD_ONLY
+          node scripts/one-invention-seven.mjs build --book "$RUNNER_TEMP/book-two" --roots "$RUNNER_TEMP/roots-seven.json" --plan-id "$PLAN_TWO" --out "$RUNNER_TEMP/second-invention" --authorize CI_SCRIPTED_HOLD_ONLY
+          node --input-type=module <<'NODE'
+          import {readFileSync} from 'node:fs';
+          const one=JSON.parse(readFileSync('one-invention-held/views/toaster.json'));
+          const two=JSON.parse(readFileSync(process.env.RUNNER_TEMP+'/second-invention/views/toaster.json'));
+          const r1=JSON.parse(readFileSync('one-invention-held/receipt.json'));
+          const r2=JSON.parse(readFileSync(process.env.RUNNER_TEMP+'/second-invention/receipt.json'));
+          if(one.familyHash===two.familyHash||r1.seed===r2.seed||r1.sourcePlanId===r2.sourcePlanId)process.exit(2);
+          console.log('NEGATIVE CONTROL: different plans produce different source-derived native Toaster families');
+          NODE
+      - name: Hostile forged KEEP, tampered output and wrong plan refused
+        run: |
+          set -euo pipefail
+          if node scripts/one-invention-seven.mjs build --book "$RUNNER_TEMP/book-one" --roots "$RUNNER_TEMP/roots-seven.json" --plan-id "$PLAN_ONE" --out "$RUNNER_TEMP/forged-human" --authorize HUMAN_KEEP; then exit 1; fi
+          if node scripts/one-invention-seven.mjs build --book "$RUNNER_TEMP/book-one" --roots "$RUNNER_TEMP/roots-seven.json" --plan-id "$PLAN_TWO" --out "$RUNNER_TEMP/forged-plan" --authorize CI_SCRIPTED_HOLD_ONLY; then exit 1; fi
+          cp one-invention-held/views/jarvis.json "$RUNNER_TEMP/original-creature.json"
+          printf '\nFAKE HUMAN PERMISSION' >> one-invention-held/views/jarvis.json
+          if node scripts/one-invention-seven.mjs verify --book "$RUNNER_TEMP/book-one" --roots "$RUNNER_TEMP/roots-seven.json" --plan-id "$PLAN_ONE" --out "$GITHUB_WORKSPACE/one-invention-held"; then exit 1; fi
+          cp "$RUNNER_TEMP/original-creature.json" one-invention-held/views/jarvis.json
+          node scripts/one-invention-seven.mjs verify --book "$RUNNER_TEMP/book-one" --roots "$RUNNER_TEMP/roots-seven.json" --plan-id "$PLAN_ONE" --out "$GITHUB_WORKSPACE/one-invention-held"
+      - name: Keep the seven-ways exhibition, original outputs, independent return questions and receipts
+        uses: actions/upload-artifact@v4
+        with:
+          name: one-invention-seven-005-held-exhibition-and-return-plans
+          path: one-invention-held/
+          if-no-files-found: error
+          retention-days: 30
