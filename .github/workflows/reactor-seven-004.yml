@@ -61,7 +61,8 @@ jobs:
       - name: Original PlanZ to Workbench Book to lemonPRESS native experiment
         run: |
           node scripts/reactor-book-crossing.mjs list --roots "$RUNNER_TEMP/reactor-book-roots.json" > "$RUNNER_TEMP/book-menu.json"
-          node -e 'const fs=require("fs");let m=JSON.parse(fs.readFileSync(process.env.RUNNER_TEMP+"/book-menu.json"));if(m.candidates.length!==8)process.exit(1);fs.appendFileSync(process.env.GITHUB_ENV,"BOOK_PLAN_ID="+m.candidates[0].id+"\n")'
+          BOOK_PLAN_ID="$(node -e 'const fs=require("fs");let m=JSON.parse(fs.readFileSync(process.env.RUNNER_TEMP+"/book-menu.json"));if(m.candidates.length!==8)process.exit(1);process.stdout.write(m.candidates[0].id)')"
+          echo "BOOK_PLAN_ID=$BOOK_PLAN_ID" >> "$GITHUB_ENV"
           node scripts/reactor-book-crossing.mjs build --roots "$RUNNER_TEMP/reactor-book-roots.json" --plan-id "$BOOK_PLAN_ID" --out "$RUNNER_TEMP/book-held" --authorize CI_SCRIPTED_HOLD_ONLY
           node scripts/reactor-book-crossing.mjs verify --roots "$RUNNER_TEMP/reactor-book-roots.json" --plan-id "$BOOK_PLAN_ID" --out "$RUNNER_TEMP/book-held"
       - name: Original Haunted Toaster to PlayDeck to Blender native film proof
