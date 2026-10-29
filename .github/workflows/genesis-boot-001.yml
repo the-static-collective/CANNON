@@ -100,12 +100,12 @@ jobs:
           PY
       - name: Prove edited artifact and fake human outcome are refused without changing source
         run: |
-          cp genesis-output/house-A.html genesis-output/house-A.saved
+          cp genesis-output/house-A.html house-A.saved
           printf 'forged' >> genesis-output/house-A.html
           if node cannon/scripts/genesis-boot.mjs verify --staticos staticos --webz webz --gro gro --ghot ghot --jarvis jarvis --out genesis-output; then
             echo "ERROR: forged output passed"; exit 1
           fi
-          mv genesis-output/house-A.saved genesis-output/house-A.html
+          mv house-A.saved genesis-output/house-A.html
           node cannon/scripts/genesis-boot.mjs verify --staticos staticos --webz webz --gro gro --ghot ghot --jarvis jarvis --out genesis-output
       - name: Upload actual offline first-boot house cards, comic and source witnesses
         uses: actions/upload-artifact@v4
