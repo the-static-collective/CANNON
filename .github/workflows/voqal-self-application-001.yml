@@ -1,0 +1,71 @@
+name: VOQAL-SELF-APPLICATION-001 original-source proof writes a review-only grant packet
+on:
+  push:
+    branches: ['experiment/voqal-self-application-001']
+  pull_request:
+    paths:
+      - 'src/voqal-self-application.mjs'
+      - 'scripts/voqal-self-application.mjs'
+      - 'test/voqal-self-application.test.mjs'
+      - '.github/workflows/voqal-self-application-001.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  self-application:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with: {node-version: '24'}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - name: Acquire immutable original owner code (network read-only here)
+        run: node scripts/constellation-acquire.mjs --into "$RUNNER_TEMP/donors"
+      - name: Unit-test official form limits, source refusal and receipt determinism
+        run: node --test test/voqal-self-application.test.mjs
+      - name: Execute original multi-repository CANNON demonstration
+        run: >
+          node scripts/constellation.mjs build
+          --roots "$RUNNER_TEMP/donors/roots.json"
+          --out "$RUNNER_TEMP/constellation-output"
+          --authorize LOCAL_FICTIONAL_ONLY
+      - name: Independently replay exact source code and all original outputs
+        run: >
+          node scripts/constellation.mjs verify
+          --roots "$RUNNER_TEMP/donors/roots.json"
+          --out "$RUNNER_TEMP/constellation-output"
+      - name: Machine composes own human-review Voqal application from verified evidence
+        run: >
+          node scripts/voqal-self-application.mjs build
+          --roots "$RUNNER_TEMP/donors/roots.json"
+          --constellation "$RUNNER_TEMP/constellation-output"
+          --out "$RUNNER_TEMP/voqal-application-review"
+          --authorize LOCAL_DRAFT_ONLY
+      - name: Independent cold-verification of all application output bytes
+        run: >
+          node scripts/voqal-self-application.mjs verify
+          --roots "$RUNNER_TEMP/donors/roots.json"
+          --constellation "$RUNNER_TEMP/constellation-output"
+          --out "$RUNNER_TEMP/voqal-application-review"
+      - name: Refuse altered first-person application copy then reconstruct
+        run: |
+          cp "$RUNNER_TEMP/voqal-application-review/application-review.md" "$RUNNER_TEMP/safe-draft.md"
+          printf 'FORGED SUBMISSION' >> "$RUNNER_TEMP/voqal-application-review/application-review.md"
+          if node scripts/voqal-self-application.mjs verify --roots "$RUNNER_TEMP/donors/roots.json" --constellation "$RUNNER_TEMP/constellation-output" --out "$RUNNER_TEMP/voqal-application-review"; then exit 1; fi
+          cp "$RUNNER_TEMP/safe-draft.md" "$RUNNER_TEMP/voqal-application-review/application-review.md"
+          node scripts/voqal-self-application.mjs verify --roots "$RUNNER_TEMP/donors/roots.json" --constellation "$RUNNER_TEMP/constellation-output" --out "$RUNNER_TEMP/voqal-application-review"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: voqal-2027-self-application-human-review-bundle
+          path: |
+            ${{ runner.temp }}/voqal-application-review/
+            ${{ runner.temp }}/constellation-output/voqal-brief.html
+            ${{ runner.temp }}/constellation-output/receipt.json
+            ${{ runner.temp }}/constellation-output/manifest.json
+          retention-days: 30
+          if-no-files-found: error
