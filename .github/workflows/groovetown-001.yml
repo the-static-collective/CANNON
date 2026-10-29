@@ -1,0 +1,36 @@
+name: GROOVETOWN-001 synthetic portable world proof
+on:
+  push:
+    branches:
+      - experiment/groovetown-001
+  pull_request:
+    paths:
+      - 'experiments/groovetown-001/**'
+      - '.github/workflows/groovetown-001.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  synthetic-world-proof:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Run hostile input, signature, receiver independence and cold replay tests
+        run: node --test experiments/groovetown-001/groovetown.test.mjs
+      - name: Build self-contained playable witness packet
+        run: |
+          node experiments/groovetown-001/groovetown.mjs demo "$RUNNER_TEMP/groovetown-001"
+          test -s "$RUNNER_TEMP/groovetown-001/index.html"
+          test -s "$RUNNER_TEMP/groovetown-001/07-before.wav"
+          test -s "$RUNNER_TEMP/groovetown-001/08-after.wav"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: GROOVETOWN-001-synthetic-offline-demo
+          path: ${{ runner.temp }}/groovetown-001/
+          if-no-files-found: error
