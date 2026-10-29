@@ -25,7 +25,7 @@ const SHELF=Object.freeze([
   note:'This console runs CANNON original donor code, creates real local files, and cold-verifies them. A/B are fictional site observations.'},
  {id:'warm-thread',title:'Warm Thread / refusal preserves previous work',state:'SEPARATE_PROVEN_NATIVE_CROSSING_NOT_RUN_HERE',
   source:'https://github.com/the-static-collective/CANNON/pull/32',
-  proof:'https://github.com/the-static-collective/CANNON/blob/experiment/stack-squared-027-warm-thread-returns/docs/STACK-SQUARED-027-WARM-THREAD.md',
+  proof:'https://github.com/the-static-collective/CANNON/actions/runs/39825842178',
   note:'GHoT → Full Measure → GHoT, then independent Garden and Band status; a refusal leaves one transport need open. Requires separately pinned donor checkouts.'},
  {id:'circulation',title:'Circulation / independent CARE HOLD and return',state:'SEPARATE_PROVEN_NATIVE_CROSSING_NOT_RUN_HERE',
   source:'https://github.com/the-static-collective/CANNON/pull/35',
