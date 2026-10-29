@@ -16,7 +16,7 @@ function owner(name,dir){
  const url=cmd('git',['-C',path,'remote','get-url','origin']);
  need(url.endsWith('/'+wanted.repo)||url.endsWith('/'+wanted.repo+'.git')||url.endsWith(':'+wanted.repo+'.git'),'REMOTE_'+name);
  const status=cmd('git',['-C',path,'status','--porcelain','--untracked-files=all']).split('\n').filter(Boolean);
- need(status.every(x=>x.startsWith('?? node_modules/')||x.startsWith('?? out/')),'DIRTY_'+name);
+ need(status.every(x=>x.startsWith('?? node_modules/')||x.startsWith('?? out/')),'DIRTY_'+name+':'+status.join(';').slice(0,450));
  return path;
 }
 function filesOf(dir,prefix=''){let result={};for(const e of readdirSync(dir,{withFileTypes:true})){const abs=join(dir,e.name),name=prefix+e.name;need(!e.isSymbolicLink(),'SYMLINK');if(e.isDirectory())Object.assign(result,filesOf(abs,name+'/'));else{need(e.isFile(),'NONFILE');result[name]=readFileSync(abs)}}return result}
