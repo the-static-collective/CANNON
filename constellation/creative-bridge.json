@@ -1,0 +1,8 @@
+{
+  "schema": "cannon.creative-bridge-sources/v1",
+  "researchSource": "https://github.com/the-static-collective/CANNON/pull/59",
+  "researchHead": "ca00526787edecdcaaaa05647ae3f2dedcf0cce8",
+  "parentMachine": "f99d4b0f74b117e0af034137d550e88aa3d01f26",
+  "jarvis": {"repository":"the-static-collective/JAR-VIS","commit":"1660e98a3e456e2a1fdfe098d1b3cd0277e5db32","module":"src/cabaret/slots.mjs"},
+  "staticLive": {"repository":"the-static-collective/static-live","commit":"38e67b2930cea09c3e01a05447a6e92a67c2468f","module":"src/compiler.js"}
+}

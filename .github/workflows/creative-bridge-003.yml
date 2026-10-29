@@ -1,0 +1,62 @@
+name: CONSTELLATION-003 original native creative bridge
+on:
+  push:
+    branches: ['experiment/constellation-003-creative-bridge']
+  pull_request:
+    paths: ['src/creative-bridge*', 'scripts/creative-bridge.mjs', 'constellation/creative-bridge.json', 'test/creative-bridge*', '.github/workflows/creative-bridge-003.yml']
+permissions:
+  contents: read
+jobs:
+  native-machine:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Acquire exact public sources and runtime dependencies
+        run: |
+          node scripts/arcade-machine.mjs acquire --into "$RUNNER_TEMP/inputs"
+          git -C "$RUNNER_TEMP/inputs/inherited/staticos" fetch --depth=1 origin 7bc551610421bd60a8dbf624d93d7a6682ce3987
+      - name: Build five native scenes
+        run: node scripts/arcade-machine.mjs build --config "$RUNNER_TEMP/inputs/config.json" --out "$RUNNER_TEMP/machine" --authorize LOCAL_FICTIONAL_ONLY
+      - name: Acquire original creative dealer and create local config
+        run: |
+          git clone --quiet --no-checkout https://github.com/the-static-collective/JAR-VIS.git "$RUNNER_TEMP/creative-jarvis"
+          git -C "$RUNNER_TEMP/creative-jarvis" checkout --quiet --detach 1660e98a3e456e2a1fdfe098d1b3cd0277e5db32
+          node --input-type=module <<'NODE'
+          import {readFileSync,writeFileSync} from 'node:fs';
+          const base=process.env.RUNNER_TEMP,arcadeConfig=base+'/inputs/config.json';
+          const parent=JSON.parse(readFileSync(arcadeConfig));
+          writeFileSync(base+'/bridge-config.json',JSON.stringify({schema:'cannon.creative-bridge-config/v1',arcadeConfig,parentPacket:base+'/machine',jarvisRoot:base+'/creative-jarvis',staticLiveRoot:parent.nativeRoots.staticlive}));
+          NODE
+      - name: Original native creative owner tests
+        run: node --test "$RUNNER_TEMP/creative-jarvis/test/madd-slots.test.mjs"
+      - name: Complete suite including real native creative continuation
+        env:
+          CREATIVE_BRIDGE_CONFIG: ${{ runner.temp }}/bridge-config.json
+          ARCADE_CONFIG: ${{ runner.temp }}/inputs/config.json
+          ARCADE_PACKET: ${{ runner.temp }}/machine
+          CANNON002_SOURCE_ROOT: ${{ runner.temp }}/inputs/inherited/staticos
+          CANNON002_RELATTE_ROOT: ${{ runner.temp }}/inputs/inherited/relatte
+          CONSTELLATION_ROOTS: ${{ runner.temp }}/inputs/inherited/roots.json
+        run: npm test
+      - name: Independent fresh-process replay
+        run: node scripts/arcade-machine.mjs verify --config "$RUNNER_TEMP/inputs/config.json" --out "$RUNNER_TEMP/machine"
+      - name: Produce and independently replay portable creative machine
+        run: |
+          node scripts/creative-bridge.mjs build --config "$RUNNER_TEMP/bridge-config.json" --out "$RUNNER_TEMP/creative-machine" --authorize LOCAL_FICTIONAL_ONLY
+          node scripts/creative-bridge.mjs verify --config "$RUNNER_TEMP/bridge-config.json" --out "$RUNNER_TEMP/creative-machine"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: constellation-003-native-creative-machine
+          path: ${{ runner.temp }}/creative-machine/
+          if-no-files-found: error
+          retention-days: 30
