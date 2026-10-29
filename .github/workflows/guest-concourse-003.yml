@@ -1,0 +1,56 @@
+name: CANNON Guest Concourse 003
+on:
+  push:
+    branches:
+      - experiment/guest-concourse-003
+  pull_request:
+    paths:
+      - constellation/guests-003.json
+      - src/concourse/**
+      - scripts/guest-concourse.mjs
+      - scripts/guest-native-proof.mjs
+      - test/guest-concourse-003.test.mjs
+permissions:
+  contents: read
+jobs:
+  source-concourse:
+    runs-on: ubuntu-latest
+    timeout-minutes: 24
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Parse local owner contracts and run fail-closed registry tests
+        run: |
+          node --check src/concourse/guest-dealer.mjs
+          node --check scripts/guest-concourse.mjs
+          node --check scripts/guest-native-proof.mjs
+          node --test test/guest-concourse-003.test.mjs
+      - name: Acquire twenty-two independent original public source cuttings
+        run: node scripts/guest-concourse.mjs acquire --into "${{ runner.temp }}/twenty-two-guests"
+      - name: Compose a real local show from independently checked source hashes
+        run: |
+          node scripts/guest-concourse.mjs build --sources "${{ runner.temp }}/twenty-two-guests/sources.json" --out "${{ runner.temp }}/guest-concourse-show"
+          node scripts/guest-concourse.mjs verify --sources "${{ runner.temp }}/twenty-two-guests/sources.json" --out "${{ runner.temp }}/guest-concourse-show"
+      - name: Execute four actually pinned source-owned native code examples
+        run: |
+          node scripts/guest-native-proof.mjs --sources "${{ runner.temp }}/twenty-two-guests/sources.json" --out "${{ runner.temp }}/native-owner-proofs"
+          cp "${{ runner.temp }}/native-owner-proofs/receipt.json" "${{ runner.temp }}/guest-concourse-show/native-test-receipt.json"
+      - name: Prove original music proposal versus math difference
+        run: |
+          node scripts/guest-music-delta.mjs --sources "${{ runner.temp }}/twenty-two-guests/sources.json" --out "${{ runner.temp }}/music-delta"
+          test -s "${{ runner.temp }}/music-delta/cowboy.mid"
+          test -s "${{ runner.temp }}/music-delta/ghost.mid"
+          test -s "${{ runner.temp }}/music-delta/dogram.receipt.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cannon-003-twenty-two-extra-source-guests
+          path: |
+            ${{ runner.temp }}/guest-concourse-show
+            ${{ runner.temp }}/native-owner-proofs
+            ${{ runner.temp }}/music-delta
+          retention-days: 14
