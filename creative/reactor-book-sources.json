@@ -1,0 +1,24 @@
+{
+  "schema": "cannon.reactor-book-sources/v1",
+  "authority": "HELD_SYNTHETIC_CROSSING_ONLY",
+  "owners": {
+    "planz": {
+      "repo": "the-static-collective/planZ",
+      "commit": "64ed8a376acd63a5d630e1649b6001fb3b3251de",
+      "native": "reactor/recursive.mjs",
+      "proof": "planZ REACTOR-001 draft #36"
+    },
+    "workbench": {
+      "repo": "the-static-collective/static-workbench",
+      "commit": "53db559bbc510ad1003a0f8330d1673dcd04d7a0",
+      "native": "static_workbench/machine_book.py",
+      "proof": "Book of Machines PR #67 and Gap Workshop #68 merged"
+    },
+    "lemonpress": {
+      "repo": "the-static-collective/lemonPRESS",
+      "commit": "aae960f13d45eb4713460ed9660b7baf5ba3c473",
+      "native": "machine-book/edition.mjs",
+      "proof": "MACHINE-MANUSCRIPT-001 draft #63"
+    }
+  }
+}
