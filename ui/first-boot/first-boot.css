@@ -39,3 +39,7 @@ button.secondary{background:transparent;color:var(--lime)}
 @media(max-width:650px){.house-map{grid-template-columns:repeat(2,minmax(0,1fr))}.top{flex-wrap:wrap}.status{margin:0;width:100%;text-align:left}.hero{padding-top:22px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 @media print{body{background:white;color:black}.card,.crossing,.house-map div{background:white;color:black;box-shadow:none;border-color:#777}a,.overline,.hero-question,h1 em,.house-map b{color:black}.stages,form,button{display:none}footer{color:black}}
+
+[hidden]{display:none!important}
+.warm-action{margin-top:24px;padding:22px;border-top:2px solid var(--line);background:linear-gradient(135deg,#214230,#152b21)}
+.warm-action h3{font:1.6rem/1.2 Georgia,serif;margin:8px 0;color:var(--gold)}
