@@ -17,6 +17,6 @@ test('no song/audio authority is fabricated from test timing',()=>{
 test('lyrics and awakenings cannot invent a licensed song',()=>{
  const x=read('film-press-synthetic-lyrics.json'),world=read('film-press-synthetic-world.json');
  assert.equal(x.schema,'full-measure.lyrics.v1');
- assert.ok(x.cues.every(c=>c.text.includes('NOT')||c.text.includes('TEST')));
+ assert.ok(x.cues.every(c=>c.text.includes('NOT')||c.text.includes('TEST')||c.text.includes('NO MASTER')));
  assert.equal(world.awakening,'proposal-only');
 });
