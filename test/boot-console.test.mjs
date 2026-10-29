@@ -7,6 +7,7 @@ import {mkdtempSync,mkdirSync,writeFileSync,readFileSync,rmSync} from 'node:fs';
 import {join} from 'node:path';
 import {tmpdir} from 'node:os';
 import {createBootConsole} from '../src/boot-console.mjs';
+import {request as nodeRequest} from 'node:http';
 
 async function start(t){
  const temp=mkdtempSync(join(tmpdir(),'cannon-first-boot-contract-'));
@@ -58,7 +59,12 @@ test('boot console loads an actual local HTML + JS, no startup execution, prior 
 test('strict loopback, csrf and explicit review gate; executable request remains bounded',async t=>{
  const env=await start(t);
  const request={question:'Can the house help its neighbors?',acknowledgePublicSafe:true};
- assert.equal((await fetch(env.url+'api/status',{headers:{Host:'wrong.example'}})).status,403);
+ const spoofedHostStatus=await new Promise((accept,reject)=>{
+  const req=nodeRequest(env.url+'api/status',{headers:{Host:'wrong.example'}},res=>{
+   res.resume();res.on('end',()=>accept(res.statusCode));
+  });req.on('error',reject);req.end();
+ });
+ assert.equal(spoofedHostStatus,403);
  assert.equal((await post(env.url,'api/compose','wrong',request)).status,403);
  assert.equal((await fetch(env.url+'api/compose',{method:'POST',body:JSON.stringify(request),
   headers:{'Content-Type':'application/json','X-Genesis-Token':env.nonce}})).status,403);
