@@ -1,0 +1,74 @@
+name: CULTURE-FORGE-002 three-owner native publication HOLD
+on:
+  push:
+    branches: ['experiment/culture-forge-002-lemonpress-receiver']
+  pull_request:
+    paths:
+      - 'src/culture-delivery.mjs'
+      - 'scripts/culture-delivery.mjs'
+      - 'test/culture-delivery.test.mjs'
+      - '.github/workflows/culture-forge-002.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  native-press-delivery:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: cannon
+      - uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/webZ
+          ref: 83b35070d8d56155156655279bfdcf50aa77794f
+          path: webz
+      - uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/GrO
+          ref: 9e6361105aae335ccb0657092809eef43e7ab4da
+          path: gro
+      - uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/lemonPRESS
+          ref: f091e73d2f64b2237ee828010ae244b39e4070b8
+          path: lemonpress
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Run CANNON original and receiver adapter tests
+        run: npm test
+        working-directory: cannon
+      - name: Run original lemonPRESS independent rejection/acceptance tests
+        run: node --test lemonpress/tests/held-culture.test.mjs
+      - name: Execute original WebZ and GrO and create actual printable media
+        run: node cannon/scripts/culture-forge.mjs build --webz webz --gro gro --out culture-out
+      - name: Verify original CANNON culture artifact from exact Git objects
+        run: node cannon/scripts/culture-forge.mjs verify --webz webz --gro gro --out culture-out
+      - name: Invoke original lemonPRESS native HOLD receiver (not mock) on real output bytes
+        run: node cannon/scripts/culture-delivery.mjs deliver --webz webz --gro gro --press lemonpress --forge culture-out --out press-held --choice HOLD
+      - name: Independently cold verify lemonPRESS HOLD, unchanged media and rights boundary
+        run: node cannon/scripts/culture-delivery.mjs verify --webz webz --gro gro --press lemonpress --forge culture-out --out press-held --choice HOLD
+      - name: Exercise separately governed REFUSE without making copies
+        run: |
+          node cannon/scripts/culture-delivery.mjs deliver --webz webz --gro gro --press lemonpress --forge culture-out --out press-refused --choice REFUSE
+          test ! -f press-refused/comic.html
+          test ! -f press-refused/field-card.md
+          node cannon/scripts/culture-delivery.mjs verify --webz webz --gro gro --press lemonpress --forge culture-out --out press-refused --choice REFUSE
+      - name: Reject tampered received file and restore exact bytes
+        run: |
+          cp press-held/comic.html press-held/comic.clean
+          printf 'TAMPER' >> press-held/comic.html
+          if node cannon/scripts/culture-delivery.mjs verify --webz webz --gro gro --press lemonpress --forge culture-out --out press-held --choice HOLD; then
+            echo 'ERROR: forged press file passed'; exit 1
+          fi
+          mv press-held/comic.clean press-held/comic.html
+          node cannon/scripts/culture-delivery.mjs verify --webz webz --gro gro --press lemonpress --forge culture-out --out press-held --choice HOLD
+      - uses: actions/upload-artifact@v4
+        with:
+          name: culture-forge-002-independent-lemonpress-held-packet
+          path: |
+            culture-out/
+            press-held/
+            press-refused/
+          retention-days: 30
