@@ -9,7 +9,7 @@ import {tmpdir} from 'node:os';
 import {createBootConsole} from '../src/boot-console.mjs';
 import {request as nodeRequest} from 'node:http';
 
-async function start(t){
+async function start(t,{enableWarm=false}={}){
  const temp=mkdtempSync(join(tmpdir(),'cannon-first-boot-contract-'));
  const donorKeys=['staticos','webz','gro','ghot','jarvis'],roots={};
  for(const key of donorKeys){roots[key]=join(temp,key);mkdirSync(roots[key]);}
@@ -32,7 +32,24 @@ async function start(t){
   if(bytes!=='<h1>HELLO, WORLD.</h1>')throw Error('COLD_VERIFY_REFUSED');
   return {status:'CROSS_BRANCH_NATIVE_COLD_REPLAY_VERIFIED',sourceRepos:5,housePlans:2,noPhysicalActs:true};
  };
- const app=createBootConsole({roots,outParent:outputs,compose,verify});
+ const warmRoots=enableWarm?Object.fromEntries(
+  ['cannonWarm','ghotWarm','full','band','garden'].map(key=>{
+   const path=join(temp,'warm-'+key);mkdirSync(path);return [key,path];
+  })
+ ):null;
+ const warmCompose=async(_roots,out)=>{
+  mkdirSync(out);
+  writeFileSync(join(out,'warm-thread.html'),'<h1>Original Warm Thread fiction</h1>');
+  const receipt={schema:'cannon.genesis-warm-thread/v1',disposition:'EXECUTED_SOURCE_PINNED_FICTIONAL_HOLD_ONLY',
+   receiptSha256:'sha256:mock-only'};
+  writeFileSync(join(out,'warm-thread-receipt.json'),JSON.stringify(receipt));
+  return receipt;
+ };
+ const warmVerify=async(_roots,out)=>{
+  if(readFileSync(join(out,'warm-thread.html'),'utf8')!=='<h1>Original Warm Thread fiction</h1>')throw Error('REFUSED');
+  return {status:'WARM_SOURCE_NATIVE_COLD_REPLAY_VERIFIED',originalDonorRepos:4,remainingFictionalLoad:1};
+ };
+ const app=createBootConsole({roots,outParent:outputs,compose,verify,warmRoots,warmCompose,warmVerify});
  const url=await app.start(0);
  t.after(async()=>{await app.stop();rmSync(temp,{recursive:true,force:true})});
  const status=await (await fetch(url+'api/status')).json();
@@ -98,4 +115,28 @@ test('no arbitrary file paths, no unknown POST endpoint, no oversized structured
  const postNotAuthorized=await post(env.url,'api/execute',env.nonce,{command:'rm'});
  assert.equal(postNotAuthorized.status,405);
  assert.equal((await post(env.url,'api/verify',env.nonce,{id:'../other'})).status,422);
+});
+
+test('optional native crossing is operator-gated, create-only and restart-readable; nothing runs at load',async t=>{
+ const disabled=await start(t);
+ let status=await (await fetch(disabled.url+'api/status')).json();
+ assert.equal(status.warmAvailable,false);
+ assert.equal((await post(disabled.url,'api/warm',status.nonce,{acknowledgeFictional:true})).status,422);
+ const env=await start(t,{enableWarm:true});
+ status=await (await fetch(env.url+'api/status')).json();
+ assert.equal(status.warmAvailable,true);
+ assert.ok(status.bridgeShelf.some(x=>x.id==='warm-thread'&&x.runnableHere===true));
+ assert.equal((await post(env.url,'api/warm',status.nonce,{acknowledgeFictional:false})).status,422);
+ const res=await post(env.url,'api/warm',status.nonce,{acknowledgeFictional:true});
+ assert.equal(res.status,201);
+ const body=await res.json();
+ assert.match(body.id,/^warmthread-/);
+ assert.equal((await fetch(new URL(body.links.warm,env.url))).status,200);
+ const history=await (await fetch(env.url+'api/status')).json();
+ assert.ok(history.history.some(x=>x.id===body.id&&x.kind==='WARM_THREAD'));
+ const result=await post(env.url,'api/verify',status.nonce,{id:body.id});
+ assert.equal(result.status,200);
+ assert.equal((await result.json()).fieldStatus,'NOT_WITNESSED');
+ writeFileSync(join(env.outputs,body.id,'warm-thread.html'),'fake delivery');
+ assert.equal((await post(env.url,'api/verify',status.nonce,{id:body.id})).status,422);
 });
