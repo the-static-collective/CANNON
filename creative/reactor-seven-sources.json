@@ -1,0 +1,53 @@
+{
+  "schema": "cannon.reactor-seven-sources/v1",
+  "status": "PROVISIONAL_EXPERIMENT_ONLY",
+  "ownerNativeNew": [
+    {
+      "id": "static-field",
+      "repo": "the-static-collective/static-field",
+      "sha": "80b08f7a45f6957239582091536ea9528df7a1b7",
+      "path": "experiments/postemahhn-living-deck-001/composer.mjs"
+    },
+    {
+      "id": "jarvis",
+      "repo": "the-static-collective/JAR-VIS",
+      "sha": "1660e98a3e456e2a1fdfe098d1b3cd0277e5db32",
+      "path": "src/cabaret/slots.mjs"
+    },
+    {
+      "id": "static-live",
+      "repo": "the-static-collective/static-live",
+      "sha": "38e67b2930cea09c3e01a05447a6e92a67c2468f",
+      "path": "src/compiler.js"
+    },
+    {
+      "id": "static-os",
+      "repo": "the-static-collective/static-os",
+      "sha": "b4cf776fae485b9035812196db7abb6553a78972",
+      "path": "cartridges/genesis008.py"
+    }
+  ],
+  "priorNative": [
+    {
+      "id": "haunted-toaster",
+      "repo": "the-static-collective/the-haunted-toaster",
+      "sha": "3652c2a96b6b287cda316d1c92daadf7c7417eaf"
+    },
+    {
+      "id": "playdeck",
+      "repo": "the-static-collective/playdeck",
+      "sha": "a7cf718421e767fd382a01894063c3eeba3d2930"
+    },
+    {
+      "id": "haunted-blender",
+      "repo": "the-static-collective/the-haunted-blender",
+      "sha": "78be68dbe788c0744684433205b276c56a580c00"
+    }
+  ],
+  "claimLimits": [
+    "Distinct FILM-PRESS synthetic owner chain, not derived from BOOK's selected PlanZ cut.",
+    "Field -> JAR;VIS -> Static Live uses an adapter-authored, non-human, fully fictional bridge; it does not establish live performance or human KEEP.",
+    "STATIC OS cartridge independent synthetic proposal; plan provenance is bound only in CANNON crossing record, not embedded in native cartridge.",
+    "No real song master, licensed artwork, printer, published video, physical festival, canonical adoption, or human field witness."
+  ]
+}

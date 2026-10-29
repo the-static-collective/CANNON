@@ -1,0 +1,92 @@
+name: REACTOR-SEVEN-004 seven native creative engines
+on:
+  push:
+    branches: ["experiment/reactor-seven-native-004"]
+    paths: ["creative/reactor-seven-*","scripts/reactor-seven-*","test/reactor-seven.test.mjs","docs/REACTOR-SEVEN-004.md",".github/workflows/reactor-seven-004.yml"]
+  pull_request:
+    paths: ["creative/reactor-seven-*","scripts/reactor-seven-*","test/reactor-seven.test.mjs","docs/REACTOR-SEVEN-004.md",".github/workflows/reactor-seven-004.yml"]
+permissions:
+  contents: read
+jobs:
+  native-seven:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Install independent original film renderer dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg
+          python3 -m pip install 'Pillow>=9'
+      - name: Fetch 12 independently pinned original source histories
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/reactor-owners"
+          clone_at() {
+            local alias="$1" source="$2" commit="$3"
+            git clone --quiet "https://github.com/the-static-collective/$source.git" "$RUNNER_TEMP/reactor-owners/$alias"
+            git -C "$RUNNER_TEMP/reactor-owners/$alias" checkout --quiet --detach "$commit"
+          }
+          clone_at planz planZ 64ed8a376acd63a5d630e1649b6001fb3b3251de
+          clone_at workbench static-workbench 53db559bbc510ad1003a0f8330d1673dcd04d7a0
+          clone_at pressbook lemonPRESS aae960f13d45eb4713460ed9660b7baf5ba3c473
+          clone_at toaster the-haunted-toaster 3652c2a96b6b287cda316d1c92daadf7c7417eaf
+          clone_at playdeck playdeck a7cf718421e767fd382a01894063c3eeba3d2930
+          clone_at blender the-haunted-blender 78be68dbe788c0744684433205b276c56a580c00
+          clone_at band band-runtime 081c5742dae49153a3b554db1f2f9be48078a93e
+          clone_at pressfilm lemonPRESS c96738e8333b3f75e1c485b8e25f276c4da68f8a
+          clone_at field static-field 80b08f7a45f6957239582091536ea9528df7a1b7
+          clone_at jarvis JAR-VIS 1660e98a3e456e2a1fdfe098d1b3cd0277e5db32
+          clone_at live static-live 38e67b2930cea09c3e01a05447a6e92a67c2468f
+          clone_at os static-os b4cf776fae485b9035812196db7abb6553a78972
+          node --input-type=module <<'NODE'
+          import {writeFileSync} from 'node:fs';
+          const base=process.env.RUNNER_TEMP+'/reactor-owners/';
+          for(const [name,aliases] of Object.entries({
+            book:{planz:'planz',workbench:'workbench',lemonpress:'pressbook'},
+            film:{toaster:'toaster',playdeck:'playdeck',blender:'blender',band:'band',lemonpress:'pressfilm'},
+            seven:{'static-field':'field',jarvis:'jarvis','static-live':'live','static-os':'os'}
+          }))writeFileSync(process.env.RUNNER_TEMP+'/reactor-'+name+'-roots.json',JSON.stringify(Object.fromEntries(Object.entries(aliases).map(([k,v])=>[k,base+v]))));
+          NODE
+      - name: Prepare original PlayDeck and Band dependencies
+        run: |
+          (cd "$RUNNER_TEMP/reactor-owners/playdeck" && npm install --ignore-scripts --no-package-lock --no-audit --no-fund)
+          (cd "$RUNNER_TEMP/reactor-owners/band" && npm install --ignore-scripts --no-package-lock --no-audit --no-fund)
+          git -C "$RUNNER_TEMP/reactor-owners/playdeck" restore --source=HEAD -- packages/ingest/src/cli.ts
+      - name: Original PlanZ to Workbench Book to lemonPRESS native experiment
+        run: |
+          node scripts/reactor-book-crossing.mjs list --roots "$RUNNER_TEMP/reactor-book-roots.json" > "$RUNNER_TEMP/book-menu.json"
+          BOOK_PLAN_ID="$(node -e 'const fs=require("fs");let m=JSON.parse(fs.readFileSync(process.env.RUNNER_TEMP+"/book-menu.json"));if(m.candidates.length!==8)process.exit(1);process.stdout.write(m.candidates[0].id)')"
+          echo "BOOK_PLAN_ID=$BOOK_PLAN_ID" >> "$GITHUB_ENV"
+          node scripts/reactor-book-crossing.mjs build --roots "$RUNNER_TEMP/reactor-book-roots.json" --plan-id "$BOOK_PLAN_ID" --out "$RUNNER_TEMP/book-held" --authorize CI_SCRIPTED_HOLD_ONLY
+          node scripts/reactor-book-crossing.mjs verify --roots "$RUNNER_TEMP/reactor-book-roots.json" --plan-id "$BOOK_PLAN_ID" --out "$RUNNER_TEMP/book-held"
+      - name: Original Haunted Toaster to PlayDeck to Blender native film proof
+        run: |
+          node scripts/film-press-crossing.mjs build --roots "$RUNNER_TEMP/reactor-film-roots.json" --out "$RUNNER_TEMP/film-held" --authorize SYNTHETIC_TEST_ONLY
+          node scripts/film-press-crossing.mjs verify --roots "$RUNNER_TEMP/reactor-film-roots.json" --out "$RUNNER_TEMP/film-held"
+      - name: Four new native creative owners and seven-source held bundle
+        run: |
+          node --test test/reactor-seven.test.mjs
+          node scripts/reactor-seven-crossing.mjs build --book "$RUNNER_TEMP/book-held" --film "$RUNNER_TEMP/film-held" --roots "$RUNNER_TEMP/reactor-seven-roots.json" --out "$GITHUB_WORKSPACE/reactor-seven-held" --authorize CI_SCRIPTED_HOLD_ONLY
+          node scripts/reactor-seven-crossing.mjs verify --book "$RUNNER_TEMP/book-held" --film "$RUNNER_TEMP/film-held" --roots "$RUNNER_TEMP/reactor-seven-roots.json" --out "$GITHUB_WORKSPACE/reactor-seven-held"
+          node -e 'const fs=require("fs"),r=JSON.parse(fs.readFileSync("reactor-seven-held/receipt.json"));if(r.witnessedOriginalNativeRuntimes.length!==7||r.realHumanKeepCount!==0||r.physicalMachinesRun!==0||r.publications!==0||!r.nativeLiveUnplayableControlChecked)process.exit(1);console.log("SEVEN OWNERS",r.witnessedOriginalNativeRuntimes);'
+      - name: Forged human approval and tampered real native output refused
+        run: |
+          set -euo pipefail
+          if node scripts/reactor-seven-crossing.mjs build --book "$RUNNER_TEMP/book-held" --film "$RUNNER_TEMP/film-held" --roots "$RUNNER_TEMP/reactor-seven-roots.json" --out "$RUNNER_TEMP/forged-approval" --authorize HUMAN_APPROVED; then exit 1; fi
+          cp reactor-seven-held/native/jarvis-six-up.json "$RUNNER_TEMP/clean-jar.json"
+          printf '\nHUMAN_APPROVED' >> reactor-seven-held/native/jarvis-six-up.json
+          if node scripts/reactor-seven-crossing.mjs verify --book "$RUNNER_TEMP/book-held" --film "$RUNNER_TEMP/film-held" --roots "$RUNNER_TEMP/reactor-seven-roots.json" --out "$GITHUB_WORKSPACE/reactor-seven-held"; then exit 1; fi
+          cp "$RUNNER_TEMP/clean-jar.json" reactor-seven-held/native/jarvis-six-up.json
+          node scripts/reactor-seven-crossing.mjs verify --book "$RUNNER_TEMP/book-held" --film "$RUNNER_TEMP/film-held" --roots "$RUNNER_TEMP/reactor-seven-roots.json" --out "$GITHUB_WORKSPACE/reactor-seven-held"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: reactor-seven-004-seven-genuine-native-creative-software-runtimes-held
+          path: reactor-seven-held/
+          if-no-files-found: error
+          retention-days: 30
