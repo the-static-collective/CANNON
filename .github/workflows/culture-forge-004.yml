@@ -1,0 +1,101 @@
+name: CULTURE-FORGE-004 original GHoT signed reLATTE cultural return
+on:
+  push:
+    branches: ['experiment/culture-forge-004-relatte-return']
+  pull_request:
+    paths:
+      - 'src/culture-sovereign-004.mjs'
+      - 'scripts/culture-sovereign-004.mjs'
+      - 'test/culture-sovereign-004.test.mjs'
+      - '.github/workflows/culture-forge-004.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  culture-sovereign-return:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {path: cannon}
+      - uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/webZ
+          ref: 83b35070d8d56155156655279bfdcf50aa77794f
+          path: webz
+      - uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/GrO
+          ref: 9e6361105aae335ccb0657092809eef43e7ab4da
+          path: gro
+      - uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/lemonPRESS
+          ref: f091e73d2f64b2237ee828010ae244b39e4070b8
+          path: press
+      - uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/full-measure-world-layer
+          ref: c9206d5055ad574a23acb2eceb5f8785a4ad64fe
+          path: full
+      - uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/Jubilee-treasury
+          ref: a36777cb87bcfb6b7706b910ba18c4c4b24c73a3
+          path: penny
+      - uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/GHoT
+          ref: e35dd470384d864b7b0b629a68dad570875a7df0
+          path: ghot
+      - uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/reLATTE
+          ref: dcc8cdca84c440aa4294134f020fb7095bf87f24
+          path: relatte
+      - uses: actions/setup-node@v4
+        with: {node-version: '24'}
+      - name: Install Full Measure's original TSX and reLATTE's original package dependencies
+        run: |
+          (cd full && npm ci --ignore-scripts --no-audit --no-fund)
+          (cd relatte && npm install --ignore-scripts --no-audit --no-fund)
+      - name: Test original CANNON and reLATTE source code
+        run: |
+          (cd cannon && npm test)
+          (cd relatte && npm run check)
+      - name: Create original media and independent lemonPRESS HOLD
+        run: |
+          node cannon/scripts/culture-forge.mjs build --webz webz --gro gro --out culture-out
+          node cannon/scripts/culture-delivery.mjs deliver --webz webz --gro gro --press press --forge culture-out --out press-held
+      - name: Independently evaluate native Full Measure and PENNY
+        run: >
+          node full/node_modules/tsx/dist/cli.mjs cannon/scripts/culture-use-003.mjs build
+          --webz webz --gro gro --press press --fm full --penny penny
+          --forge culture-out --held press-held --out use-confirmed --variant confirmed
+      - name: Run GHoT original executor and reLATTE original P-256 signed receiver-local HOLD
+        run: >
+          node --experimental-strip-types full/node_modules/tsx/dist/cli.mjs cannon/scripts/culture-sovereign-004.mjs run
+          --webz webz --gro gro --press press --fm full --penny penny
+          --ghot ghot --relatte relatte --forge culture-out --held press-held
+          --use use-confirmed --out sovereign-hold
+      - name: Independently cold-verify original donor sources, GHoT receipt, reLATTE signatures and receiver journal
+        run: >
+          node --experimental-strip-types full/node_modules/tsx/dist/cli.mjs cannon/scripts/culture-sovereign-004.mjs verify
+          --webz webz --gro gro --press press --fm full --penny penny
+          --ghot ghot --relatte relatte --forge culture-out --held press-held
+          --use use-confirmed --out sovereign-hold
+      - name: Hostile mutation of P-256-signed crossing must fail cold verification
+        run: |
+          cp sovereign-hold/roundtrip.json sovereign-hold/roundtrip.clean
+          python3 -c "import json; p='sovereign-hold/roundtrip.json'; o=json.load(open(p)); o['disposition_receipt']['kind']='R3_ADMIT'; open(p,'w').write(json.dumps(o))"
+          if node --experimental-strip-types full/node_modules/tsx/dist/cli.mjs cannon/scripts/culture-sovereign-004.mjs verify --webz webz --gro gro --press press --fm full --penny penny --ghot ghot --relatte relatte --forge culture-out --held press-held --use use-confirmed --out sovereign-hold; then exit 1; fi
+          mv sovereign-hold/roundtrip.clean sovereign-hold/roundtrip.json
+          node --experimental-strip-types full/node_modules/tsx/dist/cli.mjs cannon/scripts/culture-sovereign-004.mjs verify --webz webz --gro gro --press press --fm full --penny penny --ghot ghot --relatte relatte --forge culture-out --held press-held --use use-confirmed --out sovereign-hold
+      - uses: actions/upload-artifact@v4
+        with:
+          name: culture-forge-004-eight-source-original-signed-return
+          path: |
+            culture-out/
+            press-held/
+            use-confirmed/
+            sovereign-hold/
+          retention-days: 30
