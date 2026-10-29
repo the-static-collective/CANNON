@@ -115,7 +115,8 @@ export function createBootConsole({roots,outParent,compose=buildGenesisBoot,veri
      firstBoot:'EXPLORE_BUILD_WITNESS',nonce:csrf,
      physicalProof:'NONE',independentOperators:'NONE',
      warmAvailable:warmRoots!==null,
-     bridgeShelf:SHELF.map(x=>({...x,runnableHere:x.id==='warm-thread'&&warmRoots!==null})),
+     bridgeShelf:SHELF.map(x=>({...x,runnableHere:x.id==='warm-thread'&&warmRoots!==null,
+      state:x.id==='warm-thread'?(warmRoots!==null?'EXPLICIT_OPERATOR_RUN_AVAILABLE':'SOURCE_PROVEN_NOT_CONFIGURED_LOCALLY'):x.state})),
      history:safeHistory(dir)}));return;
    }
    const m=/^\/runs\/([^/]+)\/([^/]+)$/.exec(bare);
