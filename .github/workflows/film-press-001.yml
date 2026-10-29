@@ -37,6 +37,8 @@ jobs:
           node -e "const fs=require('fs'),p=process.env.RUNNER_TEMP+'/film-press';fs.writeFileSync(process.env.RUNNER_TEMP+'/film-press-roots.json',JSON.stringify(Object.fromEntries(['toaster','playdeck','blender','band','lemonpress'].map(k=>[k,p+'/'+k]))))"
       - name: Local dependencies for native owner executors
         run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg
           command -v ffmpeg
           command -v ffprobe
           python3 -m pip install 'Pillow>=9'
