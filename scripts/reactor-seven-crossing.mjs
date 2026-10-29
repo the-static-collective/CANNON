@@ -196,7 +196,7 @@ async function main(){
  need(lstatSync(book).isDirectory()&&lstatSync(film).isDirectory()&&!lstatSync(book).isSymbolicLink()&&!lstatSync(film).isSymbolicLink(),"SOURCE_DIR");
  const parent=realpathSync(dirname(out));
  need(join(parent,basename(out))===out,"OUTPUT_PATH");
- for(const p of [book,film,...Object.values(roots).map(realpathSync)]){
+ for(const p of [book,film,...Object.values(roots).map(v=>realpathSync(v))]){
   const rel=relative(p,out);need(rel===".."||rel.startsWith("../")||rel.startsWith("..\\"),"OUT_INSIDE_SOURCE");
  }
  need(mode==="build"?!existsSync(out):existsSync(out)&&lstatSync(out).isDirectory()&&!lstatSync(out).isSymbolicLink(),"OUTPUT_STATE");
