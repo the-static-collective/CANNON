@@ -52,6 +52,12 @@ jobs:
           (cd "$RUNNER_TEMP/film-press/band" && npm test -- --run test/creative-room-bridge.test.ts)
           (cd "$RUNNER_TEMP/film-press/lemonpress" && node --test test/vinyl-preflight.test.mjs)
           node --test test/film-press.test.mjs
+      - name: Quarantine and restore any PlayDeck CLI workspace drift from dependency setup
+        run: |
+          git -C "$RUNNER_TEMP/film-press/playdeck" status --short --untracked-files=all
+          git -C "$RUNNER_TEMP/film-press/playdeck" diff -- packages/ingest/src/cli.ts
+          git -C "$RUNNER_TEMP/film-press/playdeck" restore --source=HEAD -- packages/ingest/src/cli.ts
+          git -C "$RUNNER_TEMP/film-press/playdeck" diff --exit-code
       - name: Five native owners, real silent video, held physical proof, cold replay
         run: |
           node scripts/film-press-crossing.mjs build --roots "$RUNNER_TEMP/film-press-roots.json" --out "$RUNNER_TEMP/film-press-output" --authorize SYNTHETIC_TEST_ONLY
