@@ -1,0 +1,40 @@
+name: GROOVETOWN-003 intertown conditional proof
+on:
+  push:
+    branches:
+      - experiment/groovetown-003-cooperative-compiler
+  pull_request:
+    paths:
+      - 'experiments/groovetown-003/**'
+      - 'experiments/groovetown-002/**'
+      - 'experiments/groovetown-001/**'
+      - '.github/workflows/groovetown-003.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  held-intertown-model:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Test original inherited GROOVETOWN modules and new conditional crossings
+        run: node --test experiments/groovetown-001/groovetown.test.mjs experiments/groovetown-002/particularity.test.mjs experiments/groovetown-003/intertown.test.mjs
+      - name: Cold-process byte replay
+        run: |
+          node experiments/groovetown-003/intertown.mjs demo /tmp/gt003-a > /tmp/gt003-a.log
+          node experiments/groovetown-003/intertown.mjs demo /tmp/gt003-b > /tmp/gt003-b.log
+          diff -qr /tmp/gt003-a /tmp/gt003-b
+          diff -u /tmp/gt003-a.log /tmp/gt003-b.log
+          node -e 'const p=require("/tmp/gt003-a/01-conditional-network-plan.json");if(p.executionAuthority!=="HOLD_NO_APPROVALS"||p.accounting.delivered!==0||!p.emergence.networkUnlocksTargetInModel||p.emergence.essentialPartnersInThisModel.length!==3)process.exit(1)'
+      - name: Archive synthetic receipts (no external participation)
+        uses: actions/upload-artifact@v4
+        with:
+          name: GROOVETOWN-003-SYNTHETIC-UNAPPROVED
+          path: /tmp/gt003-a
+          retention-days: 14
