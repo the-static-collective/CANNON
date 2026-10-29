@@ -1,0 +1,30 @@
+name: GROOVETOWN-006 source-owned portfolio core
+on:
+  push:
+    branches: [experiment/groovetown-006-invention-ecosystem]
+  pull_request:
+    paths:
+      - 'experiments/groovetown-006/**'
+      - '.github/workflows/groovetown-006-core.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-owned-portfolio:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Inherited original GROOVETOWN tests plus executable portfolio
+        run: |
+          node --test experiments/groovetown-001/groovetown.test.mjs experiments/groovetown-002/particularity.test.mjs experiments/groovetown-003/intertown.test.mjs experiments/groovetown-004/reciprocity.test.mjs experiments/groovetown-005/foundry.test.mjs experiments/groovetown-006/ecosystem-core.test.mjs
+      - name: Independent exact deterministic portfolio executions
+        run: |
+          node experiments/groovetown-006/ecosystem-core.mjs > "$RUNNER_TEMP/first.json"
+          node experiments/groovetown-006/ecosystem-core.mjs > "$RUNNER_TEMP/second.json"
+          cmp "$RUNNER_TEMP/first.json" "$RUNNER_TEMP/second.json"
