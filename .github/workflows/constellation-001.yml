@@ -1,0 +1,74 @@
+name: CONSTELLATION-001 — exact donors, native crossings and cold replay
+on:
+  push:
+    branches: ['experiment/constellation-001']
+  pull_request:
+    paths:
+      - 'constellation/**'
+      - 'src/constellation/**'
+      - 'scripts/constellation*'
+      - 'test/constellation*'
+      - '.github/workflows/constellation-001.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  native-replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Acquire exact independent source objects (network only in this step)
+        run: |
+          node scripts/constellation-acquire.mjs --into "$RUNNER_TEMP/donors"
+          git -C "$RUNNER_TEMP/donors/staticos" fetch --depth=1 origin 7bc551610421bd60a8dbf624d93d7a6682ce3987
+      - name: CANNON complete suite including inherited native crossing, no optional skips
+        env:
+          CONSTELLATION_ROOTS: ${{ runner.temp }}/donors/roots.json
+          CANNON002_SOURCE_ROOT: ${{ runner.temp }}/donors/staticos
+          CANNON002_RELATTE_ROOT: ${{ runner.temp }}/donors/relatte
+        run: npm test
+      - name: Relevant original source-owner suites
+        run: |
+          (cd "$RUNNER_TEMP/donors/staticos" && python3 -m unittest discover -s tests -p 'test_house_seed.py' -v)
+          (cd "$RUNNER_TEMP/donors/ghot" && python3 -m unittest discover -s tests -p 'test_commons_machine.py' -v)
+          (cd "$RUNNER_TEMP/donors/gro" && node --test test/mattercraft-001.test.js)
+          (cd "$RUNNER_TEMP/donors/webz" && npm test)
+          (cd "$RUNNER_TEMP/donors/jarvis" && npm test)
+          (cd "$RUNNER_TEMP/donors/planz" && npm test)
+          (cd "$RUNNER_TEMP/donors/relatte" && npm test)
+          (cd "$RUNNER_TEMP/donors/stillhere" && node --test experiments/still-here-seven-days/core.test.mjs)
+          (cd "$RUNNER_TEMP/donors/graft" && node --test test/live-work.test.mjs)
+      - name: Full Measure original suite with its own locked dependencies
+        run: |
+          cd "$RUNNER_TEMP/donors/fullmeasure"
+          npm ci --ignore-scripts
+          npm test
+      - name: Build actual local packet, fresh-process replay, and deliberate tamper refusal
+        run: |
+          node scripts/constellation.mjs build --roots "$RUNNER_TEMP/donors/roots.json" --out "$RUNNER_TEMP/constellation-output" --authorize LOCAL_FICTIONAL_ONLY
+          node scripts/constellation.mjs verify --roots "$RUNNER_TEMP/donors/roots.json" --out "$RUNNER_TEMP/constellation-output"
+          cp "$RUNNER_TEMP/constellation-output/receiver-exercise.json" "$RUNNER_TEMP/saved-receiver.json"
+          printf 'forged' >> "$RUNNER_TEMP/constellation-output/receiver-exercise.json"
+          if node scripts/constellation.mjs verify --roots "$RUNNER_TEMP/donors/roots.json" --out "$RUNNER_TEMP/constellation-output"; then
+            echo 'ERROR: forged packet accepted'; exit 1
+          fi
+          cp "$RUNNER_TEMP/saved-receiver.json" "$RUNNER_TEMP/constellation-output/receiver-exercise.json"
+          node scripts/constellation.mjs verify --roots "$RUNNER_TEMP/donors/roots.json" --out "$RUNNER_TEMP/constellation-output"
+          python3 scripts/constellation-discover.py --offline constellation/atlas.json --out "$RUNNER_TEMP/atlas-replay.json"
+          cmp constellation/atlas.json "$RUNNER_TEMP/atlas-replay.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: constellation-001-native-offline-evidence
+          path: ${{ runner.temp }}/constellation-output/
+          retention-days: 30
+          if-no-files-found: error
