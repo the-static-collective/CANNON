@@ -1,0 +1,81 @@
+name: INSPAND-008 actual native contract compass and conditional second-person A-B
+on:
+  push:
+    branches:
+      - experiment/inspand-008-real-contract-address
+  pull_request:
+    paths:
+      - scripts/real-contract-compass.mjs
+      - registry/iron-lung-contract-compiler-source-v1.json
+      - test/real-contract-compass.test.mjs
+      - docs/INSPAND-008.md
+      - .github/workflows/inspand-008.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Actual source contract unit tests and constitutional restrictions
+        run: |
+          node --test test/real-contract-compass.test.mjs test/compass-evaluator.test.mjs
+          node scripts/real-contract-compass.mjs inspect
+      - name: Fetch exact independent original Iron Lung compiler and verify original tests
+        run: |
+          git clone --quiet https://github.com/the-static-collective/iron-lung.git "$RUNNER_TEMP/iron-lung"
+          git -C "$RUNNER_TEMP/iron-lung" checkout --quiet --detach 4222b2a9a7629bd8abacf215609e364fc13b88d0
+          (cd "$RUNNER_TEMP/iron-lung" && npm install --ignore-scripts --no-audit --no-fund --no-package-lock && npm run check)
+      - name: Four nine-call balanced treatments with real source contracts — deterministic control
+        run: |
+          node scripts/real-contract-compass.mjs build --lung "$RUNNER_TEMP/iron-lung" --provider fixture --out "$RUNNER_TEMP/actual-fixture" --authorize SYNTHETIC_TEST_ONLY
+          node scripts/real-contract-compass.mjs verify --lung "$RUNNER_TEMP/iron-lung" --provider fixture --out "$RUNNER_TEMP/actual-fixture"
+          node -e 'const fs=require("fs"),x=JSON.parse(fs.readFileSync(process.argv[1])),p=JSON.parse(fs.readFileSync(process.argv[2]));if(x.methods.length!==4||x.callTotal!==36||x.modelGeneratedNewAdapters!==0||p.edge.adapter!=="VERIFIED_RECEIPT_PLAN_ID_V1"||p.edge.field!=="reusableRecipe.planId")process.exit(3)' "$RUNNER_TEMP/actual-fixture/report.json" "$RUNNER_TEMP/actual-fixture/source-task.json"
+      - name: Changed original model evidence is refused
+        run: |
+          cp "$RUNNER_TEMP/actual-fixture/original-model.json" "$RUNNER_TEMP/genuine-model.json"
+          printf 'MODEL_FORGERY' >> "$RUNNER_TEMP/actual-fixture/original-model.json"
+          if node scripts/real-contract-compass.mjs verify --lung "$RUNNER_TEMP/iron-lung" --provider fixture --out "$RUNNER_TEMP/actual-fixture"; then echo 'ALTERED_MODEL_ACCEPTED';exit 1;fi
+          cp "$RUNNER_TEMP/genuine-model.json" "$RUNNER_TEMP/actual-fixture/original-model.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: inspand-008-actual-cannon-contract-fixture-evidence
+          path: ${{ runner.temp }}/actual-fixture
+          if-no-files-found: error
+  original-google-flan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Exact source owner and actual pretrained Google FLAN model
+        run: |
+          git clone --quiet https://github.com/the-static-collective/iron-lung.git "$RUNNER_TEMP/iron-lung"
+          git -C "$RUNNER_TEMP/iron-lung" checkout --quiet --detach 4222b2a9a7629bd8abacf215609e364fc13b88d0
+          (cd "$RUNNER_TEMP/iron-lung" && npm install --ignore-scripts --no-audit --no-fund --no-package-lock)
+          python3 -m pip install 'torch>=2.2,<3' --index-url https://download.pytorch.org/whl/cpu
+          python3 -m pip install -r "$RUNNER_TEMP/iron-lung/model/requirements-triple.txt"
+      - name: Real nine-call neutral, You, translated neutral and translated You source-contract trials
+        run: |
+          node scripts/real-contract-compass.mjs build --lung "$RUNNER_TEMP/iron-lung" --provider flan --out "$RUNNER_TEMP/actual-flan" --authorize SYNTHETIC_TEST_ONLY
+          node scripts/real-contract-compass.mjs verify --lung "$RUNNER_TEMP/iron-lung" --provider flan --out "$RUNNER_TEMP/actual-flan"
+          node -e 'const fs=require("fs"),r=JSON.parse(fs.readFileSync(process.argv[1])),p=JSON.parse(fs.readFileSync(process.argv[2]));if(r.model.kind!=="flan-t5"||r.callTotal!==36||r.methods.length!==4||p.steps.length!==36||r.autoSelectedWinner||r.authorizedNativeExecutions!==0)process.exit(3)' "$RUNNER_TEMP/actual-flan/report.json" "$RUNNER_TEMP/actual-flan/original-model.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: inspand-008-actual-real-cannon-interfaces-second-person-flan-review
+          path: ${{ runner.temp }}/actual-flan
+          if-no-files-found: error

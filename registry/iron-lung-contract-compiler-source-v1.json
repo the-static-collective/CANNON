@@ -1,0 +1,18 @@
+{
+  "schema": "cannon.contract-compass-owner-lock/v1",
+  "owner": "the-static-collective/iron-lung",
+  "commit": "4222b2a9a7629bd8abacf215609e364fc13b88d0",
+  "files": {
+    "src/contract-compass.ts": "e24939d72ee862fb85f8e767e9d18bd459b4cbff",
+    "scripts/contract-compass.ts": "a84401011f0f71c232349071be5e114427f22312",
+    "src/compass.ts": "fa3e2ceb72e20a541cae53395864dc5b44276eb6",
+    "scripts/triple-transfer.ts": "4b6a1b96c6430e044d03473bf95615d11b679ff2",
+    "model/flan-t5-bridge.py": "8b4adffbec419a67e71a38ceae062f66e28ba2a1"
+  },
+  "model": {
+    "name": "google/flan-t5-small",
+    "revision": "14fd6edcfdd71f2ef5b67d4e735fee8bc6d9fd31"
+  },
+  "humanAuthority": false,
+  "noAutoPromotion": true
+}
