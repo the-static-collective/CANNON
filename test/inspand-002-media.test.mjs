@@ -9,8 +9,7 @@ function manifest(sourceLabel='first source question'){
   executed:false,admitted:false,published:false,sourceDigest:'a'.repeat(64)};
  const roots=Array.from({length:8},(_,i)=>object('src',{
   ...flag,chamberId:i===0?'RHYTHM-MUTANT':i===1?'ORCHARD-CINEMA':'NOT_ROUTED_'+i,
-  question:i===0?sourceLabel:'another hypothesis '+i,smallestProof:'synthetic, not human'};
- ));
+  question:i===0?sourceLabel:'another hypothesis '+i,smallestProof:'synthetic, not human'}));
  const cuts=roots.flatMap(root=>['ABSENCE','TIME','CARRIER','RECEIVER'].map(lens=>
   object('cut',{...flag,parentId:root.id,generation:1,lensId:lens,
     pressureQuestion:'question for '+lens,stopCondition:'stop on '+lens})));
