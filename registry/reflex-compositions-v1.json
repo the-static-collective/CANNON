@@ -1,0 +1,75 @@
+{
+  "schema": "cannon.reflex-compositions/v1",
+  "authority": "REVIEW_ONLY_SYNTHETIC",
+  "executableRecipeCount": 1,
+  "recipes": [
+    {
+      "id": "plan-proof-to-pixels-and-print/v1",
+      "title": "A held plan becomes a verified source proof, native visual study, and printable inspection card",
+      "status": "EXPLICIT_APPROVAL_REQUIRED",
+      "inputs": {
+        "plan": "planz.generated-plan/v1",
+        "operatorDecision": "SYNTHETIC_TEST_ONLY",
+        "ownerCheckouts": "five-pinned-native-owners"
+      },
+      "stages": [
+        {
+          "id": "SOURCE_PROOF",
+          "capability": "film-press-synthetic-selection/v1",
+          "inputPort": "planz.generated-plan/v1",
+          "outputPort": "cannon.reflex-memory/v1"
+        },
+        {
+          "id": "VISUAL_STUDY",
+          "capability": "film-press-plan-shaped/v1",
+          "inputPort": "planz.generated-plan/v1",
+          "outputPort": "cannon.reflex-memory/v1"
+        }
+      ],
+      "edges": [
+        {
+          "from": "SOURCE_PROOF",
+          "outputPort": "cannon.reflex-memory/v1",
+          "field": "reusableRecipe.planId",
+          "adapter": "VERIFIED_RECEIPT_PLAN_ID_V1",
+          "to": "VISUAL_STUDY",
+          "inputPort": "planz.generated-plan/v1"
+        }
+      ],
+      "derivedArtifacts": [
+        {
+          "name": "print/inspection-card.html",
+          "owner": "CANNON",
+          "kind": "EDITORIAL_PROTOTYPE_NOT_LEMONPRESS_NATIVE"
+        },
+        {
+          "name": "handoff.json",
+          "owner": "CANNON",
+          "kind": "EXACT_RECEIPT_EDGE"
+        }
+      ],
+      "refusal": [
+        "SOURCE_PROOF_TAMPER",
+        "INVALID_CROSSING",
+        "PROMOTED_AUTHORITY",
+        "NO_REAL_HUMAN_APPROVAL"
+      ],
+      "constraints": {
+        "maxStages": 2,
+        "autonomy": false,
+        "publish": false,
+        "physical": false,
+        "humanContact": false,
+        "realWorldOutcomes": 0,
+        "timeSavedSeconds": null
+      },
+      "result": "cannon.reflex-composition/v1"
+    }
+  ],
+  "policies": {
+    "recipeDiscoveryDoesNotExecute": true,
+    "sourceProposalIsNotPermission": true,
+    "verifiedSoftwareIsNotFieldWitness": true,
+    "unknownInterfacesMustHold": true
+  }
+}
