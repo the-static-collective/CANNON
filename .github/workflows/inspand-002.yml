@@ -77,9 +77,20 @@ jobs:
           if node scripts/inspand-reflex.mjs verify --planz /tmp/inspand-001/planz --plan "$PLAN_ID" --route film-press-plan-shaped/v1 --roots /tmp/inspand-001/roots.json --out /tmp/inspand-001/output; then echo 'TAMPER ACCEPTED'; exit 1; fi
           cp /tmp/inspand-001/clean-selection.json /tmp/inspand-001/output/selection.json
           node scripts/inspand-reflex.mjs verify --planz /tmp/inspand-001/planz --plan "$PLAN_ID" --route film-press-plan-shaped/v1 --roots /tmp/inspand-001/roots.json --out /tmp/inspand-001/output
+      - name: A/B original plan content must change native original-rendered bytes
+        run: |
+          node -e 'const fs=require("fs");const m=JSON.parse(fs.readFileSync("/tmp/inspand-001/plans.json"));const r=m.roots.find(x=>x.chamberId==="ORCHARD-CINEMA");const p=m.proposedPlans.find(x=>x.parentIds?.[0]===r.id);if(!p)process.exit(2);fs.writeFileSync("/tmp/inspand-001/orchard-id",p.id)'
+          OTHER_ID="$(cat /tmp/inspand-001/orchard-id)"
+          node scripts/inspand-reflex.mjs build --planz /tmp/inspand-001/planz --plan "$OTHER_ID" --route film-press-plan-shaped/v1 --roots /tmp/inspand-001/roots.json --out /tmp/inspand-001/orchard-output --authorize SYNTHETIC_TEST_ONLY
+          node scripts/inspand-reflex.mjs verify --planz /tmp/inspand-001/planz --plan "$OTHER_ID" --route film-press-plan-shaped/v1 --roots /tmp/inspand-001/roots.json --out /tmp/inspand-001/orchard-output
+          if cmp -s /tmp/inspand-001/output/native/owners/blender-silent-study.mp4 /tmp/inspand-001/orchard-output/native/owners/blender-silent-study.mp4; then echo "SAME MP4 DESPITE CHANGED PLAN"; exit 1; fi
+          if cmp -s /tmp/inspand-001/output/native/owners/toaster-family.json /tmp/inspand-001/orchard-output/native/owners/toaster-family.json; then echo "SAME NATIVE TOASTER PLAN"; exit 1; fi
+          sha256sum /tmp/inspand-001/output/native/owners/blender-silent-study.mp4 /tmp/inspand-001/orchard-output/native/owners/blender-silent-study.mp4
       - uses: actions/upload-artifact@v4
         with:
           name: inspand-002-first-native-plan-shaped-video-no-publication
-          path: /tmp/inspand-001/output/
+          path: |
+            /tmp/inspand-001/output/
+            /tmp/inspand-001/orchard-output/
           retention-days: 30
           if-no-files-found: error
