@@ -24,7 +24,7 @@ export function readCatalog(bytes=readFileSync(REG)){
   &&x.gates?.publish===false&&x.gates?.physical===false&&x.gates?.humanKeep===false
   &&x.cost?.timeSavedSeconds===null&&x.cost?.computeExpenseUsd===null
   &&x.input?.requiredChoice===true&&x.output?.type==='cannon.inspand-receipt/v1'
-  &&x.discover?.recommendation==='TEST_FIXTURE_ONLY','CAPABILITY_CONTRACT');
+  &&x.discover?.recommendation==='TEST_FIXTURE_ONLY'),'CAPABILITY_CONTRACT');
  must(catalog.policies?.discoveryIsApproval===false&&catalog.policies?.selectionIsExecution===false
  &&catalog.policies?.executionIsPublication===false&&catalog.policies?.allOutputsHeld===true,'POLICY');
  const expected={'film-press-synthetic-selection/v1':false,'film-press-plan-shaped/v1':true};
