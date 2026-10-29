@@ -1,0 +1,45 @@
+name: CONSTELLATION-002 native stranger machine
+on:
+  push:
+    branches: ['experiment/constellation-002-native-machine']
+  pull_request:
+    paths: ['src/arcade/**', 'scripts/arcade*', 'constellation/arcade*', 'constellation/native-002.json', 'test/arcade*', '.github/workflows/arcade-native-002.yml']
+permissions:
+  contents: read
+jobs:
+  native-machine:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Acquire exact public sources and runtime dependencies
+        run: |
+          node scripts/arcade-machine.mjs acquire --into "$RUNNER_TEMP/inputs"
+          git -C "$RUNNER_TEMP/inputs/inherited/staticos" fetch --depth=1 origin 7bc551610421bd60a8dbf624d93d7a6682ce3987
+      - name: Build five native scenes
+        run: node scripts/arcade-machine.mjs build --config "$RUNNER_TEMP/inputs/config.json" --out "$RUNNER_TEMP/machine" --authorize LOCAL_FICTIONAL_ONLY
+      - name: Complete suite including actual challenges and local server
+        env:
+          ARCADE_CONFIG: ${{ runner.temp }}/inputs/config.json
+          ARCADE_PACKET: ${{ runner.temp }}/machine
+          CANNON002_SOURCE_ROOT: ${{ runner.temp }}/inputs/inherited/staticos
+          CANNON002_RELATTE_ROOT: ${{ runner.temp }}/inputs/inherited/relatte
+          CONSTELLATION_ROOTS: ${{ runner.temp }}/inputs/inherited/roots.json
+        run: npm test
+      - name: Independent fresh-process replay
+        run: node scripts/arcade-machine.mjs verify --config "$RUNNER_TEMP/inputs/config.json" --out "$RUNNER_TEMP/machine"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: constellation-002-native-machine
+          path: ${{ runner.temp }}/machine/
+          if-no-files-found: error
+          retention-days: 30

@@ -1,0 +1,58 @@
+{
+  "schema": "arcade.native-source-selection/v1",
+  "baseHead": "c5031495424abcd6141d546a1f85a5e781539072",
+  "sources": {
+    "project0": {
+      "repository": "the-static-collective/project0",
+      "commit": "08f892eb379ef538cce5b3ca081ecf683b448a4b"
+    },
+    "corpus": {
+      "repository": "the-static-collective/corpus-os",
+      "commit": "289c6fa04d04a2bde6dffbe7265903db5bec56c0"
+    },
+    "tranch": {
+      "repository": "the-static-collective/tranchnode",
+      "commit": "1d731fbb228f68bbefc008d18c48d6be001935be"
+    },
+    "freegraph": {
+      "repository": "the-static-collective/free-graph",
+      "commit": "fce3634baf2ac127695271671e3571ab54a9d92d"
+    },
+    "alex": {
+      "repository": "the-static-collective/ALEX.2",
+      "commit": "7d116b716df82ee2379b399d90936d2fc01b7b16"
+    },
+    "loadout": {
+      "repository": "the-static-collective/LOADOUT",
+      "commit": "1adcb3d82f736f3ca8329c3c1d0d9eba398d49ee"
+    },
+    "band": {
+      "repository": "the-static-collective/band-runtime",
+      "commit": "f2c889df90905eda533fe6d978cd1a52c788a33e"
+    },
+    "trust": {
+      "repository": "the-static-collective/trust",
+      "commit": "4badf5218a526b857fa72cb33f9f258ff5e13bbd"
+    },
+    "staticlive": {
+      "repository": "the-static-collective/static-live",
+      "commit": "38e67b2930cea09c3e01a05447a6e92a67c2468f"
+    },
+    "worldseed": {
+      "repository": "the-static-collective/WORLDSEED",
+      "commit": "bffcedd9e5c5c42e0cf122c27c4e33c097cfb0e0"
+    },
+    "storyship": {
+      "repository": "the-static-collective/STORYSHIP",
+      "commit": "daa2f4c551ed612727660407105465645f95a9d7"
+    },
+    "playdeck": {
+      "repository": "the-static-collective/playdeck",
+      "commit": "e64f11f728137e8908e4f5bdbde9aab39e2d9bbd"
+    },
+    "toaster": {
+      "repository": "the-static-collective/the-haunted-toaster",
+      "commit": "3652c2a96b6b287cda316d1c92daadf7c7417eaf"
+    }
+  }
+}
