@@ -19,7 +19,7 @@
 - GrO Mattercraft PR #32 documented `42 WOOD claimed` versus `39 observed` **disputed** witness count. The game preserves the distinction: its audit action awards one fictional **idea token**, NEVER spendable wood. The game does NOT run GrO-native witness code or turn the count into real stock.
 - GHoT Warm Thread PR #33 considered fallen tree / cutter / hauler / warmth need with independent acts. The **wood→firewood** in-game recipe is a toy material transformation with no instructions for cutting, hauling, combustion, heating, property rights or fire safety.
 - The old NFT/token idea appears as **exportable story/provenance cards** — no actual crypto issuance, asset title, financial claim, off-chain settlement, rights or transfer of physical inventory.
-- `bridge.mjs` imports and **executes CANNON GROOVETOWN-006's original `compare()`** for one read-only Two-Ticket side quest (1→4 conditional modeled goals). The party engine does not pretend its game rules are the original CANNON 006 solver, and the side quest does not grant anything to the physical world. Other source owners (reLATTE, planZ, Reality 2.0 live) are **named lineage**, not executed or edited.
+- `bridge.mjs` **attempts a read-only CANNON GROOVETOWN-006 `compare()` crossing**, but returns an explicit `HOLD_SOURCE_ANCESTRY_MISSING` when the exact 005 dependency is absent from the stacked CANNON 006 experimental head. No fictional 1→4 calculation is asserted without actually executing the owner. The party engine remains independent, and the side quest grants no field authority. Other source owners (reLATTE, planZ, Reality 2.0 live) are **named lineage**, not executed or edited.
 
 ## Run tests
 
