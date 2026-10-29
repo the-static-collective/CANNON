@@ -21,7 +21,20 @@ function owner(name,dir){
 }
 function filesOf(dir,prefix=''){let result={};for(const e of readdirSync(dir,{withFileTypes:true})){const abs=join(dir,e.name),name=prefix+e.name;need(!e.isSymbolicLink(),'SYMLINK');if(e.isDirectory())Object.assign(result,filesOf(abs,name+'/'));else{need(e.isFile(),'NONFILE');result[name]=readFileSync(abs)}}return result}
 function compare(a,b){need(Object.keys(a).sort().join('|')===Object.keys(b).sort().join('|'),'FILE_SET');for(const [k,v]of Object.entries(a))need(v.equals(b[k]),'TAMPER_'+k)}
-function build(roots,temp){
+function readBinding(file){
+ if(!file)return null;
+ const b=JSON.parse(readFileSync(resolve(file),'utf8'));
+ need(b?.schema==='cannon.inspand-plan-binding/v1','BINDING_SCHEMA');
+ const {digest,toasterSeed,...core}=b;
+ need(digest===hash(Buffer.from(j(core))),'BINDING_DIGEST');
+ need(/^plan-[a-f0-9]{24}$/.test(b.planId),'BINDING_PLAN');
+ need(['RHYTHM-MUTANT','ORCHARD-CINEMA'].includes(b.chamber),'BINDING_CHAMBER');
+ need(b.toasterSeed==='INSPAND_002_'+digest.slice(0,40),'BINDING_SEED');
+ need(Array.isArray(b.cuts)&&b.cuts.length===4&&new Set(b.cuts).size===4,'BINDING_CUTS');
+ need(b.mediaAuthority==='SYNTHETIC_ONLY'&&b.ownerPermissions==='NONE','BINDING_AUTHORITY');
+ return b;
+}
+function build(roots,temp,binding){
  const p=Object.fromEntries(Object.entries(roots).map(([k,v])=>[k,owner(k,v)]));
  const scratch=join(temp,'scratch');mkdirSync(scratch);
  const toasterFile=join(scratch,'toaster.json');
@@ -31,12 +44,12 @@ function build(roots,temp){
  "const{createFreeSigilExpression}=require(path.join(base,'sigil-topology-expression.cjs'));",
  "const{generateSigilUtteranceFamily,replaySigilUtteranceFamily}=require(path.join(base,'sigil-utterance-family.cjs'));",
  "const parent=createFreeSigilExpression({primitives:['P8','PA']});",
- "const fam=generateSigilUtteranceFamily({parentExpression:parent,rootSeed:'FILM_PRESS_001_FICTIONAL',count:6});",
+ "const fam=generateSigilUtteranceFamily({parentExpression:parent,rootSeed:process.env.CANNON_SIGIL_SEED||'FILM_PRESS_001_FICTIONAL',count:6});",
  "if(!replaySigilUtteranceFamily(fam,{parentExpression:parent}).ok||fam.utterances.length!==6)throw Error('TOASTER_REFUSED');",
  "const result={schema:fam.schema,familyHash:fam.familyHash,sourceKind:fam.sourceKind,seed:fam.rootSeed,producedCount:fam.producedCount,utterances:fam.utterances.map(x=>({role:x.role,planHash:x.planHash,expressionHash:x.expressionHash,operation:x.operation}))};",
  "fs.writeFileSync(process.env.CANNON_OUTPUT,JSON.stringify(result,null,2)+'\\n');"
  ].join('\n');
- cmd(process.execPath,['-e',tCode],{cwd:p.toaster,env:{...process.env,CANNON_OUTPUT:toasterFile}});
+ cmd(process.execPath,['-e',tCode],{cwd:p.toaster,env:{...process.env,CANNON_OUTPUT:toasterFile,CANNON_SIGIL_SEED:binding?.toasterSeed||''}});
  const family=JSON.parse(readFileSync(toasterFile));
  need(family.utterances.length===6&&new Set(family.utterances.map(x=>x.planHash)).size===6,'SIX_SIGILS');
  const deck={schemaVersion:'0.1',id:'cannon-synthetic-six-sigils',title:'SILENT synthetic six-up, not song video',cards:family.utterances.map((x,i)=>({
@@ -44,6 +57,7 @@ function build(roots,temp){
    permissions:{flip:true,fold:true,fracture:true,portal:false,awaken:false}
  })),order:family.utterances.map((_,i)=>'sigil-'+(i+1)),
  metadata:{sourceFamilyHash:family.familyHash,assetBinding:'logical-only-no-actual-pixels'}};
+ if(binding)deck.metadata.planBinding={planId:binding.planId,seedDigest:binding.digest,chamber:binding.chamber};
  const deckFile=join(scratch,'deck.json');writeFileSync(deckFile,j(deck));
  const planFile=join(scratch,'plan.json');
  const playCode=[
@@ -97,12 +111,14 @@ function build(roots,temp){
   'inputs/track.json':Buffer.from(j(track)),
   'inputs/world.json':Buffer.from(j(world))
  };
+ if(binding)files['inputs/plan-binding.json']=Buffer.from(j(binding));
  for(const[k,v]of Object.entries(filesOf(roomOut)))files['prior-room-vinyl/'+k]=v;
  const core={schema:'cannon.film-press-execution/v1',authority:'SILENT_SYNTHETIC_HOLD',
   ownerCommits:Object.fromEntries(Object.entries(src.owners).map(([k,v])=>[k,v.commit])),
   realSongMaster:false,realKeepDecisions:0,actualPlaydeckVideo:false,
   blenderRenderedSilentVideo:true,songSynchronized:false,roomMembersContacted:0,
   publicReleases:0,vinylRecordsPressed:0,artistCopiesSent:0,
+  ...(binding?{planBinding:{id:binding.planId,digest:binding.digest,kind:'DETERMINISTIC_SYNTHETIC_SEED_NOT_SEMANTIC_APPROVAL'}}:{}),
   files:Object.fromEntries(Object.entries(files).sort(([a],[b])=>a.localeCompare(b)).map(([k,v])=>[k,hash(v)]))};
  const receipt={...core,receiptId:hash(Buffer.from(j(core)))};
  files['receipt.json']=Buffer.from(j(receipt));
@@ -110,10 +126,11 @@ function build(roots,temp){
 }
 try{
  const[mode,...args]=process.argv.slice(2);need(['build','verify'].includes(mode)&&args.length%2===0,'USAGE');
- const a={};for(let i=0;i<args.length;i+=2){need(['--roots','--out','--authorize'].includes(args[i])&&!Object.hasOwn(a,args[i])&&args[i+1],'ARGUMENTS');a[args[i]]=args[i+1]}
+ const a={};for(let i=0;i<args.length;i+=2){need(['--roots','--out','--authorize','--plan-binding'].includes(args[i])&&!Object.hasOwn(a,args[i])&&args[i+1],'ARGUMENTS');a[args[i]]=args[i+1]}
  need(a['--roots']&&a['--out'],'REQUIRED');
  need(mode==='build'?a['--authorize']==='SYNTHETIC_TEST_ONLY':!a['--authorize'],'AUTHORITY');
  const roots=JSON.parse(readFileSync(resolve(a['--roots'])));
+ const binding=readBinding(a['--plan-binding']);
  need(Object.keys(roots).sort().join('|')===Object.keys(src.owners).sort().join('|'),'ROOTS');
  const out=resolve(a['--out']),parent=realpathSync(dirname(out));
  need(join(parent,basename(out))===out,'OUTPUT_PATH');
@@ -121,7 +138,7 @@ try{
  for(const root of Object.values(roots)){const rel=relative(realpathSync(root),out);need(rel!==''&&(rel==='..'||rel.startsWith('../')||rel.startsWith('..\\')),'INSIDE_OWNER')}
  const temp=mkdtempSync(join(parent,'.film-press-'));
  try{
-  const {files,receipt}=build(roots,temp);
+  const {files,receipt}=build(roots,temp,binding);
   if(mode==='verify')compare(files,filesOf(out));
   else{const dir=join(temp,'packet');for(const[k,v]of Object.entries(files)){const path=join(dir,k);mkdirSync(dirname(path),{recursive:true});writeFileSync(path,v,{flag:'wx'})}renameSync(dir,out)}
   console.log(j({status:mode==='build'?'FIVE_OWNER_SYNTHETIC_EXECUTION':'FULL_NATIVE_COLD_REPLAY',receiptId:receipt.receiptId,vinylPressed:0,actualMusicVideo:false}));
