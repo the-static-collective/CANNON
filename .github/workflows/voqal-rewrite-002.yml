@@ -1,0 +1,40 @@
+name: VOQAL REWRITE 002 — applicant draft, source boundaries and form limits
+on:
+  push:
+    branches: ['experiment/voqal-self-application-002-native-evidence']
+    paths:
+      - 'docs/VOQAL-REWRITE-002.md'
+      - 'docs/voqal-rewrite-002/**'
+      - 'test/test_voqal_rewrite_002.py'
+      - '.github/workflows/voqal-rewrite-002.yml'
+  pull_request:
+    paths:
+      - 'docs/VOQAL-REWRITE-002.md'
+      - 'docs/voqal-rewrite-002/**'
+      - 'test/test_voqal_rewrite_002.py'
+      - '.github/workflows/voqal-rewrite-002.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  review-only:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Form limits, exact evidence pins, applicant privacy and no-invented-outcomes tests
+        run: python3 -m unittest discover -s test -p 'test_voqal_rewrite_002.py' -v
+      - name: Status remains applicant-review only
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path('docs/voqal-rewrite-002/form-copy-rewritten.json').read_text())
+          assert not p['submitted'] and not p['personalClaimsApproved']
+          assert all(not row['approved'] for row in p['fields'].values())
+          print('VOQAL REWRITE HOLD: applicant must personally review and submit.')
+          PY
