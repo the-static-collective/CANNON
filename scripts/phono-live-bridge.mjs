@@ -90,7 +90,7 @@ async function main(){
  const roots=readJson(resolve(o['--roots']));hold(Object.keys(roots).sort().join(',')==='phonograph,staticlive','ROOTS_ALLOWLIST');
  const out=resolve(o['--out']),parent=realpathSync(dirname(out));
  hold(join(parent,out.split('/').at(-1))===out,'SYMLINK_PARENT');
- for(const p of Object.values(roots)){const r=relative(realpathSync(p),out);hold(r!==''&&(r==='..'||r.startsWith('../')),'OUTPUT_INSIDE_DONOR')}
+ for(const p of Object.values(roots)){const r=relative(realpathSync(p),out);hold(r!==''&&(r==='..'||r.startsWith('../')||r.startsWith('..\\')),'OUTPUT_INSIDE_DONOR')}
  hold(cmd==='build'?!existsSync(out):existsSync(out)&&lstatSync(out).isDirectory()&&!lstatSync(out).isSymbolicLink(),'OUTPUT_STATE');
  const tmp=mkdtempSync(join(parent,'.phono-live-'));
  try{
