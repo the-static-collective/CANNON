@@ -1,0 +1,68 @@
+name: STRANGER SOURCE LAB 002 — contract, syntax and fail-closed test
+on:
+  push:
+    branches: ['experiment/constellation-002-stranger-arcade']
+    paths:
+      - 'scripts/stranger-source-lab.mjs'
+      - 'test/stranger-source-lab.test.mjs'
+      - 'docs/STRANGER-ARCADE-002.md'
+      - '.github/workflows/stranger-source-lab-002.yml'
+  pull_request:
+    paths:
+      - 'scripts/stranger-source-lab.mjs'
+      - 'test/stranger-source-lab.test.mjs'
+      - 'docs/STRANGER-ARCADE-002.md'
+      - '.github/workflows/stranger-source-lab-002.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  local-contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Ensure module parses
+        run: node --check scripts/stranger-source-lab.mjs
+      - name: Fail-closed atlas and source selection tests
+        run: node --test test/stranger-source-lab.test.mjs
+      - name: Confirm no source-acquisition or native-execution claim
+        run: |
+          node --input-type=module -e '
+            import {eligible} from "./scripts/stranger-source-lab.mjs";
+            import {readFileSync} from "node:fs";
+            const a=JSON.parse(readFileSync("constellation/atlas.json","utf8"));
+            const n=eligible(a).length;
+            if(n<50) process.exit(1);
+            console.log(n+" pinned README research candidates (not executed)");
+          '
+
+  pinned-public-source-replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Acquire 64 exact public README Git objects; fail closed below 50
+        run: |
+          node scripts/stranger-source-lab.mjs acquire --into "$RUNNER_TEMP/stranger-readme-donors" --limit 64
+      - name: Execute source-byte composition; emit offline first boot
+        run: |
+          node scripts/stranger-source-lab.mjs build --roots "$RUNNER_TEMP/stranger-readme-donors/roots.json" --out "$RUNNER_TEMP/stranger-source-artifact" --min 50
+      - name: Independent new-process source and emitted-byte verification
+        run: |
+          node scripts/stranger-source-lab.mjs verify --roots "$RUNNER_TEMP/stranger-readme-donors/roots.json" --out "$RUNNER_TEMP/stranger-source-artifact" --min 50
+      - name: Upload verified interactive stranger research lab
+        uses: actions/upload-artifact@v4
+        with:
+          name: stranger-arcade-002-readonly-50plus-source-evidence
+          path: ${{ runner.temp }}/stranger-source-artifact/
+          if-no-files-found: error
