@@ -1,0 +1,119 @@
+{
+  "schema": "cannon.creative-owners/v1",
+  "observationDate": "2026-10-29",
+  "authority": "DISCOVERY_AND_EXPLICIT_ADAPTERS_ONLY",
+  "executed": {
+    "ironlung": {
+      "repository": "the-static-collective/iron-lung",
+      "commit": "bf6c09170ee5b48a477a29f536e065fc6e69011a",
+      "command": "npm run first-breath --silent"
+    },
+    "staticlive": {
+      "repository": "the-static-collective/static-live",
+      "commit": "38e67b2930cea09c3e01a05447a6e92a67c2468f",
+      "command": "node src/cli.js compile fixtures/live-001/song.json fixtures/live-001/configurations/sc2.json --out <tmp>"
+    }
+  },
+  "privateOwnerGate": {
+    "repository": "the-static-collective/groove-rooms",
+    "visibilityAtObservation": "private",
+    "commit": "WITHHELD",
+    "status": "NOT_EXECUTED_BY_PUBLIC_CANNON",
+    "role": "Owner-local authenticated room UX and separately consented correspondence",
+    "warning": "Tracked .env and deployment security blocker: do not publish secrets or messages"
+  },
+  "discoveryOnly": [
+    {
+      "repository": "the-static-collective/band-runtime",
+      "status": "HOLD_UNEXECUTED"
+    },
+    {
+      "repository": "the-static-collective/the-haunted-toaster",
+      "status": "HOLD_UNEXECUTED"
+    },
+    {
+      "repository": "the-static-collective/the-haunted-blender",
+      "status": "HOLD_UNEXECUTED"
+    },
+    {
+      "repository": "the-static-collective/playdeck",
+      "status": "HOLD_UNEXECUTED"
+    },
+    {
+      "repository": "the-static-collective/the-haunted-phonography",
+      "status": "HOLD_UNEXECUTED"
+    },
+    {
+      "repository": "the-static-collective/autodiscography-vault",
+      "status": "HOLD_UNEXECUTED"
+    },
+    {
+      "repository": "the-static-collective/the-autodisco",
+      "status": "HOLD_UNEXECUTED"
+    },
+    {
+      "repository": "the-static-collective/static-workbench",
+      "status": "HOLD_UNEXECUTED"
+    },
+    {
+      "repository": "the-static-collective/vidmage",
+      "status": "HOLD_UNEXECUTED"
+    },
+    {
+      "repository": "the-static-collective/STORYSHIP",
+      "status": "HOLD_UNEXECUTED"
+    },
+    {
+      "repository": "the-static-collective/lemonPRESS",
+      "status": "HOLD_UNEXECUTED"
+    },
+    {
+      "repository": "the-static-collective/tranchNode-v1",
+      "status": "HOLD_UNEXECUTED"
+    },
+    {
+      "repository": "the-static-collective/project0",
+      "status": "HOLD_UNEXECUTED"
+    },
+    {
+      "repository": "the-static-collective/reLATTE",
+      "status": "HOLD_UNEXECUTED"
+    },
+    {
+      "repository": "the-static-collective/GrO",
+      "status": "HOLD_UNEXECUTED"
+    },
+    {
+      "repository": "the-static-collective/cUps",
+      "status": "HOLD_UNEXECUTED"
+    },
+    {
+      "repository": "the-static-collective/static-field",
+      "status": "HOLD_UNEXECUTED"
+    },
+    {
+      "repository": "the-static-collective/GHoT",
+      "status": "HOLD_UNEXECUTED"
+    },
+    {
+      "repository": "the-static-collective/JAR-VIS",
+      "status": "HOLD_UNEXECUTED"
+    },
+    {
+      "repository": "the-static-collective/webZ",
+      "status": "HOLD_UNEXECUTED"
+    },
+    {
+      "repository": "the-static-collective/planZ",
+      "status": "HOLD_UNEXECUTED"
+    },
+    {
+      "repository": "the-static-collective/full-measure-world-layer",
+      "status": "HOLD_UNEXECUTED"
+    },
+    {
+      "repository": "the-static-collective/WITNESS",
+      "status": "HOLD_UNEXECUTED"
+    }
+  ]
+}
