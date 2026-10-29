@@ -1,0 +1,40 @@
+name: SEASON-001 field-witness kernel
+on:
+  push:
+    branches: ['experiment/season-001-field-witness']
+    paths:
+      - 'src/season/**'
+      - 'scripts/season-witness.mjs'
+      - 'test/season-witness.test.mjs'
+      - 'docs/SEASON-001.md'
+      - '.github/workflows/season-witness-001.yml'
+  pull_request:
+    paths:
+      - 'src/season/**'
+      - 'scripts/season-witness.mjs'
+      - 'test/season-witness.test.mjs'
+      - 'docs/SEASON-001.md'
+      - '.github/workflows/season-witness-001.yml'
+permissions:
+  contents: read
+jobs:
+  offline-field-witness:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Syntax and deterministic boundary tests
+        run: |
+          node --check src/season/witness.mjs
+          node --check scripts/season-witness.mjs
+          node --test test/season-witness.test.mjs
+      - name: Reproducible fictional demo with independent cold-read
+        run: |
+          node scripts/season-witness.mjs demo "${{ runner.temp }}/season"
+          node scripts/season-witness.mjs verify "${{ runner.temp }}/season/fictional-garden.json"
+          node scripts/season-witness.mjs verify "${{ runner.temp }}/season/fictional-refusal.json"
