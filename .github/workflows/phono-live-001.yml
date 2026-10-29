@@ -1,0 +1,47 @@
+name: PHONO-LIVE-001 original source crossing and hostile replay
+on:
+  push:
+    branches: ['experiment/phono-live-001']
+  pull_request:
+    paths: ['creative/phono-live-selection.json','scripts/phono-live-bridge.mjs','.github/workflows/phono-live-001.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  native-crossing:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Acquire exact original source commits
+        run: |
+          mkdir -p "$RUNNER_TEMP/phono-donors"
+          git clone --quiet https://github.com/the-static-collective/the-haunted-phonography.git "$RUNNER_TEMP/phono-donors/phonograph"
+          git -C "$RUNNER_TEMP/phono-donors/phonograph" checkout --quiet --detach 038b7101ecff781ee2ae17a22a1323ca28740d06
+          git clone --quiet https://github.com/the-static-collective/static-live.git "$RUNNER_TEMP/phono-donors/staticlive"
+          git -C "$RUNNER_TEMP/phono-donors/staticlive" checkout --quiet --detach 38e67b2930cea09c3e01a05447a6e92a67c2468f
+          printf '{"phonograph":"%s/phono-donors/phonograph","staticlive":"%s/phono-donors/staticlive"}\n' "$RUNNER_TEMP" "$RUNNER_TEMP" > "$RUNNER_TEMP/phono-roots.json"
+      - name: Original owner suites
+        run: |
+          (cd "$RUNNER_TEMP/phono-donors/phonograph" && npm test)
+          (cd "$RUNNER_TEMP/phono-donors/staticlive" && npm test)
+      - name: Original-to-original cross, cold replay and tamper rejection
+        run: |
+          node scripts/phono-live-bridge.mjs build --roots "$RUNNER_TEMP/phono-roots.json" --out "$RUNNER_TEMP/phono-evidence" --authorize LOCAL_FICTIONAL_ONLY
+          node scripts/phono-live-bridge.mjs verify --roots "$RUNNER_TEMP/phono-roots.json" --out "$RUNNER_TEMP/phono-evidence"
+          printf '\nforged' >> "$RUNNER_TEMP/phono-evidence/static-live/broken-projection.json"
+          if node scripts/phono-live-bridge.mjs verify --roots "$RUNNER_TEMP/phono-roots.json" --out "$RUNNER_TEMP/phono-evidence"; then
+            echo 'forged bytes accepted';exit 1
+          fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: phono-live-001-native-crossing-evidence
+          path: ${{ runner.temp }}/phono-evidence/
+          retention-days: 30
+          if-no-files-found: error
