@@ -1,0 +1,128 @@
+name: CULTURE-FORGE-005 signed cultural method loop into planZ GRAFT JARVIS
+on:
+  push:
+    branches: ['experiment/culture-forge-005-planz-graft-jarvis-return']
+  pull_request:
+    paths:
+      - 'src/culture-return-005.mjs'
+      - 'scripts/culture-return-005.mjs'
+      - 'test/culture-return-005.test.mjs'
+      - '.github/workflows/culture-forge-005.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  culture-loop:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {path: cannon}
+      - uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/webZ
+          ref: 83b35070d8d56155156655279bfdcf50aa77794f
+          path: webz
+      - uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/GrO
+          ref: 9e6361105aae335ccb0657092809eef43e7ab4da
+          path: gro
+      - uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/lemonPRESS
+          ref: f091e73d2f64b2237ee828010ae244b39e4070b8
+          path: press
+      - uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/full-measure-world-layer
+          ref: c9206d5055ad574a23acb2eceb5f8785a4ad64fe
+          path: full
+      - uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/Jubilee-treasury
+          ref: a36777cb87bcfb6b7706b910ba18c4c4b24c73a3
+          path: penny
+      - uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/GHoT
+          ref: e35dd470384d864b7b0b629a68dad570875a7df0
+          path: ghot
+      - uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/reLATTE
+          ref: dcc8cdca84c440aa4294134f020fb7095bf87f24
+          path: relatte
+      - uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/planZ
+          ref: ca050aeb94dfe73a719513cb5cb8dad58ab2783a
+          path: planz
+      - uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/GRAFT
+          ref: 78976228eba243acb489c0aa9c501128904fbda6
+          path: graft
+      - uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/JAR-VIS
+          ref: 98388d1bef8e876a5a72e7c20fe6d81d481caae2
+          path: jarvis
+      - uses: actions/setup-node@v4
+        with: {node-version: '24'}
+      - name: Install original dependencies for checked TS runtimes
+        run: |
+          (cd full && npm ci --ignore-scripts --no-audit --no-fund)
+          (cd relatte && npm install --ignore-scripts --no-audit --no-fund)
+      - name: Run native donor tests
+        run: |
+          (cd cannon && npm test)
+          (cd planz && npm test)
+          (cd jarvis && npm test)
+          (cd graft && node --test test/culture-nursery.test.mjs)
+          (cd relatte && npm run check)
+      - name: Real original Harmony and GrO source into printable artifact
+        run: node cannon/scripts/culture-forge.mjs build --webz webz --gro gro --out culture-out
+      - name: Independent lemonPRESS HOLD of exact created artifact
+        run: node cannon/scripts/culture-delivery.mjs deliver --webz webz --gro gro --press press --forge culture-out --out press-held
+      - name: Original Full Measure and PENNY review of synthetic local use
+        run: >
+          node full/node_modules/tsx/dist/cli.mjs cannon/scripts/culture-use-003.mjs build
+          --webz webz --gro gro --press press --fm full --penny penny
+          --forge culture-out --held press-held --out use-confirmed --variant confirmed
+      - name: Original GHoT local work receipt and signed reLATTE sovereign HOLD
+        run: >
+          node --experimental-strip-types full/node_modules/tsx/dist/cli.mjs
+          cannon/scripts/culture-sovereign-004.mjs run
+          --webz webz --gro gro --press press --fm full --penny penny --ghot ghot
+          --relatte relatte --forge culture-out --held press-held --use use-confirmed --out sovereign-hold
+      - name: Native planZ triage then native GRAFT nursery then original JARVIS attention
+        run: >
+          node --experimental-strip-types full/node_modules/tsx/dist/cli.mjs
+          cannon/scripts/culture-return-005.mjs run
+          --webz webz --gro gro --press press --fm full --penny penny --ghot ghot
+          --relatte relatte --planz planz --graft graft --jarvis jarvis
+          --forge culture-out --held press-held --use use-confirmed --sovereign sovereign-hold --out return-loop
+      - name: Independent cold replay of all original code and five returned artifacts
+        run: >
+          node --experimental-strip-types full/node_modules/tsx/dist/cli.mjs
+          cannon/scripts/culture-return-005.mjs verify
+          --webz webz --gro gro --press press --fm full --penny penny --ghot ghot
+          --relatte relatte --planz planz --graft graft --jarvis jarvis
+          --forge culture-out --held press-held --use use-confirmed --sovereign sovereign-hold --out return-loop
+      - name: Deliberately corrupt JARVIS attention and refuse altered output
+        run: |
+          cp return-loop/jarvis-attention.json return-loop/attention.good
+          printf 'altered' >> return-loop/jarvis-attention.json
+          if node --experimental-strip-types full/node_modules/tsx/dist/cli.mjs cannon/scripts/culture-return-005.mjs verify --webz webz --gro gro --press press --fm full --penny penny --ghot ghot --relatte relatte --planz planz --graft graft --jarvis jarvis --forge culture-out --held press-held --use use-confirmed --sovereign sovereign-hold --out return-loop; then exit 1; fi
+          mv return-loop/attention.good return-loop/jarvis-attention.json
+          node --experimental-strip-types full/node_modules/tsx/dist/cli.mjs cannon/scripts/culture-return-005.mjs verify --webz webz --gro gro --press press --fm full --penny penny --ghot ghot --relatte relatte --planz planz --graft graft --jarvis jarvis --forge culture-out --held press-held --use use-confirmed --sovereign sovereign-hold --out return-loop
+      - uses: actions/upload-artifact@v4
+        with:
+          name: culture-forge-005-native-eleven-source-return-loop
+          path: |
+            culture-out/
+            press-held/
+            use-confirmed/
+            sovereign-hold/
+            return-loop/
+          retention-days: 30
