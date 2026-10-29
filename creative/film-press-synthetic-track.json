@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "0.1",
+  "id": "fictional-3-second-study",
+  "title": "No master / not Rosemary Bloom timing",
+  "duration": 3,
+  "source": "synthetic://silent-timing-test",
+  "gates": [
+    {
+      "id": "intro",
+      "at": 0,
+      "kind": "intro",
+      "label": "source"
+    },
+    {
+      "id": "verse",
+      "at": 0.6,
+      "kind": "verse",
+      "label": "proposal"
+    },
+    {
+      "id": "chorus",
+      "at": 1.4,
+      "kind": "chorus",
+      "label": "draft assembly"
+    },
+    {
+      "id": "outro",
+      "at": 2.4,
+      "kind": "outro",
+      "label": "hold"
+    }
+  ]
+}

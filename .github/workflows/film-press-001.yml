@@ -1,0 +1,67 @@
+name: FILM-PRESS-001 five owner silent film and held vinyl proof
+on:
+  push:
+    branches: ['experiment/film-press-001']
+  pull_request:
+    paths: ['creative/film-press-*','scripts/film-press-*','test/film-press.test.mjs','.github/workflows/film-press-001.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  five-owner:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Acquire source-owned exact commits (public only)
+        run: |
+          mkdir -p "$RUNNER_TEMP/film-press"
+          git clone --quiet https://github.com/the-static-collective/the-haunted-toaster.git "$RUNNER_TEMP/film-press/toaster"
+          git -C "$RUNNER_TEMP/film-press/toaster" checkout --quiet --detach 3652c2a96b6b287cda316d1c92daadf7c7417eaf
+          git clone --quiet https://github.com/the-static-collective/playdeck.git "$RUNNER_TEMP/film-press/playdeck"
+          git -C "$RUNNER_TEMP/film-press/playdeck" checkout --quiet --detach a7cf718421e767fd382a01894063c3eeba3d2930
+          git clone --quiet https://github.com/the-static-collective/the-haunted-blender.git "$RUNNER_TEMP/film-press/blender"
+          git -C "$RUNNER_TEMP/film-press/blender" checkout --quiet --detach 78be68dbe788c0744684433205b276c56a580c00
+          git clone --quiet https://github.com/the-static-collective/band-runtime.git "$RUNNER_TEMP/film-press/band"
+          git -C "$RUNNER_TEMP/film-press/band" checkout --quiet --detach 081c5742dae49153a3b554db1f2f9be48078a93e
+          git clone --quiet https://github.com/the-static-collective/lemonPRESS.git "$RUNNER_TEMP/film-press/lemonpress"
+          git -C "$RUNNER_TEMP/film-press/lemonpress" checkout --quiet --detach c96738e8333b3f75e1c485b8e25f276c4da68f8a
+          node -e "const fs=require('fs'),p=process.env.RUNNER_TEMP+'/film-press';fs.writeFileSync(process.env.RUNNER_TEMP+'/film-press-roots.json',JSON.stringify(Object.fromEntries(['toaster','playdeck','blender','band','lemonpress'].map(k=>[k,p+'/'+k]))))"
+      - name: Local dependencies for native owner executors
+        run: |
+          command -v ffmpeg
+          command -v ffprobe
+          python3 -m pip install 'Pillow>=9'
+          (cd "$RUNNER_TEMP/film-press/playdeck" && npm install --ignore-scripts --no-package-lock --no-audit --no-fund)
+          (cd "$RUNNER_TEMP/film-press/band" && npm install --ignore-scripts --no-package-lock --no-audit --no-fund)
+      - name: Execute original owners' relevant tests
+        run: |
+          (cd "$RUNNER_TEMP/film-press/toaster/src/full-measure" && node --test tests/sigil-utterance-family.test.cjs)
+          (cd "$RUNNER_TEMP/film-press/playdeck" && npm run compose:genesis)
+          (cd "$RUNNER_TEMP/film-press/blender" && python3 -m unittest discover -s tests -p test_scene_growth_005.py)
+          (cd "$RUNNER_TEMP/film-press/band" && npm test -- --run test/creative-room-bridge.test.ts)
+          (cd "$RUNNER_TEMP/film-press/lemonpress" && node --test test/vinyl-preflight.test.mjs)
+          node --test test/film-press.test.mjs
+      - name: Five native owners, real silent video, held physical proof, cold replay
+        run: |
+          node scripts/film-press-crossing.mjs build --roots "$RUNNER_TEMP/film-press-roots.json" --out "$RUNNER_TEMP/film-press-output" --authorize SYNTHETIC_TEST_ONLY
+          node scripts/film-press-crossing.mjs verify --roots "$RUNNER_TEMP/film-press-roots.json" --out "$RUNNER_TEMP/film-press-output"
+          cp "$RUNNER_TEMP/film-press-output/print/liner.json" "$RUNNER_TEMP/clean-liner.json"
+          printf '\nFAKE_PUBLISHING_AUTHORITY' >> "$RUNNER_TEMP/film-press-output/print/liner.json"
+          if node scripts/film-press-crossing.mjs verify --roots "$RUNNER_TEMP/film-press-roots.json" --out "$RUNNER_TEMP/film-press-output"; then echo 'TAMPER WAS ACCEPTED'; exit 1; fi
+          cp "$RUNNER_TEMP/clean-liner.json" "$RUNNER_TEMP/film-press-output/print/liner.json"
+          node scripts/film-press-crossing.mjs verify --roots "$RUNNER_TEMP/film-press-roots.json" --out "$RUNNER_TEMP/film-press-output"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: film-press-001-silent-preview-and-draft-jacket-not-for-manufacture
+          path: ${{ runner.temp }}/film-press-output/
+          retention-days: 30
+          if-no-files-found: error

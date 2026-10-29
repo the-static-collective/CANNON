@@ -1,0 +1,36 @@
+{
+  "schema": "cannon.film-press-sources/v1",
+  "proofKind": "FICTIONAL_SILENT_STUDY_NOT_SONG_VIDEO",
+  "owners": {
+    "toaster": {
+      "repo": "the-static-collective/the-haunted-toaster",
+      "commit": "3652c2a96b6b287cda316d1c92daadf7c7417eaf"
+    },
+    "playdeck": {
+      "repo": "the-static-collective/playdeck",
+      "commit": "a7cf718421e767fd382a01894063c3eeba3d2930"
+    },
+    "blender": {
+      "repo": "the-static-collective/the-haunted-blender",
+      "commit": "78be68dbe788c0744684433205b276c56a580c00"
+    },
+    "band": {
+      "repo": "the-static-collective/band-runtime",
+      "commit": "081c5742dae49153a3b554db1f2f9be48078a93e"
+    },
+    "lemonpress": {
+      "repo": "the-static-collective/lemonPRESS",
+      "commit": "c96738e8333b3f75e1c485b8e25f276c4da68f8a"
+    }
+  },
+  "authority": "EXPERIMENT_HOLD_NO_MASTERS_NO_RELEASE",
+  "notObtained": [
+    "Original song audio",
+    "Real artists and approvals",
+    "Real room participants",
+    "Manufacturing approval",
+    "Product pricing",
+    "Publication authorization",
+    "Actual synced music video"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "schema": "full-measure.lyrics.v1",
+  "cues": [
+    {
+      "start": 0.7,
+      "end": 1.05,
+      "text": "THIS IS A TEST, NOT SONG LYRICS"
+    },
+    {
+      "start": 1.45,
+      "end": 1.75,
+      "text": "NO MASTER / NO PUBLICATION"
+    }
+  ]
+}
