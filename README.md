@@ -17,3 +17,16 @@ Principles:
 An executable CANON FIELD 001 candidate will be developed on a branch and reviewed by pull request. This bootstrap does not itself admit any code, alter any other repository, or create an owner trust anchor. 
 
 The owner decides which signed histories and versions are canon for each scope.
+
+## GENESIS BOOT 002 — portable, human-first source-native boot (experimental branch)
+
+The [interactive local first-boot porch](docs/GENESIS-BOOT-002.md) composes **real source-pinned open-PR functions** from STATIC OS, JAR;VIS, GHoT, WebZ and GrO via the existing CANNON CULTURE FORGE. It has four stages: EXPLORE (no effect), BUILD (original-code execution with two explicitly fictional house surveys), WITNESS (exact cold source/output verification), and CROSSINGS (an **optional runnable original Warm Thread** crossing, plus separately proved CARE and reLATTE research references). Output is local HTML, JSON, a genuine printable fictional comic, and held receipts. **Not** a bootable Linux distribution, deployed home, physical sensor, automatic canon, or human field witness.
+
+From a parent folder containing exact Git commit checkouts of the five independent donor repositories plus CANNON, and an existing `local-results` folder:
+
+```sh
+node cannon/scripts/first-boot.mjs --staticos staticos --webz webz --gro gro \\
+  --ghot ghot --jarvis jarvis --out-parent local-results --port 8766
+```
+
+Open `http://127.0.0.1:8766/` on the **same computer**. No code executes on initial page load; click to build. Additional exact-source Warm Thread demo is available with separately checked-out CANNON STACK² 027, original GHoT, Full Measure, Band and Garden and Garden's local `tsx` dependency; see GENESIS BOOT 002 documentation. Its fictional refusal/recomposition/return sequence runs only after a separate operator click.\n\nThe original source pins and physical-claim limits are in [GENESIS BOOT 001](docs/GENESIS-BOOT-001.md). Full operator instructions and independent crossing references are in [GENESIS BOOT 002](docs/GENESIS-BOOT-002.md). This branch is stacked on unmerged experimental CANNON histories rather than main.

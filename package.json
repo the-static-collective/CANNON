@@ -12,6 +12,8 @@
     "canon:demo": "node scripts/cannon.mjs demo work/canon-field-001",
     "canon:verify": "node scripts/cannon.mjs verify work/canon-field-001/bundle.json work/canon-field-001/lab-generated-pins.json",
     "culture:build": "node scripts/culture-forge.mjs build",
-    "culture:verify": "node scripts/culture-forge.mjs verify"
+    "culture:verify": "node scripts/culture-forge.mjs verify",
+    "boot:serve": "node scripts/first-boot.mjs",
+    "boot:test": "node --test test/boot-console.test.mjs"
   }
 }

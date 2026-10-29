@@ -1,0 +1,159 @@
+name: GENESIS BOOT 002 — interactive local first-boot console with native donor execution
+on:
+  push:
+    branches: ['experiment/genesis-boot-002-interactive-porch']
+  pull_request:
+    paths:
+      - 'src/boot-console.mjs'
+      - 'src/boot-warm-thread.mjs'
+      - 'ui/first-boot/**'
+      - 'scripts/first-boot.mjs'
+      - 'test/boot-console*.test.mjs'
+      - 'docs/GENESIS-BOOT-002.md'
+      - '.github/workflows/genesis-boot-002.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  interactive-native:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: cannon
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/webZ
+          ref: 83b35070d8d56155156655279bfdcf50aa77794f
+          path: webz
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/GrO
+          ref: 9e6361105aae335ccb0657092809eef43e7ab4da
+          path: gro
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/static-os
+          ref: b02b5016cbd5bf2f73d758d5ed1416246b789157
+          path: staticos
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/GHoT
+          ref: 6f0cc9e93e2544cd2fc67a0aa43a06198825a654
+          path: ghot
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/JAR-VIS
+          ref: c9b8341f2eff16105f58dcd5bb9031245bcb0558
+          path: jarvis
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/CANNON
+          ref: ee461d7be29795907384c791be88c18e030e0222
+          path: cannon-warm
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/GHoT
+          ref: 3c8be40cbaef2f9c786e5424abf15d4b138d2966
+          path: ghot-warm
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/full-measure-world-layer
+          ref: 553e97401a8483a0ee3c369fed9d3fb8f1c9058d
+          path: full
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/band-runtime
+          ref: f2c889df90905eda533fe6d978cd1a52c788a33e
+          path: band
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/BananaSpork
+          ref: 6738230a8557060dd59aabc19caf21826806d16f
+          path: garden
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Check standalone original PR source pins
+        run: |
+          test "$(git -C webz rev-parse HEAD)" = "83b35070d8d56155156655279bfdcf50aa77794f"
+          test "$(git -C gro rev-parse HEAD)" = "9e6361105aae335ccb0657092809eef43e7ab4da"
+          test "$(git -C staticos rev-parse HEAD)" = "b02b5016cbd5bf2f73d758d5ed1416246b789157"
+          test "$(git -C ghot rev-parse HEAD)" = "6f0cc9e93e2544cd2fc67a0aa43a06198825a654"
+          test "$(git -C jarvis rev-parse HEAD)" = "c9b8341f2eff16105f58dcd5bb9031245bcb0558"
+      - name: Install only original Garden TypeScript runtime for optional Warm Thread
+        run: npm ci --prefix garden --ignore-scripts --no-audit --no-fund
+      - name: Exercise CANNON unit tests, source evidence and browser request protections
+        run: npm test
+        working-directory: cannon
+      - name: Independently run original STATIC OS house, GrO matter and GHoT Commons tests
+        run: |
+          python3 -m unittest discover -s staticos/tests -p test_house_seed.py -v
+          python3 -m unittest discover -s ghot/tests -p test_commons_machine.py -v
+          node --test gro/test/mattercraft-001.test.js
+      - name: Interactive local HTTP first boot on real five-source code (no browser mocks)
+        working-directory: cannon
+        env:
+          GENESIS_STATICOS: ../staticos
+          GENESIS_WEBZ: ../webz
+          GENESIS_GRO: ../gro
+          GENESIS_GHOT: ../ghot
+          GENESIS_JARVIS: ../jarvis
+          GENESIS_OUTPUT_PARENT: ../interactive-artifacts
+          GENESIS_WARM_CANNON: ../cannon-warm
+          GENESIS_WARM_GHOT: ../ghot-warm
+          GENESIS_WARM_FULL: ../full
+          GENESIS_WARM_BAND: ../band
+          GENESIS_WARM_GARDEN: ../garden
+        run: node --test test/boot-console-native.test.mjs
+      - name: Inspect actual hosted native first-boot results and independent source trees
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          entries=list(Path('interactive-artifacts').glob('genesis-*/boot-receipt.json'))
+          assert len(entries)==1, entries
+          p=json.loads(entries[0].read_text())
+          assert p['evidence']['originalSourceCodeInvoked'] is True
+          assert p['evidence']['independentHumanStewards']==0
+          assert p['evidence']['physicalTestsCompleted']==0
+          assert p['evidence']['ownerCanonSelected'] is False
+          assert p['results']['A']['planSha256']!=p['results']['B']['planSha256']
+          assert (entries[0].parent/'first-boot.html').exists()
+          assert (entries[0].parent/'comic.html').exists()
+          print('E2E SOURCE RUN', entries[0].parent.name, p['receiptSha256'])
+          warm=list(Path('interactive-artifacts').glob('warmthread-*/warm-thread-receipt.json'))
+          assert len(warm)==1, warm
+          w=json.loads(warm[0].read_text())
+          assert w['schema']=='cannon.genesis-warm-thread/v1'
+          assert w['original']['body']['actualPeople'] is False
+          assert w['original']['body']['actualDelivery'] is False
+          assert w['original']['body']['band']['confirmedUnits']==0
+          assert w['original']['body']['band']['residualUnits']==1
+          assert w['original']['body']['fullMeasure']['unresolvedRelation']=='haul-firewood'
+          print('WARM THREAD NATIVE RUN', warm[0].parent.name, w['receiptSha256'])
+          PY
+          for repo in webz gro staticos ghot jarvis cannon-warm ghot-warm full band garden; do
+            git -C "$repo" diff --exit-code HEAD
+          done
+      - name: Attach actual interactive run documents, two house cards and evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: genesis-boot-002-interactive-native-proof
+          path: interactive-artifacts/
+          retention-days: 30
