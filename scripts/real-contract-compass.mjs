@@ -79,6 +79,15 @@ export function extractActualContract(){
 }
 const safe=t=>String(t).replaceAll('&','&amp;').replaceAll('<','&lt;')
  .replaceAll('>','&gt;').replaceAll('"','&quot;');
+function copiedPromptTrigram(answer,prompt){
+ const tokens=x=>String(x).toLowerCase().match(/[a-z0-9_.\\/-]+/g)||[];
+ const a=tokens(answer),p=tokens(prompt);
+ if(a.length<3||p.length<3)return false;
+ const known=new Set();
+ for(let i=0;i<=p.length-3;i++)known.add(p.slice(i,i+3).join('|'));
+ for(let i=0;i<=a.length-3;i++)if(known.has(a.slice(i,i+3).join('|')))return true;
+ return false;
+}
 export function compareReport(packet,actual){
  hold(packet?.schema==='iron-lung/compass-real-comparison/v1'
   &&packet.totalCalls===36&&packet.steps?.length===36
@@ -95,6 +104,8 @@ export function compareReport(packet,actual){
  const methods=packet.arms.map(x=>({
   id:x.id,questions:x.questionCount,calls:x.requests,
   exactSourceValueAnswers:x.correctExact,echoesCompassHeader:x.echoCount,
+  copiedSourcePromptFragments:packet.steps.filter(row=>
+    row.arm===x.id&&copiedPromptTrigram(row.response,row.prompt)).length,
   unresolvedResponses:x.unansweredCount,responsesContainingYou:x.secondPersonResponseCount,
   answerQualityIndependentlyReviewed:false}));
  const core={
