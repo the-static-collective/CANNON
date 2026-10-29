@@ -1,0 +1,16 @@
+{
+  "schema": "cannon.phono-live-selection/v1",
+  "owners": {
+    "phonograph": {
+      "repository": "the-static-collective/the-haunted-phonography",
+      "commit": "038b7101ecff781ee2ae17a22a1323ca28740d06"
+    },
+    "staticlive": {
+      "repository": "the-static-collective/static-live",
+      "commit": "38e67b2930cea09c3e01a05447a6e92a67c2468f"
+    }
+  },
+  "fixture": "ORIGINAL_SOURCE_OWNER_TEST_FIXTURES_ONLY",
+  "authority": "FICTIONAL_OFFLINE_SOFTWARE_ONLY",
+  "noSourceCopied": true
+}
