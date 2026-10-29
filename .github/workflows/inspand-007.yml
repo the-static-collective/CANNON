@@ -24,7 +24,7 @@ jobs:
       - name: Checkout original Iron Lung
         run: |
           git clone --quiet https://github.com/the-static-collective/iron-lung.git /tmp/compass-owner
-          git -C /tmp/compass-owner checkout --quiet --detach fff7c45356986c8a0040f4185189113d12a77876
+          git -C /tmp/compass-owner checkout --quiet --detach cc770ff20688e9768477f92f4e880bef36a06e98
           (cd /tmp/compass-owner && npm install --ignore-scripts --no-package-lock --no-audit --no-fund && npm run check)
       - name: Build and cold replay original experiment through CANNON
         run: |
@@ -49,7 +49,7 @@ jobs:
       - name: Exact original owner and pretrained FLAN CPU runtime
         run: |
           git clone --quiet https://github.com/the-static-collective/iron-lung.git /tmp/compass-owner
-          git -C /tmp/compass-owner checkout --quiet --detach fff7c45356986c8a0040f4185189113d12a77876
+          git -C /tmp/compass-owner checkout --quiet --detach cc770ff20688e9768477f92f4e880bef36a06e98
           (cd /tmp/compass-owner && npm install --ignore-scripts --no-package-lock --no-audit --no-fund)
           python3 -m pip install 'torch>=2.2,<3' --index-url https://download.pytorch.org/whl/cpu
           python3 -m pip install -r /tmp/compass-owner/model/requirements-triple.txt
