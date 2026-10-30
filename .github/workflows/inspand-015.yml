@@ -1,0 +1,65 @@
+name: INSPAND-015 PlayDeck native checkpoint to genuine Toaster video and Dogram
+on:
+  push:
+    branches: [experiment/inspand-015-playdeck-toaster-native-still]
+  pull_request:
+    paths:
+      - scripts/playdeck-toaster-native-checkpoint.mjs
+      - test/playdeck-toaster-native-checkpoint.test.mjs
+      - registry/playdeck-toaster-native-still-lock-v1.json
+      - docs/INSPAND-015.md
+      - .github/workflows/inspand-015.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  native-checkpoint:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Source gate and constitutional tests
+        run: |
+          node --check scripts/playdeck-toaster-native-checkpoint.mjs
+          node --test test/playdeck-toaster-native-checkpoint.test.mjs test/playdeck-toaster-red-gate.test.mjs
+          node scripts/playdeck-toaster-native-checkpoint.mjs inspect
+      - name: Source exact original independent owners
+        run: |
+          git clone --quiet https://github.com/the-static-collective/playdeck.git "$RUNNER_TEMP/playdeck"
+          git -C "$RUNNER_TEMP/playdeck" checkout --quiet --detach a7cf718421e767fd382a01894063c3eeba3d2930
+          git clone --quiet https://github.com/the-static-collective/the-haunted-toaster.git "$RUNNER_TEMP/toaster"
+          git -C "$RUNNER_TEMP/toaster" checkout --quiet --detach 3652c2a96b6b287cda316d1c92daadf7c7417eaf
+          (cd "$RUNNER_TEMP/playdeck" && npm install --ignore-scripts --no-package-lock --no-audit --no-fund)
+          # Original PlayDeck workspace install regenerates this tracked CLI.
+          # Restore exact original owner code, not a granted local modification.
+          git -C "$RUNNER_TEMP/playdeck" restore --source=HEAD -- packages/ingest/src/cli.ts
+          git -C "$RUNNER_TEMP/playdeck" diff --exit-code
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg
+      - name: Original PlayDeck and original Toaster receipt tests
+        run: |
+          (cd "$RUNNER_TEMP/playdeck" && npm run receipt:genesis)
+          (cd "$RUNNER_TEMP/toaster/src/full-measure" && node --test tests/dogram-trace.test.cjs tests/dogram-sidecar-write.test.cjs)
+      - name: Render actual PlayDeck Remotion checkpoint → original Toaster scored three-second native MP4 and Dogram
+        run: |
+          node scripts/playdeck-toaster-native-checkpoint.mjs build --playdeck "$RUNNER_TEMP/playdeck" --toaster "$RUNNER_TEMP/toaster" --out "$RUNNER_TEMP/native-checkpoint" --authorize SYNTHETIC_TEST_ONLY
+          node scripts/playdeck-toaster-native-checkpoint.mjs verify --playdeck "$RUNNER_TEMP/playdeck" --toaster "$RUNNER_TEMP/toaster" --out "$RUNNER_TEMP/native-checkpoint"
+          node -e 'const fs=require("fs"),p=process.argv[1],b=JSON.parse(fs.readFileSync(p+"native-crossing-proof.json")),r=JSON.parse(fs.readFileSync(p+"original-toaster-from-playdeck.video-receipt.json")),d=JSON.parse(fs.readFileSync(p+"original-toaster-from-playdeck.dogram.json"));if(b.bridge.newFullPerformanceReceipt!==false||!b.bridge.originalToasterGeneratedVideo||!r.validation.accepted||r.output.sha256!==b.toaster.sha256||d.schema!=="dogram.trace-source/v0"||d.trace.VIDEO_PROJECTION.value!==b.toaster.sha256)process.exit(5)' "$RUNNER_TEMP/native-checkpoint/"
+      - name: Fake media evidence is rejected
+        run: |
+          cp "$RUNNER_TEMP/native-checkpoint/original-playdeck-checkpoint.png" "$RUNNER_TEMP/clean-still.png"
+          printf 'SPOOF' >> "$RUNNER_TEMP/native-checkpoint/original-playdeck-checkpoint.png"
+          if node scripts/playdeck-toaster-native-checkpoint.mjs verify --playdeck "$RUNNER_TEMP/playdeck" --toaster "$RUNNER_TEMP/toaster" --out "$RUNNER_TEMP/native-checkpoint"; then echo 'FAKE_MEDIA_ACCEPTED'; exit 1; fi
+          cp "$RUNNER_TEMP/clean-still.png" "$RUNNER_TEMP/native-checkpoint/original-playdeck-checkpoint.png"
+          node scripts/playdeck-toaster-native-checkpoint.mjs verify --playdeck "$RUNNER_TEMP/playdeck" --toaster "$RUNNER_TEMP/toaster" --out "$RUNNER_TEMP/native-checkpoint"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: inspand-015-original-playdeck-checkpoint-to-genuine-toaster-video-and-dogram
+          path: ${{ runner.temp }}/native-checkpoint/
+          retention-days: 14
+          if-no-files-found: error
