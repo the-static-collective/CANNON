@@ -1,0 +1,135 @@
+name: INSPAND-012 Question → Possibilities → Native Experiment → Next Question
+on:
+  push:
+    branches:
+      - experiment/inspand-012-question-experiment-loop
+  pull_request:
+    paths:
+      - scripts/truth-first-compiler.mjs
+      - scripts/question-experiment-loop.mjs
+      - test/question-experiment-loop.test.mjs
+      - registry/iron-lung-investigation-source-lock-v1.json
+      - test/truth-first-compiler.test.mjs
+      - docs/INSPAND-010.md
+      - docs/INSPAND-012.md
+      - .github/workflows/inspand-012.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  truth-first:
+    runs-on: ubuntu-latest
+    timeout-minutes: 65
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Test original source facts and distinguish direct type failure
+        run: |
+          node --check scripts/truth-first-compiler.mjs
+          node --test test/truth-first-compiler.test.mjs test/reflex-composer.test.mjs test/real-contract-compass.test.mjs test/question-experiment-loop.test.mjs test/national-treasure-question-crossing.test.mjs
+          node scripts/truth-first-compiler.mjs inspect > /tmp/actual-source-truth.json
+          node -e 'const x=require("/tmp/actual-source-truth.json");if(x.decisions[0].status!=="TESTABLE_WITH_OPERATOR_AUTHORIZATION"||x.decisions[1].status!=="HOLD_DIRECT_TYPE_MISMATCH"||x.decisions[0].testMayProceed!==true||x.decisions[1].testMayProceed!==false||x.kind!=="DETERMINISTIC_SOURCE_CONTRACT_NOT_MODEL_INFERENCE")process.exit(2)'
+      - name: Acquire exactly pinned original native software owners
+        run: |
+          mkdir -p /tmp/inspand-010
+          git clone --quiet https://github.com/the-static-collective/planZ.git /tmp/inspand-010/planz
+          git -C /tmp/inspand-010/planz checkout --quiet --detach 64ed8a376acd63a5d630e1649b6001fb3b3251de
+          git clone --quiet https://github.com/the-static-collective/the-haunted-toaster.git /tmp/inspand-010/toaster
+          git -C /tmp/inspand-010/toaster checkout --quiet --detach 3652c2a96b6b287cda316d1c92daadf7c7417eaf
+          git clone --quiet https://github.com/the-static-collective/playdeck.git /tmp/inspand-010/playdeck
+          git -C /tmp/inspand-010/playdeck checkout --quiet --detach a7cf718421e767fd382a01894063c3eeba3d2930
+          git clone --quiet https://github.com/the-static-collective/the-haunted-blender.git /tmp/inspand-010/blender
+          git -C /tmp/inspand-010/blender checkout --quiet --detach 78be68dbe788c0744684433205b276c56a580c00
+          git clone --quiet https://github.com/the-static-collective/band-runtime.git /tmp/inspand-010/band
+          git -C /tmp/inspand-010/band checkout --quiet --detach 081c5742dae49153a3b554db1f2f9be48078a93e
+          git clone --quiet https://github.com/the-static-collective/lemonPRESS.git /tmp/inspand-010/lemonpress
+          git -C /tmp/inspand-010/lemonpress checkout --quiet --detach c96738e8333b3f75e1c485b8e25f276c4da68f8a
+          node -e "const fs=require('fs'),p='/tmp/inspand-010';fs.writeFileSync(p+'/roots.json',JSON.stringify(Object.fromEntries(['toaster','playdeck','blender','band','lemonpress'].map(k=>[k,p+'/'+k]))))"
+      - name: Install original native software runtime dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg
+          python3 -m pip install 'Pillow>=9'
+          (cd /tmp/inspand-010/playdeck && npm install --ignore-scripts --no-package-lock --no-audit --no-fund)
+          (cd /tmp/inspand-010/band && npm install --ignore-scripts --no-package-lock --no-audit --no-fund)
+      - name: Original owner native compatibility checks and restore generated PlayDeck source
+        run: |
+          (cd /tmp/inspand-010/toaster/src/full-measure && node --test tests/sigil-utterance-family.test.cjs)
+          (cd /tmp/inspand-010/playdeck && npm run compose:genesis)
+          (cd /tmp/inspand-010/blender && python3 -m unittest discover -s tests -p test_scene_growth_005.py)
+          (cd /tmp/inspand-010/band && npm test -- --run test/creative-room-bridge.test.ts)
+          (cd /tmp/inspand-010/lemonpress && node --test test/vinyl-preflight.test.mjs)
+          git -C /tmp/inspand-010/playdeck restore --source=HEAD -- packages/ingest/src/cli.ts
+          git -C /tmp/inspand-010/playdeck diff --exit-code
+      - name: Select real original planZ generated plan from original native planner
+        run: |
+          (cd /tmp/inspand-010/planz && node --test reactor/collide.test.mjs reactor/recursive.test.mjs)
+          node /tmp/inspand-010/planz/reactor/recursive.mjs --depth 1 --cross-limit 0 --format json > /tmp/inspand-010/plans.json
+          node -e 'const fs=require("fs");const m=JSON.parse(fs.readFileSync(process.argv[1]));const root=m.roots.find(x=>x.chamberId==="RHYTHM-MUTANT");if(!root)process.exit(2);const p=m.proposedPlans.find(x=>x.kind==="LENS_SYNTHESIS"&&x.parentIds.length===1&&x.parentIds[0]===root.id);if(!p)process.exit(2);fs.writeFileSync(process.argv[2],p.id)' /tmp/inspand-010/plans.json /tmp/inspand-010/plan-id
+      - name: Real typed-adapter hypothesis compiles to original owner-native CANNON execution
+        run: |
+          PLAN="$(cat /tmp/inspand-010/plan-id)"
+          node scripts/truth-first-compiler.mjs build --case ADAPTED --plan "$PLAN" --planz /tmp/inspand-010/planz --roots /tmp/inspand-010/roots.json --out /tmp/inspand-010/native-first --authorize SYNTHETIC_TEST_ONLY
+          node scripts/truth-first-compiler.mjs verify --case ADAPTED --plan "$PLAN" --planz /tmp/inspand-010/planz --roots /tmp/inspand-010/roots.json --out /tmp/inspand-010/native-first
+          node -e 'const fs=require("fs"),o=JSON.parse(fs.readFileSync("/tmp/inspand-010/native-first/native-proof.json")),t=JSON.parse(fs.readFileSync("/tmp/inspand-010/native-first/typed-truth.json"));if(!o.originalNativeMediaSha256?.length||o.originalNativeMediaSha256[0]===o.originalNativeMediaSha256[1]||o.publication!==false||o.realWorldOutcomes!==0||!t.decisions[0].testMayProceed||t.decisions[1].testMayProceed)process.exit(4)'
+      - name: Directly incompatible source types must NEVER execute, even with provided authorization
+        run: |
+          PLAN="$(cat /tmp/inspand-010/plan-id)"
+          if node scripts/truth-first-compiler.mjs build --case DIRECT_ONLY --plan "$PLAN" --planz /tmp/inspand-010/planz --roots /tmp/inspand-010/roots.json --out /tmp/inspand-010/forbidden --authorize SYNTHETIC_TEST_ONLY; then echo 'INCOMPATIBLE_DIRECT_TYPES_WERE_EXECUTED';exit 1;fi
+          test ! -e /tmp/inspand-010/forbidden
+      - name: Tampering with compiled source facts and native owner receipt is refused
+        run: |
+          PLAN="$(cat /tmp/inspand-010/plan-id)"
+          cp /tmp/inspand-010/native-first/typed-truth.json /tmp/inspand-010/clean-truth.json
+          printf 'MODEL_APPROVED' >> /tmp/inspand-010/native-first/typed-truth.json
+          if node scripts/truth-first-compiler.mjs verify --case ADAPTED --plan "$PLAN" --planz /tmp/inspand-010/planz --roots /tmp/inspand-010/roots.json --out /tmp/inspand-010/native-first; then echo 'FABRICATED_TRUTH_ACCEPTED';exit 1;fi
+          cp /tmp/inspand-010/clean-truth.json /tmp/inspand-010/native-first/typed-truth.json
+          cp /tmp/inspand-010/native-first/native-composition/handoff.json /tmp/inspand-010/clean-handoff.json
+          printf 'FAKE_ORIGINAL_HANDOFF' >> /tmp/inspand-010/native-first/native-composition/handoff.json
+          if node scripts/truth-first-compiler.mjs verify --case ADAPTED --plan "$PLAN" --planz /tmp/inspand-010/planz --roots /tmp/inspand-010/roots.json --out /tmp/inspand-010/native-first; then echo 'FAKE_NATIVE_OWNER_ACCEPTED';exit 1;fi
+          cp /tmp/inspand-010/clean-handoff.json /tmp/inspand-010/native-first/native-composition/handoff.json
+          node scripts/truth-first-compiler.mjs verify --case ADAPTED --plan "$PLAN" --planz /tmp/inspand-010/planz --roots /tmp/inspand-010/roots.json --out /tmp/inspand-010/native-first
+      - name: Fetch original National Treasure Question Box and original Iron Lung triple-transfer owners
+        run: |
+          git clone --quiet https://github.com/the-static-collective/national-treasure.git /tmp/inspand-010/national-treasure
+          git -C /tmp/inspand-010/national-treasure checkout --quiet --detach d6ff149a7a2d59dcb41c2c61606204b20b56a2fa
+          (cd /tmp/inspand-010/national-treasure && node tools/question-box/test.mjs && node tools/question-box/memento.test.mjs)
+          git clone --quiet https://github.com/the-static-collective/iron-lung.git /tmp/inspand-010/iron-lung
+          git -C /tmp/inspand-010/iron-lung checkout --quiet --detach 307754cfe5c4fb0ca5cae7f50073961a761d3d28
+          (cd /tmp/inspand-010/iron-lung && npm install --ignore-scripts --no-package-lock --no-audit --no-fund && npm run check)
+      - name: Load actual pinned pretrained FLAN CPU model
+        run: |
+          python3 -m pip install 'torch>=2.2,<3' --index-url https://download.pytorch.org/whl/cpu
+          python3 -m pip install -r /tmp/inspand-010/iron-lung/model/requirements-triple.txt
+      - name: Run FULL original Question Box → Iron Lung model → verified native proof → next Question Box cycle
+        run: |
+          PLAN="$(cat /tmp/inspand-010/plan-id)"
+          node scripts/question-experiment-loop.mjs inspect
+          node scripts/question-experiment-loop.mjs build --treasure /tmp/inspand-010/national-treasure --lung /tmp/inspand-010/iron-lung --provider flan --native /tmp/inspand-010/native-first --plan "$PLAN" --planz /tmp/inspand-010/planz --roots /tmp/inspand-010/roots.json --out /tmp/inspand-010/question-cycle --authorize SYNTHETIC_TEST_ONLY
+          node scripts/question-experiment-loop.mjs verify --treasure /tmp/inspand-010/national-treasure --lung /tmp/inspand-010/iron-lung --provider flan --native /tmp/inspand-010/native-first --plan "$PLAN" --planz /tmp/inspand-010/planz --roots /tmp/inspand-010/roots.json --out /tmp/inspand-010/question-cycle
+          node -e 'const fs=require("fs"),p="/tmp/inspand-010/question-cycle/",r=JSON.parse(fs.readFileSync(p+"cycle-receipt.json")),q=JSON.parse(fs.readFileSync(p+"next-questions.json")),a=JSON.parse(fs.readFileSync(p+"iron-lung-investigations.json"));if(r.modelCallCount!==18||r.investigationModelSelectedExecution!==false||r.investigationModelAuthoredNextQuestion!==false||r.actualNativeExecutedSeparatelyWithExplicitGrant!==true||r.realWorldActions!==0||q[0].aperture.id!=="counterevidence"||q[1].aperture.id!=="source-object"||a.length!==2||a.some(x=>x.provider.kind!=="flan-t5"||x.steps.length!==9||x.modelCanExecute))process.exit(4)'
+      - name: Original owner source tampering fails CLOSED without model execution
+        run: |
+          cp /tmp/inspand-010/iron-lung/src/nt-investigation.ts /tmp/inspand-010/iron-lung-healthy.ts
+          printf '\n// FAKE_MODEL_AUTHORITY' >> /tmp/inspand-010/iron-lung/src/nt-investigation.ts
+          PLAN="$(cat /tmp/inspand-010/plan-id)"
+          if node scripts/question-experiment-loop.mjs verify --treasure /tmp/inspand-010/national-treasure --lung /tmp/inspand-010/iron-lung --provider flan --native /tmp/inspand-010/native-first --plan "$PLAN" --planz /tmp/inspand-010/planz --roots /tmp/inspand-010/roots.json --out /tmp/inspand-010/question-cycle; then echo "MUTATED_IRON_LUNG_SOURCE_ACCEPTED";exit 1;fi
+          git -C /tmp/inspand-010/iron-lung restore src/nt-investigation.ts
+          test ! -e /tmp/inspand-010/forbidden
+      - uses: actions/upload-artifact@v4
+        with:
+          name: inspand-012-national-treasure-iron-lung-cannon-and-return-evidence
+          path: |
+            /tmp/actual-source-truth.json
+            /tmp/inspand-010/native-first/
+            /tmp/inspand-010/question-cycle/
+          retention-days: 30
+          if-no-files-found: error
