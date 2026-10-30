@@ -1,0 +1,60 @@
+name: INSPAND-019 original NEW concept native Haunted Toaster film proof and feedback revision
+on:
+  push:
+    branches: [experiment/inspand-019-minute-mail-original-toaster]
+  pull_request:
+    paths: ['scripts/minute-mail-native.mjs','test/minute-mail-native.test.mjs','registry/minute-mail-toaster-owner-v1.json','.github/workflows/inspand-019.yml']
+  workflow_dispatch:
+permissions: {contents: read}
+jobs:
+  two-new-native-visuals:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0, persist-credentials: false}
+      - uses: actions/setup-node@v4
+        with: {node-version: '24'}
+      - run: |
+          node --check scripts/minute-mail-native.mjs
+          node --test test/minute-mail-native.test.mjs
+      - name: Clone exact original Toaster owner and ORIGINAL planZ idea compiler
+        run: |
+          git clone -q https://github.com/the-static-collective/the-haunted-toaster.git "$RUNNER_TEMP/toaster"
+          git -C "$RUNNER_TEMP/toaster" checkout -q --detach a3ce7b1349a940325cb72362e818ce907a95f35c
+          git clone -q https://github.com/the-static-collective/planZ.git "$RUNNER_TEMP/planz"
+          git -C "$RUNNER_TEMP/planz" checkout -q --detach d7eb38b90f7794ad2570644522f3da687f42cb0d
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg fonts-dejavu-core
+      - name: Original planZ compiles a FRESH and untried original creative idea
+        run: |
+          node --input-type=module -e 'import{startCreativeBrief,planNext}from "file://'"${RUNNER_TEMP}"'/planz/reactor/minute-mail.mjs";import{writeFileSync}from"node:fs";const x=startCreativeBrief("Build a delightful useful post office where a lost minute of scrolling is returned as a small act of care for a neighbor.");const p=planNext(x,0);writeFileSync(process.env.RUNNER_TEMP+"/intent.json",JSON.stringify(x,null,2)+"\n");writeFileSync(process.env.RUNNER_TEMP+"/plan0.json",JSON.stringify(p,null,2)+"\n")'
+      - name: Actual original Toaster new-art PROOF film and original Dogram
+        run: |
+          node scripts/minute-mail-native.mjs build --plan "$RUNNER_TEMP/plan0.json" --toaster "$RUNNER_TEMP/toaster" --out "$RUNNER_TEMP/minute-film-proof" --authorize SYNTHETIC_TEST_ONLY
+          node scripts/minute-mail-native.mjs verify --plan "$RUNNER_TEMP/plan0.json" --toaster "$RUNNER_TEMP/toaster" --out "$RUNNER_TEMP/minute-film-proof"
+      - name: Return actual media and source-native proof to original planZ; ask for revised film
+        run: |
+          node --input-type=module -e 'import{planNext}from "file://'"${RUNNER_TEMP}"'/planz/reactor/minute-mail.mjs";import{readFileSync,writeFileSync}from"node:fs";import{createHash}from"node:crypto";const r=p=>JSON.parse(readFileSync(p));const intent=r(process.env.RUNNER_TEMP+"/intent.json"),p0=r(process.env.RUNNER_TEMP+"/plan0.json"),receipt=r(process.env.RUNNER_TEMP+"/minute-film-proof/native-proof.json");const sha=createHash("sha256").update(JSON.stringify(receipt,null,2)+"\n").digest("hex");const evidence={schema:"jarvis.minute-mail-return/v1",round:0,kind:"PROOF_FILM",planSha256:p0.planSha256,nativeArtifactSha256:sha,published:false,rightsGranted:false};const p1=planNext(intent,1,p0,evidence);writeFileSync(process.env.RUNNER_TEMP+"/plan1.json",JSON.stringify(p1,null,2)+"\n")'
+      - name: Actual NEW second film with changed creative input and independently verified native receipt
+        run: |
+          node scripts/minute-mail-native.mjs build --plan "$RUNNER_TEMP/plan1.json" --toaster "$RUNNER_TEMP/toaster" --out "$RUNNER_TEMP/minute-film-revised" --authorize SYNTHETIC_TEST_ONLY
+          node scripts/minute-mail-native.mjs verify --plan "$RUNNER_TEMP/plan1.json" --toaster "$RUNNER_TEMP/toaster" --out "$RUNNER_TEMP/minute-film-revised"
+          node -e 'const f=require("fs"),x=JSON.parse(f.readFileSync(process.argv[1])),y=JSON.parse(f.readFileSync(process.argv[2]));if(x.nativeMedia.videoSha256===y.nativeMedia.videoSha256||x.round!==0||y.round!==1||!x.nativeMedia.originalToasterAccepted||!y.nativeMedia.originalToasterAccepted)process.exit(3)' "$RUNNER_TEMP/minute-film-proof/native-proof.json" "$RUNNER_TEMP/minute-film-revised/native-proof.json"
+      - name: Tampered video must fail original native verification
+        run: |
+          cp "$RUNNER_TEMP/minute-film-revised/minute-mail.mp4" "$RUNNER_TEMP/clean-minute.mp4"
+          printf "FORGED" >> "$RUNNER_TEMP/minute-film-revised/minute-mail.mp4"
+          if node scripts/minute-mail-native.mjs verify --plan "$RUNNER_TEMP/plan1.json" --toaster "$RUNNER_TEMP/toaster" --out "$RUNNER_TEMP/minute-film-revised";then exit 1;fi
+          cp "$RUNNER_TEMP/clean-minute.mp4" "$RUNNER_TEMP/minute-film-revised/minute-mail.mp4"
+          node scripts/minute-mail-native.mjs verify --plan "$RUNNER_TEMP/plan1.json" --toaster "$RUNNER_TEMP/toaster" --out "$RUNNER_TEMP/minute-film-revised"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: minute-mail-original-art-two-genuine-native-toaster-films
+          path: |
+            ${{ runner.temp }}/intent.json
+            ${{ runner.temp }}/plan0.json
+            ${{ runner.temp }}/plan1.json
+            ${{ runner.temp }}/minute-film-proof/
+            ${{ runner.temp }}/minute-film-revised/
+          retention-days: 14

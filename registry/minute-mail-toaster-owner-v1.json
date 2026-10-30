@@ -1,0 +1,15 @@
+{
+  "schema": "cannon.minute-mail-owner-lock/v1",
+  "sourceRepo": "the-static-collective/the-haunted-toaster",
+  "commit": "a3ce7b1349a940325cb72362e818ce907a95f35c",
+  "files": {
+    "src/full-measure/src/render/render.cjs": "7b0d761614fac791f5536b2b46fabda0bb017789",
+    "src/full-measure/src/render/dogram-trace.cjs": "d335020f071048b10e906ca7fb1485fa43dcca25",
+    "src/full-measure/src/render/witness-window.cjs": "9eb16886325fa8961244bc1f01dd73d9ccf8577e",
+    "src/full-measure/src/generation/index.cjs": "4bcc1124fde7c8eb046b2eb8c2f3ced3049b1bfd"
+  },
+  "rights": "NONE",
+  "renderer": "ORIGINAL_HAUNTED_TOASTER",
+  "input": "NEW_NATIVE_GRAPHIC_AND_SYNTHETIC_AUDIO",
+  "output": "GENUINE_NATIVE_MP4_AND_DOGRAM"
+}
