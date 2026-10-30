@@ -1,0 +1,66 @@
+name: INSPAND-018 creative switchyard original-native route selection
+on:
+  push:
+    branches: [experiment/inspand-018-creative-route-switchyard]
+  pull_request:
+    paths:
+      - registry/creative-route-switchyard-v1.json
+      - scripts/creative-route-switchyard.mjs
+      - test/creative-route-switchyard.test.mjs
+      - docs/INSPAND-018.md
+      - .github/workflows/inspand-018.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  route-selection:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Test three real typed routes and create plans without execution
+        run: |
+          node --check scripts/creative-route-switchyard.mjs
+          node --test test/creative-route-switchyard.test.mjs
+          node scripts/creative-route-switchyard.mjs list
+          node scripts/creative-route-switchyard.mjs plan --route CHECKPOINT_STILL --out "$RUNNER_TEMP/still.json"
+          node scripts/creative-route-switchyard.mjs plan --route MOVING_EXCERPT --out "$RUNNER_TEMP/motion.json"
+          node scripts/creative-route-switchyard.mjs plan --route FULL_PERFORMANCE --out "$RUNNER_TEMP/full.json"
+      - name: Fetch pinned original PlayDeck and two distinct Haunted Toaster versions
+        run: |
+          git clone -q https://github.com/the-static-collective/playdeck.git "$RUNNER_TEMP/playdeck"
+          git -C "$RUNNER_TEMP/playdeck" checkout -q --detach a7cf718421e767fd382a01894063c3eeba3d2930
+          git clone -q https://github.com/the-static-collective/the-haunted-toaster.git "$RUNNER_TEMP/toaster-still"
+          git -C "$RUNNER_TEMP/toaster-still" checkout -q --detach 3652c2a96b6b287cda316d1c92daadf7c7417eaf
+          git clone -q https://github.com/the-static-collective/the-haunted-toaster.git "$RUNNER_TEMP/toaster-motion"
+          git -C "$RUNNER_TEMP/toaster-motion" checkout -q --detach a3ce7b1349a940325cb72362e818ce907a95f35c
+          (cd "$RUNNER_TEMP/playdeck" && npm install --ignore-scripts --no-package-lock --no-audit --no-fund)
+          git -C "$RUNNER_TEMP/playdeck" restore --source=HEAD -- packages/ingest/src/cli.ts
+          git -C "$RUNNER_TEMP/playdeck" diff --exit-code
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg
+      - name: Select, execute, and cold verify original checkpoint image route
+        run: |
+          node scripts/creative-route-switchyard.mjs run --plan "$RUNNER_TEMP/still.json" --playdeck "$RUNNER_TEMP/playdeck" --toaster "$RUNNER_TEMP/toaster-still" --out "$RUNNER_TEMP/still-out" --authorize SYNTHETIC_TEST_ONLY
+          node scripts/creative-route-switchyard.mjs verify --plan "$RUNNER_TEMP/still.json" --playdeck "$RUNNER_TEMP/playdeck" --toaster "$RUNNER_TEMP/toaster-still" --out "$RUNNER_TEMP/still-out"
+      - name: Select, execute, and cold verify original moving-video route through same API
+        run: |
+          node scripts/creative-route-switchyard.mjs run --plan "$RUNNER_TEMP/motion.json" --playdeck "$RUNNER_TEMP/playdeck" --toaster "$RUNNER_TEMP/toaster-motion" --out "$RUNNER_TEMP/motion-out" --authorize SYNTHETIC_TEST_ONLY
+          node scripts/creative-route-switchyard.mjs verify --plan "$RUNNER_TEMP/motion.json" --playdeck "$RUNNER_TEMP/playdeck" --toaster "$RUNNER_TEMP/toaster-motion" --out "$RUNNER_TEMP/motion-out"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: inspand-018-three-selectable-plans-two-native-source-owned-executions
+          path: |
+            ${{ runner.temp }}/still.json
+            ${{ runner.temp }}/motion.json
+            ${{ runner.temp }}/full.json
+            ${{ runner.temp }}/still-out/
+            ${{ runner.temp }}/motion-out/
+          retention-days: 14
+          if-no-files-found: error
