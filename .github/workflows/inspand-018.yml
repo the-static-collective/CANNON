@@ -53,6 +53,17 @@ jobs:
         run: |
           node scripts/creative-route-switchyard.mjs run --plan "$RUNNER_TEMP/motion.json" --playdeck "$RUNNER_TEMP/playdeck" --toaster "$RUNNER_TEMP/toaster-motion" --out "$RUNNER_TEMP/motion-out" --authorize SYNTHETIC_TEST_ONLY
           node scripts/creative-route-switchyard.mjs verify --plan "$RUNNER_TEMP/motion.json" --playdeck "$RUNNER_TEMP/playdeck" --toaster "$RUNNER_TEMP/toaster-motion" --out "$RUNNER_TEMP/motion-out"
+      - name: Changed plan and changed real source video both fail source-owning verification
+        run: |
+          cp "$RUNNER_TEMP/motion.json" "$RUNNER_TEMP/motion-clean.json"
+          node -e 'const f=require("fs"),p=process.argv[1],x=JSON.parse(f.readFileSync(p));x.rightsApproved=true;f.writeFileSync(p,JSON.stringify(x))' "$RUNNER_TEMP/motion.json"
+          if node scripts/creative-route-switchyard.mjs verify --plan "$RUNNER_TEMP/motion.json" --playdeck "$RUNNER_TEMP/playdeck" --toaster "$RUNNER_TEMP/toaster-motion" --out "$RUNNER_TEMP/motion-out"; then exit 1; fi
+          cp "$RUNNER_TEMP/motion-clean.json" "$RUNNER_TEMP/motion.json"
+          cp "$RUNNER_TEMP/motion-out/native/original-playdeck-excerpt.mp4" "$RUNNER_TEMP/original-clean.mp4"
+          printf 'CORRUPTED' >> "$RUNNER_TEMP/motion-out/native/original-playdeck-excerpt.mp4"
+          if node scripts/creative-route-switchyard.mjs verify --plan "$RUNNER_TEMP/motion.json" --playdeck "$RUNNER_TEMP/playdeck" --toaster "$RUNNER_TEMP/toaster-motion" --out "$RUNNER_TEMP/motion-out"; then exit 1; fi
+          cp "$RUNNER_TEMP/original-clean.mp4" "$RUNNER_TEMP/motion-out/native/original-playdeck-excerpt.mp4"
+          node scripts/creative-route-switchyard.mjs verify --plan "$RUNNER_TEMP/motion.json" --playdeck "$RUNNER_TEMP/playdeck" --toaster "$RUNNER_TEMP/toaster-motion" --out "$RUNNER_TEMP/motion-out"
       - uses: actions/upload-artifact@v4
         with:
           name: inspand-018-three-selectable-plans-two-native-source-owned-executions
