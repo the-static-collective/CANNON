@@ -30,7 +30,7 @@ function folder(input){const p=resolve(input);hold(existsSync(p)&&lstatSync(p).i
 const git=(path,...args)=>cmd("git",["--no-replace-objects","-C",path,...args],ROOT,20000);
 function owner(id,path){
  hold(LOCK.schema==="cannon.playdeck-toaster-full-performance-lock/v1"
-  &&LOCK.safety.publish===false&&LOCK.safety.sealPlaydeckPerformance===false,"LOCK");
+  &&LOCK.safety.publish===false&&LOCK.safety.sealOnlyByOriginalPlaydeck===true,"LOCK");
  const source=LOCK.originalOwners.find(o=>o.id===id);
  hold(source,"ORIGINAL_OWNER_"+id);
  const root=folder(path);
