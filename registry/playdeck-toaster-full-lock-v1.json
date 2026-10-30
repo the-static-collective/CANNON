@@ -1,0 +1,55 @@
+{
+  "schema": "cannon.playdeck-toaster-full-performance-lock/v1",
+  "version": "INSPAND-017",
+  "mode": "FULL_ORIGINAL_GENESIS_SOURCE_NATIVE_MEDIA_WITH_SEALED_PLAYDECK_RECEIPT",
+  "ownerAuthority": "NONE",
+  "originalOwners": [
+    {
+      "id": "playdeck",
+      "repo": "the-static-collective/playdeck",
+      "commit": "2e410230ba2f230cd801f156ed2eecc2fd23b330",
+      "files": {
+        "packages/render-remotion/src/Root.tsx": "7d80d6958304d0af8dc551af2c6fa77a5ed3378c",
+        "packages/render-remotion/src/PlaydeckComposition.tsx": "6d56635fd839673a5277b006a6c82677871dfd56",
+        "packages/receipts/src/genesis-proof.ts": "2ce251f68a32a07a447ad3d63fbf819af87ecb18",
+        "packages/receipts/src/genesis-full-proof.ts": "b35cb923bb0ef91d06363d4e570c73fb85867a1b",
+        "packages/receipts/src/sealReceipt.ts": "642bac9b38190c3d054a6325bdcd9a0a2595eddf",
+        "packages/receipts/src/validateReceipt.ts": "65d142bdca276561969e684aff92f06d83464c0d"
+      }
+    },
+    {
+      "id": "toaster",
+      "repo": "the-static-collective/the-haunted-toaster",
+      "commit": "a3ce7b1349a940325cb72362e818ce907a95f35c",
+      "files": {
+        "src/full-measure/src/video-pantry/admit.cjs": "ba4f54d8558a48108c5d09c168d5c15a8ad0f527",
+        "src/full-measure/src/video-pantry/probe.cjs": "26436fdfe92a12c84deb07162ae1f82c157f48b6",
+        "src/full-measure/src/render/foreign-material.cjs": "03bdcccd5101a5cacd75e5f9e0b84c83363d02d9",
+        "src/full-measure/src/render/render.cjs": "7b0d761614fac791f5536b2b46fabda0bb017789",
+        "src/full-measure/src/render/dogram-trace.cjs": "d335020f071048b10e906ca7fb1485fa43dcca25",
+        "src/full-measure/src/render/witness-window.cjs": "9eb16886325fa8961244bc1f01dd73d9ccf8577e"
+      }
+    }
+  ],
+  "playdeck": {
+    "composition": "Genesis001",
+    "fps": 24,
+    "fullFrameRange": "ALL_ORIGINAL",
+    "fullResolution": false,
+    "requiresNativeOwnerSeal": true,
+    "requiresDescendantSourceCard": "card-09"
+  },
+  "toaster": {
+    "pantry": "haunted-toaster/video-source/v1",
+    "operator": "clip-luma-texture-v1",
+    "receipt": "full-measure.video-receipt.v1",
+    "dogram": "dogram.trace-source/v0"
+  },
+  "safety": {
+    "publish": false,
+    "grantRights": false,
+    "sealOnlyByOriginalPlaydeck": true,
+    "executeModelOutput": false
+  },
+  "sourceOwnerFixPR": "https://github.com/the-static-collective/the-haunted-toaster/pull/363"
+}
