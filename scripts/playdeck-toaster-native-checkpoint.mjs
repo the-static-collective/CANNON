@@ -193,7 +193,7 @@ export async function run(argv){
  const {mode,opt}=parse(argv);
  if(mode==='inspect')return {schema:LOCK.schema,adapter:LOCK.adapterType,
   status:'NATIVE_CHECKPOINT_RENDER_TEST_NOT_YET_RUN',requiresOriginalMedia:true};
- const pd=location(opt['--playdeck']),ht=location(opt['--toaster']);
+ const pd=folder(opt['--playdeck']),ht=folder(opt['--toaster']);
  if(mode==='verify'){
   const r=verifyOutput(opt['--out'],'NATIVE_APPROVED_FOR_LOCAL_SYNTHETIC');
   original('playdeck',pd);original('toaster',ht);
