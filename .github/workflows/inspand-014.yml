@@ -43,6 +43,11 @@ jobs:
           (cd "$RUNNER_TEMP/red-owners/playdeck" && npm run receipt:genesis)
           (cd "$RUNNER_TEMP/red-owners/toaster/src/full-measure" && node --test tests/dogram-trace.test.cjs)
           (cd "$RUNNER_TEMP/red-owners/national-treasure" && node tools/question-box/test.mjs)
+          # The original PlayDeck npm workspace setup rewrites the tracked
+          # packages/ingest/src/cli.ts. Restore the exact pinned owner bytes
+          # BEFORE proving source identities; never bless generated edits.
+          git -C "$RUNNER_TEMP/red-owners/playdeck" restore --source=HEAD -- packages/ingest/src/cli.ts
+          git -C "$RUNNER_TEMP/red-owners/playdeck" diff --exit-code
       - name: Real original Haunted Toaster Dogram validator must RED-reject raw PlayDeck receipt
         run: |
           if node scripts/playdeck-toaster-red-gate.mjs red --playdeck "$RUNNER_TEMP/red-owners/playdeck" --toaster "$RUNNER_TEMP/red-owners/toaster" > "$RUNNER_TEMP/red-owners/expected-red.log" 2>&1; then
