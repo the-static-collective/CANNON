@@ -1,0 +1,127 @@
+{
+  "schema": "cannon.creative-route-catalog/v1",
+  "owner": "the-static-collective/CANNON",
+  "name": "CREATIVE-SWITCHYARD-001",
+  "authority": "NONE",
+  "purpose": "Explicitly select among three already independently replayed, source-owned Genesis creative media crossings. Selection is never execution, evidence or publication.",
+  "routes": [
+    {
+      "id": "CHECKPOINT_STILL",
+      "title": "One verified Genesis frame → Toaster scored video → Dogram",
+      "risk": "LOCAL_SYNTHETIC_ONLY",
+      "sourceStatus": "NATIVE_PROVEN_INSPAND_015",
+      "sourceEvidence": "https://github.com/the-static-collective/CANNON/actions/runs/41068630267",
+      "fullPerformance": false,
+      "originalAudio": false,
+      "originalVideoMotion": false,
+      "originalCannonRunner": "scripts/playdeck-toaster-native-checkpoint.mjs",
+      "runnerGitBlob": "7c0cf09626ad5f8bd35fd6fa2ea7687a1c10d591",
+      "originalSourceLock": "registry/playdeck-toaster-native-still-lock-v1.json",
+      "sourceLockGitBlob": "aff613fe6197eee46dfc7704d95e770b137d6e00",
+      "nativeOutput": "original-toaster-from-playdeck.mp4",
+      "nativeProof": "native-crossing-proof.json",
+      "originalMediaInputPort": "playdeck.remotion-still-png/v1",
+      "toasterInputPort": "toaster.render-imagePath/v1",
+      "artifactPort": "full-measure.video-receipt.v1",
+      "tracePort": "dogram.trace-source/v0"
+    },
+    {
+      "id": "MOVING_EXCERPT",
+      "title": "Four-second Genesis motion and original audio → Toaster Video Pantry → Dogram",
+      "risk": "LOCAL_SYNTHETIC_ONLY",
+      "sourceStatus": "NATIVE_PROVEN_INSPAND_016",
+      "sourceEvidence": "https://github.com/the-static-collective/CANNON/actions/runs/41071324050",
+      "fullPerformance": false,
+      "originalAudio": true,
+      "originalVideoMotion": true,
+      "originalCannonRunner": "scripts/playdeck-toaster-native-video.mjs",
+      "runnerGitBlob": "82b54ab87668caf7bde97f21b754812eb40b9c3c",
+      "originalSourceLock": "registry/playdeck-toaster-video-source-lock-v1.json",
+      "sourceLockGitBlob": "3d7795231fc36e9bbc8877e709d5b57ed1750c27",
+      "nativeOutput": "original-toaster-digested-playdeck.mp4",
+      "nativeProof": "native-video-proof.json",
+      "originalMediaInputPort": "playdeck.remotion-excerpt-mp4/v1",
+      "toasterInputPort": "haunted-toaster.video-source/v1",
+      "artifactPort": "full-measure.video-receipt.v1",
+      "tracePort": "dogram.trace-source/v0"
+    },
+    {
+      "id": "FULL_PERFORMANCE",
+      "title": "Full 6,389-frame Genesis with PlayDeck owner-sealed receipt → full Toaster native render → Dogram",
+      "risk": "LOCAL_SYNTHETIC_HIGH_COMPUTE",
+      "sourceStatus": "NATIVE_PROVEN_INSPAND_017",
+      "sourceEvidence": "https://github.com/the-static-collective/CANNON/actions/runs/41074659682",
+      "fullPerformance": true,
+      "originalAudio": true,
+      "originalVideoMotion": true,
+      "originalCannonRunner": "scripts/playdeck-toaster-full-banana.mjs",
+      "runnerGitBlob": "5fb4804f825f18733899b27a4845195450dcf392",
+      "originalSourceLock": "registry/playdeck-toaster-full-lock-v1.json",
+      "sourceLockGitBlob": "d811ef01f81efddce465b031bceff8e78aa8e647",
+      "nativeOutput": "original-toaster-digested-playdeck.mp4",
+      "nativeProof": "native-video-proof.json",
+      "originalMediaInputPort": "playdeck.full-genesis-mp4-plus-sealed-receipt/v1",
+      "toasterInputPort": "haunted-toaster.video-source/v1",
+      "artifactPort": "full-measure.video-receipt.v1",
+      "tracePort": "dogram.trace-source/v0"
+    }
+  ],
+  "stages": [
+    {
+      "id": "PLAYDECK_SOURCE",
+      "owner": "the-static-collective/playdeck",
+      "exportPort": "ROUTE_SOURCE_MEDIA",
+      "auth": "ORIGINAL_OWNER"
+    },
+    {
+      "id": "TOASTER_NATIVE_RENDER",
+      "owner": "the-static-collective/the-haunted-toaster",
+      "importPort": "ROUTE_SOURCE_MEDIA",
+      "exportPort": "full-measure.video-receipt.v1",
+      "auth": "LOCAL_SYNTHETIC_ONLY"
+    },
+    {
+      "id": "DOGRAM_TRACE",
+      "owner": "the-static-collective/the-haunted-toaster",
+      "importPort": "full-measure.video-receipt.v1",
+      "exportPort": "dogram.trace-source/v0",
+      "auth": "ORIGINAL_OWNER"
+    },
+    {
+      "id": "CANNON_REVIEW_BUNDLE",
+      "owner": "the-static-collective/CANNON",
+      "importPort": "dogram.trace-source/v0",
+      "exportPort": "cannon.creative-route-review/v1",
+      "auth": "REVIEW_ONLY"
+    }
+  ],
+  "blockedFollowups": [
+    {
+      "destination": "lemonPRESS",
+      "reason": "No independent original audio-edition / rights / manufacturing approval; video receipt is not vinyl edition."
+    },
+    {
+      "destination": "JAR;VIS",
+      "reason": "No autonomous execution grant: a source-native recipe is not a user-approved command."
+    },
+    {
+      "destination": "public web",
+      "reason": "No publication rights or explicit release approval established."
+    },
+    {
+      "destination": "new Remotion composition",
+      "reason": "Source experiment is Genesis001 only; no general new composition compatibility verified."
+    }
+  ],
+  "policies": {
+    "discoveryIsNotExecution": true,
+    "compileIsNotAuthorization": true,
+    "modelCannotChooseRoute": true,
+    "sourceOwnerPinsMandatory": true,
+    "sourceCodeMayNotBeModified": true,
+    "noPublishing": true,
+    "rightsNotInferred": true,
+    "outputHeldForReview": true,
+    "fullPerformanceOnlyByOriginalPlaydeck": true
+  }
+}
