@@ -1,0 +1,57 @@
+name: INSPAND-011 original National Treasure question frontier crosses truth-first CANNON
+on:
+  push:
+    branches: [experiment/inspand-011-national-treasure-question-box]
+  pull_request:
+    paths:
+      - scripts/national-treasure-question-crossing.mjs
+      - test/national-treasure-question-crossing.test.mjs
+      - registry/national-treasure-question-source-lock-v1.json
+      - docs/INSPAND-011.md
+      - .github/workflows/inspand-011.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original-question-engine:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Source-first CANNON tests and research question gate
+        run: |
+          node --check scripts/national-treasure-question-crossing.mjs
+          node --test test/national-treasure-question-crossing.test.mjs test/truth-first-compiler.test.mjs
+          node scripts/national-treasure-question-crossing.mjs list
+      - name: Fetch independently owned original National Treasure Question Box source
+        run: |
+          git clone --quiet https://github.com/the-static-collective/national-treasure.git "$RUNNER_TEMP/national-treasure"
+          git -C "$RUNNER_TEMP/national-treasure" checkout --quiet --detach d6ff149a7a2d59dcb41c2c61606204b20b56a2fa
+          (cd "$RUNNER_TEMP/national-treasure" && node tools/question-box/test.mjs && node tools/question-box/memento.test.mjs)
+          git -C "$RUNNER_TEMP/national-treasure" status --porcelain
+      - name: Exercise actual original Question Box against real CANNON source facts
+        run: |
+          node scripts/national-treasure-question-crossing.mjs build --treasure "$RUNNER_TEMP/national-treasure" --out "$RUNNER_TEMP/treasure-frontiers" --authorize SYNTHETIC_TEST_ONLY
+          node scripts/national-treasure-question-crossing.mjs verify --treasure "$RUNNER_TEMP/national-treasure" --out "$RUNNER_TEMP/treasure-frontiers"
+          node -e 'const fs=require("fs");const x=JSON.parse(fs.readFileSync(process.argv[1]));if(x.results.length!==2||x.results[0].receipt.aperture.id!=="chronology"||x.results[1].receipt.aperture.id!=="source-object"||x.results.some(r=>Object.hasOwn(r.receipt,"answer")||Object.hasOwn(r.receipt,"conclusion"))||x.nativeProgramsExecuted!==0)process.exit(2)' "$RUNNER_TEMP/treasure-frontiers/handoff.json"
+      - name: Source-owner and question-receipt forgery both fail closed
+        run: |
+          cp "$RUNNER_TEMP/treasure-frontiers/original-questions.json" "$RUNNER_TEMP/questions-clean.json"
+          node -e 'const fs=require("fs"),p=process.argv[1];const x=JSON.parse(fs.readFileSync(p));x[0].answer="EXECUTE";fs.writeFileSync(p,JSON.stringify(x))' "$RUNNER_TEMP/treasure-frontiers/original-questions.json"
+          if node scripts/national-treasure-question-crossing.mjs verify --treasure "$RUNNER_TEMP/national-treasure" --out "$RUNNER_TEMP/treasure-frontiers";then echo "FORGED_ANSWER_ACCEPTED";exit 1;fi
+          cp "$RUNNER_TEMP/questions-clean.json" "$RUNNER_TEMP/treasure-frontiers/original-questions.json"
+          printf "\n// QUESTION_PROMOTION" >> "$RUNNER_TEMP/national-treasure/tools/question-box/engine.mjs"
+          if node scripts/national-treasure-question-crossing.mjs verify --treasure "$RUNNER_TEMP/national-treasure" --out "$RUNNER_TEMP/treasure-frontiers";then echo "MUTATED_ORIGINAL_OWNER_ACCEPTED";exit 1;fi
+          git -C "$RUNNER_TEMP/national-treasure" restore tools/question-box/engine.mjs
+          node scripts/national-treasure-question-crossing.mjs verify --treasure "$RUNNER_TEMP/national-treasure" --out "$RUNNER_TEMP/treasure-frontiers"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: inspand-011-source-owned-national-treasure-question-frontiers
+          path: ${{ runner.temp }}/treasure-frontiers
+          retention-days: 30
+          if-no-files-found: error

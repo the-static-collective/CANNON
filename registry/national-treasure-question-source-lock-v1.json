@@ -1,0 +1,16 @@
+{
+  "schema": "cannon.original-question-box-lock/v1",
+  "owner": "the-static-collective/national-treasure",
+  "commit": "d6ff149a7a2d59dcb41c2c61606204b20b56a2fa",
+  "files": {
+    "tools/question-box/engine.mjs": "83574ed0a927fdefe1a53b3ece0960f011b875d0",
+    "tools/question-box/test.mjs": "671eef5bc71955cd9b663a379000f1528d2fd366"
+  },
+  "export": "buildQuestionFrontier",
+  "receiptSchema": "national-treasure.question-receipt/v0",
+  "handoff": "RESEARCH_QUESTION_ONLY",
+  "modelUsed": false,
+  "answerAllowed": false,
+  "authority": "NONE",
+  "sourceDescription": "National Treasure Question Box PR #85 stacked on draft PR #70; source is not merged main"
+}
