@@ -1,0 +1,96 @@
+name: INSPAND-013 real multi-owner interface question field
+on:
+  push:
+    branches: [experiment/inspand-013-multi-repo-question-atlas]
+  pull_request:
+    paths:
+      - registry/multi-repo-question-field-v1.json
+      - scripts/multi-repo-question-field.mjs
+      - scripts/multi-repo-iron-lung.mjs
+      - test/multi-repo-question-field.test.mjs
+      - docs/INSPAND-013.md
+      - .github/workflows/inspand-013.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  actual-source-field:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Unit test real-source question field and no-auto-promotion controls
+        run: |
+          node --check scripts/multi-repo-question-field.mjs
+          node --check scripts/multi-repo-iron-lung.mjs
+          node --test test/multi-repo-question-field.test.mjs test/truth-first-compiler.test.mjs
+          node scripts/multi-repo-question-field.mjs list
+      - name: Check out FIVE actual source owners at exact commits
+        run: |
+          mkdir -p "$RUNNER_TEMP/question-atlas"
+          git clone --quiet https://github.com/the-static-collective/planZ.git "$RUNNER_TEMP/question-atlas/planz"
+          git -C "$RUNNER_TEMP/question-atlas/planz" checkout --quiet --detach 64ed8a376acd63a5d630e1649b6001fb3b3251de
+          git clone --quiet https://github.com/the-static-collective/playdeck.git "$RUNNER_TEMP/question-atlas/playdeck"
+          git -C "$RUNNER_TEMP/question-atlas/playdeck" checkout --quiet --detach a7cf718421e767fd382a01894063c3eeba3d2930
+          git clone --quiet https://github.com/the-static-collective/the-haunted-toaster.git "$RUNNER_TEMP/question-atlas/toaster"
+          git -C "$RUNNER_TEMP/question-atlas/toaster" checkout --quiet --detach 3652c2a96b6b287cda316d1c92daadf7c7417eaf
+          git clone --quiet https://github.com/the-static-collective/lemonPRESS.git "$RUNNER_TEMP/question-atlas/lemonpress"
+          git -C "$RUNNER_TEMP/question-atlas/lemonpress" checkout --quiet --detach c96738e8333b3f75e1c485b8e25f276c4da68f8a
+          git clone --quiet https://github.com/the-static-collective/national-treasure.git "$RUNNER_TEMP/question-atlas/national-treasure"
+          git -C "$RUNNER_TEMP/question-atlas/national-treasure" checkout --quiet --detach d6ff149a7a2d59dcb41c2c61606204b20b56a2fa
+          node -e 'const fs=require("fs"),p=process.env.RUNNER_TEMP+"/question-atlas/";fs.writeFileSync(p+"roots.json",JSON.stringify(Object.fromEntries(["planz","playdeck","toaster","lemonpress"].map(k=>[k,p+k]))))'
+      - name: Actual original-owner contract bytes → original National Treasure six questions and six evidence-bound followups
+        run: |
+          node scripts/multi-repo-question-field.mjs build --owners "$RUNNER_TEMP/question-atlas/roots.json" --treasure "$RUNNER_TEMP/question-atlas/national-treasure" --out "$RUNNER_TEMP/question-atlas/field" --authorize SYNTHETIC_TEST_ONLY
+          node scripts/multi-repo-question-field.mjs verify --owners "$RUNNER_TEMP/question-atlas/roots.json" --treasure "$RUNNER_TEMP/question-atlas/national-treasure" --out "$RUNNER_TEMP/question-atlas/field"
+          node -e 'const fs=require("fs"),base=process.argv[1],c=JSON.parse(fs.readFileSync(base+"research-cycle.json")),i=JSON.parse(fs.readFileSync(base+"inventory.json"));if(c.sourceOwnerInterfaceCount!==5||c.proposedCrossRepoEdges!==6||c.initialApertures[0]!=="chronology"||c.laterApertures[0]!=="counterevidence"||c.laterApertures.slice(1).some(x=>x!=="source-object")||c.verifiedNewCrossRepoAdapters!==0||i.owners.length!==4||i.interfaces.some(e=>e.adapterAuthority!=="NONE"))process.exit(3)' "$RUNNER_TEMP/question-atlas/field/"
+      - name: Run original National Treasure, planZ, Toaster, lemonPRESS source owner tests
+        run: |
+          (cd "$RUNNER_TEMP/question-atlas/national-treasure" && node tools/question-box/test.mjs && node tools/question-box/memento.test.mjs)
+          (cd "$RUNNER_TEMP/question-atlas/planz" && node --test reactor/recursive.test.mjs reactor/collide.test.mjs)
+          (cd "$RUNNER_TEMP/question-atlas/toaster/src/full-measure" && node --test tests/dogram-trace.test.cjs)
+          (cd "$RUNNER_TEMP/question-atlas/lemonpress" && node --test test/vinyl-preflight.test.mjs)
+      - name: Verify original PlayDeck's actual composer source execution
+        run: |
+          (cd "$RUNNER_TEMP/question-atlas/playdeck" && npm install --ignore-scripts --no-package-lock --no-audit --no-fund && npm run compose:genesis)
+      - name: Original Iron Lung native 3x3 model provider, not a CANNON imitation
+        run: |
+          git clone --quiet https://github.com/the-static-collective/iron-lung.git "$RUNNER_TEMP/question-atlas/iron-lung"
+          git -C "$RUNNER_TEMP/question-atlas/iron-lung" checkout --quiet --detach 307754cfe5c4fb0ca5cae7f50073961a761d3d28
+          (cd "$RUNNER_TEMP/question-atlas/iron-lung" && npm install --ignore-scripts --no-package-lock --no-audit --no-fund && npm run check)
+          node scripts/multi-repo-iron-lung.mjs build --lung "$RUNNER_TEMP/question-atlas/iron-lung" --field "$RUNNER_TEMP/question-atlas/field/questions.json" --provider fixture --out "$RUNNER_TEMP/question-atlas/fixture-model" --authorize SYNTHETIC_TEST_ONLY
+          node scripts/multi-repo-iron-lung.mjs verify --lung "$RUNNER_TEMP/question-atlas/iron-lung" --field "$RUNNER_TEMP/question-atlas/field/questions.json" --provider fixture --out "$RUNNER_TEMP/question-atlas/fixture-model"
+      - name: Real pretrained Google FLAN-T5 on TWO of six unproven cross-owner research questions
+        run: |
+          python3 -m pip install 'torch>=2.2,<3' --index-url https://download.pytorch.org/whl/cpu
+          python3 -m pip install -r "$RUNNER_TEMP/question-atlas/iron-lung/model/requirements-triple.txt"
+          node scripts/multi-repo-iron-lung.mjs build --lung "$RUNNER_TEMP/question-atlas/iron-lung" --field "$RUNNER_TEMP/question-atlas/field/questions.json" --provider flan --out "$RUNNER_TEMP/question-atlas/actual-model" --authorize SYNTHETIC_TEST_ONLY
+          node scripts/multi-repo-iron-lung.mjs verify --lung "$RUNNER_TEMP/question-atlas/iron-lung" --field "$RUNNER_TEMP/question-atlas/field/questions.json" --provider flan --out "$RUNNER_TEMP/question-atlas/actual-model"
+          node -e 'const fs=require("fs"),p=JSON.parse(fs.readFileSync(process.argv[1]));if(p.modelCalls!==18||p.results.some(x=>x.model.provider.kind!=="flan-t5"||x.model.steps.length!==9)||p.adapterSourceAdded!==0||p.evidenceAdmitted!==0)process.exit(4)' "$RUNNER_TEMP/question-atlas/actual-model/model-field.json"
+      - name: Deliberate forged research and changed owner bytes fail closed
+        run: |
+          cp "$RUNNER_TEMP/question-atlas/field/questions.json" "$RUNNER_TEMP/question-atlas/questions-clean.json"
+          printf 'FAKE_ACCEPTED_ADAPTER' >> "$RUNNER_TEMP/question-atlas/field/questions.json"
+          if node scripts/multi-repo-question-field.mjs verify --owners "$RUNNER_TEMP/question-atlas/roots.json" --treasure "$RUNNER_TEMP/question-atlas/national-treasure" --out "$RUNNER_TEMP/question-atlas/field";then echo 'FORGED_RESEARCH_ACCEPTED';exit 1;fi
+          cp "$RUNNER_TEMP/question-atlas/questions-clean.json" "$RUNNER_TEMP/question-atlas/field/questions.json"
+          printf '// MUTATED_ORIGINAL_CONTRACT' >> "$RUNNER_TEMP/question-atlas/toaster/src/full-measure/src/render/dogram-trace.cjs"
+          if node scripts/multi-repo-question-field.mjs verify --owners "$RUNNER_TEMP/question-atlas/roots.json" --treasure "$RUNNER_TEMP/question-atlas/national-treasure" --out "$RUNNER_TEMP/question-atlas/field";then echo 'TAMPERED_OWNER_ACCEPTED';exit 1;fi
+          git -C "$RUNNER_TEMP/question-atlas/toaster" restore src/full-measure/src/render/dogram-trace.cjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: inspand-013-five-real-repo-contracts-six-national-treasure-frontiers
+          path: |
+            ${{ runner.temp }}/question-atlas/field/
+            ${{ runner.temp }}/question-atlas/fixture-model/
+            ${{ runner.temp }}/question-atlas/actual-model/
+          retention-days: 30
+          if-no-files-found: error

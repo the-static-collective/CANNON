@@ -1,0 +1,169 @@
+{
+  "schema": "cannon.interface-field-source-lock/v1",
+  "status": "EXPLORE_HELD",
+  "authority": "NONE",
+  "owners": [
+    {
+      "id": "planz",
+      "repo": "the-static-collective/planZ",
+      "commit": "64ed8a376acd63a5d630e1649b6001fb3b3251de",
+      "files": [
+        {
+          "path": "reactor/recursive.mjs",
+          "blob": "3d7c9fc075e4b1c81786b91645b6312e57b6bfce",
+          "must": [
+            "export function compileRecursion",
+            "static-collective/planz-recursive-reactor/v1",
+            "PROPOSED_UNVERIFIED"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "playdeck",
+      "repo": "the-static-collective/playdeck",
+      "commit": "a7cf718421e767fd382a01894063c3eeba3d2930",
+      "files": [
+        {
+          "path": "packages/core/src/PerformanceReceipt.ts",
+          "blob": "9f30461e2af88423c84af7e8ea10d0d146714026",
+          "must": [
+            "export type PerformanceReceipt",
+            "full-performance",
+            "checkpoint"
+          ]
+        },
+        {
+          "path": "packages/receipts/src/validateReceipt.ts",
+          "blob": "65d142bdca276561969e684aff92f06d83464c0d",
+          "must": [
+            "export const validateReceipt",
+            "canInheritReceipt"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "toaster",
+      "repo": "the-static-collective/the-haunted-toaster",
+      "commit": "3652c2a96b6b287cda316d1c92daadf7c7417eaf",
+      "files": [
+        {
+          "path": "src/full-measure/src/render/dogram-trace.cjs",
+          "blob": "d335020f071048b10e906ca7fb1485fa43dcca25",
+          "must": [
+            "full-measure.video-receipt.v1",
+            "dogram.trace-source/v0",
+            "authority_boundary: \"comparison-only\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lemonpress",
+      "repo": "the-static-collective/lemonPRESS",
+      "commit": "c96738e8333b3f75e1c485b8e25f276c4da68f8a",
+      "files": [
+        {
+          "path": "src/vinyl-proof.mjs",
+          "blob": "7fc21ca6d1fc3d08e4a51515c8a0c91ed10c17be",
+          "must": [
+            "lemonpress/vinyl-preflight/v1",
+            "HOLD_NOT_ORDERABLE",
+            "NOT_GRANTED",
+            "mediaCopied:false"
+          ]
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "PLZ_TO_CANNON",
+      "from": "planz",
+      "to": "CANNON",
+      "fromType": "static-collective/planz-recursive-reactor/v1/proposal",
+      "toType": "planz.generated-plan/v1",
+      "kind": "NATIVE_ROUTE_PREVIOUSLY_EXECUTED_BUT_SCHEMA_BRIDGE_NOT_A_FREE_CAST",
+      "claim": "CANNON has separately executed an original planZ-selected synthetic plan; this is not proof every planZ proposal is a CANNON plan input.",
+      "sourceCase": "EXISTING_NATIVE_WITH_EXPLICIT_SELECTION",
+      "evidenceClass": "primary",
+      "support": "possible",
+      "knownNative": true
+    },
+    {
+      "id": "PLZ_TO_PLAYDECK",
+      "from": "planz",
+      "to": "playdeck",
+      "fromType": "static-collective/planz-recursive-reactor/v1/proposal",
+      "toType": "playdeck.PerformanceReceipt/v0.1",
+      "kind": "HOLD_NO_PERFORMANCE_RECEIPT",
+      "claim": "A proposed planZ record does not automatically provide PlayDeck rendered full-performance evidence.",
+      "sourceCase": "UNTESTED_CROSS_REPO_EDGE",
+      "evidenceClass": "speculation",
+      "support": "unsupported",
+      "knownNative": false
+    },
+    {
+      "id": "PLAYDECK_TO_TOASTER",
+      "from": "playdeck",
+      "to": "toaster",
+      "fromType": "playdeck.PerformanceReceipt/v0.1",
+      "toType": "full-measure.video-receipt.v1",
+      "kind": "HOLD_MISSING_RECEIPT_TRANSLATOR",
+      "claim": "A PlayDeck performance receipt is not the same type as a Toaster video receipt consumed by Dogram.",
+      "sourceCase": "UNTESTED_CROSS_REPO_EDGE",
+      "evidenceClass": "speculation",
+      "support": "unsupported",
+      "knownNative": false
+    },
+    {
+      "id": "TOASTER_TO_LEMONPRESS",
+      "from": "toaster",
+      "to": "lemonpress",
+      "fromType": "full-measure.video-receipt.v1",
+      "toType": "opf/press-000/v0 + band-runtime/room-encounter-review/v1",
+      "kind": "HOLD_RIGHTS_MEDIA_AND_INPUT_SCHEMA",
+      "claim": "A Toaster video receipt cannot substitute for a rights-held LemonPRESS audio edition and band room witness.",
+      "sourceCase": "UNTESTED_CROSS_REPO_EDGE",
+      "evidenceClass": "speculation",
+      "support": "unsupported",
+      "knownNative": false
+    },
+    {
+      "id": "PLAYDECK_TO_LEMONPRESS",
+      "from": "playdeck",
+      "to": "lemonpress",
+      "fromType": "playdeck.PerformanceReceipt/v0.1",
+      "toType": "opf/press-000/v0 + band-runtime/room-encounter-review/v1",
+      "kind": "HOLD_NO_EDITION_OR_RIGHTS",
+      "claim": "A PlayDeck rendered receipt cannot itself license a LemonPRESS physical pressing.",
+      "sourceCase": "UNTESTED_CROSS_REPO_EDGE",
+      "evidenceClass": "speculation",
+      "support": "unsupported",
+      "knownNative": false
+    },
+    {
+      "id": "CANNON_TO_TOASTER",
+      "from": "CANNON",
+      "to": "toaster",
+      "fromType": "cannon.inspand-receipt/v1",
+      "toType": "full-measure.video-receipt.v1",
+      "kind": "HOLD_DIFFERENT_RECEIPT_CONTRACTS",
+      "claim": "A CANNON native synthetic proof receipt is not automatically a Toaster Dogram video receipt.",
+      "sourceCase": "UNTESTED_CROSS_REPO_EDGE",
+      "evidenceClass": "speculation",
+      "support": "unsupported",
+      "knownNative": false
+    }
+  ],
+  "policies": {
+    "sourceBytesPinned": true,
+    "questionIsNotAnswer": true,
+    "autoBridge": false,
+    "autoExecute": false,
+    "autoGrant": false,
+    "autoPublication": false,
+    "historicalAncestryUnproved": true
+  }
+}
