@@ -142,7 +142,7 @@ export async function generate(playdeckRoot,toasterRoot,dir){
   &&planned.frameReservoir.representativeFrames.length>=3,"NATIVE_FOREIGN_PLAN");
  const toasterVideo=join(dir,"original-toaster-digested-playdeck.mp4");
  const result=await renderVideo({audioPath:originalAudio,outputPath:toasterVideo,
-  presetId:"wireOrchard",title:"PlayDeck moving footage digested by Haunted Toaster",
+  presetId:"wireOrchard",outputProfileId:"efficient",title:"PlayDeck moving footage digested by Haunted Toaster",
   artist:"The Static Collective",width:640,height:360,fps:12,crf:29,
   encoderPreset:"ultrafast",analysis,visualScore:score,
   resolvedTimeline:timeline,video:binding});
