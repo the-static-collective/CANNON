@@ -3,7 +3,7 @@
 // native video receipt and Dogram, with original code and source hash guards.
 import {createHash} from "node:crypto";
 import {execFileSync} from "node:child_process";
-import {readFileSync,writeFileSync,existsSync,lstatSync,realpathSync,mkdtempSync,renameSync,rmSync} from "node:fs";
+import {readFileSync,writeFileSync,unlinkSync,existsSync,lstatSync,realpathSync,mkdtempSync,renameSync,rmSync} from "node:fs";
 import {join,dirname,resolve,basename} from "node:path";
 import {fileURLToPath} from "node:url";
 import {createRequire} from "node:module";
@@ -80,13 +80,20 @@ async function build(p,toaster,out){
  writeFileSync(join(out,"postcard-lines.txt"),p.subtitleLines.join("\n")+"\n");
  const graphic=join(out,"original-minute-postcard.png");
  const font="/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf";
+ // A multiline FFmpeg drawtext textfile rendered visible tofu boxes
+ // for newline separators on the real original output. Give every line
+ // its own bounded drawtext filter and no trailing newline instead.
+ const lineFiles=p.subtitleLines.map((line,index)=>{
+  const path=join(out,"line-"+index+".txt");writeFileSync(path,line);return path;
+ });
  const filter="drawbox=x=42:y=40:w=556:h=280:color=0xBEA064@0.38:t=3,"+
   "drawbox=x=62:y=60:w=516:h=240:color=0x549B9B@0.26:t=2,"+
-  "drawtext=fontfile="+font+":textfile="+join(out,"postcard-lines.txt")+
-  ":fontcolor=0xF5E3BA:fontsize=25:line_spacing=12:x=(w-text_w)/2:y=(h-text_h)/2";
+  lineFiles.map((path,i)=>"drawtext=fontfile="+font+":textfile="+path+
+   ":fontcolor=0xF5E3BA:fontsize=24:x=(w-text_w)/2:y="+(104+i*55)).join(",");
  cmd("ffmpeg",["-y","-hide_banner","-loglevel","error","-f","lavfi",
   "-i","color=c=0x111D24:s=640x360:r=1:d=1","-vf",filter,
   "-frames:v","1",graphic],60000);
+ for(const file of lineFiles)unlinkSync(file);
  hold(readFileSync(graphic).subarray(0,8).toString("hex")==="89504e470d0a1a0a","PNG");
  const audio=join(out,"original-minute-tones.wav");
  cmd("ffmpeg",["-y","-hide_banner","-loglevel","error",
