@@ -17,13 +17,14 @@
     {
       "id": "toaster",
       "repo": "the-static-collective/the-haunted-toaster",
-      "commit": "3652c2a96b6b287cda316d1c92daadf7c7417eaf",
+      "commit": "1e1cc119243ed5dff09be5a75efd3637222cc5ad",
       "files": {
         "src/full-measure/src/video-pantry/admit.cjs": "ba4f54d8558a48108c5d09c168d5c15a8ad0f527",
         "src/full-measure/src/video-pantry/probe.cjs": "26436fdfe92a12c84deb07162ae1f82c157f48b6",
         "src/full-measure/src/render/foreign-material.cjs": "03bdcccd5101a5cacd75e5f9e0b84c83363d02d9",
         "src/full-measure/src/render/render.cjs": "7b0d761614fac791f5536b2b46fabda0bb017789",
-        "src/full-measure/src/render/dogram-trace.cjs": "d335020f071048b10e906ca7fb1485fa43dcca25"
+        "src/full-measure/src/render/dogram-trace.cjs": "d335020f071048b10e906ca7fb1485fa43dcca25",
+        "src/full-measure/src/render/witness-window.cjs": "9eb16886325fa8961244bc1f01dd73d9ccf8577e"
       }
     }
   ],
@@ -44,5 +45,6 @@
     "grantRights": false,
     "sealPlaydeckPerformance": false,
     "executeModelOutput": false
-  }
+  },
+  "sourceOwnerFixPR": "https://github.com/the-static-collective/the-haunted-toaster/pull/363"
 }
