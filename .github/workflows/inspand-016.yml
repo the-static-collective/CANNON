@@ -33,7 +33,7 @@ jobs:
           git clone --quiet https://github.com/the-static-collective/playdeck.git "$RUNNER_TEMP/playdeck"
           git -C "$RUNNER_TEMP/playdeck" checkout --quiet --detach a7cf718421e767fd382a01894063c3eeba3d2930
           git clone --quiet https://github.com/the-static-collective/the-haunted-toaster.git "$RUNNER_TEMP/toaster"
-          git -C "$RUNNER_TEMP/toaster" checkout --quiet --detach 3652c2a96b6b287cda316d1c92daadf7c7417eaf
+          git -C "$RUNNER_TEMP/toaster" checkout --quiet --detach 1e1cc119243ed5dff09be5a75efd3637222cc5ad
           (cd "$RUNNER_TEMP/playdeck" && npm install --ignore-scripts --no-package-lock --no-audit --no-fund)
           git -C "$RUNNER_TEMP/playdeck" restore --source=HEAD -- packages/ingest/src/cli.ts
           git -C "$RUNNER_TEMP/playdeck" diff --exit-code
