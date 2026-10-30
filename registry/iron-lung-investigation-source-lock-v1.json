@@ -1,0 +1,21 @@
+{
+  "schema": "cannon.original-question-investigation-source-lock/v1",
+  "owner": "the-static-collective/iron-lung",
+  "commit": "307754cfe5c4fb0ca5cae7f50073961a761d3d28",
+  "files": {
+    "src/nt-investigation.ts": "b1395cf8b3b4893e5f51722be46cdc417bc1394e",
+    "scripts/nt-investigation.ts": "72d618a905d9233614260581fba76dae22640edc",
+    "src/triple-transfer.ts": "ef14dabca86304cb9e83b456e4a1971b8283f57f",
+    "scripts/triple-transfer.ts": "4b6a1b96c6430e044d03473bf95615d11b679ff2",
+    "model/flan-t5-bridge.py": "8b4adffbec419a67e71a38ceae062f66e28ba2a1",
+    "package.json": "fafe66a89c7ceb2870fed900830cccfae044eb78"
+  },
+  "model": {
+    "name": "google/flan-t5-small",
+    "revision": "14fd6edcfdd71f2ef5b67d4e735fee8bc6d9fd31"
+  },
+  "authority": "NONE",
+  "questionReceiptSchema": "national-treasure.question-receipt/v0",
+  "nativeExecutionPolicy": "NEVER_ON_GENERATED_TEXT",
+  "maxModelCalls": 18
+}
