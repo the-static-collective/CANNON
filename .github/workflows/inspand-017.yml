@@ -1,0 +1,67 @@
+name: INSPAND-017 entire original Genesis video and sealed PlayDeck receipt to Toaster and Dogram
+on:
+  push:
+    branches: [experiment/inspand-017-whole-banana-full-genesis]
+  pull_request:
+    paths:
+      - scripts/playdeck-toaster-full-banana.mjs
+      - test/playdeck-toaster-full-banana.test.mjs
+      - registry/playdeck-toaster-full-lock-v1.json
+      - docs/INSPAND-017.md
+      - .github/workflows/inspand-017.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  native-video-crossing:
+    runs-on: ubuntu-latest
+    timeout-minutes: 165
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Check source-boundary contracts before original software execution
+        run: |
+          node --check scripts/playdeck-toaster-full-banana.mjs
+          node --test test/playdeck-toaster-full-banana.test.mjs test/playdeck-toaster-native-checkpoint.test.mjs
+          node scripts/playdeck-toaster-full-banana.mjs inspect
+      - name: Fetch exact original software owners without editing native implementation
+        run: |
+          git clone --quiet https://github.com/the-static-collective/playdeck.git "$RUNNER_TEMP/playdeck"
+          git -C "$RUNNER_TEMP/playdeck" checkout --quiet --detach 2e410230ba2f230cd801f156ed2eecc2fd23b330
+          git clone --quiet https://github.com/the-static-collective/the-haunted-toaster.git "$RUNNER_TEMP/toaster"
+          git -C "$RUNNER_TEMP/toaster" checkout --quiet --detach a3ce7b1349a940325cb72362e818ce907a95f35c
+          (cd "$RUNNER_TEMP/playdeck" && npm install --ignore-scripts --no-package-lock --no-audit --no-fund)
+          git -C "$RUNNER_TEMP/playdeck" restore --source=HEAD -- packages/ingest/src/cli.ts
+          git -C "$RUNNER_TEMP/playdeck" diff --exit-code
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg
+      - name: Original VSPantry and Dogram tests must pass separately
+        run: |
+          (cd "$RUNNER_TEMP/toaster/src/full-measure" && node --test tests/video-pantry.test.cjs tests/dogram-trace.test.cjs tests/dogram-sidecar-write.test.cjs)
+          (cd "$RUNNER_TEMP/playdeck" && npm run receipt:genesis)
+      - name: Execute original PlayDeck source-owned descendant seal policy tests
+        run: |
+          (cd "$RUNNER_TEMP/playdeck" && npm --workspace @playdeck/receipts run test:full)
+          (cd "$RUNNER_TEMP/playdeck" && npm --workspace @playdeck/receipts run typecheck)
+      - name: Render ALL original Genesis frames with source-owned full-performance receipt → full Toaster native foreign-material video + Dogram
+        run: |
+          node scripts/playdeck-toaster-full-banana.mjs build --playdeck "$RUNNER_TEMP/playdeck" --toaster "$RUNNER_TEMP/toaster" --out "$RUNNER_TEMP/native-full" --authorize SYNTHETIC_TEST_ONLY
+          node scripts/playdeck-toaster-full-banana.mjs verify --playdeck "$RUNNER_TEMP/playdeck" --toaster "$RUNNER_TEMP/toaster" --out "$RUNNER_TEMP/native-full"
+          node -e 'const fs=require("fs"),p=process.argv[1],x=JSON.parse(fs.readFileSync(p+"native-video-proof.json")),o=JSON.parse(fs.readFileSync(p+"playdeck-original-full-proof.json")),r=JSON.parse(fs.readFileSync(p+"original-toaster-digested-playdeck.video-receipt.json")),d=JSON.parse(fs.readFileSync(p+"original-toaster-digested-playdeck.dogram.json"));if(x.bridge.nativeToasterReceipt!==true||x.bridge.sealedPlaydeckReceipt!==true||x.bridge.fullPlaydeckPerformance!==true||!o.proof.inheritable||o.receipt.phase!=="rendered"||o.proof.media.ffprobeActualFrames!==o.proof.planFrameCount||r.treatment.foreignVisualMaterial.sourceSha256!==x.originalPlaydeckFullSha256||r.validation.accepted!==true||d.trace.VIDEO_PROJECTION.value!==x.toasterGeneratedVideoSha256)process.exit(3)' "$RUNNER_TEMP/native-full/"
+      - name: Deliberately corrupt original video source and prove fail-closed
+        run: |
+          cp "$RUNNER_TEMP/native-full/original-playdeck-full.mp4" "$RUNNER_TEMP/clean-original-video.mp4"
+          printf 'FAKE_MOVING_VIDEO' >> "$RUNNER_TEMP/native-full/original-playdeck-full.mp4"
+          if node scripts/playdeck-toaster-full-banana.mjs verify --playdeck "$RUNNER_TEMP/playdeck" --toaster "$RUNNER_TEMP/toaster" --out "$RUNNER_TEMP/native-full";then echo "FORGED_VIDEO_ACCEPTED";exit 1;fi
+          cp "$RUNNER_TEMP/clean-original-video.mp4" "$RUNNER_TEMP/native-full/original-playdeck-full.mp4"
+          node scripts/playdeck-toaster-full-banana.mjs verify --playdeck "$RUNNER_TEMP/playdeck" --toaster "$RUNNER_TEMP/toaster" --out "$RUNNER_TEMP/native-full"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: inspand-017-complete-266-second-genesis-sealed-and-digested-into-toaster
+          path: ${{ runner.temp }}/native-full/
+          retention-days: 14
+          if-no-files-found: error
