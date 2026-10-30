@@ -1,0 +1,48 @@
+{
+  "schema": "cannon.playdeck-toaster-native-video-lock/v1",
+  "version": "INSPAND-016",
+  "mode": "EXCERPT_FIRST_SOURCE_BOUND_NATIVE_VIDEO",
+  "ownerAuthority": "NONE",
+  "originalOwners": [
+    {
+      "id": "playdeck",
+      "repo": "the-static-collective/playdeck",
+      "commit": "a7cf718421e767fd382a01894063c3eeba3d2930",
+      "files": {
+        "packages/render-remotion/src/Root.tsx": "7d80d6958304d0af8dc551af2c6fa77a5ed3378c",
+        "packages/render-remotion/src/PlaydeckComposition.tsx": "6d56635fd839673a5277b006a6c82677871dfd56",
+        "packages/receipts/src/genesis-proof.ts": "2ce251f68a32a07a447ad3d63fbf819af87ecb18"
+      }
+    },
+    {
+      "id": "toaster",
+      "repo": "the-static-collective/the-haunted-toaster",
+      "commit": "3652c2a96b6b287cda316d1c92daadf7c7417eaf",
+      "files": {
+        "src/full-measure/src/video-pantry/admit.cjs": "ba4f54d8558a48108c5d09c168d5c15a8ad0f527",
+        "src/full-measure/src/video-pantry/probe.cjs": "26436fdfe92a12c84deb07162ae1f82c157f48b6",
+        "src/full-measure/src/render/foreign-material.cjs": "03bdcccd5101a5cacd75e5f9e0b84c83363d02d9",
+        "src/full-measure/src/render/render.cjs": "7b0d761614fac791f5536b2b46fabda0bb017789",
+        "src/full-measure/src/render/dogram-trace.cjs": "d335020f071048b10e906ca7fb1485fa43dcca25"
+      }
+    }
+  ],
+  "playdeck": {
+    "composition": "Genesis001",
+    "nativeFps": 24,
+    "excerptFrames": "0-95",
+    "excerptIsFullPerformance": false
+  },
+  "toaster": {
+    "pantry": "haunted-toaster/video-source/v1",
+    "foreignMaterial": "haunted-toaster/foreign-material/v1",
+    "requiredVideoReceipt": "full-measure.video-receipt.v1",
+    "dogram": "dogram.trace-source/v0"
+  },
+  "safety": {
+    "publish": false,
+    "grantRights": false,
+    "sealPlaydeckPerformance": false,
+    "executeModelOutput": false
+  }
+}
