@@ -2,6 +2,10 @@
 
 **Stacked on** INSPAND-015 (CANNON draft PR #86), which proved an original Remotion **still** → original Toaster native image render. This experiment adds the missing distinction: **moving video and actual source audio** enter Haunted Toaster's native **video-source pantry**, rather than using a static PNG.
 
+## Proven original Toaster pixel-range fix
+
+The real video crossing exposed a native failure: foreign video processing yielded `yuvj420p` while the original Toaster Witness Window requires `yuv420p`. Changing transport encoders did not solve it. We patched the **original Toaster owner**, not a local copy: [Toaster draft PR #363](https://github.com/the-static-collective/the-haunted-toaster/pull/363), which adds limited-range normalization before final output. Original Toaster native tests and an FFmpeg regression are GREEN. This CANNON implementation pins the owner fix at `a3ce7b1349a940325cb72362e818ce907a95f35c`; it does not relax original receipt verification. Neither PR is merged or deployed.
+
 ## Actual original native capabilities
 
 **Source owner PlayDeck**, pinned at commit `a7cf718421e767fd382a01894063c3eeba3d2930`:
