@@ -17,7 +17,7 @@
     {
       "id": "toaster",
       "repo": "the-static-collective/the-haunted-toaster",
-      "commit": "1e1cc119243ed5dff09be5a75efd3637222cc5ad",
+      "commit": "a3ce7b1349a940325cb72362e818ce907a95f35c",
       "files": {
         "src/full-measure/src/video-pantry/admit.cjs": "ba4f54d8558a48108c5d09c168d5c15a8ad0f527",
         "src/full-measure/src/video-pantry/probe.cjs": "26436fdfe92a12c84deb07162ae1f82c157f48b6",
