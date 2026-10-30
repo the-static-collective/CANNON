@@ -1,0 +1,50 @@
+{
+  "schema": "cannon.playdeck-toaster-original-lock/v1",
+  "authority": "NONE",
+  "compatibilityStatus": "NOT_YET_PROVEN",
+  "owners": [
+    {
+      "id": "playdeck",
+      "repo": "the-static-collective/playdeck",
+      "commit": "a7cf718421e767fd382a01894063c3eeba3d2930",
+      "files": [
+        {
+          "path": "packages/core/src/PerformanceReceipt.ts",
+          "blob": "9f30461e2af88423c84af7e8ea10d0d146714026"
+        },
+        {
+          "path": "packages/receipts/src/genesis-proof.ts",
+          "blob": "2ce251f68a32a07a447ad3d63fbf819af87ecb18"
+        },
+        {
+          "path": "packages/receipts/src/validateReceipt.ts",
+          "blob": "65d142bdca276561969e684aff92f06d83464c0d"
+        },
+        {
+          "path": "packages/receipts/src/sealReceipt.ts",
+          "blob": "642bac9b38190c3d054a6325bdcd9a0a2595eddf"
+        }
+      ]
+    },
+    {
+      "id": "toaster",
+      "repo": "the-static-collective/the-haunted-toaster",
+      "commit": "3652c2a96b6b287cda316d1c92daadf7c7417eaf",
+      "files": [
+        {
+          "path": "src/full-measure/src/render/dogram-trace.cjs",
+          "blob": "d335020f071048b10e906ca7fb1485fa43dcca25"
+        },
+        {
+          "path": "src/full-measure/tests/dogram-trace.test.cjs",
+          "blob": "91da033a483dc1608e3e5ea1976aa79651b9f6b6"
+        }
+      ]
+    }
+  ],
+  "testFirst": "MUST_REFUSE_PLAYDECK_AS_TOASTER_VIDEO_RECEIPT",
+  "desiredFuture": "ORIGINAL_TOASTER_RENDER_WITH_INDEPENDENT_EVIDENCE",
+  "autoBridge": false,
+  "autoRender": false,
+  "publish": false
+}
