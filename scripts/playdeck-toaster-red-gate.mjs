@@ -36,7 +36,7 @@ export function inspectOriginalOwner(record,path){
  check(ownerGit(root,'remote','get-url','origin').replace(/\.git$/,'')===
   'https://github.com/'+record.repo,'GIT_ORIGIN_'+record.id);
  const status=ownerGit(root,'status','--porcelain','--untracked-files=normal').split('\n').filter(Boolean);
- check(status.every(s=>s==='?? node_modules/'||s==='?? out/'),'SOURCE_MODIFIED_'+record.id);
+ check(status.every(s=>s==='?? node_modules/'||s==='?? out/'),'SOURCE_MODIFIED_'+record.id+'_'+status.join('~'));
  const files=record.files.map(entry=>{
   const file=join(root,entry.path),bytes=readFileSync(file);
   check(realpathSync(file)===file,'SYMLINK_'+entry.path);
