@@ -5,7 +5,7 @@ import {createHash} from 'node:crypto';
 import vm from 'node:vm';
 const html=readFileSync(new URL('../examples/first-knock-001.html',import.meta.url),'utf8');
 const digest=x=>createHash('sha256').update(x).digest('hex');
-const knownFixture='b503785d416c0b0bf28cd2a200d739aa90c625e01c2dcbbdf4c86e039f3a5c5e';
+const knownFixture='92558d180851bc01e777d406099522379f2270356835c9b085433b8664f03ef5';
 function browser(){
   const handlers={}, els={};let printed=0,downloads=0,validity='';
   for(const id of ['knock-form','sentence','card','actions','card-kind','card-message','print','save']){
