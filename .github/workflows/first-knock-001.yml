@@ -1,0 +1,27 @@
+name: FIRST-KNOCK-001 offline human-facing proof
+on:
+  push:
+    branches: [experiment/first-knock-001-human-door]
+  pull_request:
+    paths:
+      - 'examples/first-knock-001.html'
+      - 'test/first-knock-page.test.mjs'
+      - 'docs/FIRST-KNOCK-001.md'
+      - '.github/workflows/first-knock-001.yml'
+permissions:
+  contents: read
+jobs:
+  local-door:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: false}
+      - uses: actions/setup-node@v4
+        with: {node-version: '24'}
+      - run: node --test test/first-knock-page.test.mjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: first-knock-001-offline-human-door
+          path: examples/first-knock-001.html
+          retention-days: 14
