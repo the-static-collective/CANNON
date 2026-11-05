@@ -1,0 +1,82 @@
+name: CANNON-095 — independent original PNG and generated-visual-program review
+on:
+  push:
+    branches:
+      - experiment/cannon-095-visual-imagination-review
+  pull_request:
+    paths:
+      - 'experiments/cannon-095/**'
+      - '.github/workflows/cannon-095.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-owned-visual-review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Original source-owned GRAFT-030 visual program generator
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/GRAFT
+          ref: 0347c492c5e517788c0cbd87ee6f57aef3ce2a81
+          path: graft-source
+          persist-credentials: false
+      - name: Original MOTIF-006 real PNG image-in reader
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/MOTIF
+          ref: 6abd24ad0cb04434b22a07f56b28c638a1bdd146
+          path: motif-image-source
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Original MOTIF-006 writes actual PNG bytes for independent visual review
+        run: |
+          python motif-image-source/experiments/door-foundry-006/visual_in.py --demo --out image-inputs
+          test -s image-inputs/start.png
+          test -s image-inputs/target.png
+      - name: Original source-owner GRAFT visual program suite
+        run: node --test graft-source/test/visual-grammar-030.test.mjs
+      - name: Independent CANNON native-source, 8 unseen image cases, parity and refusal tests
+        env:
+          GRAFT_SOURCE: ${{ github.workspace }}/graft-source
+          MOTIF_IMAGE_SOURCE: ${{ github.workspace }}/motif-image-source
+          START_PNG: ${{ github.workspace }}/image-inputs/start.png
+          TARGET_PNG: ${{ github.workspace }}/image-inputs/target.png
+          IMAGE_GAP: ${{ github.workspace }}/image-inputs/visual-gap.json
+        run: node --test experiments/cannon-095/test-review.mjs
+      - name: Emit held independent original-source review packet
+        run: |
+          mkdir -p evidence
+          node experiments/cannon-095/review.mjs \
+            --graft graft-source --motif motif-image-source \
+            --start image-inputs/start.png --goal image-inputs/target.png \
+            --gap image-inputs/visual-gap.json \
+            --out evidence/cannon-visual-review.json
+          node --input-type=module - <<'JS'
+          import fs from 'node:fs';
+          const x=JSON.parse(fs.readFileSync('evidence/cannon-visual-review.json','utf8'));
+          if(x.status!=='HOLD_VISUAL_SOURCE_NOT_ADMITTED' ||
+             x.independent_final.correct!==8 ||
+             x.fair_classical.superior_to_classical!==false ||
+             x.authority.operator_admitted!==false ||
+             x.original_png_evidence.image_uploads_to_remote_ai!==0)
+            throw Error('Unreviewed visual source or false general claims');
+          console.log(JSON.stringify({held:x.status,source_sha256:x.source_owned_generated.source_sha256,
+            unseen:x.independent_final.correct,real_actions:0},null,2));
+          JS
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CANNON-095-ORIGINAL-PNG-VISUAL-REVIEW-HELD
+          path: |
+            evidence/
+            image-inputs/
+          retention-days: 30
+          if-no-files-found: error
