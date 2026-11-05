@@ -1,0 +1,92 @@
+{
+  "schema": "cannon.branch-native-door-selection.v1",
+  "role": "SOURCE_SELECTED_FOR_INDEPENDENT_REVIEW",
+  "purpose": "Evaluate original MOTIF DOOR-FOUNDRY-001 cross-organ synthetic door for a future, separately authorized Capability Commons interface.",
+  "scope": "READ_ONLY_SYNTHETIC_LOCAL_REPLAY",
+  "source_owner": "the-static-collective/MOTIF",
+  "source_ref_hint": "experiment/door-foundry-001-capability-composition",
+  "source_pull_request": 66,
+  "selected_commit": "5ee9207f04af2826750863526af7f92b31ef8578",
+  "note": "main is not canon; this selection is an unsigned operator research preference, not owner signature, recipient approval, or permission to execute beyond isolated local tests.",
+  "pinned_files": {
+    "experiments/002/motif002.py": "b9f1e7b7879a94f7ef3869bc305608c4d7fa8695",
+    "experiments/003/affordance.py": "db25da0d50a9c8e2cd87aa576a22f969405737cf",
+    "experiments/006/composition.py": "953e1cf4072be5a3ff1f29dcef1edbfc39ba8be0",
+    "experiments/door-foundry-001/door_foundry.py": "2b2f9d8ead19cf457ae941706e5a059aff22fe81",
+    "experiments/door-foundry-001/registry.json": "906a3610ea9544257bb2bbea00a1083296d9ed55",
+    "experiments/door-foundry-001/test_door_foundry.py": "367ddee1463a7fb376a4fe4694d4f5cd1846ed34"
+  },
+  "expected_capabilities": [
+    {
+      "id": "motif.002.derive-verbs",
+      "handler": "induce_original_002",
+      "requires": [],
+      "provides": "verbs",
+      "source": "experiments/002/motif002.py",
+      "state": "MAIN_VERIFIED",
+      "cost": 2
+    },
+    {
+      "id": "motif.003.scan-affordances",
+      "handler": "frontier_original_003",
+      "requires": [
+        "world",
+        "verbs"
+      ],
+      "provides": "frontier",
+      "source": "experiments/003/affordance.py",
+      "state": "MAIN_VERIFIED",
+      "cost": 2
+    },
+    {
+      "id": "motif.006.compile-macro",
+      "handler": "compile_original_006",
+      "requires": [
+        "verbs"
+      ],
+      "provides": "macro_catalog",
+      "source": "experiments/006/composition.py",
+      "state": "MAIN_VERIFIED",
+      "cost": 3
+    },
+    {
+      "id": "motif.006.recheck-macro",
+      "handler": "replay_original_006",
+      "requires": [
+        "world",
+        "goal",
+        "macro_catalog"
+      ],
+      "provides": "macro_replay",
+      "source": "experiments/006/composition.py",
+      "state": "MAIN_VERIFIED",
+      "cost": 2
+    },
+    {
+      "id": "motif.door.assemble",
+      "handler": "assemble_local_door",
+      "requires": [
+        "world",
+        "goal",
+        "frontier",
+        "macro_replay"
+      ],
+      "provides": "door",
+      "source": null,
+      "state": "EXPERIMENTAL_VERIFIED",
+      "cost": 1
+    }
+  ],
+  "denied_outcome": "HOLD",
+  "disposition": "HOLD_FOR_INDEPENDENT_RECEIVER_REVIEW",
+  "authority": {
+    "source_owner_authentication": false,
+    "selection_signature": false,
+    "permission_to_use_for_predictions_only": false,
+    "permission_to_contact_people": false,
+    "permission_to_write_other_repos": false,
+    "permission_to_execute_external_effects": false,
+    "admission": false,
+    "deployment": false
+  }
+}
