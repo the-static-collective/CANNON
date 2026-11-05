@@ -1,0 +1,62 @@
+name: CANNON x MOTIF branch-native Door source review
+on:
+  push:
+    branches:
+      - experiment/motif-door-first-branch-native-selection-001
+  pull_request:
+    paths:
+      - 'experiments/motif-door-selection-001/**'
+      - '.github/workflows/cannon-motif-door.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  independent-owner-review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout CANNON selected-review code
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Checkout EXACT unmerged MOTIF Door Foundry commit
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/MOTIF
+          ref: 5ee9207f04af2826750863526af7f92b31ef8578
+          path: motif-source
+          persist-credentials: false
+      - name: Node 22 standard-library checker
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Python 3.11 original MOTIF owner suite
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Check CANNON source bindings, actual MOTIF native tests and adversarial guards
+        env:
+          MOTIF_SOURCE: ${{ github.workspace }}/motif-source
+        run: node --test experiments/motif-door-selection-001/test-door.mjs
+      - name: Independently receive native evidence as unsigned HOLD packet
+        run: |
+          mkdir -p evidence
+          node experiments/motif-door-selection-001/cannon-door.mjs --source motif-source --output evidence/cannon-motif-door-selection-001.json
+          node --input-type=module - <<'JS'
+          import fs from 'node:fs';
+          const p=JSON.parse(fs.readFileSync('evidence/cannon-motif-door-selection-001.json','utf8'));
+          if(p.disposition!=='HOLD_FOR_INDEPENDENT_RECEIVER_REVIEW' ||
+             p.evidence.observed_human_outcome!==false ||
+             p.selection.selected_as_canon!==false ||
+             p.actor_or_receiver_authorized!==false ||
+             p.external_effects_performed!==false ||
+             p.no_auto_merge!==true) throw new Error('False authority or unsupported outcome');
+          console.log(JSON.stringify({disposition:p.disposition,source_commit:p.source.selected_commit,
+            digest:p.content_sha256,check:p.evidence.independent_check},null,2));
+          JS
+      - name: Upload inspected research receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: CANNON-MOTIF-DOOR-001-HOLD-evidence
+          path: evidence/cannon-motif-door-selection-001.json
+          if-no-files-found: error
+          retention-days: 30
