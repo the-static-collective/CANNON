@@ -1,0 +1,57 @@
+name: CANNON GRAFT-027 to MOTIF new organ review
+on:
+  push:
+    branches:
+      - experiment/cannon-graft027-new-motif-organ-review
+  pull_request:
+    paths:
+      - 'experiments/cannon-graft-motif-001/**'
+      - '.github/workflows/cannon-graft-motif.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-owned-new-operator-review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Original unmerged GRAFT-027 source owner at exact commit
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/GRAFT
+          ref: 6ff59aead0296081e1547d8107e4b6f06ea2381e
+          path: graft-source
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: GRAFT native gardener tests (no live public pilot)
+        run: node --test graft-source/test/capability-gardener-027.test.mjs graft-source/test/discovered-adapter-026.test.mjs
+      - name: Source-pinned CANNON independent tests
+        env:
+          GRAFT_SOURCE: ${{ github.workspace }}/graft-source
+        run: node --test experiments/cannon-graft-motif-001/test-review.mjs
+      - name: Independently create proposed, UNSIGNED, no-authority new organ receipt
+        run: |
+          mkdir -p evidence
+          node experiments/cannon-graft-motif-001/review.mjs --graft graft-source --output evidence/cannon-graft-motif-001.json
+          node --input-type=module - <<'JS'
+          import fs from 'node:fs';
+          const d=JSON.parse(fs.readFileSync('evidence/cannon-graft-motif-001.json','utf8'));
+          if(d.disposition!=='HOLD_FOR_MOTIF_LOCAL_SYNTHETIC_REVIEW' ||
+             d.selected_operator.source_installed_in_motif!==false ||
+             d.independent_final_check.superior_to_matched_classical_baseline!==false ||
+             Object.values(d.authority).some(x=>x!==false))
+            throw Error('False organ authority or unsupported benchmark claim');
+          console.log(JSON.stringify({winner:d.selected_operator.selector,
+            generated_source_sha256:d.selected_operator.source_sha256,
+            final:d.independent_final_check,admission:d.disposition},null,2));
+          JS
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CANNON-GRAFT027-NEW-MOTIF-ORGAN-HOLD
+          path: evidence/cannon-graft-motif-001.json
+          retention-days: 30
+          if-no-files-found: error
