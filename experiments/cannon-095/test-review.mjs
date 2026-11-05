@@ -84,5 +84,5 @@ test('source-image substitution fails independent bytes',()=>{
  assert.notEqual(sha(wrong),gap.start_png_sha256);
 });
 test('undocumented new source tokens cannot execute in exact native GRAFT grammar',()=>{
- assert.throws(()=>graftCode.compileVariant(gap,'eval'),HOLD);
+ assert.throws(()=>graftCode.compileVariant(gap,'eval'),/HOLD_UNKNOWN_VISUAL_OPERATOR/);
 });
