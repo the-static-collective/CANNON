@@ -1,0 +1,87 @@
+name: CANNON-094 — independently review GRAFT-born missing graph operator
+on:
+  push:
+    branches:
+      - experiment/cannon-094-graft-new-grammar-review
+  pull_request:
+    paths:
+      - 'experiments/cannon-094/**'
+      - '.github/workflows/cannon-094.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  review-real-graft:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Exact original GRAFT-029
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/GRAFT
+          ref: 5023b594b0daa4f0328d01643a7f258b71f60bb9
+          path: graft-source
+          persist-credentials: false
+      - name: Exact original MOTIF-002 without new operator
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/MOTIF
+          ref: 5ee9207f04af2826750863526af7f92b31ef8578
+          path: motif-original
+          persist-credentials: false
+      - name: Source-owned independent MOTIF-005 gap writer
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/MOTIF
+          ref: cbd0d6b78df8b026d9865927bbcb6369ab8c59ad
+          path: motif-gap-writer
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: MOTIF proves goal impossible under its original fixed graph verbs
+        run: |
+          mkdir -p evidence
+          python motif-gap-writer/experiments/door-foundry-005/impossibility.py \
+            --original motif-original --out evidence/impossibility.json
+      - name: GRAFT original source-owned rule generator tests
+        run: node --test graft-source/test/missing-operator-forge-029.test.mjs
+      - name: CANNON independently verifies source and unseen cases
+        env:
+          MOTIF_ORIGINAL: ${{ github.workspace }}/motif-original
+          GRAFT_SOURCE: ${{ github.workspace }}/graft-source
+          MOTIF_GAP: ${{ github.workspace }}/evidence/impossibility.json
+        run: node --test experiments/cannon-094/test-verify.mjs
+      - name: Issue held independent review receipt
+        run: |
+          node experiments/cannon-094/verify.mjs \
+            --graft graft-source --original motif-original \
+            --gap evidence/impossibility.json \
+            --output evidence/cannon-verified-new-grammar.json
+      - name: Verify no unearned authority and fair comparison
+        run: |
+          node --input-type=module - <<'JS'
+          import {readFileSync} from 'node:fs';
+          const p=JSON.parse(readFileSync('evidence/cannon-verified-new-grammar.json','utf8'));
+          if(p.status!=='HOLD_GENERATED_OPERATOR_UNADMITTED' ||
+             p.independent_final.correct!==6 ||
+             p.generated.installed!==false ||
+             p.synthetic_original_fixed_grammar_unreachable!==true ||
+             p.superior_to_classical_not_claimed!==true ||
+             p.operator_admitted!==false ||
+             p.automatic_repo_writes!==0)
+               throw Error('Unreviewed source or invalid experiment inference');
+          console.log(JSON.stringify({held:p.status,source:p.generated.source_sha256,
+            independent:p.independent_final.correct,denied_effects:true}));
+          JS
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CANNON-094-NEW-GRAFT-GRAMMAR-HELD
+          path: evidence/
+          retention-days: 30
+          if-no-files-found: error
