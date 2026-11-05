@@ -18,7 +18,7 @@ export const MOTIF_PINS={
 };
 export class HOLD extends Error {}
 const check=(x,msg)=>{if(!x)throw new HOLD(msg)};
-export const sha=x=>createHash('sha256').update(typeof x==='string'?x:JSON.stringify(x)).digest('hex');
+export const sha=x=>createHash('sha256').update((typeof x==='string'||Buffer.isBuffer(x))?x:JSON.stringify(x)).digest('hex');
 const blob=x=>createHash('sha1').update(Buffer.from('blob '+x.length+'\0')).update(x).digest('hex');
 
 function run(bin,args,options={}){
