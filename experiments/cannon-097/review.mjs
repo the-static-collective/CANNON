@@ -7,7 +7,8 @@ import {execFileSync} from 'node:child_process';
 import {createHash} from 'node:crypto';
 import {resolve,join} from 'node:path';
 import {fileURLToPath} from 'node:url';
-import {verifyOriginalQuestion,sha as jsHash,HOLD} from '../cannon-096/review.mjs';
+import {verifyOriginalQuestion,sha as jsHash} from '../cannon-096/review.mjs';
+export class HOLD extends Error {}
 
 const MOTIF_COMMIT='cd4884af4cb456aeab07f8f5738d1df0f6d3c852';
 const BLOBS={
