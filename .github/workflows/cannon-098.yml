@@ -1,0 +1,166 @@
+name: 'CANNON-098 — Independently Verify Missing World and New GRAFT Model'
+on:
+  push:
+    branches:
+      - experiment/cannon-098-missing-world-source-review
+  pull_request:
+    paths:
+      - 'experiments/cannon-098/**'
+      - '.github/workflows/cannon-098.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  independent-missing-world:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Exact original MOTIF-013 missing-world experiment
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/MOTIF
+          ref: 5c865c23d5ffac12f055b60b373f0c448ea62769
+          path: motif-source
+          persist-credentials: false
+      - name: Original GRAFT-030 visual movement source owner
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/GRAFT
+          ref: 0347c492c5e517788c0cbd87ee6f57aef3ce2a81
+          path: graft030-source
+          persist-credentials: false
+      - name: Original independently checked GRAFT-031 environment model source owner
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/GRAFT
+          ref: 8a4e85e2de9bdfdf74cd5bebd95fbab7cf11ab36
+          path: graft031-source
+          persist-credentials: false
+      - name: Original independent CANNON-095 reviewer
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/CANNON
+          ref: 3f2210ba6272a9538843d093edb64d1b29d2f294
+          path: cannon095-source
+          persist-credentials: false
+      - name: Original MOTIF-006 tiny PNG source
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/MOTIF
+          ref: 6abd24ad0cb04434b22a07f56b28c638a1bdd146
+          path: motif-image-source
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Original MOTIF-007 text makes actual source-owned PNGs
+        run: |
+          python motif-source/experiments/door-foundry-007/text_to_visual.py \
+            --text "A red crate starts left of a blue wall. Move it to the right of the wall." \
+            --out text-scenes
+          python motif-source/experiments/door-foundry-007/text_to_visual.py \
+            --text "A red crate is beside a blue wall. Move it to the other side." \
+            --out ambiguous-scenes
+      - name: Original GRAFT-030 and new GRAFT-031 source-owned tests
+        run: |
+          node --test graft030-source/test/visual-grammar-030.test.mjs
+          node --test graft031-source/test/world-model-031.test.mjs
+      - name: Original CANNON-095 code verifies original GRAFT movement model
+        run: |
+          mkdir -p evidence
+          node cannon095-source/experiments/cannon-095/review.mjs \
+            --graft graft030-source --motif motif-image-source \
+            --start text-scenes/H01/start.png --goal text-scenes/H01/target.png \
+            --gap text-scenes/H01/visual-gap.json \
+            --out evidence/cannon095-original-review.json
+      - name: Original MOTIF-006 assembles true GRAFT-generated executable
+        run: |
+          python motif-source/experiments/door-foundry-006/build.py \
+            --start text-scenes/H01/start.png \
+            --goal text-scenes/H01/target.png \
+            --gap text-scenes/H01/visual-gap.json \
+            --receipt evidence/cannon095-original-review.json \
+            --graft graft030-source --out generated-visual-motif
+          python generated-visual-motif/run.py --out imagined-futures \
+            > evidence/original-imagination.json
+      - name: Original MOTIF-009 source creates four original PNG worlds
+        run: |
+          python motif-source/experiments/door-foundry-009/visual_question.py \
+            --ambiguous ambiguous-scenes --base text-scenes \
+            --imagined imagined-futures --build generated-visual-motif \
+            --out original-question > evidence/original-question-summary.json
+      - name: Original MOTIF-013 certifies a synthetic environmental observation outside existing world family
+        run: |
+          python motif-source/experiments/door-foundry-013/missing_world.py \
+            --question-dir original-question --out probe \
+            > evidence/initial-missing-model-summary.json
+      - name: Original GRAFT-031 truly generates new environmental model JavaScript from the observed synthetic pair
+        run: |
+          node --input-type=module - <<'JS'
+          import {readFileSync,writeFileSync} from 'node:fs';
+          import {makeTicket,fixtureSets,cultivate} from './graft031-source/src/world-model-031.mjs';
+          const q=JSON.parse(readFileSync('probe/missing-question.json','utf8'));
+          const ticket=makeTicket(q.before_rows,q.outside_rows);
+          const result=await cultivate(ticket,fixtureSets());
+          if(result.status!=='HELD_NEW_EXTERNAL_EVENT_MODEL' ||
+             result.chosen.mode!=='open_observed_pair' || result.auto_install!==false)
+             throw Error('No verified unique new GRAFT source generated');
+          writeFileSync('probe/graft-ticket.json',JSON.stringify(ticket,null,2)+'\n');
+          writeFileSync('probe/graft-receipt.json',JSON.stringify(result,null,2)+'\n');
+          writeFileSync('probe/generated-environment.mjs',result.chosen.source);
+          console.log(JSON.stringify({generated_model_sha256:result.chosen.source_sha256,
+            realized_source:true,people_contacted:0}));
+          JS
+      - name: Original MOTIF-013 source-owner replay of new model, held synthetic futures
+        run: |
+          python motif-source/experiments/door-foundry-013/missing_world.py \
+            --question-dir original-question --base-scenes text-scenes \
+            --imagined imagined-futures --build generated-visual-motif \
+            --graft graft031-source --probe probe --out answer \
+            > evidence/motif013-source-answer.json
+      - name: CANNON-098 independently checks PNG bytes, old closure, new runtime and all source evidence
+        env:
+          MOTIF013_SOURCE: ${{ github.workspace }}/motif-source
+          GRAFT031_SOURCE: ${{ github.workspace }}/graft031-source
+          MOTIF009_QUESTION_DIR: ${{ github.workspace }}/original-question
+          MOTIF013_PROBE_DIR: ${{ github.workspace }}/probe
+          MOTIF013_ANSWER_DIR: ${{ github.workspace }}/answer
+        run: node --test experiments/cannon-098/test-review.mjs
+      - name: Independent CANNON reviewer produces unsigned held receipt
+        run: |
+          node experiments/cannon-098/review.mjs \
+            --motif motif-source --graft graft031-source \
+            --question original-question --probe probe \
+            --answer answer --out evidence/cannon098-held-review.json
+          node --input-type=module - <<'JS'
+          import {readFileSync} from 'node:fs';
+          const x=JSON.parse(readFileSync('evidence/cannon098-held-review.json','utf8'));
+          if(x.status!=='HOLD_NEW_MODEL_BOUNDED_NOT_OBSERVED_OR_ADMITTED' ||
+             x.independent_classical_closed_world_old.reachable!==false ||
+             x.independent_classical_closed_world_after_synthetic_event.reachable!==true ||
+             x.generated_js_recompiled_from_owner!==true ||
+             x.device_commands_executed!==0 ||
+             x.external_observations_verified!==false ||
+             x.canonical_admission!==false)
+            throw Error('Unreviewed new environment or false source authority');
+          console.log(JSON.stringify({status:x.status,
+            old_world_reachable:false,
+            post_synthetic_event_reachable:true,
+            source_compiler_replayed:true,
+            real_gate_operations:0},null,2));
+          JS
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CANNON-098-NEW-WORLD-PROGRAM-INDEPENDENT-HELD
+          path: |
+            evidence/
+            original-question/
+            probe/
+            answer/
+          retention-days: 30
+          if-no-files-found: error
