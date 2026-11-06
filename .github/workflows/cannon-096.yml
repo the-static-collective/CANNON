@@ -1,0 +1,127 @@
+name: 'CANNON-096 — Independently Check Source Roots Versus Repeated Witness Echoes'
+on:
+  push:
+    branches:
+      - experiment/cannon-096-motif-source-dependency-review
+  pull_request:
+    paths:
+      - 'experiments/cannon-096/**'
+      - '.github/workflows/cannon-096.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  independent-evidence-replay:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Original exact MOTIF-011 owner code
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/MOTIF
+          ref: c41ff828e167a406fab25ef2b0a272be5e736ad2
+          path: motif-source
+          persist-credentials: false
+      - name: Original GRAFT-030 source-owning compiled visual grammar
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/GRAFT
+          ref: 0347c492c5e517788c0cbd87ee6f57aef3ce2a81
+          path: graft-source
+          persist-credentials: false
+      - name: Original CANNON-095 source-owning visual program reviewer
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/CANNON
+          ref: 3f2210ba6272a9538843d093edb64d1b29d2f294
+          path: cannon-095-source
+          persist-credentials: false
+      - name: Original MOTIF-006 source-owning raw PNG reader
+        uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/MOTIF
+          ref: 6abd24ad0cb04434b22a07f56b28c638a1bdd146
+          path: motif-image-source
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Original MOTIF-007 generates source-labeled actual PNG input
+        run: |
+          python motif-source/experiments/door-foundry-007/text_to_visual.py \
+            --text "A red crate starts left of a blue wall. Move it to the right of the wall." \
+            --out text-scenes
+          python motif-source/experiments/door-foundry-007/text_to_visual.py \
+            --text "A red crate is beside a blue wall. Move it to the other side." \
+            --out ambiguous-scenes
+      - name: Original GRAFT-030 real new visual operator tests
+        run: node --test graft-source/test/visual-grammar-030.test.mjs
+      - name: Independently replay original CANNON-095 code before source-root review
+        run: |
+          mkdir -p evidence
+          node cannon-095-source/experiments/cannon-095/review.mjs \
+            --graft graft-source --motif motif-image-source \
+            --start text-scenes/H01/start.png --goal text-scenes/H01/target.png \
+            --gap text-scenes/H01/visual-gap.json \
+            --out evidence/cannon-095-original-visual-review.json
+      - name: Original MOTIF-006 assembles true GRAFT-generated executable
+        run: |
+          python motif-source/experiments/door-foundry-006/build.py \
+            --start text-scenes/H01/start.png \
+            --goal text-scenes/H01/target.png \
+            --gap text-scenes/H01/visual-gap.json \
+            --receipt evidence/cannon-095-original-visual-review.json \
+            --graft graft-source --out generated-visual-motif
+          python generated-visual-motif/run.py --out imagined-futures \
+            > evidence/imagined-result.json
+      - name: Original MOTIF-009 creates four source-owned PNG worlds
+        run: |
+          python motif-source/experiments/door-foundry-009/visual_question.py \
+            --ambiguous ambiguous-scenes --base text-scenes \
+            --imagined imagined-futures --build generated-visual-motif \
+            --out original-question > evidence/question-output.json
+      - name: Original MOTIF-011 emits actual synthetic copy-dependency evidence stream
+        run: |
+          python motif-source/experiments/door-foundry-011/source_graph.py \
+            --question-dir original-question --out source-graph \
+            > evidence/source-owner-report.json
+      - name: CANNON independently verifies root-only Bayes and source graph
+        env:
+          MOTIF_SOURCE: ${{ github.workspace }}/motif-source
+          MOTIF009_QUESTION_DIR: ${{ github.workspace }}/original-question
+          MOTIF011_LEDGER_DIR: ${{ github.workspace }}/source-graph
+        run: node --test experiments/cannon-096/test-review.mjs
+      - name: CANNON issues unsigned held source-dependence receipt
+        run: |
+          node experiments/cannon-096/review.mjs \
+            --motif motif-source --question original-question \
+            --ledger source-graph --out evidence/cannon-096-review.json
+          node --input-type=module - <<'JS'
+          import {readFileSync} from 'node:fs';
+          const p=JSON.parse(readFileSync('evidence/cannon-096-review.json','utf8'));
+          if(p.status!=='HOLD_DEPENDENCY_STRUCTURE_VERIFIED_SOURCE_INDEPENDENCE_UNATTESTED' ||
+             p.report_groups_verified!==4 ||
+             p.copied_reports_checked!==24 ||
+             p.independent_witness_identity_confirmed!==false ||
+             p.human_contacts!==0 || p.automatic_admission!==false)
+                throw Error('False source authority or incomplete CANNON mathematics');
+          console.log(JSON.stringify({held:p.status,
+             original_motif_commit:p.original_motif_source.commit,
+             tested_groups:p.report_groups_verified,
+             duplicate_reports_not_double_counted:p.copied_reports_checked,
+             real_source_authentications:0},null,2));
+          JS
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CANNON-096-INDEPENDENT-PROVENANCE-ROOT-CHECK-HOLD
+          path: |
+            evidence/
+            original-question/
+            source-graph/
+          retention-days: 30
+          if-no-files-found: error
