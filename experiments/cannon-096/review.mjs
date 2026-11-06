@@ -29,6 +29,41 @@ function read(file){
    return result;
  }catch(e){if(e instanceof HOLD)throw e;throw new HOLD('Evidence JSON malformed');}
 }
+// Python's JSON loader preserves a written 1.0 as a float; JS JSON.parse
+// converts it to integer 1. The MOTIF receipts explicitly hash canonical
+// Python JSON, including those type distinctions. Verify those source bytes
+// using an independent Python-stdlib implementation BEFORE JS replays math.
+// No MOTIF Python app code is imported into CANNON's independent calculations.
+const PYTHON_CANONICAL_RECEIPTS=`
+import hashlib,json,sys
+def verify(x,where):
+ if not isinstance(x,dict) or not isinstance(x.get('content_sha256'),str):
+  raise ValueError('Missing SHA for '+where)
+ body=dict(x);expected=body.pop('content_sha256')
+ canonical=json.dumps(body,separators=(',',':'),ensure_ascii=False,allow_nan=False)
+ digest=hashlib.sha256(canonical.encode('utf-8')).hexdigest()
+ if digest!=expected:raise ValueError('Changed original evidence: '+where)
+for file in sys.argv[1:]:
+ with open(file,encoding='utf-8') as f:x=json.load(f)
+ if file.endswith('/replay.json'):
+  for i,step in enumerate(x['steps'],1):
+   report=step['report']
+   if report.get('root_sensor_event') is not None:
+    verify(report['root_sensor_event'],file+':sensor'+str(i))
+   verify(report,file+':report'+str(i))
+   verify(step,file+':step'+str(i))
+ verify(x,file)
+print('CANONICAL_MOTIF_ORIGINAL_BYTES_VERIFIED')
+`;
+function canonicalOriginalBytes(files){
+ try{
+  const value=execFileSync('python',['-c',PYTHON_CANONICAL_RECEIPTS,...files],
+    {encoding:'utf8',timeout:15000,maxBuffer:100000});
+  ok(value.trim()==='CANONICAL_MOTIF_ORIGINAL_BYTES_VERIFIED',
+    'Canonical Python source evidence hash verification failed');
+ }catch(e){if(e instanceof HOLD)throw e;
+  throw new HOLD('Canonical Python source evidence hash verification failed');}
+}
 function assertHash(x){
  ok(x&&typeof x==='object'&&typeof x.content_sha256==='string',
      'Missing source payload hash');
@@ -116,7 +151,7 @@ function decision(weights){
 }
 export function verifyOriginalQuestion(dir){
  const source=read(join(dir,'active-question.json'));
- assertHash(source);
+ canonicalOriginalBytes([join(dir,'active-question.json')]);
  ok(source.schema==='motif.active-visual-question.v0'&&
    source.status==='UNSENT_QUESTION_WITH_FOUR_IMAGE_HYPOTHESES'&&
    source.model==='FOUR_SYNTHETIC_WORLDS_NOT_OBSERVATIONS'&&
@@ -143,7 +178,6 @@ export function verifyOriginalQuestion(dir){
  return source;
 }
 function verifyRootSensor(sensor,origin,claim){
- assertHash(sensor);
  ok(sensor.schema==='motif010.evidence-event.v0'&&
     sensor.event_id==='SIM-00'+(ROOTS.indexOf(origin)+1)&&
     sensor.sequence===ROOTS.indexOf(origin)+1&&
@@ -158,7 +192,6 @@ function verifyRootSensor(sensor,origin,claim){
     'Source root has no independent original MOTIF-010 synthetic evidence');
 }
 export function verifyReplay(packet,source){
- assertHash(packet);
  ok(packet.schema===PACKET&&
    packet.status==='SYNTHETIC_DEPENDENCY_AWARE_BELIEF_REVISION_HELD'&&
    packet.original_009_source_sha256===source.content_sha256&&
@@ -185,7 +218,8 @@ export function verifyReplay(packet,source){
  let copies=0;
  for(let i=0;i<reports.length;i++){
    const step=reports[i],rep=step.report,index=i+1;
-   assertHash(step);assertHash(rep);
+   // Nested source receipts are canonically verified from original bytes
+   // by the read-only canonicalOriginalBytes gate in review().
    ok(step.schema==='motif011.provenance-belief-step.v0'&&
      step.sequence===index&&step.previous_receipt_sha256===predecessor&&
      step.report_sha256===rep.content_sha256&&
@@ -285,7 +319,8 @@ export function review(motifRoot,questionRoot,graphRoot){
    rows.push(verifyReplay(packet,original));
  }
  const benchmark=read(join(graphRoot,'benchmark.json'));
- assertHash(benchmark);
+ canonicalOriginalBytes([...IDS.map(id=>join(graphRoot,id,'replay.json')),
+   join(graphRoot,'benchmark.json')]);
  ok(benchmark.schema==='motif011.source-dependence-benchmark.v0'&&
    benchmark.status==='HOLD_SYNTHETIC_REPORT_GRAPH_DEPENDENCY_TESTED'&&
    benchmark.cases?.length===4&&
