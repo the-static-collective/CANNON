@@ -26,7 +26,7 @@ function rehashReport(x){
  r.content_sha256=sha(body);
  const step=x.steps[1];
  step.report_sha256=r.content_sha256;
- const {content_sha256:_:prev,...row}=step;
+ const {content_sha256:oldHash,...row}=step;
  step.content_sha256=sha(row);
  const {content_sha256:__,...whole}=x;
  x.content_sha256=sha(whole);
