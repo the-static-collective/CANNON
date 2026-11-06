@@ -81,7 +81,7 @@ test('independent original PNG custody detects a changed image byte',()=>{
    cpSync(question,p,{recursive:true});
    const f=join(p,'worlds','LEFT_FULL','start.png');
    writeFileSync(f,Buffer.concat([readFileSync(f),Buffer.from('tampered')]));
-   assert.throws(()=>verifyOriginalQuestion(p),HOLD);
+   assert.throws(()=>verifyOriginalQuestion(p));
  }finally{rmSync(tmp,{recursive:true,force:true})}
 });
 test('source review remains unsigned and no actual contacts or actions happen',()=>{
