@@ -28,8 +28,8 @@ const pins=[
   {
     "id": "memento",
     "root": "memento",
-    "repo": "the-static-collective/MEMENTO",
-    "commit": "e0c4b654555e1a214aae8ef4e458d96fea154d33",
+    "repo": "the-static-collective/GRAFT",
+    "commit": "22a5714f25c7be59bac37b3ab691c28c1f036845",
     "path": "scripts/lib/understory.mjs",
     "blob": "9742f7a5fbaf93bdce03174ba9c3f40bab832d92"
   },
@@ -94,7 +94,7 @@ await assert.rejects(()=>api.stage(a,'x'.repeat(60001),'oversized.json'));
 assert(!JSON.stringify(seed.packet(a.node)).includes('pkcs8'));
 const checks={recoveredIndependentKeys:3,continuedAfterRestore:true,confirmedFixtureContributions:2,wrongPassphraseRefused:true,tamperedCiphertextRefused:true,publicKeySubstitutionRefused:true,heldInboxSurvivedRestore:true,duplicateHistoryIdempotent:true,invalidPacketHeldWithoutMutation:true,explicitRefusalPreserved:true,mementoBrokenTraceRefused:true,oversizePacketRefused:true,publicPacketExcludesPrivateKey:true,actualAid:0,authenticatedHumanDeeds:0};
 const parent=resolve(process.argv[2]),out=resolve(process.argv[3]),parentHtml=readFileSync(join(parent,'index.html'),'utf8'),parentReceipt=JSON.parse(readFileSync(join(parent,'receipt.json'),'utf8'));assert.equal(sha(parentHtml),parentReceipt.html_sha256);
-const result={schema:'cannon.root-system/v1',classification:'FICTIONAL_ONLY',authority:'NONE',sourceWitnesses:source.map(x=>x.witness),parent_receipt_sha256:sha(readFileSync(join(parent,'receipt.json'))),checks,randomKeysCiphertextAndTimestampsOmitted:true,donorBoundary:'StaticID primitives only; Fileport local parser only; EXODUS original casebook core; MEMENTO original validator with filesystem imports removed for browser'};
+const result={schema:'cannon.root-system/v1',classification:'FICTIONAL_ONLY',authority:'NONE',sourceWitnesses:source.map(x=>x.witness),parent_receipt_sha256:sha(readFileSync(join(parent,'receipt.json'))),checks,randomKeysCiphertextAndTimestampsOmitted:true,donorBoundary:'StaticID primitives only; Fileport local parser only; EXODUS original casebook core; MEMENTO original validator via authorized GRAFT public cut; filesystem imports removed for browser'};
 const raw=readFileSync(new URL('./root.mjs',import.meta.url),'utf8').replace('export function createRootAPI','function createRootAPI');
 const browser=source.filter(x=>['identity','fileport','memento'].includes(x.id)).map(({id,blob,content})=>({id,blob,content}));
 const js='const rootSources='+JSON.stringify(browser).replaceAll('<','\\u003c')+';\n'+core+'\n'+raw+'\n'+readFileSync(new URL('./ui.js',import.meta.url),'utf8');
