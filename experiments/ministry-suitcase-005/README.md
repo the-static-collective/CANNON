@@ -1,0 +1,2 @@
+# Living Ministry Machine 005
+Preserves the 004 native artifact byte-for-byte as the input, then adds original Node EXODUS recovery, PENNY BOX ledger, Full Measure authority and sheet, plus original live browser PUENTE and WITNESS. All receipts are fictional except local recording metadata, which stays in the browser. No live casebook encryption or hosted shared casework, no payments, no authenticated deeds. CI checks exact Git source bytes and replays both stages. No donor modifications or canon selection.
