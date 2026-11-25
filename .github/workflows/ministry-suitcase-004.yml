@@ -1,0 +1,59 @@
+name: Ministry Suitcase 004 native crossing
+on:
+  push:
+    branches: [experiment/ministry-suitcase-004-native]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  native:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: cannon
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/BananaSpork
+          ref: ccbe2a4731444f4ff3aed744050e208bad55ec7b
+          path: garden
+          fetch-depth: 1
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/Jubilee-treasury
+          ref: bbe39a8dc7c8b0064be8c258cfe9b1fe43b7cdd6
+          path: keyhole
+          fetch-depth: 1
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/Jubilee-treasury
+          ref: b54971c77cc4a721a952783044f3b27abc1a81ec
+          path: concord
+          fetch-depth: 1
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/Jubilee-treasury
+          ref: 5e304f4f19f466fb9985346ea3faa7d57ae86e38
+          path: relay
+          fetch-depth: 1
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Run original modules and cold replay
+        run: |
+          printf '%s' '{"cannon":"cannon","garden":"garden","keyhole":"keyhole","concord":"concord","relay":"relay"}' > roots.json
+          node cannon/experiments/ministry-suitcase-004/run.mjs roots.json native-a
+          node cannon/experiments/ministry-suitcase-004/run.mjs roots.json native-b
+          cmp native-a/index.html native-b/index.html
+          cmp native-a/receipt.json native-b/receipt.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ministry-suitcase-004
+          path: native-a/
