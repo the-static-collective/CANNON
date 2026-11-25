@@ -1,0 +1,149 @@
+name: Ministry Suitcase 006 living church
+on:
+  push:
+    branches: [experiment/ministry-suitcase-006-living-church]
+  pull_request:
+    branches: [experiment/ministry-suitcase-005-living-machine]
+    paths: ['experiments/ministry-suitcase-006/**', '.github/workflows/ministry-suitcase-006.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  native:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_PASSWORD: cannon-fixture-only
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: cannon
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/BananaSpork
+          ref: ccbe2a4731444f4ff3aed744050e208bad55ec7b
+          path: garden
+          fetch-depth: 1
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/Jubilee-treasury
+          ref: bbe39a8dc7c8b0064be8c258cfe9b1fe43b7cdd6
+          path: keyhole
+          fetch-depth: 1
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/Jubilee-treasury
+          ref: b54971c77cc4a721a952783044f3b27abc1a81ec
+          path: concord
+          fetch-depth: 1
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/Jubilee-treasury
+          ref: 5e304f4f19f466fb9985346ea3faa7d57ae86e38
+          path: relay
+          fetch-depth: 1
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/Jubilee-treasury
+          ref: 3ff26a5b82f19973071c4a3066ff9e42c238c4b7
+          path: exodus
+          fetch-depth: 1
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/Jubilee-treasury
+          ref: bb05d90c12b13f5c7c1c948d85c54cec2dbcd2ce
+          path: penny
+          fetch-depth: 1
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/PUENTE
+          ref: 64216f097a0a1269bbf36c17bea65393d4c409d1
+          path: puente
+          fetch-depth: 1
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/WITNESS
+          ref: 22e8fb3c2d8725cf0a5414ce4cfac08f5421eae9
+          path: witness
+          fetch-depth: 1
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/full-measure-world-layer
+          ref: c9206d5055ad574a23acb2eceb5f8785a4ad64fe
+          path: full
+          fetch-depth: 1
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/fellowSHIP
+          ref: e6e088febcb9dc324092e80bd76c4adf2d6e7044
+          path: fellowship
+          fetch-depth: 1
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/Jubilee-Campfire
+          ref: ad7a5cbef03a1e68058a964d5f50ef6ed93ea274
+          path: campfire
+          fetch-depth: 1
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          repository: the-static-collective/Jubilee-treasury
+          ref: 88453937380fdfa68670cc8521662dddc61c0068
+          path: common
+          fetch-depth: 1
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Run original modules and cold replay
+        run: |
+          printf '%s' '{"cannon":"cannon","garden":"garden","keyhole":"keyhole","concord":"concord","relay":"relay"}' > roots.json
+          node cannon/experiments/ministry-suitcase-004/run.mjs roots.json native-a
+          node cannon/experiments/ministry-suitcase-004/run.mjs roots.json native-b
+          cmp native-a/index.html native-b/index.html
+          cmp native-a/receipt.json native-b/receipt.json
+      - name: Install exact TypeScript compiler for original Full Measure sources
+        run: npm install --prefix "$RUNNER_TEMP/cannon-typescript" --ignore-scripts --no-audit --no-fund --save-exact typescript@5.8.3
+      - name: Run five additional original organs and replay
+        run: |
+          export CANNON_TSC="$RUNNER_TEMP/cannon-typescript/node_modules/typescript/bin/tsc"
+          printf '%s' '{"exodus":"exodus","penny":"penny","puente":"puente","witness":"witness","full":"full"}' > living-roots.json
+          node --experimental-strip-types cannon/experiments/ministry-suitcase-005/run.mjs living-roots.json native-a living-a
+          node --experimental-strip-types cannon/experiments/ministry-suitcase-005/run.mjs living-roots.json native-b living-b
+          cmp living-a/index.html living-b/index.html
+          cmp living-a/receipt.json living-b/receipt.json
+      - name: Living church original lifecycle, cold replay
+        run: |
+          export CANNON_TSC="$RUNNER_TEMP/cannon-typescript/node_modules/typescript/bin/tsc"
+          export CANNON_EPHEMERAL_POSTGRES=yes
+          command -v psql
+          node --experimental-vm-modules cannon/experiments/ministry-suitcase-006/run.mjs living-a church-a
+          node --experimental-vm-modules cannon/experiments/ministry-suitcase-006/run.mjs living-b church-b
+          cmp church-a/index.html church-b/index.html
+          cmp church-a/receipt.json church-b/receipt.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ministry-suitcase-006
+          path: church-a/
