@@ -2,6 +2,9 @@ name: Ministry Suitcase 004 native crossing
 on:
   push:
     branches: [experiment/ministry-suitcase-004-native]
+  pull_request:
+    branches: [experiment/genesis-boot-002-interactive-porch]
+    paths: ['experiments/ministry-suitcase-004/**', '.github/workflows/ministry-suitcase-004.yml']
   workflow_dispatch:
 permissions:
   contents: read
